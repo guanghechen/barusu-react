@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.settings.json",
   "references": [
+    "./scaffold/rollup-config",
     "./scaffold/rollup-plugin-postcss-dts"
   ]
 }

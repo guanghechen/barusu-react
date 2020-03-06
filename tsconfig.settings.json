@@ -25,6 +25,9 @@
     "downlevelIteration": true,
     "baseUrl": ".",
     "paths": {
+      "@barusu-react/rollup-config": [
+        "./scaffold/rollup-config"
+      ],
       "@barusu-react/rollup-plugin-postcss-dts": [
         "./scaffold/rollup-plugin-postcss-dts"
       ],
