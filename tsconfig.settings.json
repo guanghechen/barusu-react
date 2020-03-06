@@ -24,6 +24,10 @@
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@barusu-react/rollup-plugin-postcss-dts": [
+        "./scaffold/rollup-plugin-postcss-dts"
+      ],
+    }
   }
 }
