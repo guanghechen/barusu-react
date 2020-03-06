@@ -1,0 +1,32 @@
+{
+  "name": "@barusu-react/root",
+  "version": "0.0.0",
+  "description": "react scaffolds, components",
+  "author": {
+    "name": "lemon-clown",
+    "url": "https://github.com/lemon-clown/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemon-clown/barusu-react.git"
+  },
+  "homepage": "https://github.com/lemon-clown/barusu-react/#readme",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">= 12.16.0"
+  },
+  "scripts": {
+    ":publish": "lerna publish",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
+    "clean": "lerna clean --yes"
+  },
+  "workspaces": [
+    "packages/*",
+    "scaffold/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}
