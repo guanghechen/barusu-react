@@ -1,6 +1,10 @@
 {
   "cSpell.words": [
     "barusu",
-    "downlevel"
+    "downlevel",
+    "postbuild",
+    "prebuild",
+    "styl",
+    "tsbuildinfo"
   ]
 }

@@ -1,0 +1,54 @@
+{
+  "name": "@barusu-react/rollup-plugin-postcss-dts",
+  "version": "0.0.0",
+  "description": "generate *.d.ts for *.styl|*.scss|*.sass|*.css files",
+  "author": {
+    "name": "lemon-clown",
+    "url": "https://github.com/lemon-clown/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemon-clown/barusu-react.git"
+  },
+  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/scaffold/rollup-plugin-postcss-dts#readme",
+  "keywords": [
+    "rollup-plugin",
+    "postcss",
+    "css d.ts"
+  ],
+  "main": "lib/index.js",
+  "type": "lib/index.d.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.16.0"
+  },
+  "files": [
+    "lib/",
+    ".eslintrc",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "prebuild": "yarn lint:fix && rimraf *.tsbuildinfo lib/",
+    "build": "tsc -b tsconfig.json",
+    "postbuild": "rimraf lib/**/*.tsbuildinfo",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "@barusu/option-util": "^0.0.1",
+    "@types/fs-extra": "^8.1.0",
+    "@types/reserved-words": "^0.1.0",
+    "@types/rollup-plugin-postcss": "^2.0.0",
+    "fs-extra": "^8.1.0",
+    "reserved-words": "^0.1.2",
+    "rollup-plugin-postcss": "^2.1.1"
+  },
+  "devDependencies": {
+    "@barusu/eslint-config": "^0.0.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.2"
+  }
+}
