@@ -6,6 +6,7 @@
     "downlevel",
     "eslintc",
     "eslintconfig",
+    "esnext",
     "flowtype",
     "plusplus",
     "postbuild",
