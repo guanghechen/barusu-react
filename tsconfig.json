@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.settings.json",
   "references": [
+    "./packages/hello-world",
     "./scaffold/eslint-config",
     "./scaffold/rollup-config",
     "./scaffold/rollup-plugin-postcss-dts"

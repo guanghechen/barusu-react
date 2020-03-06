@@ -25,6 +25,9 @@
     "downlevelIteration": true,
     "baseUrl": ".",
     "paths": {
+      "@barusu-react/hello-world": [
+        "./packages/hello-world"
+      ],
       "@barusu-react/eslint-config": [
         "./scaffold/eslint-config"
       ],
