@@ -25,6 +25,9 @@
     "downlevelIteration": true,
     "baseUrl": ".",
     "paths": {
+      "@barusu-react/eslint-config": [
+        "./scaffold/eslint-config"
+      ],
       "@barusu-react/rollup-config": [
         "./scaffold/rollup-config"
       ],
