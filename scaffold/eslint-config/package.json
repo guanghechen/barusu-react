@@ -1,0 +1,55 @@
+{
+  "name": "@barusu-react/eslint-config",
+  "version": "0.0.0",
+  "description": "eslintconfig for react",
+  "author": {
+    "name": "lemon-clown",
+    "url": "https://github.com/lemon-clown/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemon-clown/barusu-react.git"
+  },
+  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/scaffold/eslint-config#readme",
+  "keywords": [
+    "eslintconfig"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.16.0"
+  },
+  "files": [
+    "lib/",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "prebuild": "rimraf *.tsbuildinfo lib/",
+    "build": "tsc -b tsconfig.json",
+    "postbuild": "rimraf lib/**/*.tsbuildinfo",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-react-app": "^5.2.0",
+    "eslint-plugin-flowtype": "^3.13.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "prettier": "^1.19.1"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.2"
+  }
+}
