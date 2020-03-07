@@ -16,7 +16,7 @@ See [sourcecodes in github](https://github.com/lemon-clown/barusu-react/tree/mas
   * Install
     ```shell
     yarn add @barusu-react/hello-world
-    # you aslo should install peerDependencies if the terminal prompts for a warnning
+    # you also should install peerDependencies if the terminal prompts for a warning
     ```
 
   * Use in React project
