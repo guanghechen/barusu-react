@@ -40,6 +40,9 @@
       "@barusu-react/webpack-rule-css": [
         "./scaffold/webpack-rule-css"
       ],
+      "@barusu-react/webpack-rule-tsx": [
+        "./scaffold/webpack-rule-tsx"
+      ],
     }
   }
 }
