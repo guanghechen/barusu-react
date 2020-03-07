@@ -46,6 +46,9 @@
       "@barusu-react/webpack-util": [
         "./scaffold/webpack-util"
       ],
+      "@barusu-react/stage-laputa": [
+        "./stage/laputa"
+      ],
     }
   }
 }
