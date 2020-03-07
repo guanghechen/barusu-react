@@ -10,11 +10,13 @@
     "flexbox",
     "flexbugs",
     "flowtype",
+    "formtter",
     "plusplus",
     "postbuild",
     "prebuild",
     "sourcecodes",
     "styl",
+    "svgr",
     "teamsupercell",
     "tsbuildinfo"
   ]
