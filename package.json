@@ -24,7 +24,8 @@
   },
   "workspaces": [
     "packages/*",
-    "scaffold/*"
+    "scaffold/*",
+    "stage/laputa"
   ],
   "devDependencies": {
     "@types/classnames": "^2.2.9",

@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.settings",
+  "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": ".",
+    "target": "es5",
+    "module": "CommonJS",
+    "jsx": "react",
+    "lib": [
+      "es2015",
+      "dom"
+    ]
+  },
+  "include": [
+    "src",
+    "script",
+    "package.json"
+  ],
+  "references": [
+    {
+      "path": "../../scaffold/eslint-config"
+    },
+    {
+      "path": "../../scaffold/webpack-config"
+    },
+  ]
+}
