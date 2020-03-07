@@ -57,10 +57,8 @@
     "classnames": "^2.2.6",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "rimraf": "^3.0.2",
     "rollup": "^1.31.1",
-    "stylus": "^0.54.7",
-    "typescript": "^3.8.2"
+    "stylus": "^0.54.7"
   },
   "browserslist": [
     "last 2 versions",
