@@ -19,5 +19,8 @@
     {
       "path": "./scaffold/webpack-rule-tsx"
     },
+    {
+      "path": "./scaffold/webpack-util"
+    },
   ]
 }
