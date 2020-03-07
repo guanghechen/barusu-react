@@ -15,6 +15,7 @@
     "postbuild",
     "prebuild",
     "sourcecodes",
+    "sourcemap",
     "styl",
     "svgr",
     "teamsupercell",

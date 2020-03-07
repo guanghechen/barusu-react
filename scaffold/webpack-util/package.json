@@ -1,0 +1,55 @@
+{
+  "name": "@barusu-react/webpack-util",
+  "version": "0.0.0",
+  "description": "webpack util",
+  "author": {
+    "name": "lemon-clown",
+    "url": "https://github.com/lemon-clown/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemon-clown/barusu-react.git"
+  },
+  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/scaffold/webpack-util#readme",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.16.0"
+  },
+  "files": [
+    "lib/",
+    ".eslintrc",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "prebuild": "yarn lint:fix && rimraf *.tsbuildinfo lib/",
+    "build": "tsc -b tsconfig.json",
+    "postbuild": "rimraf lib/package.json lib/test lib/**/*.tsbuildinfo && mv lib/src/* lib && rimraf lib/src/",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "prepublishOnly": "yarn build"
+  },
+  "peerDependencies": {
+    "@types/webpack": "^4.41.6",
+    "@types/webpack-dev-server": "^3.10.0",
+    "webpack": "^4.41.6",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^8.1.0",
+    "chalk": "^3.0.0",
+    "fs-extra": "^8.1.0",
+    "ora": "^4.0.3",
+    "react-dev-utils": "^10.2.0"
+  },
+  "devDependencies": {
+    "@barusu/eslint-config": "^0.0.1",
+    "@types/webpack": "^4.41.6",
+    "@types/webpack-dev-server": "^3.10.0",
+    "webpack": "^4.41.6",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
