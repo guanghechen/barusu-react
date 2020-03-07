@@ -12,6 +12,9 @@
     },
     {
       "path": "./scaffold/rollup-plugin-postcss-dts"
-    }
+    },
+    {
+      "path": "./scaffold/webpack-rule-css"
+    },
   ]
 }
