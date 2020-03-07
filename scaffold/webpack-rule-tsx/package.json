@@ -1,0 +1,56 @@
+{
+  "name": "@barusu-react/webpack-rule-tsx",
+  "version": "0.0.0",
+  "description": "tsx rule of <webpack config>.module.rules",
+  "author": {
+    "name": "lemon-clown",
+    "url": "https://github.com/lemon-clown/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemon-clown/barusu-react.git"
+  },
+  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/scaffold/webpack-rule-tsx#readme",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.16.0"
+  },
+  "files": [
+    "lib/",
+    ".eslintrc",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "prebuild": "rimraf *.tsbuildinfo lib/",
+    "build": "tsc -b tsconfig.json",
+    "postbuild": "rimraf lib/**/*.tsbuildinfo",
+    "prepublishOnly": "yarn build"
+  },
+  "peerDependencies": {
+    "@types/webpack": "^4.41.6",
+    "webpack": "^4.41.6"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.6",
+    "@svgr/webpack": "5.2.0",
+    "@types/text-table": "^0.2.1",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-named-asset-import": "^0.3.6",
+    "babel-preset-react-app": "^9.1.1",
+    "chalk": "^3.0.0",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "strip-ansi": "^6.0.0",
+    "text-table": "^0.2.0"
+  },
+  "devDependencies": {
+    "@barusu/eslint-config": "^0.0.1",
+    "@types/webpack": "^4.41.6",
+    "webpack": "^4.41.6"
+  }
+}
