@@ -32,6 +32,7 @@
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/webpack": "^4.41.6",
+    "@types/webpack-dev-server": "^3.10.0",
     "classnames": "^2.2.6",
     "rimraf": "^3.0.2",
     "lerna": "^3.20.2",
@@ -39,6 +40,7 @@
     "react-dom": "^16.13.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.2",
-    "webpack": "^4.41.6"
+    "webpack": "^4.41.6",
+    "webpack-dev-server": "^3.10.3"
   }
 }
