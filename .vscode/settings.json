@@ -7,12 +7,15 @@
     "eslintc",
     "eslintconfig",
     "esnext",
+    "flexbox",
+    "flexbugs",
     "flowtype",
     "plusplus",
     "postbuild",
     "prebuild",
     "sourcecodes",
     "styl",
+    "teamsupercell",
     "tsbuildinfo"
   ]
 }
