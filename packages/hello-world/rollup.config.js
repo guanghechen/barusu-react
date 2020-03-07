@@ -1,6 +1,5 @@
 import path from 'path'
 import * as react from 'react'
-import * as reactDOM from 'react-dom'
 import { createRollupConfig } from '@barusu-react/rollup-config'
 import manifest from './package.json'
 
@@ -44,7 +43,6 @@ const config = createRollupConfig({
       exclude: ['**/*.stories.js'],
       namedExports: {
         'react': Object.keys(react),
-        'react-dom': Object.keys(reactDOM),
       },
     },
     postcssOptions: {
