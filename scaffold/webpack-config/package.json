@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/webpack-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "webpack configuration for react+ts+stylus",
   "author": {
     "name": "lemon-clown",
@@ -39,10 +39,10 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
+    "@barusu-react/webpack-rule-css": "^0.0.1",
+    "@barusu-react/webpack-rule-tsx": "^0.0.1",
+    "@barusu-react/webpack-util": "^0.0.1",
     "@barusu/option-util": "^0.0.1",
-    "@barusu-react/webpack-rule-css": "^0.0.0",
-    "@barusu-react/webpack-rule-tsx": "^0.0.0",
-    "@barusu-react/webpack-util": "^0.0.0",
     "@teamsupercell/typings-for-css-modules-loader": "^2.1.0",
     "@types/case-sensitive-paths-webpack-plugin": "^2.1.4",
     "@types/copy-webpack-plugin": "^5.0.0",

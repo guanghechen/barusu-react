@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/webpack-rule-tsx",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "tsx rule of <webpack config>.module.rules",
   "author": {
     "name": "lemon-clown",

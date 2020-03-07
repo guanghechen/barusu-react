@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/hello-world",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "a demo of react package with ts+react+stylus",
   "author": {
     "name": "lemon-clown",
@@ -49,8 +49,8 @@
     "react-dom": "^16.13.0"
   },
   "devDependencies": {
-    "@barusu-react/eslint-config": "^0.0.0",
-    "@barusu-react/rollup-config": "^0.0.0",
+    "@barusu-react/eslint-config": "^0.0.1",
+    "@barusu-react/rollup-config": "^0.0.1",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
