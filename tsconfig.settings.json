@@ -31,6 +31,9 @@
       "@barusu-react/icons": [
         "./packages/icons"
       ],
+      "@barusu-react/route-tree": [
+        "./packages/route-tree"
+      ],
       "@barusu-react/eslint-config": [
         "./scaffold/eslint-config"
       ],

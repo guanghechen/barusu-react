@@ -1,0 +1,64 @@
+$barusu-route-tree-font-size = 16px
+$barusu-route-tree-icon-width = 16px
+$barusu-route-tree-icon-color = rgb(108, 181, 254)
+$barusu-route-tree-link-color = #197ccc
+
+
+.container
+  --barusu-route-tree-font-size: $barusu-route-tree-font-size
+  --barusu-route-tree-icon-width: $barusu-route-tree-icon-width
+  --barusu-route-tree-icon-color: $barusu-route-tree-icon-color
+  --barusu-route-tree-link-color: $barusu-route-tree-link-color
+  height: 60vh
+  width: 300px
+  display: flex
+  align-items: flex-start
+  font-size: $barusu-route-tree-font-size
+  font-size: var(--barusu-route-tree-font-size)
+
+  .tree-node
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    max-width: 100%
+    color: $barusu-route-tree-link-color
+    color: var(--barusu-route-tree-link-color)
+
+  .tree-node-header
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    max-width: 100%
+    .tree-node-header__collapse-btn
+      width: $barusu-route-tree-icon-width
+      width: var(--barusu-route-tree-icon-width)
+      height: @width
+    .tree-node-header__icon
+      width: $barusu-route-tree-icon-width
+      width: var(--barusu-route-tree-icon-width)
+      height: @width
+      fill: $barusu-route-tree-icon-color
+      fill: var(--barusu-route-tree-icon-color)
+      margin-right: 4px
+    .tree-node-header__label
+      flex: 1
+      a
+        text-decoration: none
+        &:link
+        &:visited
+          color: $barusu-route-tree-link-color
+          color: var(--barusu-route-tree-link-color)
+    .tree-node-header__separator
+      display: inline
+      &::before
+        content: '/'
+        margin: auto 4px
+        color: #515151
+
+  .tree-node-body
+    padding-left: $barusu-route-tree-icon-width
+    padding-left: var(--barusu-route-tree-icon-width)
+    &.tree-node-body-collapsed
+      display: none
+
+
