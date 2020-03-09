@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "@barusu-react/eslint-config"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "ignorePatterns": [
+    "rollup.config.js"
+  ],
+  "rules": {
+  }
+}
