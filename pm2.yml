@@ -1,0 +1,6 @@
+apps:
+  -
+    name: barusu-stage-laputa
+    script: yarn
+    args: start
+    cwd: stage/laputa
