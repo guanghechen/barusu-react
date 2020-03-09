@@ -20,5 +20,8 @@
     {
       "path": "../../packages/hello-world"
     },
+    {
+      "path": "../../packages/route-tree"
+    },
   ]
 }

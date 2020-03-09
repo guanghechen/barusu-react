@@ -1,16 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HelloWorld } from '@barusu-react/hello-world'
-import { App, RouteItem } from './app'
-
-
-export const routes: RouteItem[] = [
-  {
-    name: 'hello-world',
-    path: '/hello-world',
-    component: <HelloWorld />
-  },
-]
+import { routes } from './routes'
+import { App } from './app'
 
 
 ReactDOM.render(
