@@ -60,7 +60,7 @@ const config = createRollupConfig({
       minimize: true,
       modules: {
         camelCase: true,
-        generateScopedName: 'barusu-react-[local]',
+        generateScopedName: 'barusu-[local]',
       },
       pluginOptions: {
         postcssUrlOptions: {

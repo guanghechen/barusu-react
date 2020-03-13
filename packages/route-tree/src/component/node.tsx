@@ -122,14 +122,14 @@ export function RouteTreeNode(props: RouteTreeNodeProps): React.ReactElement {
   )
 
   return (
-    <li className={ classes.treeNode }>
+    <li className={ classes.routeTreeNode }>
       <div
-        className={ classes.treeNodeHeader }
+        className={ classes.routeTreeNodeHeader }
         onClick={ handleCollapseRef.current }
       >
         <span
           key="collapse"
-          className={ classes.treeNodeHeaderCollapseBtn }
+          className={ classes.routeTreeNodeHeaderCollapseBtn }
           onClick={ handleCollapseRef.current }
           onMouseDown={ stopTextSelectedRef.current }
         >
@@ -137,20 +137,20 @@ export function RouteTreeNode(props: RouteTreeNodeProps): React.ReactElement {
         </span>
         <span
           key="icon"
-          className={ classes.treeNodeHeaderIcon }
+          className={ classes.routeTreeNodeHeaderIcon }
           onClick={ handleCollapseRef.current }
           onMouseDown={ stopTextSelectedRef.current }
         >
           { icon }
         </span>
-        <span key="label" className={ classes.treeNodeHeaderLabel }>
+        <span key="label" className={ classes.routeTreeNodeHeaderLabel }>
           {
             foldedParents.map(({ collapsed, children, ...labelProps }) => (
               // <></> 写法中不支持 key 属性，
               // 控制台会报 unique key 的错误
               <React.Fragment key={ labelProps.pathname }>
                 <RouteTreeNodeLabel { ...labelProps } />
-                <span className={ classes.treeNodeHeaderSeparator } />
+                <span className={ classes.routeTreeNodeHeaderSeparator } />
               </React.Fragment>
             ))
           }
@@ -161,7 +161,7 @@ export function RouteTreeNode(props: RouteTreeNodeProps): React.ReactElement {
         </span>
       </div>
       { !isLeafNode && (
-        <ul className={ cn(classes.treeNodeBody, { [classes.treeNodeBodyCollapsed]: collapsed }) }>
+        <ul className={ cn(classes.routeTreeNodeBody, { [classes.routeTreeNodeBodyCollapsed]: collapsed }) }>
           { content }
         </ul>
       ) }

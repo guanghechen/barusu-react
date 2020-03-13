@@ -33,7 +33,7 @@ export function RouteTree(props: RouteTreeProps): React.ReactElement {
   } = props
 
   return (
-    <div className={ classes.container }>
+    <div className={ classes.routeTree }>
       <ul>
         { nodes.map(o => (
           <RouteTreeNode
