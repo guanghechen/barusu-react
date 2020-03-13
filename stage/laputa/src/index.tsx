@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { routes } from './routes'
 import { App } from './app'
+import routes from './routes'
 
 
 ReactDOM.render(

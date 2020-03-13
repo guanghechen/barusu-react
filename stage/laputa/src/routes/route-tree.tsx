@@ -1,7 +1,6 @@
 import React from 'react'
-import { HelloWorld } from '@barusu-react/hello-world'
-import { RouteTree, RouteTreeNodeData } from '@barusu-react/route-tree'
-import { RouteItem } from './app'
+import { RouteTreeNodeData, RouteTree } from '@barusu-react/route-tree'
+import { RouteItemData } from '../app'
 
 
 const nodes: RouteTreeNodeData[] = [
@@ -42,20 +41,13 @@ const nodes: RouteTreeNodeData[] = [
 ]
 
 
-export const routes: RouteItem[] = [
-  {
-    name: 'hello-world',
-    path: '/hello-world',
-    component: <HelloWorld />
-  },
-  {
-    name: 'route-tree',
-    path: '/route-tree',
-    component: (
-      <RouteTree
-        nodes={ nodes }
-        foldEmptyPath={ true }
-      />
-    )
-  },
-]
+export default {
+  title: 'Route Tree',
+  pathname: '/route-tree',
+  component: (
+    <RouteTree
+      nodes={ nodes }
+      foldEmptyPath={ true }
+    />
+  )
+} as RouteItemData

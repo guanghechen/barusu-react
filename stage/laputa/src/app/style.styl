@@ -6,10 +6,30 @@ body
   padding: 0
   margin: 0
 
-.container
+.route
   display: flex
   align-items: center
   justify-content: center
   height: 100vh
   width: 100vw
   overflow: auto
+  .route-sidebar
+    display: flex
+    flex-direction: column
+    border: 1px solid #515151
+    margin-right 2rem
+    transition: flex-basis 1s ease-in-out
+    flex: 0 0 0
+    &.route-sidebar--visible
+      flex: 0 1 30vw
+    .route-sidebar-header
+      flex: 0 1 4rem
+      background: #ccc
+      .route-sidebar-header__pin
+        float: right
+        padding: .5rem
+    .route-sidebar-main
+      flex: 1
+
+  .route-main
+    flex: 1
