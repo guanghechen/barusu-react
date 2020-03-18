@@ -5,5 +5,6 @@ export * from './svg/chevron-right'
 export * from './svg/folder'
 export * from './svg/folder-open'
 export * from './svg/link'
+export * from './svg/pin'
 export * from './util/create-svg-icon'
 
