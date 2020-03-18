@@ -9,10 +9,8 @@ const resolvePath = p => path.resolve(__dirname, p)
 const paths = {
   source: {
     stylesheetInput: [
-      resolvePath('src/style.styl'),
       resolvePath('src/style/index.styl'),
     ],
-    assetsRoot: resolvePath('src/assets'),
   },
   eslintrc: resolvePath('.eslintrc'),
   tsconfig: resolvePath('tsconfig.json'),

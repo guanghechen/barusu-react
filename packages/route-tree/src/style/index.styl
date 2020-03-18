@@ -4,18 +4,24 @@ $barusu-route-tree-icon-color = rgb(108, 181, 254)
 $barusu-route-tree-link-color = #197ccc
 
 
-.route-tree
+.route-tree-container
   --barusu-route-tree-font-size: $barusu-route-tree-font-size
   --barusu-route-tree-icon-width: $barusu-route-tree-icon-width
   --barusu-route-tree-icon-color: $barusu-route-tree-icon-color
   --barusu-route-tree-link-color: $barusu-route-tree-link-color
-  height: 60vh
-  width: 300px
+  width: 100%
+  height: 100%
+  ul
+  li
+    list-style-type none
+
+.route-tree
   display: flex
+  flex-direction: column
   align-items: flex-start
   font-size: $barusu-route-tree-font-size
   font-size: var(--barusu-route-tree-font-size)
-
+  padding: .5rem 1rem 1rem 0
   +prefix-classes('route-tree-')
     .node
       display: flex
@@ -63,3 +69,5 @@ $barusu-route-tree-link-color = #197ccc
       padding-left: var(--barusu-route-tree-icon-width)
       &.node-body--collapsed
         display: none
+
+@import './sidebar.styl'

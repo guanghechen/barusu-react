@@ -1,0 +1,61 @@
++prefix-classes('sidebar-route-tree-')
+  .container
+    position: relative
+    display: flex
+    flex-direction: column
+    box-sizing: border-box
+    .header
+      flex: 0 1 4rem
+      background: #373e43
+      color: #0366d6
+      .header__pin
+        float: right
+        height: 1rem
+        width: 1rem
+        fill: #fff
+        margin: .5rem .5rem 0 0
+
+    .main
+      flex: 1
+      overflow: auto
+      background: #fafbfc
+      border-right: 1px solid #dfe2e5
+      color: #0f2e47
+
+    &.-hidden
+      width: 0
+      transition: width 1s ease-in-out
+      .toggle-btn
+        position: absolute
+        top: 50%
+        right: -2rem
+        transform: translate(0, -50%)
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 2rem
+        height: 6rem
+        line-height: 1
+        border-radius: 0px 4px 4px 0px
+        border: 1px solid #e0e4e7
+        border-left: none
+        cursor: pointer
+        background-color: #e0e4e7
+        box-shadow: rgba(118, 118, 118, 0.11) 2px 0px 5px 0px
+        padding: 6px
+        transition: right 0.25s ease-in 0.2s, opacity 0.35s ease-in 0.2s
+        > span
+          display: inline-block
+          text-align: center
+          vertical-align: middle
+          writing-mode: vertical-rl
+          transform: rotate(180deg)
+
+    &.-visible
+      width: 100%
+
+    &.-fixing
+      .header
+        .header__pin
+          transform: rotate(-45deg) scale(0.9)
+          color: rgb(255, 255, 255)

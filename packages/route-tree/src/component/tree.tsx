@@ -3,7 +3,7 @@ import { RouteTreeNodeData, RouteTreeNode } from './node'
 import classes from '../style/index.styl'
 
 
-export interface RouteTreeProps {
+export interface RouteTreeComponentProps {
   /**
    * 树形控件中的节点
    */
@@ -24,7 +24,7 @@ export interface RouteTreeProps {
 }
 
 
-export function RouteTree(props: RouteTreeProps): React.ReactElement {
+export function RouteTreeComponent(props: RouteTreeComponentProps): React.ReactElement {
   const {
     nodes,
     foldEmptyPath = false,
@@ -33,18 +33,15 @@ export function RouteTree(props: RouteTreeProps): React.ReactElement {
   } = props
 
   return (
-    <div className={ classes.routeTree }>
-      <ul>
-        { nodes.map(o => (
-          <RouteTreeNode
-            key={ o.pathname }
-            foldedParents={ [] }
-            foldEmptyPath={ foldEmptyPath }
-            { ...o }
-          />
-        )) }
-      </ul>
-    </div>
+    <ul className={ classes.routeTree }>
+      { nodes.map(o => (
+        <RouteTreeNode
+          key={ o.pathname }
+          foldedParents={ [] }
+          foldEmptyPath={ foldEmptyPath }
+          { ...o }
+        />
+      )) }
+    </ul>
   )
 }
-
