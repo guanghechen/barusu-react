@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback } from 'react'
+import React, { useMemo } from 'react'
 import cn from 'classnames'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { RouteTreeNodeLabelProps, SidebarRouteTree } from '@barusu-react/route-tree'
@@ -99,14 +99,8 @@ export function App(props: AppProps): React.ReactElement {
     exact: defaultExact = true,
     strict: defaultStrict = true,
     sensitive: defaultSensitive = false,
-    visible: defaultVisible = true,
+    visible: defaultVisible,
   } = props
-
-  // 切换侧边栏可见
-  const [visible, setVisible] = useState<boolean>(defaultVisible)
-  const toggleVisible = useCallback(() => {
-    setVisible(v => !v)
-  }, [setVisible])
 
   const routes = useMemo(() => {
     const items: RouteItem[] = []
@@ -128,7 +122,10 @@ export function App(props: AppProps): React.ReactElement {
     <div className={ classes.route }>
       <Router>
         <div className={ cn(classes.routeSidebar) }>
-          <SidebarRouteTree nodes={ routesData } />
+          <SidebarRouteTree
+            nodes={ routesData }
+            visible={ defaultVisible }
+          />
         </div>
         <div className={ classes.routeMain }>
           <Switch>
