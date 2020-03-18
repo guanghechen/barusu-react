@@ -36,7 +36,7 @@
     "start": "rollup -w -c rollup.config.js",
     "prebuild": "yarn lint:fix && rimraf lib/",
     "build": "rollup -c rollup.config.js",
-    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "prepublishOnly": "yarn build"
   },
   "peerDependencies": {

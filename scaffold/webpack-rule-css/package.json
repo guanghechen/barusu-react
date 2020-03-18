@@ -26,9 +26,10 @@
     "package.json"
   ],
   "scripts": {
-    "prebuild": "rimraf *.tsbuildinfo lib/",
+    "prebuild": "yarn lint:fix && rimraf *.tsbuildinfo lib/",
     "build": "tsc -b tsconfig.json",
     "postbuild": "rimraf lib/**/*.tsbuildinfo",
+    "lint:fix": "eslint 'src/**/*.ts' --fix",
     "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
