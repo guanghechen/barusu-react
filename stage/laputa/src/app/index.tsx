@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useCallback } from 'react'
 import cn from 'classnames'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { RouteTreeNodeLabelProps, RouteTree } from '@barusu-react/route-tree'
+import { RouteTreeNodeLabelProps, SidebarRouteTree } from '@barusu-react/route-tree'
 import classes from './style.styl'
 
 
@@ -127,16 +127,8 @@ export function App(props: AppProps): React.ReactElement {
   return (
     <div className={ classes.route }>
       <Router>
-        <div className={ cn(classes.routeSidebar, { [classes.routeSidebarVisible]: visible }) }>
-          <div className={ classes.routeSidebarHeader }>
-            <span
-              className={ classes.routeSidebarHeaderPin }
-              onClick={ toggleVisible }
-            >p</span>
-          </div>
-          <div className={ classes.routeSidebarMain }>
-            <RouteTree nodes={ routesData } />
-          </div>
+        <div className={ cn(classes.routeSidebar) }>
+          <SidebarRouteTree nodes={ routesData } />
         </div>
         <div className={ classes.routeMain }>
           <Switch>
