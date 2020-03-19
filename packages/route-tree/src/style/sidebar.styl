@@ -1,5 +1,9 @@
+$barusu-route-tree-sidebar-toggle-btn-width = 2rem
+
+
 +prefix-classes('sidebar-route-tree-')
   .container
+    --_barusu-route-tree-sidebar-toggle-btn-width: var(--route-tree-sidebar-toggle-btn-width, $barusu-route-tree-sidebar-toggle-btn-width)
     position: relative
     display: flex
     flex-direction: column
@@ -7,7 +11,7 @@
     .header
       flex: 0 1 4rem
       background: $barusu-route-header-background
-      backgorund: var(--barusu-route-header-background)
+      backgorund: var(--_barusu-route-header-background)
       color: #0366d6
       .header__pin
         float: right
@@ -26,24 +30,32 @@
     &.-hidden
       width: 0
       transition: width 1s ease-in-out
+      margin-right: $barusu-route-tree-sidebar-toggle-btn-width
+      margin-right: var(--_barusu-route-tree-sidebar-toggle-btn-width)
       .toggle-btn
+        // Positioning
         position: absolute
         top: 50%
         right: -2rem
         transform: translate(0, -50%)
+
+        // Display & Box Model
         display: flex
         align-items: center
         justify-content: center
-        width: 2rem
-        white-space: nowrap
-        line-height: 1
+        width: $barusu-route-tree-sidebar-toggle-btn-width
+        width: var(--_barusu-route-tree-sidebar-toggle-btn-width)
         border-radius: 0px 4px 4px 0px
         border: 1px solid #e0e4e7
         border-left: none
+        padding: 6px
+
+        // Other
         cursor: pointer
+        white-space: nowrap
+        line-height: 1
         background-color: #e0e4e7
         box-shadow: rgba(118, 118, 118, 0.11) 2px 0px 5px 0px
-        padding: 6px
         transition: right 0.25s ease-in 0.2s, opacity 0.35s ease-in 0.2s
         > span
           display: inline-block
