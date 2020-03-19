@@ -90,6 +90,10 @@ export interface AppProps {
    * 侧边栏是否可见
    */
   visible?: boolean
+  /**
+   * 侧边栏是否处于固定状态
+   */
+  fixing?: boolean
 }
 
 
@@ -99,7 +103,8 @@ export function App(props: AppProps): React.ReactElement {
     exact: defaultExact = true,
     strict: defaultStrict = true,
     sensitive: defaultSensitive = false,
-    visible: defaultVisible,
+    visible: defaultVisible = false,
+    fixing: defaultFixing = false,
   } = props
 
   const routes = useMemo(() => {
@@ -125,6 +130,7 @@ export function App(props: AppProps): React.ReactElement {
           <SidebarRouteTree
             nodes={ routesData }
             visible={ defaultVisible }
+            fixing={ defaultFixing }
           />
         </div>
         <div className={ classes.routeMain }>
