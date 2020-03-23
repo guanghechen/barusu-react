@@ -19,7 +19,7 @@
   },
   "files": [
     "lib/",
-    ".eslintrc",
+    ".eslintrc.js",
     "CHANGELOG.md",
     "LICENSE",
     "README.md",

@@ -115,7 +115,7 @@
     import manifest from './package.json'
 
     const paths = {
-      eslintrc: path.resolve(__dirname, '.eslintrc'),
+      eslintrc: path.resolve(__dirname, '.eslintrc.js'),
       tsconfig: path.resolve(__dirname, 'tsconfig.json'),
     }
 

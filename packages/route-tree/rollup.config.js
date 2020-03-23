@@ -12,7 +12,7 @@ const paths = {
       resolvePath('src/style/index.styl'),
     ],
   },
-  eslintrc: resolvePath('.eslintrc'),
+  eslintrc: resolvePath('.eslintrc.js'),
   tsconfig: resolvePath('tsconfig.json'),
 }
 
