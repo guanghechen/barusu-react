@@ -11,6 +11,7 @@
     "flexbox",
     "flexbugs",
     "flowtype",
+    "focusable",
     "formtter",
     "plusplus",
     "postbuild",
@@ -21,5 +22,6 @@
     "svgr",
     "teamsupercell",
     "tsbuildinfo"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -23,7 +23,11 @@ export function calcEslintRule(props: EslintRuleProps): webpack.RuleSetRule {
       options: {
         cache: true,
         eslintPath: require.resolve('eslint'),
-        formatter: require.resolve('@barusu-react/webpack-rule-tsx/lib/util/eslint-formtter.js'),
+        /**
+         * eslint-loader cannot use string formatter
+         * @see https://github.com/webpack-contrib/eslint-loader/issues/289
+         */
+        formatter: require('@barusu-react/webpack-rule-tsx/lib/util/eslint-formtter.js').default,
         ...eslintOptions
       },
     }

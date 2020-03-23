@@ -1,0 +1,77 @@
+$barusu-route-tree-font-size = 16px
+$barusu-route-tree-icon-width = 16px
+$barusu-route-tree-icon-color = rgb(108, 181, 254)
+$barusu-route-tree-link-color = #197ccc
+$barusu-route-header-background = #373e43
+
+
+.route-tree-container
+  --_barusu-route-tree-font-size: var(--barusu-route-tree-font-size, $barusu-route-tree-font-size)
+  --_barusu-route-tree-icon-width: var(--barusu-route-tree-icon-width, $barusu-route-tree-icon-width)
+  --_barusu-route-tree-icon-color: var(--barusu-route-tree-icon-color, $barusu-route-tree-icon-color)
+  --_barusu-route-tree-link-color: var(--barusu-route-tree-link-color, $barusu-route-tree-link-color)
+  --_barusu-route-header-background: var(--barusu-route-header-background, $barusu-route-header-background)
+  width: 100%
+  height: 100%
+  ul
+  li
+    list-style-type none
+
+.route-tree
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  font-size: $barusu-route-tree-font-size
+  font-size: var(--_barusu-route-tree-font-size)
+  padding: .5rem 1rem 1rem 0
+  +prefix-classes('route-tree-')
+    .node
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      max-width: 100%
+      color: $barusu-route-tree-link-color
+      color: var(--_barusu-route-tree-link-color)
+
+    .node-header
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      max-width: 100%
+      &:hover
+        background: rgba(0, 0, 0, 0.3)
+      .node-header__collapse-btn
+        width: $barusu-route-tree-icon-width
+        width: var(--_barusu-route-tree-icon-width)
+        height: $barusu-route-tree-icon-width
+        height: var(--_barusu-route-tree-icon-width)
+      .node-header__icon
+        width: $barusu-route-tree-icon-width
+        width: var(--_barusu-route-tree-icon-width)
+        height: $barusu-route-tree-icon-width
+        height: var(--_barusu-route-tree-icon-width)
+        fill: $barusu-route-tree-icon-color
+        fill: var(--_barusu-route-tree-icon-color)
+        margin-right: 4px
+      .node-header__label
+        flex: 1 1 auto
+        a
+          text-decoration: none
+          &:link
+          &:visited
+            color: $barusu-route-tree-link-color
+            color: var(--_barusu-route-tree-link-color)
+      .node-header__separator
+        display: inline
+        &::before
+          content: '/'
+          margin: auto 4px
+          color: #515151
+
+    .node-body
+      padding-left: $barusu-route-tree-icon-width
+      padding-left: var(--_barusu-route-tree-icon-width)
+      &.node-body--collapsed
+        display: none
+
+@import './sidebar.styl'

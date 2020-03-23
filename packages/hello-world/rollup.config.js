@@ -1,13 +1,18 @@
 import path from 'path'
 import * as react from 'react'
-import * as reactDOM from 'react-dom'
 import { createRollupConfig } from '@barusu-react/rollup-config'
 import manifest from './package.json'
 
 
+const resolvePath = p => path.resolve(__dirname, p)
 const paths = {
-  eslintrc: path.resolve(__dirname, '.eslintrc'),
-  tsconfig: path.resolve(__dirname, 'tsconfig.json'),
+  source: {
+    stylesheetInput: [
+      resolvePath('src/**/*.styl'),
+    ],
+  },
+  eslintrc: resolvePath('.eslintrc.js'),
+  tsconfig: resolvePath('tsconfig.json'),
 }
 
 
@@ -15,7 +20,7 @@ const config = createRollupConfig({
   manifest,
   preprocessOptions: {
     stylesheets: {
-      input: 'src/**/*.styl',
+      input: paths.source.stylesheetInput,
       pluginOptions: {
         multiEntryOptions: {
           exports: false,
@@ -44,7 +49,6 @@ const config = createRollupConfig({
       exclude: ['**/*.stories.js'],
       namedExports: {
         'react': Object.keys(react),
-        'react-dom': Object.keys(reactDOM),
       },
     },
     postcssOptions: {

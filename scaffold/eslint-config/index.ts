@@ -39,7 +39,7 @@ export = {
     'no-continue': 0,
     'no-cond-assign': 0,
     'no-inner-declarations': 0,
-    'no-param-reassign': ['error', { 'props': true  }],
+    'no-param-reassign': ['error', { 'props': true }],
     'no-plusplus': 0,
     'no-restricted-syntax': 0,
     'no-return-assign': 0,
@@ -47,6 +47,9 @@ export = {
     'no-underscore-dangle': 0,
     'prefer-destructuring': 0,
     'quotes': ['error', 'single'],
+    'react/jsx-filename-extension': [2, { extensions: ['.tsx'] }],
+    'react/jsx-indent-props': [2, 2],
+    'react/jsx-indent': [2, 2],
     'semi': ['error', 'never'],
     '@typescript-eslint/explicit-function-return-type': 0,
     "@typescript-eslint/interface-name-prefix": 0,
@@ -55,6 +58,6 @@ export = {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/no-this-alias': 0,
-    '@typescript-eslint/no-use-before-define': 0
+    '@typescript-eslint/no-use-before-define': 0,
   }
 }

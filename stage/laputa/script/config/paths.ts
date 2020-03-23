@@ -14,7 +14,7 @@ export const paths: Paths = {
     root: appDirectory,
     src: resolvePath('src'),
     public: resolvePath('public'),
-    eslintrc: resolvePath('.eslintrc'),
+    eslintrc: resolvePath('.eslintrc.js'),
     packageJson: resolvePath('package.json'),
     tsconfigJson: resolvePath('tsconfig.src.json'),
     nodeModules: resolvePath('node_modules'),
@@ -22,6 +22,7 @@ export const paths: Paths = {
       resolvePath('../../node_modules'),
     ],
     lockFile: resolvePath('yarn.lock'),
+    polyfill: resolvePath('src/setupPolyfill.js'),
   },
   target: {
     root: resolvePath('dist'),

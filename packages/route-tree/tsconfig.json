@@ -1,0 +1,30 @@
+{
+  "extends": "../../tsconfig.settings",
+  "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "src",
+    "target": "es5",
+    "module": "esnext",
+    "jsx": "react",
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
+    "declaration": true
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "../../packages/icons"
+    },
+    {
+      "path": "../../scaffold/eslint-config"
+    },
+    {
+      "path": "../../scaffold/rollup-config"
+    },
+  ]
+}

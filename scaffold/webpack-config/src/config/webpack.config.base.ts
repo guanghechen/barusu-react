@@ -122,6 +122,12 @@ export function createBaseWebpackConfig({
           include: paths.source.src,
           eslintOptions: {
             resolvePluginsRelativeTo: paths.source.root,
+            /**
+             * By default Eslint errors will raise webpack errors
+             * @see https://github.com/webpack-contrib/eslint-loader/issues/168#issuecomment-296433277
+             */
+            emitWarning: true,
+            emitError: false,
           },
         }),
         {

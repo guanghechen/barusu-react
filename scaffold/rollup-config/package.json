@@ -24,7 +24,7 @@
   },
   "files": [
     "lib/",
-    ".eslintrc",
+    ".eslintrc.js",
     "CHANGELOG.md",
     "LICENSE",
     "README.md",
@@ -34,7 +34,7 @@
     "prebuild": "yarn lint:fix && rimraf *.tsbuildinfo lib/",
     "build": "tsc -b tsconfig.json",
     "postbuild": "rimraf lib/package.json lib/test lib/**/*.tsbuildinfo && mv lib/src/* lib && rimraf lib/src/",
-    "lint:fix": "eslint src/**/*.ts --fix",
+    "lint:fix": "eslint 'src/**/*.ts' --fix",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
@@ -47,6 +47,7 @@
     "@types/postcss-url": "^8.0.1",
     "@types/rollup-plugin-peer-deps-external": "^2.2.0",
     "autoprefixer": "^9.7.4",
+    "postcss-flexbugs-fixes": "^4.2.0",
     "postcss-url": "^8.0.0",
     "rollup": "^1.31.1",
     "rollup-plugin-eslint": "^7.0.0",

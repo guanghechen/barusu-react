@@ -9,6 +9,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import { eslint } from 'rollup-plugin-eslint'
 import autoprefixer from 'autoprefixer'
 import postcssUrl from 'postcss-url'
+import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
 import {
   NodeResolveOptions,
   TypescriptOptions,
@@ -192,6 +193,9 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
       }),
       postcss({
         plugins: [
+          postcssFlexbugsFixes({
+
+          }),
           autoprefixer({
             ...postcssPluginOptions.autoprefixerOptions,
           }),

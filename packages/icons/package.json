@@ -1,0 +1,64 @@
+{
+  "name": "@barusu-react/icons",
+  "version": "0.0.1",
+  "author": {
+    "name": "lemon-clown",
+    "url": "https://github.com/lemon-clown/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemon-clown/barusu-react.git"
+  },
+  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/packages/icons#readme",
+  "keywords": [
+    "react component",
+    "stylus",
+    "typescript"
+  ],
+  "source": "src/index.tsx",
+  "main": "lib/cjs/index.js",
+  "types": "lib/cjs/index.d.ts",
+  "module": "lib/esm/index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.16.0"
+  },
+  "files": [
+    "lib/",
+    ".eslintrc.js",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "start": "rollup -w -c rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "build": "rollup -c rollup.config.js",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "prepublishOnly": "yarn build"
+  },
+  "peerDependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/react": "^16.9.23",
+    "classnames": "^2.2.6",
+    "react": "^16.13.0"
+  },
+  "devDependencies": {
+    "@barusu-react/eslint-config": "^0.0.1",
+    "@barusu-react/rollup-config": "^0.0.1",
+    "@types/classnames": "^2.2.9",
+    "@types/react": "^16.9.23",
+    "classnames": "^2.2.6",
+    "react": "^16.13.0",
+    "rollup": "^1.31.1",
+    "stylus": "^0.54.7"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}

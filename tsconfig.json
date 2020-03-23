@@ -5,6 +5,12 @@
       "path": "./packages/hello-world"
     },
     {
+      "path": "./packages/icons"
+    },
+    {
+      "path": "./packages/route-tree"
+    },
+    {
       "path": "./scaffold/eslint-config"
     },
     {
