@@ -134,20 +134,29 @@ export function App(props: AppProps): React.ReactElement {
           />
         </div>
         <div className={ classes.routeMain }>
-          <Switch>
-            {
-              routes.map(({
-                name, path, component,
-                exact = defaultExact,
-                strict = defaultStrict,
-                sensitive = defaultSensitive,
-              }) => (
-                  <Route key={ name } path={ path } exact={ exact } strict={ strict } sensitive={ sensitive }>
-                    { component }
-                  </Route>
-                ))
-            }
-          </Switch>
+          {
+            /**
+              * add a wrapper container to resolve center horizontally bug in ie11
+              *
+              * @see https://stackoverflow.com/a/31363869
+              */
+          }
+          <div>
+            <Switch>
+              {
+                routes.map(({
+                  name, path, component,
+                  exact = defaultExact,
+                  strict = defaultStrict,
+                  sensitive = defaultSensitive,
+                }) => (
+                    <Route key={ name } path={ path } exact={ exact } strict={ strict } sensitive={ sensitive }>
+                      { component }
+                    </Route>
+                  ))
+              }
+            </Switch>
+          </div>
         </div>
       </Router>
     </div>

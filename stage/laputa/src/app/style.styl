@@ -8,16 +8,18 @@ body
 
 .route
   display: flex
+  flex-direction: row
   height: 100vh
   width: 100vw
   box-sizing: border-box
   overflow: auto
   .route-sidebar
-    flex: none
+    flex: 0 0 auto
     margin-right: 1rem
+    box-sizing: border-box
 
   .route-main
-    flex: auto
+    flex: 1 1 auto
     height: 100%
     display: flex
     box-sizing: border-box
