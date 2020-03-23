@@ -150,9 +150,9 @@ export function App(props: AppProps): React.ReactElement {
                   strict = defaultStrict,
                   sensitive = defaultSensitive,
                 }) => (
-                    <Route key={ name } path={ path } exact={ exact } strict={ strict } sensitive={ sensitive }>
-                      { component }
-                    </Route>
+                  <Route key={ name } path={ path } exact={ exact } strict={ strict } sensitive={ sensitive }>
+                    { component }
+                  </Route>
                   ))
               }
             </Switch>
