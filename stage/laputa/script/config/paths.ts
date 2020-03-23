@@ -22,6 +22,7 @@ export const paths: Paths = {
       resolvePath('../../node_modules'),
     ],
     lockFile: resolvePath('yarn.lock'),
+    polyfill: resolvePath('src/setupPolyfill.js'),
   },
   target: {
     root: resolvePath('dist'),
