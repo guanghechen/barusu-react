@@ -16,10 +16,10 @@
     "stylus",
     "typescript"
   ],
-  "source": "src/index.tsx",
   "main": "lib/cjs/index.js",
-  "types": "lib/cjs/index.d.ts",
   "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.tsx",
   "license": "MIT",
   "engines": {
     "node": ">= 12.16.0"
