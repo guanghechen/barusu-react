@@ -43,6 +43,7 @@ const config = createRollupConfig({
       tsconfig: paths.tsconfig,
       include: ['src/**/*{.ts,.tsx}'],
       exclude: '**/__tests__/**',
+      useTsconfigDeclarationDir: true,
     },
     commonjsOptions: {
       include: ['../../node_modules/**'],
