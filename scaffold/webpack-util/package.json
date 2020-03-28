@@ -46,7 +46,7 @@
     "react-dev-utils": "^10.2.0"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.1",
+    "@barusu/eslint-config": "^0.0.2",
     "@types/webpack": "^4.41.6",
     "@types/webpack-dev-server": "^3.10.0",
     "webpack": "^4.41.6",

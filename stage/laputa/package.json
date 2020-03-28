@@ -49,6 +49,6 @@
   "devDependencies": {
     "@barusu-react/eslint-config": "^0.0.2",
     "@barusu-react/webpack-config": "^0.0.2",
-    "@barusu/option-util": "^0.0.1"
+    "@barusu/option-util": "^0.0.2"
   }
 }

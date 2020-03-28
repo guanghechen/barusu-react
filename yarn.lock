@@ -982,10 +982,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@barusu/eslint-config@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@barusu/eslint-config/-/eslint-config-0.0.1.tgz#f9ca9400c7cd4c941684e4afa24edbf0eb64e9c0"
-  integrity sha512-tsb+pNaIjqZm2vTDx2MISB6EvhvCnLWo/6TfXvr07WSh7MmLm1ifKl4/8iXVvOPl8rwHGrZr1wvxlV6YRk+y/w==
+"@barusu/eslint-config@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@barusu/eslint-config/-/eslint-config-0.0.2.tgz#603f2aa1eba6ec843ec7de638c4fbe534f90c304"
+  integrity sha512-VkdskGzNxmmKT5zFIN1hC+LytWiWN9425lcKlvsSsOn2ykMUkqPCxKtmdiExGjHk4jxOOb/1exUqm/r/9QTjLQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.16.0"
     "@typescript-eslint/parser" "^2.16.0"
@@ -995,10 +995,10 @@
     eslint-plugin-prettier "^3.1.2"
     prettier "^1.19.1"
 
-"@barusu/option-util@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@barusu/option-util/-/option-util-0.0.1.tgz#57f4cf22a957e23504f741ea5ae18cc661d34a52"
-  integrity sha512-vdokOeDf+/D/1elitb82sBf1oBmKDXCBwglTTsjOTRnJfiNu0JVQi7Eqk9ewV/Qca3QfUIYcS7bBB+RviWa4Lg==
+"@barusu/option-util@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@barusu/option-util/-/option-util-0.0.2.tgz#ee906c7e4ed4b07bf7f42116c33e9f0701fc4b46"
+  integrity sha512-JRPNuTtbh5O3qEsSE4XorLkP3zPGP2R2cqFJyRQhQgVnGSqVEzvA5+X26aaoy13dE6Oz5f1BBL5VdyxgeX3rGQ==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
