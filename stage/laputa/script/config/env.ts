@@ -67,8 +67,11 @@ export const env: RawEnv = {
         },
       }
     ],
-    tsxRuleOptionsHook: () => [{
+    tsxRuleOptionsHook: ({ isEnvDevelopment }) => [{
       include: undefined,
+      babelLoaderOptions: {
+        sourceMaps: isEnvDevelopment,
+      }
     }],
     additionalRulesHook: ({ isEnvDevelopment }) => {
       return [
