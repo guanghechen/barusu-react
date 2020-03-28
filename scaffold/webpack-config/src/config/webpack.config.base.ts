@@ -130,6 +130,11 @@ export function createBaseWebpackConfig({
             emitError: false,
           },
         }),
+        isEnvDevelopment && env.development.shouldUseSourceMap && {
+          test: /\.(js|mjs|jsx|ts|tsx)$/,
+          use: ['@barusu/webpack-source-map-loader'],
+          enforce: 'pre',
+        },
         {
           // "oneOf" will traverse all following loaders until one will
           // match the requirements. When no loader matches it will fall
@@ -205,7 +210,7 @@ export function createBaseWebpackConfig({
             },
           ].filter(Boolean) as webpack.RuleSetRule[],
         },
-      ],
+      ].filter(Boolean) as webpack.RuleSetRule[],
     },
     plugins: [
       // create HtmlWebpackPlugins by targets

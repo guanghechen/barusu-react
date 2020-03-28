@@ -43,6 +43,7 @@
     "@barusu-react/webpack-rule-tsx": "^0.0.2",
     "@barusu-react/webpack-util": "^0.0.2",
     "@barusu/option-util": "^0.0.2",
+    "@barusu/webpack-source-map-loader": "^0.0.2",
     "@teamsupercell/typings-for-css-modules-loader": "^2.1.0",
     "@types/case-sensitive-paths-webpack-plugin": "^2.1.4",
     "@types/copy-webpack-plugin": "^5.0.0",
