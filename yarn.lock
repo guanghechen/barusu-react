@@ -1014,6 +1014,14 @@
     rollup-plugin-peer-deps-external "^2.2.2"
     rollup-plugin-typescript2 "^0.26.0"
 
+"@barusu/tool-find-inconsistent-packages@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@barusu/tool-find-inconsistent-packages/-/tool-find-inconsistent-packages-0.0.2.tgz#057938f23b105a06db9dfada12bc335faad8a54c"
+  integrity sha512-P/dFQo6oVPFeOEtAPpEvYKqRwxbqn4YB80ipx6s5UPd3uCWzNiCpEWrS2ZNULPvo9eNl2FlAvRsAKT3yjFaYYA==
+  dependencies:
+    "@types/fs-extra" "^8.1.0"
+    fs-extra "^8.1.0"
+
 "@barusu/webpack-source-map-loader@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@barusu/webpack-source-map-loader/-/webpack-source-map-loader-0.0.2.tgz#7110a5b38fab46908604eb224477418c46df7da1"
