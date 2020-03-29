@@ -23,7 +23,7 @@ import {
 } from './types/options'
 
 
-export interface ProdConfigParams {
+export interface ProdConfigParams extends rollup.InputOptions {
   manifest: {
     /**
      * 源文件入口
@@ -117,8 +117,14 @@ export interface ProdConfigParams {
 
 
 export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOptions[] => {
+  const {
+    manifest,
+    preprocessOptions = {},
+    pluginOptions = {},
+    ...resetInputOptions
+  } = props
+
   // preprocess task
-  const { preprocessOptions = {} } = props
   const preprocessConfigs: rollup.RollupOptions[] = []
   if (preprocessOptions.stylesheets != null) {
     const {
@@ -146,7 +152,7 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
   }
 
   // process task
-  const { manifest, pluginOptions = {} } = props
+  const {  } = props
   const {
     eslintOptions = {},
     nodeResolveOptions = {},
@@ -218,6 +224,7 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         ...postcssOptions,
       }),
     ] as rollup.Plugin[],
+    ...resetInputOptions,
   }
 
   return [
