@@ -16,16 +16,5 @@
   },
   "include": [
     "src"
-  ],
-  "references": [
-    {
-      "path": "../../packages/icons"
-    },
-    {
-      "path": "../../scaffold/eslint-config"
-    },
-    {
-      "path": "../../scaffold/rollup-config"
-    },
   ]
 }

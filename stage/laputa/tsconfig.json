@@ -15,13 +15,5 @@
     "src",
     "script",
     "package.json"
-  ],
-  "references": [
-    {
-      "path": "../../scaffold/eslint-config"
-    },
-    {
-      "path": "../../scaffold/webpack-config"
-    },
   ]
 }
