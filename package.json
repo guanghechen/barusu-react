@@ -22,6 +22,7 @@
     "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
     "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
     "clean": "lerna clean --yes",
+    "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
     "find-inconsistent": "node_modules/.bin/find-inconsistent"
   },
   "workspaces": [
