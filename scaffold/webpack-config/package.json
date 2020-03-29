@@ -17,8 +17,9 @@
     "stylus",
     "typescript"
   ],
-  "main": "lib/index.js",
-  "type": "lib/index.d.ts",
+  "main": "lib/cjs/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 12.16.0"
@@ -32,10 +33,10 @@
     "package.json"
   ],
   "scripts": {
-    "prebuild": "yarn lint:fix && rimraf *.tsbuildinfo lib/",
-    "build": "tsc -b tsconfig.json",
-    "postbuild": "rimraf lib/package.json lib/test lib/**/*.tsbuildinfo && mv lib/src/* lib && rimraf lib/src/",
-    "lint:fix": "eslint 'src/**/*.ts' --fix",
+    "start": "rollup -w -c rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "build": "rollup -c rollup.config.js",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
@@ -71,6 +72,8 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.2"
+    "@barusu/eslint-config": "^0.0.2",
+    "@barusu/rollup-config": "^0.0.2",
+    "rollup": "^1.31.1"
   }
 }
