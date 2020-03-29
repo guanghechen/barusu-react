@@ -37,6 +37,10 @@ export interface ProdConfigParams {
      * es 目标文件入口
      */
     module?: string
+    /**
+     * 依赖列表
+     */
+    dependencies?: { [key: string]: string }
   }
   /**
    * 预处理选项
@@ -170,10 +174,17 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         sourcemap: true,
       }
     ].filter(Boolean) as rollup.OutputOptions[],
+    external: [
+      'glob',
+      'sync',
+      ...require('builtin-modules'),
+      ...Object.keys(manifest.dependencies || {})
+    ],
     plugins: [
       peerDepsExternal(peerDepsExternalOptions),
       nodeResolve({
         browser: true,
+        preferBuiltins: false,
         ...nodeResolveOptions,
       }),
       eslint({

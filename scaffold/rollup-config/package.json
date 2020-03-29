@@ -47,6 +47,7 @@
     "@types/postcss-url": "^8.0.1",
     "@types/rollup-plugin-peer-deps-external": "^2.2.0",
     "autoprefixer": "^9.7.4",
+    "builtin-modules": "^3.1.0",
     "postcss-flexbugs-fixes": "^4.2.0",
     "postcss-url": "^8.0.0",
     "rollup": "^1.31.1",
