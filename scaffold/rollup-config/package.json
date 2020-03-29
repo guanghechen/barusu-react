@@ -58,6 +58,6 @@
     "stylus": "^0.54.7"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.2"
+    "@barusu/eslint-config": "^0.0.3"
   }
 }

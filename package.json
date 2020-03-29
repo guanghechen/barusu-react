@@ -30,7 +30,7 @@
     "stage/laputa"
   ],
   "devDependencies": {
-    "@barusu/tool-find-inconsistent-packages": "^0.0.2",
+    "@barusu/tool-find-inconsistent-packages": "^0.0.3",
     "@types/classnames": "^2.2.9",
     "@types/node": "^13.7.6",
     "@types/react": "^16.9.23",
