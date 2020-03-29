@@ -1,0 +1,69 @@
+{
+  "name": "{{{packageName}}}",
+  "version": "{{{lowerCase packageVersion}}}",
+{{#if packageAuthor}}
+  "author": {
+    "name": "{{{packageAuthor}}}",
+    "url": "https://github.com/{{{packageAuthor}}}/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/{{{packageAuthor}}}/{{{projectName}}}.git"
+  },
+{{#if isLernaProject}}
+  "homepage": "https://github.com/{{{packageAuthor}}}/{{{projectName}}}/tree/master/{{{packageLocation}}}#readme",
+{{else}}
+  "homepage": "https://github.com/{{{packageAuthor}}}/{{{projectName}}}#readme",
+{{/if}}
+{{/if}}
+  "keywords": [
+    "react component",
+    "stylus",
+    "typescript"
+  ],
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.tsx",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.16.0"
+  },
+  "files": [
+    "lib/",
+    ".eslintrc.js",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "start": "rollup -w -c rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "build": "rollup -c rollup.config.js",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "prepublishOnly": "yarn build"
+  },
+  "peerDependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/react": "^16.9.23",
+    "classnames": "^2.2.6",
+    "react": "^16.13.0"
+  },
+  "devDependencies": {
+    "@barusu-react/eslint-config": "^{{{lowerCase packageVersion}}}",
+    "@barusu-react/rollup-config": "^{{{lowerCase packageVersion}}}",
+    "@types/classnames": "^2.2.9",
+    "@types/react": "^16.9.23",
+    "classnames": "^2.2.6",
+    "react": "^16.13.0",
+    "rollup": "^1.31.1",
+    "stylus": "^0.54.7"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
+}
