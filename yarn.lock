@@ -1000,6 +1000,20 @@
   resolved "https://registry.yarnpkg.com/@barusu/option-util/-/option-util-0.0.2.tgz#ee906c7e4ed4b07bf7f42116c33e9f0701fc4b46"
   integrity sha512-JRPNuTtbh5O3qEsSE4XorLkP3zPGP2R2cqFJyRQhQgVnGSqVEzvA5+X26aaoy13dE6Oz5f1BBL5VdyxgeX3rGQ==
 
+"@barusu/rollup-config@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@barusu/rollup-config/-/rollup-config-0.0.2.tgz#202acce985db325e5054c015642a39acdcfdbb21"
+  integrity sha512-OHr8lH549XM9R/98wkwXt5TpE6NAc00Rcpybb45hRitUj22Xt1f6BxgjP5supHMvjqbnDXyZvuz+l4kW067hiQ==
+  dependencies:
+    "@rollup/plugin-commonjs" "^11.0.2"
+    "@rollup/plugin-node-resolve" "^7.1.1"
+    "@types/eslint" "^6.1.8"
+    "@types/rollup-plugin-peer-deps-external" "^2.2.0"
+    rollup "^1.31.1"
+    rollup-plugin-eslint "^7.0.0"
+    rollup-plugin-peer-deps-external "^2.2.2"
+    rollup-plugin-typescript2 "^0.26.0"
+
 "@barusu/webpack-source-map-loader@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@barusu/webpack-source-map-loader/-/webpack-source-map-loader-0.0.2.tgz#7110a5b38fab46908604eb224477418c46df7da1"
