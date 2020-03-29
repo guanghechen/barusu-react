@@ -11,8 +11,9 @@
     "url": "https://github.com/lemon-clown/barusu-react.git"
   },
   "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/scaffold/webpack-rule-css#readme",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/cjs/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 12.16.0"
@@ -26,11 +27,20 @@
     "package.json"
   ],
   "scripts": {
-    "prebuild": "yarn lint:fix && rimraf *.tsbuildinfo lib/",
-    "build": "tsc -b tsconfig.json",
-    "postbuild": "rimraf lib/**/*.tsbuildinfo",
-    "lint:fix": "eslint 'src/**/*.ts' --fix",
+    "start": "rollup -w -c rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "build": "rollup -c rollup.config.js",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "css-loader": "^3.4.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-flexbugs-fixes": "^4.2.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-normalize": "^8.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "style-loader": "^1.1.3"
   },
   "peerDependencies": {
     "@types/webpack": "^4.41.6",
@@ -44,18 +54,11 @@
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2"
   },
-  "dependencies": {
-    "css-loader": "^3.4.2",
-    "mini-css-extract-plugin": "^0.9.0",
-    "postcss-flexbugs-fixes": "^4.2.0",
-    "postcss-loader": "^3.0.0",
-    "postcss-normalize": "^8.0.1",
-    "postcss-preset-env": "^6.7.0",
-    "style-loader": "^1.1.3"
-  },
   "devDependencies": {
     "@barusu/eslint-config": "^0.0.2",
+    "@barusu/rollup-config": "^0.0.2",
     "@types/webpack": "^4.41.6",
+    "rollup": "^1.31.1",
     "webpack": "^4.41.6"
   }
 }
