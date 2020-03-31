@@ -110,57 +110,64 @@
     ```javascript
     import path from 'path'
     import * as react from 'react'
-    import * as reactDOM from 'react-dom'
     import { createRollupConfig } from '@barusu-react/rollup-config'
     import manifest from './package.json'
 
+    const resolvePath = p => path.resolve(__dirname, p)
     const paths = {
-      eslintrc: path.resolve(__dirname, '.eslintrc.js'),
-      tsconfig: path.resolve(__dirname, 'tsconfig.json'),
+      source: {
+        stylesheetInput: [
+          resolvePath('src/**/*.styl'),
+        ],
+        assetsRoot: path.resolve(__dirname, 'src/assets'),
+      },
+      eslintrc: resolvePath('.eslintrc.js'),
+      tsconfig: resolvePath('tsconfig.json'),
     }
 
     const config = createRollupConfig({
       manifest,
       preprocessOptions: {
         stylesheets: {
-          input: 'src/**/*.styl',
-          multiEntryOptions: {
-            exports: false,
-          },
-          postcssOptions: {
-            modules: {
-              camelCase: true,
+          input: paths.source.stylesheetInput,
+          pluginOptions: {
+            multiEntryOptions: {
+              exports: false,
             },
-          }
+            postcssOptions: {
+              modules: {
+                camelCase: true,
+              },
+            }
+          },
         }
       },
       pluginOptions: {
         eslintOptions: {
           configFile: paths.eslintrc,
-          include: ['src/**/*{.ts,.tsx}'],
-          exclude: ['src/**/*.styl.d.ts'],
         },
         typescriptOptions: {
           tsconfig: paths.tsconfig,
-          include: ['src/**/*{.ts,.tsx}'],
-          exclude: '**/__tests__/**',
+          useTsconfigDeclarationDir: true,
         },
         commonjsOptions: {
-          include: ['../../node_modules/**'],
-          exclude: ['**/*.stories.js'],
+          include: ['./node_modules/**'],
           namedExports: {
             'react': Object.keys(react),
-            'react-dom': Object.keys(reactDOM),
           },
         },
         postcssOptions: {
-          // extract: true,
-          // minimize: false,
           extract: false,
           minimize: true,
           modules: {
             camelCase: true,
             generateScopedName: 'barusu-[local]',
+          },
+          pluginOptions: {
+            postcssUrlOptions: {
+              url: 'inline',
+              basePath: paths.source.assetsRoot,
+            }
           },
         }
       }
@@ -208,17 +215,20 @@
 # Options
 
 ## manifest
-   property | required  | description
-  :--------:|:---------:|:----------------
-   `source` | `true`    | source entry file
-   `main`   | `false`   | cjs target entry file
-   `module` | `false`   | cjs target entry file
+
+   property       | type                      | required  | description
+  :--------------:|:-------------------------:|:---------:|:------------------------
+   `source`       | `string`                  | `true`    | source entry file
+   `main`         | `string`                  | `false`   | target entry file of cjs
+   `module`       | `string`                  | `false`   | target entry file of es
+   `dependencies` | `{[key: string]: string}` | `false`   | ignore these dependencies (`external`)
+
 
 ## preprocessOptions
 
 ### stylesheet
   property         | required  | description
-:----------------:|:---------:|:------------
+ :----------------:|:---------:|:------------
   `input`          | `true`    | see [Supported Input Types][multi-entry-input-types]
   `output`         | `false`   |
   `pluginOptions`  | `false`   |
