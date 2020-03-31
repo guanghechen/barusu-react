@@ -20,7 +20,7 @@
     "node": ">= 12.16.0"
   },
   "files": [
-    "lib/",
+    "index.js",
     "package.json",
     "CHANGELOG.md",
     "LICENSE",
