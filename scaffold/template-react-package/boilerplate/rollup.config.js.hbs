@@ -58,6 +58,7 @@ const config = createRollupConfig({
       pluginOptions: {
         postcssUrlOptions: {
           url: 'inline',
+          basePath: paths.source.assetsRoot,
         }
       },
     }
