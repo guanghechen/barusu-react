@@ -13,7 +13,7 @@ const paths = {
     ],
   },
   eslintrc: resolvePath('.eslintrc.js'),
-  tsconfig: resolvePath('tsconfig.json'),
+  tsconfig: resolvePath('tsconfig.src.json'),
 }
 
 

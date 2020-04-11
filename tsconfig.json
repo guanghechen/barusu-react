@@ -1,3 +1,35 @@
 {
-  "extends": "./tsconfig.settings.json"
+  "extends": "./tsconfig.settings.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@barusu-react/hello-world": [
+        "./packages/hello-world/src"
+      ],
+      "@barusu-react/icons": [
+        "./packages/icons/src"
+      ],
+      "@barusu-react/route-tree": [
+        "./packages/route-tree/src"
+      ],
+      "@barusu-react/rollup-config": [
+        "./scaffold/rollup-config/src"
+      ],
+      "@barusu-react/rollup-plugin-postcss-dts": [
+        "./scaffold/rollup-plugin-postcss-dts/src"
+      ],
+      "@barusu-react/webpack-config": [
+        "./scaffold/webpack-config/src"
+      ],
+      "@barusu-react/webpack-rule-css": [
+        "./scaffold/webpack-rule-css/src"
+      ],
+      "@barusu-react/webpack-rule-tsx": [
+        "./scaffold/webpack-rule-tsx/src"
+      ],
+      "@barusu-react/webpack-util": [
+        "./scaffold/webpack-util/src"
+      ]
+    }
+  }
 }
