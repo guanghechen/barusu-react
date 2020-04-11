@@ -7,10 +7,6 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: './tsconfig.json'
   },
-  ignorePatterns: [
-    'rollup.config.js'
-  ],
   rules: {
-
   }
 }

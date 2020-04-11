@@ -23,7 +23,9 @@
     "package.json",
     "CHANGELOG.md",
     "LICENSE",
-    "README.md"
+    "README.md",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map"
   ],
   "scripts": {
     "build": "echo 'no build action needed'",

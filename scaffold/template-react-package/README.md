@@ -5,9 +5,15 @@
 
 # Usage
 
-## Install
-```shell
-yarn add --dev @barusu-react/template-react-package
+  * Install
+    ```shell
+    npm install -g @barusu-react/template-react-package
 
-npx create-react-package react-hello-world
-```
+    # or use yarn:
+    # yarn global add @barusu-react/template-react-package
+    ```
+
+  * Create a typescript+stylus+react project
+    ```shell
+    create-react-package [package name]
+    ```

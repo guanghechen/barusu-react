@@ -24,7 +24,9 @@
     "CHANGELOG.md",
     "LICENSE",
     "README.md",
-    "package.json"
+    "package.json",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map"
   ],
   "scripts": {
     "start": "rollup -w -c rollup.config.js",
@@ -47,8 +49,8 @@
     "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.3",
-    "@barusu/rollup-config": "^0.0.3",
+    "@barusu/eslint-config": "^0.0.4",
+    "@barusu/rollup-config": "^0.0.4",
     "@types/webpack": "^4.41.6",
     "@types/webpack-dev-server": "^3.10.0",
     "rollup": "^1.31.1",

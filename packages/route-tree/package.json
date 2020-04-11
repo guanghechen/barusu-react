@@ -31,7 +31,9 @@
     "LICENSE",
     "README.md",
     "package.json",
-    "tsconfig.json"
+    "tsconfig.json",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map"
   ],
   "scripts": {
     "start": "rollup -w -c rollup.config.js",
@@ -40,8 +42,10 @@
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "prepublishOnly": "yarn build"
   },
+  "dependencies": {
+    "@barusu-react/icons": "^0.0.3"
+  },
   "peerDependencies": {
-    "@barusu-react/icons": "^0.0.2",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.23",
     "@types/react-router-dom": "^5.1.3",

@@ -1,6 +1,6 @@
 import React from 'react'
 import { HelloWorldContent } from './content'
-import classes from './style.styl'
+import classes from './style/index.styl'
 
 
 export interface HelloWorldProps {

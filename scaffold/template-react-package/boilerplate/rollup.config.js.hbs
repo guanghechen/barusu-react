@@ -8,8 +8,9 @@ const resolvePath = p => path.resolve(__dirname, p)
 const paths = {
   source: {
     stylesheetInput: [
-      resolvePath('src/**/*.styl'),
+      resolvePath('src/style/index.styl'),
     ],
+    assetsRoot: resolvePath('src/assets'),
   },
   eslintrc: resolvePath('.eslintrc.js'),
   tsconfig: resolvePath('tsconfig.json'),
@@ -57,6 +58,7 @@ const config = createRollupConfig({
       pluginOptions: {
         postcssUrlOptions: {
           url: 'inline',
+          basePath: paths.source.assetsRoot,
         }
       },
     }

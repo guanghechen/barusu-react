@@ -29,7 +29,9 @@
     "CHANGELOG.md",
     "LICENSE",
     "README.md",
-    "package.json"
+    "package.json",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map"
   ],
   "scripts": {
     "start": "rollup -w -c rollup.config.js",
@@ -60,8 +62,8 @@
     "stylus": "^0.54.7"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.3",
-    "@barusu/rollup-config": "^0.0.3",
+    "@barusu/eslint-config": "^0.0.4",
+    "@barusu/rollup-config": "^0.0.4",
     "rollup": "^1.31.1"
   }
 }
