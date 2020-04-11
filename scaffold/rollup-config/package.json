@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@barusu-react/rollup-plugin-postcss-dts": "^0.0.4",
+    "@barusu/option-util": "^0.0.5",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-multi-entry": "^3.0.0",
     "@rollup/plugin-node-resolve": "^7.1.1",

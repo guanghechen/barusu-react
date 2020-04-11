@@ -3,13 +3,14 @@ import rollup from 'rollup'
 import commonjs from '@rollup/plugin-commonjs'
 import multiEntry from '@rollup/plugin-multi-entry'
 import nodeResolve from '@rollup/plugin-node-resolve'
-import postcss from '@barusu-react/rollup-plugin-postcss-dts'
+import { coverBoolean, convertToBoolean } from '@barusu/option-util'
 import typescript from 'rollup-plugin-typescript2'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import { eslint } from 'rollup-plugin-eslint'
 import autoprefixer from 'autoprefixer'
 import postcssUrl from 'postcss-url'
 import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
+import postcss from '@barusu-react/rollup-plugin-postcss-dts'
 import {
   NodeResolveOptions,
   TypescriptOptions,
@@ -24,6 +25,10 @@ import {
 
 
 export interface ProdConfigParams extends rollup.InputOptions {
+  /**
+   * 是否生成 sourceMap （包括 declarationMap）
+   */
+  useSourceMap: boolean
   manifest: {
     /**
      * 源文件入口
@@ -117,7 +122,10 @@ export interface ProdConfigParams extends rollup.InputOptions {
 
 
 export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOptions[] => {
+  const DEFAULT_USE_SOURCE_MAP = coverBoolean(true, convertToBoolean(process.env.ROLLUP_USE_SOURCE_MAP))
+
   const {
+    useSourceMap = DEFAULT_USE_SOURCE_MAP,
     manifest,
     preprocessOptions = {},
     pluginOptions = {},
@@ -171,13 +179,13 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         file: manifest.main,
         format: 'cjs',
         exports: 'named',
-        sourcemap: true,
+        sourcemap: useSourceMap,
       },
       manifest.module && {
         file: manifest.module,
         format: 'es',
         exports: 'named',
-        sourcemap: true,
+        sourcemap: useSourceMap,
       }
     ].filter(Boolean) as rollup.OutputOptions[],
     external: [
@@ -206,6 +214,11 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         rollupCommonJSResolveHack: true,
         include: ['src/**/*{.ts,.tsx}'],
         exclude: '**/__tests__/**',
+        tsconfigOverride: {
+          compilerOptions: {
+            declarationMap: useSourceMap,
+          }
+        },
         ...typescriptOptions,
       }),
       commonjs({
