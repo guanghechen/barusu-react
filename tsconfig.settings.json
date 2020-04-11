@@ -43,6 +43,9 @@
       "@barusu-react/rollup-plugin-postcss-dts": [
         "./scaffold/rollup-plugin-postcss-dts"
       ],
+      "@barusu-react/template-react-package": [
+        "./scaffold/template-react-package"
+      ],
       "@barusu-react/webpack-rule-css": [
         "./scaffold/webpack-rule-css"
       ],

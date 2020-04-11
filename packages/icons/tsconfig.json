@@ -11,17 +11,10 @@
       "dom",
       "dom.iterable"
     ],
-    "declaration": true
+    "declaration": true,
+    "declarationDir": "lib/types"
   },
   "include": [
     "src"
-  ],
-  "references": [
-    {
-      "path": "../../scaffold/eslint-config"
-    },
-    {
-      "path": "../../scaffold/rollup-config"
-    },
   ]
 }

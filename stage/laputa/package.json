@@ -26,7 +26,7 @@
     "package.json"
   ],
   "scripts": {
-    "start": "cross-env PORT=7033 HOST_IP_PREFIX=192.168 ts-node -r tsconfig-paths/register script/start.ts",
+    "start": "cross-env PORT=7033 ts-node -r tsconfig-paths/register script/start.ts",
     "prebuild": "yarn lint:fix",
     "build": "cross-env ts-node -r tsconfig-paths/register script/build.ts",
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
@@ -49,6 +49,6 @@
   "devDependencies": {
     "@barusu-react/eslint-config": "^0.0.2",
     "@barusu-react/webpack-config": "^0.0.2",
-    "@barusu/option-util": "^0.0.1"
+    "@barusu/option-util": "^0.0.3"
   }
 }

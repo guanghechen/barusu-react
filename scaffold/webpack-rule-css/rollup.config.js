@@ -1,6 +1,5 @@
 import path from 'path'
-import * as react from 'react'
-import { createRollupConfig } from '@barusu-react/rollup-config'
+import { createRollupConfig } from '@barusu/rollup-config'
 import manifest from './package.json'
 
 
@@ -24,22 +23,8 @@ const config = createRollupConfig({
     commonjsOptions: {
       include: ['../../node_modules/**'],
       namedExports: {
-        'react': Object.keys(react),
       },
     },
-    postcssOptions: {
-      extract: false,
-      minimize: true,
-      modules: {
-        camelCase: true,
-        generateScopedName: 'barusu-[local]',
-      },
-      pluginOptions: {
-        postcssUrlOptions: {
-          url: 'inline',
-        }
-      },
-    }
   }
 })
 

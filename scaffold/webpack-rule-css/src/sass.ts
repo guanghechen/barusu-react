@@ -28,7 +28,7 @@ export function calcSassRule(props: SassRuleProps): webpack.RuleSetRule {
   const sassRule = {
     ...cssRule,
     use: [
-      ...cssRule.use,
+      ...(cssRule.use as webpack.RuleSetUseItem[]),
       {
         loader: require.resolve('resolve-url-loader'),
         options: {

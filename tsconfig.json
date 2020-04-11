@@ -1,35 +1,3 @@
 {
-  "extends": "./tsconfig.settings.json",
-  "references": [
-    {
-      "path": "./packages/hello-world"
-    },
-    {
-      "path": "./packages/icons"
-    },
-    {
-      "path": "./packages/route-tree"
-    },
-    {
-      "path": "./scaffold/eslint-config"
-    },
-    {
-      "path": "./scaffold/rollup-config"
-    },
-    {
-      "path": "./scaffold/rollup-plugin-postcss-dts"
-    },
-    {
-      "path": "./scaffold/webpack-rule-css"
-    },
-    {
-      "path": "./scaffold/webpack-rule-tsx"
-    },
-    {
-      "path": "./scaffold/webpack-util"
-    },
-    {
-      "path": "./stage/laputa"
-    },
-  ]
+  "extends": "./tsconfig.settings.json"
 }

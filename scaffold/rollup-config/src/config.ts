@@ -23,7 +23,7 @@ import {
 } from './types/options'
 
 
-export interface ProdConfigParams {
+export interface ProdConfigParams extends rollup.InputOptions {
   manifest: {
     /**
      * 源文件入口
@@ -37,6 +37,10 @@ export interface ProdConfigParams {
      * es 目标文件入口
      */
     module?: string
+    /**
+     * 依赖列表
+     */
+    dependencies?: { [key: string]: string }
   }
   /**
    * 预处理选项
@@ -113,8 +117,14 @@ export interface ProdConfigParams {
 
 
 export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOptions[] => {
+  const {
+    manifest,
+    preprocessOptions = {},
+    pluginOptions = {},
+    ...resetInputOptions
+  } = props
+
   // preprocess task
-  const { preprocessOptions = {} } = props
   const preprocessConfigs: rollup.RollupOptions[] = []
   if (preprocessOptions.stylesheets != null) {
     const {
@@ -142,7 +152,7 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
   }
 
   // process task
-  const { manifest, pluginOptions = {} } = props
+  const {  } = props
   const {
     eslintOptions = {},
     nodeResolveOptions = {},
@@ -170,22 +180,32 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         sourcemap: true,
       }
     ].filter(Boolean) as rollup.OutputOptions[],
+    external: [
+      'glob',
+      'sync',
+      ...require('builtin-modules'),
+      ...Object.keys(manifest.dependencies || {})
+    ],
     plugins: [
       peerDepsExternal(peerDepsExternalOptions),
       nodeResolve({
         browser: true,
+        preferBuiltins: false,
         ...nodeResolveOptions,
       }),
       eslint({
         fix: true,
         throwOnError: true,
-        exclude: ['*.css', '*.styl', '*.styl.d.ts'],
+        include: ['src/**/*{.ts,.tsx}'],
+        exclude: ['*.styl.d.ts'],
         ...eslintOptions,
       }),
       typescript({
         clean: true,
         typescript: require('typescript'),
         rollupCommonJSResolveHack: true,
+        include: ['src/**/*{.ts,.tsx}'],
+        exclude: '**/__tests__/**',
         ...typescriptOptions,
       }),
       commonjs({
@@ -207,6 +227,7 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         ...postcssOptions,
       }),
     ] as rollup.Plugin[],
+    ...resetInputOptions,
   }
 
   return [

@@ -1,16 +1,21 @@
 {
-  "name": "@barusu-react/route-tree",
-  "version": "0.0.2",
-  "description": "a demo of react package with ts+react+stylus",
+  "name": "{{{packageName}}}",
+  "version": "{{{lowerCase packageVersion}}}",
+{{#if packageAuthor}}
   "author": {
-    "name": "lemon-clown",
-    "url": "https://github.com/lemon-clown/"
+    "name": "{{{packageAuthor}}}",
+    "url": "https://github.com/{{{packageAuthor}}}/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lemon-clown/barusu-react.git"
+    "url": "https://github.com/{{{packageAuthor}}}/{{{projectName}}}.git"
   },
-  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/packages/route-tree#readme",
+{{#if isLernaProject}}
+  "homepage": "https://github.com/{{{packageAuthor}}}/{{{projectName}}}/tree/master/{{{packageLocation}}}#readme",
+{{else}}
+  "homepage": "https://github.com/{{{packageAuthor}}}/{{{projectName}}}#readme",
+{{/if}}
+{{/if}}
   "keywords": [
     "react component",
     "stylus",
@@ -30,8 +35,7 @@
     "CHANGELOG.md",
     "LICENSE",
     "README.md",
-    "package.json",
-    "tsconfig.json"
+    "package.json"
   ],
   "scripts": {
     "start": "rollup -w -c rollup.config.js",
@@ -41,24 +45,18 @@
     "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
-    "@barusu-react/icons": "^0.0.2",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.23",
-    "@types/react-router-dom": "^5.1.3",
     "classnames": "^2.2.6",
-    "react": "^16.13.0",
-    "react-router-dom": "^5.1.2"
+    "react": "^16.13.0"
   },
   "devDependencies": {
-    "@barusu-react/eslint-config": "^0.0.2",
-    "@barusu-react/icons": "^0.0.2",
-    "@barusu-react/rollup-config": "^0.0.2",
+    "@barusu-react/eslint-config": "^{{{lowerCase packageVersion}}}",
+    "@barusu-react/rollup-config": "^{{{lowerCase packageVersion}}}",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.23",
-    "@types/react-router-dom": "^5.1.3",
     "classnames": "^2.2.6",
     "react": "^16.13.0",
-    "react-router-dom": "^5.1.2",
     "rollup": "^1.31.1",
     "stylus": "^0.54.7"
   },

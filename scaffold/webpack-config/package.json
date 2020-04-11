@@ -17,8 +17,9 @@
     "stylus",
     "typescript"
   ],
-  "main": "lib/index.js",
-  "type": "lib/index.d.ts",
+  "main": "lib/cjs/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 12.16.0"
@@ -32,20 +33,22 @@
     "package.json"
   ],
   "scripts": {
-    "prebuild": "yarn lint:fix && rimraf *.tsbuildinfo lib/",
-    "build": "tsc -b tsconfig.json",
-    "postbuild": "rimraf lib/package.json lib/test lib/**/*.tsbuildinfo && mv lib/src/* lib && rimraf lib/src/",
-    "lint:fix": "eslint 'src/**/*.ts' --fix",
+    "start": "rollup -w -c rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "build": "rollup -c rollup.config.js",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "@barusu-react/webpack-rule-css": "^0.0.2",
     "@barusu-react/webpack-rule-tsx": "^0.0.2",
     "@barusu-react/webpack-util": "^0.0.2",
-    "@barusu/option-util": "^0.0.1",
+    "@barusu/option-util": "^0.0.3",
+    "@barusu/webpack-source-map-loader": "^0.0.3",
     "@teamsupercell/typings-for-css-modules-loader": "^2.1.0",
     "@types/case-sensitive-paths-webpack-plugin": "^2.1.4",
     "@types/copy-webpack-plugin": "^5.0.0",
+    "@types/fs-extra": "^8.1.0",
     "@types/html-webpack-plugin": "^3.2.2",
     "@types/webpack": "^4.41.6",
     "@types/webpack-dev-server": "^3.10.0",
@@ -53,6 +56,7 @@
     "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "copy-webpack-plugin": "^5.1.1",
     "file-loader": "^5.1.0",
+    "fs-extra": "^8.1.0",
     "html-webpack-plugin": "^4.0.0-beta.11",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-safe-parser": "^4.0.2",
@@ -70,6 +74,8 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.1"
+    "@barusu/eslint-config": "^0.0.3",
+    "@barusu/rollup-config": "^0.0.3",
+    "rollup": "^1.31.1"
   }
 }

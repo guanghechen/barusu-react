@@ -1,18 +1,17 @@
 {
   "extends": "../../tsconfig.settings",
   "compilerOptions": {
-    "outDir": "lib",
     "rootDir": "src",
-    "target": "es5",
-    "module": "esnext",
+    "outDir": "lib",
+    "declarationDir": "lib/types",
+    "target": "es2015",
+    "module": "es2015",
     "jsx": "react",
     "lib": [
       "esnext",
       "dom",
       "dom.iterable"
-    ],
-    "declaration": true,
-    "declarationDir": "lib/types"
+    ]
   },
   "include": [
     "src"

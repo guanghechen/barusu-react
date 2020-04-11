@@ -28,7 +28,7 @@ export function calcStylusRule(props: StylusRuleProps): webpack.RuleSetRule {
   const stylusRule = {
     ...cssRule,
     use: [
-      ...cssRule.use,
+      ...(cssRule.use as webpack.RuleSetUseItem[]),
       {
         loader: require.resolve('resolve-url-loader'),
         options: {

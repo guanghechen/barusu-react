@@ -11,8 +11,9 @@
     "url": "https://github.com/lemon-clown/barusu-react.git"
   },
   "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/scaffold/webpack-rule-tsx#readme",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/cjs/index.js",
+  "types": "lib/types/index.d.ts",
+  "source": "src/index.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 12.16.0"
@@ -26,15 +27,11 @@
     "package.json"
   ],
   "scripts": {
-    "prebuild": "yarn lint:fix && rimraf *.tsbuildinfo lib/",
-    "build": "tsc -b tsconfig.json",
-    "postbuild": "rimraf lib/**/*.tsbuildinfo",
-    "lint:fix": "eslint 'src/**/*.ts' --fix",
+    "start": "rollup -w -c rollup.config.js",
+    "prebuild": "rimraf lib/",
+    "build": "rollup -c rollup.config.js",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "prepublishOnly": "yarn build"
-  },
-  "peerDependencies": {
-    "@types/webpack": "^4.41.6",
-    "webpack": "^4.41.6"
   },
   "dependencies": {
     "@babel/core": "^7.8.6",
@@ -49,9 +46,15 @@
     "strip-ansi": "^6.0.0",
     "text-table": "^0.2.0"
   },
-  "devDependencies": {
-    "@barusu/eslint-config": "^0.0.1",
+  "peerDependencies": {
     "@types/webpack": "^4.41.6",
+    "webpack": "^4.41.6"
+  },
+  "devDependencies": {
+    "@barusu/eslint-config": "^0.0.3",
+    "@barusu/rollup-config": "^0.0.3",
+    "@types/webpack": "^4.41.6",
+    "rollup": "^1.31.1",
     "webpack": "^4.41.6"
   }
 }

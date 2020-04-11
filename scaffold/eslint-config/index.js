@@ -1,4 +1,4 @@
-export = {
+module.exports = {
   'extends': [
     'react-app',
     'plugin:@typescript-eslint/recommended',
@@ -26,6 +26,7 @@ export = {
     'node_modules/',
     '*.tsbuildinfo',
     '**/*.styl.d.ts',
+    "rollup.config.js"
   ],
   'rules': {
     'class-methods-use-this': 0,

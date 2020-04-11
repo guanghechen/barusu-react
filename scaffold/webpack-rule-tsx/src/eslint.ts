@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import webpack from 'webpack'
 import { EslintLoaderOptions } from './types/eslint-loader'
+import eslintFormatter from './util/eslint-formtter'
 
 
 export interface EslintRuleProps extends webpack.RuleSetRule {
@@ -27,7 +28,7 @@ export function calcEslintRule(props: EslintRuleProps): webpack.RuleSetRule {
          * eslint-loader cannot use string formatter
          * @see https://github.com/webpack-contrib/eslint-loader/issues/289
          */
-        formatter: require('@barusu-react/webpack-rule-tsx/lib/util/eslint-formtter.js').default,
+        formatter: eslintFormatter,
         ...eslintOptions
       },
     }
