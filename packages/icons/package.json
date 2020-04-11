@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/icons",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "lemon-clown",
     "url": "https://github.com/lemon-clown/"
@@ -46,8 +46,8 @@
     "react": "^16.13.0"
   },
   "devDependencies": {
-    "@barusu-react/eslint-config": "^0.0.2",
-    "@barusu-react/rollup-config": "^0.0.2",
+    "@barusu-react/eslint-config": "^0.0.3",
+    "@barusu-react/rollup-config": "^0.0.3",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.23",
     "classnames": "^2.2.6",
