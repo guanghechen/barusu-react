@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/rollup-config",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "rollup for react+ts+stylus",
   "author": {
     "name": "lemon-clown",
@@ -41,7 +41,7 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@barusu-react/rollup-plugin-postcss-dts": "^0.0.3",
+    "@barusu-react/rollup-plugin-postcss-dts": "^0.0.4",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-multi-entry": "^3.0.0",
     "@rollup/plugin-node-resolve": "^7.1.1",
