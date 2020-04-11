@@ -49,8 +49,8 @@
     "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.4",
-    "@barusu/rollup-config": "^0.0.4",
+    "@barusu/eslint-config": "^0.0.5",
+    "@barusu/rollup-config": "^0.0.5",
     "@types/webpack": "^4.41.6",
     "@types/webpack-dev-server": "^3.10.0",
     "rollup": "^1.31.1",
