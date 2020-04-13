@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { RouteTreeComponentProps, RouteTreeComponent } from '../component/tree'
+import { RouteTreeComponent, RouteTreeComponentProps } from '../component/tree'
 import classes from '../style/index.styl'
 
 
