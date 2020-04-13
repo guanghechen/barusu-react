@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import { coverBoolean } from '@barusu/option-util'
 import { Env as BaseEnv, } from '@barusu-react/webpack-util'
 import { CssRuleProps, StylusRuleProps } from '@barusu-react/webpack-rule-css'
-import { TsxRuleProps } from '@barusu-react/webpack-rule-tsx'
+import { TsxRuleProps, OutsideJsRuleProps } from '@barusu-react/webpack-rule-tsx'
 import { DevelopmentEnv, RawDevelopmentEnv, resolveDevelopmentEnv } from './env-development'
 import { ProductionEnv, RawProductionEnv, resolveProductionEnv } from './env-production'
 
@@ -46,6 +46,7 @@ export interface Env extends BaseEnv {
     cssRuleOptionsHook: (params: HookParams) => Partial<CssRuleProps>[]
     stylusRuleOptionsHook: (params: HookParams) => Partial<StylusRuleProps>[]
     tsxRuleOptionsHook: (params: HookParams) => Partial<TsxRuleProps>[]
+    outsideJsRuleOptionHook: (params: HookParams) => Partial<OutsideJsRuleProps>[]
     /**
      * 创建额外的配置项，插入到 module.rule.rules.$.oneOf 的 fallback 之前
      */
@@ -66,6 +67,7 @@ export interface RawEnv extends Partial<Omit<BaseEnv, 'development' | 'productio
     cssRuleOptionsHook?: (params: HookParams) => (Partial<CssRuleProps> | false)[]
     stylusRuleOptionsHook?: (params: HookParams) => (Partial<StylusRuleProps> | false)[]
     tsxRuleOptionsHook?: (params: HookParams) => (Partial<TsxRuleProps> | false)[]
+    outsideJsRuleOptionHook?: (params: HookParams) => (Partial<TsxRuleProps> | false)[]
     additionalRulesHook?: (params: HookParams) => (webpack.RuleSetRule | false)[]
     additionalPluginsHook?: (params: HookParams) => (webpack.Plugin | false)[]
   }
@@ -78,6 +80,7 @@ export function resolveEnv(rawEnv: RawEnv): Env {
     cssRuleOptionsHook = () => [],
     stylusRuleOptionsHook = () => [],
     tsxRuleOptionsHook = () => [],
+    outsideJsRuleOptionHook = () => [],
     additionalRulesHook = () => [],
     additionalPluginsHook = () => [],
   } = webpackOptions
@@ -88,8 +91,8 @@ export function resolveEnv(rawEnv: RawEnv): Env {
   const development: DevelopmentEnv = resolveDevelopmentEnv(rawEnv.manifest, rawEnv.development || {})
   const production: ProductionEnv = resolveProductionEnv(rawEnv.manifest, rawEnv.production || {})
 
-  const filterFalses = <T> (hook: (params: HookParams) => (T | false)[]) => {
-    return  (params: HookParams): T[] =>  (
+  const filterEmptyHooks = <T>(hook: (params: HookParams) => (T | false)[]) => {
+    return (params: HookParams): T[] => (
       hook(params).filter(Boolean) as T[]
     )
   }
@@ -101,11 +104,12 @@ export function resolveEnv(rawEnv: RawEnv): Env {
     development,
     production,
     webpackOptions: {
-      cssRuleOptionsHook: filterFalses(cssRuleOptionsHook),
-      stylusRuleOptionsHook: filterFalses(stylusRuleOptionsHook),
-      tsxRuleOptionsHook: filterFalses(tsxRuleOptionsHook),
-      additionalRulesHook: filterFalses(additionalRulesHook),
-      additionalPluginsHook: filterFalses(additionalPluginsHook),
+      cssRuleOptionsHook: filterEmptyHooks(cssRuleOptionsHook),
+      stylusRuleOptionsHook: filterEmptyHooks(stylusRuleOptionsHook),
+      tsxRuleOptionsHook: filterEmptyHooks(tsxRuleOptionsHook),
+      outsideJsRuleOptionHook: filterEmptyHooks(outsideJsRuleOptionHook),
+      additionalRulesHook: filterEmptyHooks(additionalRulesHook),
+      additionalPluginsHook: filterEmptyHooks(additionalPluginsHook),
     },
   }
 }

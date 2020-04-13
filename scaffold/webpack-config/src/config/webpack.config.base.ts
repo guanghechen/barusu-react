@@ -58,8 +58,13 @@ export function createBaseWebpackConfig({
   const cssRuleOptions = env.webpackOptions.cssRuleOptionsHook(hookParams)
   const stylusRuleOptions = env.webpackOptions.stylusRuleOptionsHook(hookParams)
   const tsxRuleOptions = env.webpackOptions.tsxRuleOptionsHook(hookParams)
+  const outsideJsRuleOptions = env.webpackOptions.outsideJsRuleOptionHook(hookParams)
   const additionalRules = env.webpackOptions.additionalRulesHook(hookParams)
   const additionalPlugins = env.webpackOptions.additionalPluginsHook(hookParams)
+
+  if (tsxRuleOptions.length > 0 && outsideJsRuleOptions.length <= 0) {
+    outsideJsRuleOptions.push({})
+  }
 
   return {
     mode,
@@ -157,8 +162,15 @@ export function createBaseWebpackConfig({
             }),
             // process any JS outside of the app with Babel.
             // unlike the application JS, we only compile the standard ES features.
-            tsxRuleOptions.length > 0 && calcOutsideJsRule({
-              shouldUseSourceMap: shouldUseSourceMap,
+            ...outsideJsRuleOptions.map(outsideJsRuleOption => {
+              return calcOutsideJsRule({
+                shouldUseSourceMap: shouldUseSourceMap,
+                include: [
+                  paths.source.src,
+                  /[\s\S]*node_modules/,
+                ],
+                ...outsideJsRuleOption,
+              })
             }),
             ...cssRuleOptions.map(cssRuleOptions => {
               return calcCssRule({
