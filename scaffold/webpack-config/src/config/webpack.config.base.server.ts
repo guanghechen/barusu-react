@@ -40,6 +40,10 @@ export function createBaseWebpackServerConfig({ env, paths }: Params): Configura
     disableHostCheck: env.development.server.disableHostCheck,
     watchOptions: {
       ignored: ignoredFiles(paths.source.src),
+
+      // see https://stackoverflow.com/questions/40573774/webpack-hot-reloading-enoent-no-such-file-or-directory
+      aggregateTimeout: 300,
+      poll: 1000
     },
     index: 'index.html',
     historyApiFallback: {

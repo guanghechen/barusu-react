@@ -33,7 +33,7 @@
     "prebuild": "rimraf lib/",
     "build": "rollup -c rollup.config.js",
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build"
   },
   "dependencies": {
     "css-loader": "^3.4.2",
@@ -57,9 +57,10 @@
     "stylus-loader": "^3.0.2"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.4",
-    "@barusu/rollup-config": "^0.0.4",
+    "@barusu/eslint-config": "^0.0.7",
+    "@barusu/rollup-config": "^0.0.7",
     "@types/webpack": "^4.41.6",
+    "cross-env": "^7.0.2",
     "rollup": "^1.31.1",
     "webpack": "^4.41.6"
   }

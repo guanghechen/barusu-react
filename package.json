@@ -17,13 +17,16 @@
     "node": ">= 12.16.0"
   },
   "scripts": {
+    "pre:publish": "yarn find-inconsistent && yarn sort-imports",
     ":publish": "lerna publish",
     "bootstrap": "lerna bootstrap",
     "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
     "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
-    "clean": "lerna clean --yes",
+    "clean": "lerna clean --yes && yarn install",
+    "rebuild": "lerna exec -- 'rimraf lib/' && yarn build",
     "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
-    "find-inconsistent": "find-inconsistent"
+    "find-inconsistent": "find-inconsistent",
+    "sort-imports": "sort-imports 'packages/**/src/**/*.{ts,tsx}' --log-level=verbose"
   },
   "workspaces": [
     "packages/*",
@@ -31,7 +34,8 @@
     "stage/laputa"
   ],
   "devDependencies": {
-    "@barusu/tool-find-inconsistent-packages": "^0.0.4",
+    "@barusu/tool-find-inconsistent-packages": "^0.0.7",
+    "@barusu/tool-sort-imports": "^0.0.7",
     "@types/classnames": "^2.2.9",
     "@types/node": "^13.7.6",
     "@types/react": "^16.9.23",
@@ -40,7 +44,7 @@
     "@types/webpack": "^4.41.6",
     "@types/webpack-dev-server": "^3.10.0",
     "classnames": "^2.2.6",
-    "cross-env": "^7.0.0",
+    "cross-env": "^7.0.2",
     "lerna": "^3.20.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

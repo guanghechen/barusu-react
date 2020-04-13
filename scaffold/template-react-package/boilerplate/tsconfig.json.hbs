@@ -1,12 +1,8 @@
 {
-  "extends": "../../tsconfig.settings",
+  "extends": "{{{tsconfigExtends}}}",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "lib",
-    "declarationDir": "lib/types",
-    "target": "es2015",
-    "module": "es2015",
-    "jsx": "react",
+    "target": "es5",
+    "module": "commonjs",
     "lib": [
       "esnext",
       "dom",
@@ -14,6 +10,8 @@
     ]
   },
   "include": [
-    "src"
+    "src",
+    "script",
+    "test"
   ]
 }

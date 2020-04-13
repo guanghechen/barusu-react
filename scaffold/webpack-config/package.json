@@ -39,14 +39,14 @@
     "prebuild": "rimraf lib/",
     "build": "rollup -c rollup.config.js",
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build"
   },
   "dependencies": {
     "@barusu-react/webpack-rule-css": "^0.0.4",
     "@barusu-react/webpack-rule-tsx": "^0.0.4",
     "@barusu-react/webpack-util": "^0.0.4",
-    "@barusu/option-util": "^0.0.4",
-    "@barusu/webpack-source-map-loader": "^0.0.4",
+    "@barusu/option-util": "^0.0.7",
+    "@barusu/webpack-source-map-loader": "^0.0.7",
     "@teamsupercell/typings-for-css-modules-loader": "^2.1.0",
     "@types/case-sensitive-paths-webpack-plugin": "^2.1.4",
     "@types/copy-webpack-plugin": "^5.0.0",
@@ -76,8 +76,9 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.4",
-    "@barusu/rollup-config": "^0.0.4",
+    "@barusu/eslint-config": "^0.0.7",
+    "@barusu/rollup-config": "^0.0.7",
+    "cross-env": "^7.0.2",
     "rollup": "^1.31.1"
   }
 }

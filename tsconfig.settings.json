@@ -1,63 +1,32 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": false,
-    "alwaysStrict": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "newLine": "LF",
-    "removeComments": false,
-    "composite": true,
-    "declarationMap": true,
-    "declaration": true,
-    "sourceMap": true,
-    "pretty": false,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "downlevelIteration": true,
-    "baseUrl": ".",
-    "paths": {
-      "@barusu-react/hello-world": [
-        "./packages/hello-world"
-      ],
-      "@barusu-react/icons": [
-        "./packages/icons"
-      ],
-      "@barusu-react/route-tree": [
-        "./packages/route-tree"
-      ],
-      "@barusu-react/eslint-config": [
-        "./scaffold/eslint-config"
-      ],
-      "@barusu-react/rollup-config": [
-        "./scaffold/rollup-config"
-      ],
-      "@barusu-react/rollup-plugin-postcss-dts": [
-        "./scaffold/rollup-plugin-postcss-dts"
-      ],
-      "@barusu-react/template-react-package": [
-        "./scaffold/template-react-package"
-      ],
-      "@barusu-react/webpack-rule-css": [
-        "./scaffold/webpack-rule-css"
-      ],
-      "@barusu-react/webpack-rule-tsx": [
-        "./scaffold/webpack-rule-tsx"
-      ],
-      "@barusu-react/webpack-util": [
-        "./scaffold/webpack-util"
-      ],
-      "@barusu-react/stage-laputa": [
-        "./stage/laputa"
-      ],
-    }
+    "jsx": "react",
+    "moduleResolution": "node",
+    "newLine": "LF",
+    "noEmit": false,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": true,
+    "noImplicitUseStrict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "pretty": false,
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "suppressImplicitAnyIndexErrors": true
   }
 }
