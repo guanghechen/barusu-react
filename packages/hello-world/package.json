@@ -54,6 +54,7 @@
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.23",
     "classnames": "^2.2.6",
+    "cross-env": "^7.0.2",
     "react": "^16.13.0",
     "rollup": "^1.31.1",
     "stylus": "^0.54.7"
