@@ -1024,6 +1024,17 @@
     chalk "^3.0.0"
     fs-extra "^8.1.0"
 
+"@barusu/tool-sort-imports@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@barusu/tool-sort-imports/-/tool-sort-imports-0.0.5.tgz#38d5ac530313b2ba770d8e12d8877990e7c09b47"
+  integrity sha512-yBzxLaU8YT3IVJECZbpxWjIvg5CD7rHh3oEno8gEc+MhfeJ9P7Sf6RjEz5t7ME2lI/XSrgnwrqdVAbnDae+Tng==
+  dependencies:
+    "@types/fs-extra" "^8.1.0"
+    "@types/minimist" "^1.2.0"
+    chalk "^3.0.0"
+    fs-extra "^8.1.0"
+    minimist "^1.2.5"
+
 "@barusu/webpack-source-map-loader@^0.0.5":
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/@barusu/webpack-source-map-loader/-/webpack-source-map-loader-0.0.5.tgz#c8747a8dc5831dc55d6cdfed884a4d585c72b28e"
@@ -2311,6 +2322,11 @@
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
+
+"@types/minimist@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
+  integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
 "@types/node@*", "@types/node@>= 8", "@types/node@^13.7.6":
   version "13.9.1"
