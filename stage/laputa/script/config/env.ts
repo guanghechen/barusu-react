@@ -68,7 +68,11 @@ export const env: RawEnv = {
       }
     ],
     tsxRuleOptionsHook: ({ isEnvDevelopment }) => [{
-      include: undefined,
+      include: [
+        paths.source.src,
+        /@barusu\//,
+        /@barusu-react\//,
+      ],
       babelLoaderOptions: {
         sourceMaps: isEnvDevelopment,
       }
