@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import path from 'path'
 import chalk from 'chalk'
+import path from 'path'
 import webpack from 'webpack'
 import { currentDate } from './current-date'
+
+
 const clearConsole = require('react-dev-utils/clearConsole')
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')

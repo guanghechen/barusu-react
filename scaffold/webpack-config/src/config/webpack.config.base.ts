@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/camelcase */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import path from 'path'
-import webpack from 'webpack'
-import TsConfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { calcCssRule, calcStylusRule } from '@barusu-react/webpack-rule-css'
-import { calcOutsideJsRule, calcEslintRule, calcTsxRule } from '@barusu-react/webpack-rule-tsx'
+import { calcEslintRule, calcOutsideJsRule, calcTsxRule } from '@barusu-react/webpack-rule-tsx'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import path from 'path'
+import TsConfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
+import webpack from 'webpack'
 import { Env } from './env'
-import { Paths, PagePathsItem, EntryPathsItem } from './paths'
+import { EntryPathsItem, PagePathsItem, Paths } from './paths'
+
+
 const resolve = require('resolve')
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin')
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin')

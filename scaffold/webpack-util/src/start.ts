@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import Ora from 'ora'
 import chalk from 'chalk'
+import Ora from 'ora'
 import webpack from 'webpack'
 import webpackDevServer from 'webpack-dev-server'
-import { currentDate } from './util/current-date'
-import { checkRequiredFiles } from './util/check-required-files'
-import { createCompiler } from './util/create-compiler'
 import { Env } from './types/env'
 import { Paths } from './types/paths'
+import { checkRequiredFiles } from './util/check-required-files'
+import { createCompiler } from './util/create-compiler'
+import { currentDate } from './util/current-date'
+
+
 const openBrowser = require('react-dev-utils/openBrowser')
 const { checkBrowsers } = require('react-dev-utils/browsersHelper')
 const { choosePort, prepareUrls } = require('react-dev-utils/WebpackDevServerUtils')

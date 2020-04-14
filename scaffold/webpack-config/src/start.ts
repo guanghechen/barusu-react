@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import { start as baseStart } from '@barusu-react/webpack-util'
 import webpack from 'webpack'
 import webpackDevServer from 'webpack-dev-server'
-import { start as baseStart } from '@barusu-react/webpack-util'
 import { RawEnv, resolveEnv } from './config/env'
 import { Paths } from './config/paths'
 import { createBaseDevWebConfig } from './config/webpack.config.base.dev'

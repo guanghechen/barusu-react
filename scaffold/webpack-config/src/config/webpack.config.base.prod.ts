@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/camelcase */
 /* eslint-disable @typescript-eslint/no-var-requires */
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import fs from 'fs-extra'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import merge from 'webpack-merge'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { Env } from './env'
-import { Paths, PagePathsItem } from './paths'
+import { PagePathsItem, Paths } from './paths'
 import { createBaseWebpackConfig } from './webpack.config.base'
+
+
 const TerserPlugin = require('terser-webpack-plugin')
 const safePostCssParser = require('postcss-safe-parser')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')

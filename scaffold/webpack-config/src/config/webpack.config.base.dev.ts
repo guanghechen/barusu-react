@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import merge from 'webpack-merge'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
 import { Env } from './env'
 import { PagePathsItem, Paths } from './paths'
 import { createBaseWebpackConfig } from './webpack.config.base'
+
+
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
 
 

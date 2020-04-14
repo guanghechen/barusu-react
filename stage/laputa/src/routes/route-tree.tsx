@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouteTreeNodeData, RouteTree } from '@barusu-react/route-tree'
+import { RouteTree, RouteTreeNodeData } from '@barusu-react/route-tree'
 import { RouteItemData } from '../app'
 
 

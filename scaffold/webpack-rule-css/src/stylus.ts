@@ -1,7 +1,7 @@
 import webpack from 'webpack'
+import { CssRuleProps, calcCssRule } from './css'
 import { ResolveUrlLoaderOptions } from './types/resolve-url-loader'
 import { StylusLoaderOptions } from './types/stylus-loader'
-import { CssRuleProps, calcCssRule } from './css'
 
 
 export interface StylusRuleProps extends CssRuleProps {
