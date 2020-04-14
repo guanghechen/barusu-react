@@ -982,10 +982,20 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@barusu/eslint-config@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@barusu/eslint-config/-/eslint-config-0.0.7.tgz#3a26149342efca9d8aca51b8ce58ceb65fbdd400"
-  integrity sha512-jmt1+ZZ0D1g21uFaJaGmAfL0jWszkak5A++9XfNF9/gpbHgQPhDGk/wSsZgz3PgjVr5j+4iTOlKTK9QcpfMHyQ==
+"@barusu/chalk-logger@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@barusu/chalk-logger/-/chalk-logger-0.0.8.tgz#e3b2efb814758155f75feb6656597c9736cb5f48"
+  integrity sha512-oIp+c2Xn0TVv1psKSEKQ5FwKTCwo9amrfw7dvZltwRMl6l+UyDBTFSQzECn8KuYnxo6cRREp0zyPyWpCf3O9eA==
+  dependencies:
+    "@types/fs-extra" "^8.1.0"
+    chalk "^3.0.0"
+    fs-extra "^8.1.0"
+    moment "^2.24.0"
+
+"@barusu/eslint-config@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@barusu/eslint-config/-/eslint-config-0.0.8.tgz#534159c1831251289698f42395b44657b8e4a64d"
+  integrity sha512-lREZ0DuXKUshDvqzM+qtZFqwZ8iYKI/U7Mb9vnvfPHn7Zf5j7ma/FD6NtKrixDqdUIQLVbi2p6qCuPIgcRVdzg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.16.0"
     "@typescript-eslint/parser" "^2.16.0"
@@ -995,50 +1005,51 @@
     eslint-plugin-prettier "^3.1.2"
     prettier "^1.19.1"
 
-"@barusu/option-util@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@barusu/option-util/-/option-util-0.0.7.tgz#e11c45b36449198f60ef4eedbbd72000c7eea88d"
-  integrity sha512-qbrOprp0SbHG67oBoNkCRDN11vejcXvsFpl33l16DGke5aWSQAulV1bzaLeTinuFH5UaZwCSIHm/APVgu9WN1g==
+"@barusu/option-util@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@barusu/option-util/-/option-util-0.0.8.tgz#817d47a7b343c40a1484bd656aac72d5c2137551"
+  integrity sha512-siaxkokW3Z3hFEDcaM4mPYkKmrMko7AhMT7rFOrZbfYXQGnq0cDbFeK6luZYD7Jxz054alK2IreJ9WL/Y/VNEw==
 
-"@barusu/rollup-config@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@barusu/rollup-config/-/rollup-config-0.0.7.tgz#061a89f575a51ef3c41c1c829e7a7885919f8bd0"
-  integrity sha512-+XXSn/jDhxxSAwDngmXGDhGbcn/aZsdFWko9FqxgHiL8cNRZadbqaRx+eSO0WMnYNA/N23AXcHhz1yt3KyvxHA==
+"@barusu/rollup-config@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@barusu/rollup-config/-/rollup-config-0.0.8.tgz#57e0382a9be027cf5feb5008a3c4f983a879b89b"
+  integrity sha512-r11iZK6I9P24up9g+M9dk7kvykM26seIGA/LUX3N/oqawBKpWNlPJAqG2bEpNIyqcg1T/bDSxK9If2HtHHLKng==
   dependencies:
-    "@rollup/plugin-commonjs" "^11.0.2"
-    "@rollup/plugin-node-resolve" "^7.1.1"
+    "@rollup/plugin-commonjs" "^11.1.0"
+    "@rollup/plugin-json" "^4.0.2"
+    "@rollup/plugin-node-resolve" "^7.1.3"
     "@types/eslint" "^6.1.8"
     "@types/rollup-plugin-peer-deps-external" "^2.2.0"
     builtin-modules "^3.1.0"
-    rollup "^1.31.1"
+    rollup "^2.6.1"
     rollup-plugin-eslint "^7.0.0"
     rollup-plugin-peer-deps-external "^2.2.2"
-    rollup-plugin-typescript2 "^0.26.0"
+    rollup-plugin-typescript2 "^0.27.0"
 
-"@barusu/tool-find-inconsistent-packages@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@barusu/tool-find-inconsistent-packages/-/tool-find-inconsistent-packages-0.0.7.tgz#a372ad576579e007da314e0b0b01058a6f341326"
-  integrity sha512-Wo0I7JOgfqR3kYi66gFCck67mBtQloX1xprPolU0s8SZeEJjiKYyTcUwZqxcsOJOjyqR8QEIRhE96BYCG8LOpw==
+"@barusu/tool-find-inconsistent-packages@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@barusu/tool-find-inconsistent-packages/-/tool-find-inconsistent-packages-0.0.8.tgz#3f7bf71bb46a369b4bba5d0fd7ae7986f8d355d6"
+  integrity sha512-/4R2HY5jIXVvaxFyrFnHiAgguzBmTgcbgzk3PfBEwYzG40QW4pHg9v/VTb9DPbwYRbo6TMBAc1PedCJ9s2eCFg==
   dependencies:
+    "@barusu/chalk-logger" "^0.0.8"
     "@types/fs-extra" "^8.1.0"
-    chalk "^3.0.0"
+    commander "^5.0.0"
     fs-extra "^8.1.0"
 
-"@barusu/tool-sort-imports@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@barusu/tool-sort-imports/-/tool-sort-imports-0.0.7.tgz#986ceb1169a2bb7011e5567e539510de56919709"
-  integrity sha512-4tFzR1ufvTHZgUvj5BIIic69nlNU+6EtSN5yf4QpcAcyHw//VJD5VK5aVlQNtvjcx/YFZWkeiMz+KJsdbdwhKQ==
+"@barusu/tool-sort-imports@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@barusu/tool-sort-imports/-/tool-sort-imports-0.0.8.tgz#6349b6a9dda7f7ac07131837386c911a25cf5f35"
+  integrity sha512-Hl2Vh3U7zrd056vHHemIXsTluhIXJhWdBlrEeMS15mZzlAGqYbPWtcBaPhWPDF89SDAh2EPBEUv0JbhkJ8KdkQ==
   dependencies:
+    "@barusu/chalk-logger" "^0.0.8"
     "@types/fs-extra" "^8.1.0"
-    "@types/minimist" "^1.2.0"
-    chalk "^3.0.0"
+    commander "^5.0.0"
     fs-extra "^8.1.0"
-    minimist "^1.2.5"
 
-"@barusu/webpack-source-map-loader@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@barusu/webpack-source-map-loader/-/webpack-source-map-loader-0.0.7.tgz#8fa085f010ca1901eb57fc827653b73a1e7517ac"
-  integrity sha512-n0ozRqyMD2pQtciUhT8mw1niSfRhOGf6Qo0OArKeq47tb9s7FXbyxdtu3UZAYiQCPLCW0Pgiju9MCLGFv2rCBw==
+"@barusu/webpack-source-map-loader@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@barusu/webpack-source-map-loader/-/webpack-source-map-loader-0.0.8.tgz#15706402694a346bf2a8f9784d78671f7e77e319"
+  integrity sha512-QBSUq4w3UN24As2Hjfbnj7PPem2bGJxd/P68JeY8L3wIg/armVYOybvRLZyC+QHEk4Qs0vSGlF+icQPaEwR3vw==
   dependencies:
     cross-env "^7.0.2"
     loader-utils "^2.0.0"
@@ -1950,6 +1961,26 @@
     magic-string "^0.25.2"
     resolve "^1.11.0"
 
+"@rollup/plugin-commonjs@^11.1.0":
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-11.1.0.tgz#60636c7a722f54b41e419e1709df05c7234557ef"
+  integrity sha512-Ycr12N3ZPN96Fw2STurD21jMqzKwL9QuFhms3SD7KKRK7oaXUsBU9Zt0jL/rOPHiPYisI21/rXGO3jr9BnLHUA==
+  dependencies:
+    "@rollup/pluginutils" "^3.0.8"
+    commondir "^1.0.1"
+    estree-walker "^1.0.1"
+    glob "^7.1.2"
+    is-reference "^1.1.2"
+    magic-string "^0.25.2"
+    resolve "^1.11.0"
+
+"@rollup/plugin-json@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-json/-/plugin-json-4.0.2.tgz#482185ee36ac7dd21c346e2dbcc22ffed0c6f2d6"
+  integrity sha512-t4zJMc98BdH42mBuzjhQA7dKh0t4vMJlUka6Fz0c+iO5IVnWaEMiYBy1uBj9ruHZzXBW23IPDGL9oCzBkQ9Udg==
+  dependencies:
+    "@rollup/pluginutils" "^3.0.4"
+
 "@rollup/plugin-multi-entry@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-multi-entry/-/plugin-multi-entry-3.0.0.tgz#3ad496146f4c792cc07d647cdcb407f74831c293"
@@ -1968,12 +1999,32 @@
     is-module "^1.0.0"
     resolve "^1.14.2"
 
+"@rollup/plugin-node-resolve@^7.1.3":
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-7.1.3.tgz#80de384edfbd7bfc9101164910f86078151a3eca"
+  integrity sha512-RxtSL3XmdTAE2byxekYLnx+98kEUOrPHF/KRVjLH+DEIHy6kjIw7YINQzn+NXiH/NTrQLAwYs0GWB+csWygA9Q==
+  dependencies:
+    "@rollup/pluginutils" "^3.0.8"
+    "@types/resolve" "0.0.8"
+    builtin-modules "^3.1.0"
+    is-module "^1.0.0"
+    resolve "^1.14.2"
+
 "@rollup/pluginutils@^3.0.0", "@rollup/pluginutils@^3.0.6":
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.0.8.tgz#4e94d128d94b90699e517ef045422960d18c8fde"
   integrity sha512-rYGeAc4sxcZ+kPG/Tw4/fwJODC3IXHYDH4qusdN/b6aLw5LPUbzpecYbEJh4sVQGPFJxd2dBU4kc1H3oy9/bnw==
   dependencies:
     estree-walker "^1.0.1"
+
+"@rollup/pluginutils@^3.0.4", "@rollup/pluginutils@^3.0.8":
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.0.9.tgz#aa6adca2c45e5a1b950103a999e3cddfe49fd775"
+  integrity sha512-TLZavlfPAZYI7v33wQh4mTP6zojne14yok3DNSLcjoG/Hirxfkonn6icP5rrNWRn8nZsirJBFFpijVOJzkUHDg==
+  dependencies:
+    "@types/estree" "0.0.39"
+    estree-walker "^1.0.1"
+    micromatch "^4.0.2"
 
 "@svgr/babel-plugin-add-jsx-attribute@^5.0.1":
   version "5.0.1"
@@ -2323,11 +2374,6 @@
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
-
-"@types/minimist@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
-  integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
 "@types/node@*", "@types/node@>= 8", "@types/node@^13.7.6":
   version "13.9.1"
@@ -4089,6 +4135,11 @@ commander@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
+
+commander@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-5.0.0.tgz#dbf1909b49e5044f8fdaf0adc809f0c0722bdfd0"
+  integrity sha512-JrDGPAKjMGSP1G0DUoaceEJ3DZgAfr/q6X7FVk4+U5KxUSKviYGM2k6zWkfyyBHy5rAtzgYJFa1ro2O9PtoxwQ==
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -5933,7 +5984,7 @@ find-cache-dir@^2.0.0, find-cache-dir@^2.1.0:
     make-dir "^2.0.0"
     pkg-dir "^3.0.0"
 
-find-cache-dir@^3.2.0:
+find-cache-dir@^3.2.0, find-cache-dir@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/find-cache-dir/-/find-cache-dir-3.3.1.tgz#89b33fad4a4670daa94f855f7fbe31d6d84fe880"
   integrity sha512-t2GDMt3oGC/v+BMwzmllWDuJF/xcDtE5j/fCGbqDD7OLuJkj0cfh1YSA5VKPvwMeLFLNDBkwOKZ2X85jGLVftQ==
@@ -8557,6 +8608,11 @@ modify-values@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
+
+moment@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -11484,6 +11540,17 @@ rollup-plugin-typescript2@^0.26.0:
     rollup-pluginutils "2.8.2"
     tslib "1.10.0"
 
+rollup-plugin-typescript2@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.27.0.tgz#95ff96f9e07d5000a9d2df4d76b548f9a1f83511"
+  integrity sha512-SRKG/Canve3cxBsqhY1apIBznqnX9X/WU3Lrq3XSwmTmFqccj3+//logLXFEmp+PYFNllSVng+f4zjqRTPKNkA==
+  dependencies:
+    "@rollup/pluginutils" "^3.0.8"
+    find-cache-dir "^3.3.1"
+    fs-extra "8.1.0"
+    resolve "1.15.1"
+    tslib "1.11.1"
+
 rollup-pluginutils@2.8.2, rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.7.1:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
@@ -11507,6 +11574,13 @@ rollup@^1.31.1:
     "@types/estree" "*"
     "@types/node" "*"
     acorn "^7.1.0"
+
+rollup@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.6.1.tgz#8354e67caa7b8bf24c2488d9e2f64da2be62eebe"
+  integrity sha512-1RhFDRJeg027YjBO6+JxmVWkEZY0ASztHhoEUEWxOwkh4mjO58TFD6Uo7T7Y3FbmDpRTfKhM5NVxJyimCn0Elg==
+  optionalDependencies:
+    fsevents "~2.1.2"
 
 run-async@^2.2.0, run-async@^2.4.0:
   version "2.4.0"
@@ -12736,7 +12810,7 @@ tslib@1.10.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
-tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@1.11.1, tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
   integrity sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
