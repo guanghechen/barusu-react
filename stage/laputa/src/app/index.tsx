@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
-import cn from 'classnames'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { RouteTreeNodeLabelProps, SidebarRouteTree } from '@barusu-react/route-tree'
+import cn from 'classnames'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import classes from './style.styl'
 
 

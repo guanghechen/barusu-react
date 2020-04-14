@@ -1,5 +1,5 @@
-import { coverBoolean, coverString } from '@barusu/option-util'
 import { ProductionEnv as BaseProductionEnv } from '@barusu-react/webpack-util'
+import { coverBoolean, coverString } from '@barusu/option-util'
 
 
 export interface ProductionEnv extends BaseProductionEnv {

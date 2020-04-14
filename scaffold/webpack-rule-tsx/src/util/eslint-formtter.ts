@@ -1,7 +1,7 @@
 import chalk from 'chalk'
+import { CLIEngine, Linter } from 'eslint'
 import stripAnsi from 'strip-ansi'
 import table from 'text-table'
-import { CLIEngine, Linter } from 'eslint'
 
 
 function isError(message: Linter.LintMessage) {

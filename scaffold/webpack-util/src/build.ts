@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import chalk from 'chalk'
 import fs from 'fs-extra'
 import Ora from 'ora'
-import chalk from 'chalk'
 import webpack from 'webpack'
-import { currentDate } from './util/current-date'
-import { checkRequiredFiles } from './util/check-required-files'
 import { Env } from './types/env'
 import { Paths } from './types/paths'
+import { checkRequiredFiles } from './util/check-required-files'
+import { currentDate } from './util/current-date'
+
+
 const { checkBrowsers } = require('react-dev-utils/browsersHelper')
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')
 const printBuildError = require('react-dev-utils/printBuildError')

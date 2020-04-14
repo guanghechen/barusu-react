@@ -2,9 +2,9 @@
  * rewrite with ts
  * @see https://github.com/facebook/create-react-app/blob/master/packages/react-dev-utils/checkRequiredFiles.js
  */
+import chalk from 'chalk'
 import fs from 'fs'
 import path from 'path'
-import chalk from 'chalk'
 
 
 interface Target {

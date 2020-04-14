@@ -1,26 +1,29 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import rollup from 'rollup'
+import postcss from '@barusu-react/rollup-plugin-postcss-dts'
+import { convertToBoolean, coverBoolean } from '@barusu/option-util'
+import { collectAllDependencies } from '@barusu/package-util'
 import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
 import multiEntry from '@rollup/plugin-multi-entry'
 import nodeResolve from '@rollup/plugin-node-resolve'
-import { coverBoolean, convertToBoolean } from '@barusu/option-util'
-import typescript from 'rollup-plugin-typescript2'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import { eslint } from 'rollup-plugin-eslint'
 import autoprefixer from 'autoprefixer'
-import postcssUrl from 'postcss-url'
 import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
-import postcss from '@barusu-react/rollup-plugin-postcss-dts'
+import postcssUrl from 'postcss-url'
+import rollup from 'rollup'
+import { eslint } from 'rollup-plugin-eslint'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import typescript from 'rollup-plugin-typescript2'
 import {
-  NodeResolveOptions,
-  TypescriptOptions,
   CommonJSOptions,
-  PeerDepsExternalOptions,
   EslintOptions,
+  JsonOptions,
   MultiEntryOptions,
+  NodeResolveOptions,
+  PeerDepsExternalOptions,
   PostcssDtsOptions,
-  PostcssPluginPostcssUrlOptions,
   PostcssPluginAutoprefixerOptions,
+  PostcssPluginPostcssUrlOptions,
+  TypescriptOptions,
 } from './types/options'
 
 
@@ -29,6 +32,11 @@ export interface ProdConfigParams extends rollup.InputOptions {
    * 是否生成 sourceMap （包括 declarationMap）
    */
   useSourceMap: boolean
+  /**
+   * 是否将所有的依赖置为 external
+   * @default true
+   */
+  externalAllDependencies: boolean
   manifest: {
     /**
      * 源文件入口
@@ -87,6 +95,10 @@ export interface ProdConfigParams extends rollup.InputOptions {
      */
     eslintOptions?: EslintOptions,
     /**
+     * options for @rollup/plugin-json
+     */
+    jsonOptions?: JsonOptions,
+    /**
      * options for @rollup/plugin-node-resolve
      */
     nodeResolveOptions?: NodeResolveOptions
@@ -122,15 +134,36 @@ export interface ProdConfigParams extends rollup.InputOptions {
 
 
 export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOptions[] => {
-  const DEFAULT_USE_SOURCE_MAP = coverBoolean(true, convertToBoolean(process.env.ROLLUP_USE_SOURCE_MAP))
+  const DEFAULT_USE_SOURCE_MAP = coverBoolean(
+    true, convertToBoolean(process.env.ROLLUP_USE_SOURCE_MAP))
+  const DEFAULT_EXTERNAL_ALL_DEPENDENCIES = coverBoolean(
+    true, convertToBoolean(process.env.ROLLUP_EXTERNAL_ALL_DEPENDENCIES))
 
   const {
     useSourceMap = DEFAULT_USE_SOURCE_MAP,
+    externalAllDependencies = DEFAULT_EXTERNAL_ALL_DEPENDENCIES,
     manifest,
     preprocessOptions = {},
     pluginOptions = {},
     ...resetInputOptions
   } = props
+
+  const externals: string[] = [
+    'glob',
+    'sync',
+    ...require('builtin-modules'),
+    ...Object.keys(manifest.dependencies || {}),
+  ]
+
+  if (externalAllDependencies) {
+    const dependencies = collectAllDependencies(
+      undefined,
+      Object.keys(manifest.dependencies || {}),
+      undefined,
+      /[\s\S]*/,
+    )
+    externals.push(...dependencies)
+  }
 
   // preprocess task
   const preprocessConfigs: rollup.RollupOptions[] = []
@@ -160,8 +193,8 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
   }
 
   // process task
-  const {  } = props
   const {
+    jsonOptions = {},
     eslintOptions = {},
     nodeResolveOptions = {},
     typescriptOptions = {},
@@ -188,12 +221,7 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         sourcemap: useSourceMap,
       }
     ].filter(Boolean) as rollup.OutputOptions[],
-    external: [
-      'glob',
-      'sync',
-      ...require('builtin-modules'),
-      ...Object.keys(manifest.dependencies || {})
-    ],
+    external: externals.sort().filter((x, i, A) => A.indexOf(x) === i),
     plugins: [
       peerDepsExternal(peerDepsExternalOptions),
       nodeResolve({
@@ -207,6 +235,10 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         include: ['src/**/*{.ts,.tsx}'],
         exclude: ['*.styl.d.ts'],
         ...eslintOptions,
+      }),
+      json({
+        namedExports: true,
+        ...jsonOptions,
       }),
       typescript({
         clean: true,

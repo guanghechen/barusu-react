@@ -1,6 +1,6 @@
 import {
-  Paths as BasePaths,
   EntryPathsItem,
+  Paths as BasePaths,
   SourcePaths,
   TargetPaths,
 } from '@barusu-react/webpack-util'

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import webpack from 'webpack'
 import { build as baseBuild } from '@barusu-react/webpack-util'
+import webpack from 'webpack'
 import { RawEnv, resolveEnv } from './config/env'
 import { Paths } from './config/paths'
 import { createBaseProdWebConfig } from './config/webpack.config.base.prod'

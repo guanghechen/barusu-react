@@ -1,7 +1,7 @@
 import webpack from 'webpack'
+import { CssRuleProps, calcCssRule } from './css'
 import { ResolveUrlLoaderOptions } from './types/resolve-url-loader'
 import { SassLoaderOptions } from './types/sass-loader'
-import { CssRuleProps, calcCssRule } from './css'
 
 
 export interface SassRuleProps extends CssRuleProps {

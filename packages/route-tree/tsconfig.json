@@ -1,17 +1,17 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
     "lib": [
       "esnext",
       "dom",
       "dom.iterable"
-    ]
+    ],
+    "module": "commonjs",
+    "target": "es2015"
   },
   "include": [
-    "src",
-    "script",
-    "test"
+    "src/",
+    "script/",
+    "test/"
   ]
 }

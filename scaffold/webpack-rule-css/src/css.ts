@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import webpack from 'webpack'
 import { CSSLoaderOptions } from './types/css-loader'
-import { StyleLoaderOptions } from './types/style-loader'
-import { PostcssLoaderOptions } from './types/postcss-loader'
 import { MiniCssExtractLoaderOptions } from './types/mini-css-extract-plugin'
+import { PostcssLoaderOptions } from './types/postcss-loader'
+import { StyleLoaderOptions } from './types/style-loader'
 
 
 export interface CssRuleProps extends webpack.RuleSetRule {
