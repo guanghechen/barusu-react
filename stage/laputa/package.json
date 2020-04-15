@@ -50,6 +50,8 @@
     "@barusu-react/eslint-config": "^0.0.6",
     "@barusu-react/webpack-config": "^0.0.6",
     "@barusu/option-util": "^0.0.9",
-    "cross-env": "^7.0.2"
+    "@types/fs-extra": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "fs-extra": "^8.1.0"
   }
 }

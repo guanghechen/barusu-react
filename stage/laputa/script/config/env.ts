@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { coverString } from '@barusu/option-util'
 import { RawEnv } from '@barusu-react/webpack-config'
+import fs from 'fs-extra'
+import path from 'path'
 import { paths } from './paths'
 import manifest from '../../package.json'
 
 
+const babelrc = fs.readJSONSync(path.resolve(__dirname, '../../.babelrc'))
 export const env: RawEnv = {
   manifest,
   useModuleScopePlugin: false,
@@ -68,13 +71,10 @@ export const env: RawEnv = {
       }
     ],
     tsxRuleOptionsHook: ({ isEnvDevelopment }) => [{
-      include: [
-        paths.source.src,
-        /@barusu\//,
-        /@barusu-react\//,
-      ],
+      include: undefined,
       babelLoaderOptions: {
         sourceMaps: isEnvDevelopment,
+        ...babelrc
       }
     }],
     additionalRulesHook: ({ isEnvDevelopment }) => {
