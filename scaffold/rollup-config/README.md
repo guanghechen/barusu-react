@@ -31,7 +31,7 @@
       "devDependencies": {
         "@barusu-react/eslint-config": "^0.0.1",
         "@barusu-react/rollup-config": "^0.0.1",
-        "rollup": "^1.31.1",
+        "rollup": "^2.6.1",
         "stylus": "^0.54.7"
       },
       "browserslist": [

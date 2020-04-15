@@ -139,6 +139,10 @@ export function createBaseWebpackConfig({
         }),
         isEnvDevelopment && env.development.shouldUseSourceMap && {
           test: /\.(js|mjs|jsx|ts|tsx)$/,
+          include: [
+            paths.source.src,
+            (p: string) => !/node_modules/.test(p),
+          ],
           use: ['@barusu/webpack-source-map-loader'],
           enforce: 'pre',
         },
@@ -157,7 +161,10 @@ export function createBaseWebpackConfig({
             },
             ...tsxRuleOptions.map(tsxRuleOptions => {
               return calcTsxRule({
-                include: paths.source.src,
+                include: [
+                  paths.source.src,
+                  (p: string) => !/node_modules/.test(p),
+                ],
                 isEnvProduction,
                 ...tsxRuleOptions,
               })
@@ -167,10 +174,6 @@ export function createBaseWebpackConfig({
             ...outsideJsRuleOptions.map(outsideJsRuleOption => {
               return calcOutsideJsRule({
                 shouldUseSourceMap: shouldUseSourceMap,
-                include: [
-                  paths.source.src,
-                  /[\s\S]*node_modules/,
-                ],
                 ...outsideJsRuleOption,
               })
             }),
