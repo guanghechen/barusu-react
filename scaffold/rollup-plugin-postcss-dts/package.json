@@ -47,7 +47,7 @@
     "@types/rollup-plugin-postcss": "^2.0.0",
     "fs-extra": "^8.1.0",
     "reserved-words": "^0.1.2",
-    "rollup-plugin-postcss": "^2.1.1"
+    "rollup-plugin-postcss": "^2.6.4"
   },
   "devDependencies": {
     "@barusu/eslint-config": "^0.0.9",
