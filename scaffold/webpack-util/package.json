@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/webpack-util",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "webpack util",
   "author": {
     "name": "lemon-clown",
