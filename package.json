@@ -23,7 +23,7 @@
     "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
     "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
     "clean": "lerna clean --yes && yarn install",
-    "rebuild": "lerna exec -- 'rimraf lib/' && yarn build",
+    "rebuild": "lerna exec -- yarn build",
     "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
     "find-inconsistent": "find-inconsistent --log-level=verbose",
     "sort-imports": "sort-imports '{packages,scaffold,stage}/**/src/**/*.{ts,tsx}' --log-level=verbose"
@@ -34,8 +34,8 @@
     "stage/laputa"
   ],
   "devDependencies": {
-    "@barusu/tool-find-inconsistent-packages": "^0.0.9",
-    "@barusu/tool-sort-imports": "^0.0.9",
+    "@barusu/tool-find-inconsistent-packages": "^0.0.11",
+    "@barusu/tool-sort-imports": "^0.0.11",
     "@types/classnames": "^2.2.9",
     "@types/node": "^13.7.6",
     "@types/react": "^16.9.23",

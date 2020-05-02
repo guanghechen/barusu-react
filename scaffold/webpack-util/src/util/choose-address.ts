@@ -8,7 +8,7 @@ import os from 'os'
 export function chooseIpv4Address (prefix = '') {
   const niFaces = os.networkInterfaces()
   for (const iFaces of Object.values(niFaces)) {
-    for (const iFace of Object.values(iFaces)) {
+    for (const iFace of Object.values(iFaces!)) {
       if (iFace.family !== 'IPv4') continue
       if (iFace.address.startsWith(prefix)) return iFace.address
     }

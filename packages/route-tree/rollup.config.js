@@ -28,7 +28,7 @@ const config = createRollupConfig({
         },
         postcssOptions: {
           modules: {
-            camelCase: true,
+            localsConvention: 'camelCase',
           },
         }
       },
@@ -53,7 +53,7 @@ const config = createRollupConfig({
       extract: false,
       minimize: true,
       modules: {
-        camelCase: true,
+        localsConvention: 'camelCase',
         generateScopedName: 'barusu-[local]',
       },
       pluginOptions: {

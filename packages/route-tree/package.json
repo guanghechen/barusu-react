@@ -63,7 +63,7 @@
     "cross-env": "^7.0.2",
     "react": "^16.13.0",
     "react-router-dom": "^5.1.2",
-    "rollup": "^2.6.1",
+    "rollup": "2.6.1",
     "stylus": "^0.54.7"
   },
   "browserslist": [

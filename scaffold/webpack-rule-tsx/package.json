@@ -53,11 +53,11 @@
     "webpack": "^4.41.6"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.9",
-    "@barusu/rollup-config": "^0.0.9",
+    "@barusu/eslint-config": "^0.0.11",
+    "@barusu/rollup-config": "^0.0.11",
     "@types/webpack": "^4.41.6",
     "cross-env": "^7.0.2",
-    "rollup": "^2.6.1",
+    "rollup": "2.6.1",
     "webpack": "^4.41.6"
   }
 }

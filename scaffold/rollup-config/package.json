@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@barusu-react/rollup-plugin-postcss-dts": "^0.0.7",
-    "@barusu/option-util": "^0.0.9",
+    "@barusu/option-util": "^0.0.11",
     "@barusu/package-util": "^0.0.9",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-json": "^4.0.2",
@@ -56,7 +56,7 @@
     "builtin-modules": "^3.1.0",
     "postcss-flexbugs-fixes": "^4.2.0",
     "postcss-url": "^8.0.0",
-    "rollup": "^2.6.1",
+    "rollup": "2.6.1",
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-typescript2": "^0.27.0"
@@ -65,8 +65,8 @@
     "stylus": "^0.54.7"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.9",
-    "@barusu/rollup-config": "^0.0.9",
+    "@barusu/eslint-config": "^0.0.11",
+    "@barusu/rollup-config": "^0.0.11",
     "cross-env": "^7.0.2"
   }
 }
