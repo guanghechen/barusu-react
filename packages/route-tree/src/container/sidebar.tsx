@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Pin as PinIcon } from '@barusu-react/icons'
 import cn from 'classnames'
+import { Pin as PinIcon } from '@barusu-react/icons'
 import { RouteTreeComponent, RouteTreeComponentProps } from '../component/tree'
 import classes from '../style/index.styl'
 
