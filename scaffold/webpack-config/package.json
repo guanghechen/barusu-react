@@ -45,8 +45,8 @@
     "@barusu-react/webpack-rule-css": "^0.0.8",
     "@barusu-react/webpack-rule-tsx": "^0.0.8",
     "@barusu-react/webpack-util": "^0.0.8",
-    "@barusu/option-util": "^0.0.11",
-    "@barusu/webpack-source-map-loader": "^0.0.9",
+    "@barusu/option-util": "^0.0.14",
+    "@barusu/webpack-source-map-loader": "^0.0.14",
     "@teamsupercell/typings-for-css-modules-loader": "^2.1.0",
     "@types/case-sensitive-paths-webpack-plugin": "^2.1.4",
     "@types/copy-webpack-plugin": "^5.0.0",
@@ -76,8 +76,8 @@
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.11",
-    "@barusu/rollup-config": "^0.0.11",
+    "@barusu/eslint-config": "^0.0.14",
+    "@barusu/rollup-config": "^0.0.14",
     "cross-env": "^7.0.2",
     "rollup": "2.6.1"
   }
