@@ -1,0 +1,24 @@
+// @see https://github.com/microsoft/TypeScript/issues/18408#issuecomment-637363118
+// eslint-disable-next-line @typescript-eslint/no-namespace
+export namespace {{{pascalCase stateName}}}ActionTypes {
+  // Fetching {{{lowerCase stateName}}} (requested)
+  export const FETCH_{{{constantCase stateName}}}_REQUESTED = '@{{{kebabCase stateName}}}/FETCH_{{{constantCase stateName}}}/REQUESTED'
+  export type FETCH_{{{constantCase stateName}}}_REQUESTED = typeof FETCH_{{{constantCase stateName}}}_REQUESTED
+
+  // Fetching {{{lowerCase stateName}}} (succeed)
+  export const FETCH_{{{constantCase stateName}}}_SUCCEED = '@{{{kebabCase stateName}}}/FETCH_{{{constantCase stateName}}}/SUCCEED'
+  export type FETCH_{{{constantCase stateName}}}_SUCCEED = typeof FETCH_{{{constantCase stateName}}}_SUCCEED
+
+  // Fetching {{{lowerCase stateName}}} (failed)
+  export const FETCH_{{{constantCase stateName}}}_FAILED = '@{{{kebabCase stateName}}}/FETCH_{{{constantCase stateName}}}/FAILED'
+  export type FETCH_{{{constantCase stateName}}}_FAILED = typeof FETCH_{{{constantCase stateName}}}_FAILED
+}
+
+
+/**
+ * Action types for StoreState.{{{camelCase stateName}}}
+ */
+export type {{{pascalCase stateName}}}ActionTypes =
+  | {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_REQUESTED
+  | {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_SUCCEED
+  | {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_FAILED

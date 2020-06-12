@@ -1,0 +1,21 @@
+import { createActionCreator } from '@/util/action'
+import { {{{pascalCase stateName}}}Actions } from './action'
+import { {{{pascalCase stateName}}}ActionTypes } from './constant'
+
+
+/**
+ * Action creators for StoreState.{{{camelCase stateName}}}
+ */
+export const {{{pascalCase stateName}}}ActionCreators = {
+  // Fetching {{{lowerCase stateName}}} (requested)
+  fetch{{{pascalCase stateName}}}Requested: createActionCreator<{{{pascalCase stateName}}}Actions.Fetch{{{pascalCase stateName}}}Requested>(
+    {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_REQUESTED),
+
+  // Fetching {{{lowerCase stateName}}} (succeed)
+  fetch{{{pascalCase stateName}}}Succeed: createActionCreator<{{{pascalCase stateName}}}Actions.Fetch{{{pascalCase stateName}}}Succeed>(
+    {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_SUCCEED),
+
+  // Fetching {{{lowerCase stateName}}} (failed)
+  fetch{{{pascalCase stateName}}}Failed: createActionCreator<{{{pascalCase stateName}}}Actions.Fetch{{{pascalCase stateName}}}Failed>(
+    {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_FAILED),
+}

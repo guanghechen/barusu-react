@@ -1,0 +1,35 @@
+import { delay, put, takeLatest } from 'redux-saga/effects'
+import { {{{pascalCase stateName}}}ActionCreators, {{{pascalCase stateName}}}ActionTypes, {{{pascalCase stateName}}}Actions } from './actions'
+
+
+/**
+ * fetch {{{lowerCase stateName}}}
+ * @param action
+ */
+export function* fetch{{{pascalCase stateName}}}(action: {{{pascalCase stateName}}}Actions.Fetch{{{pascalCase stateName}}}Requested) {
+  // Analog network delay
+  yield delay(Math.ceil(Math.random() * 3000))
+
+  let nextAction: {{{pascalCase stateName}}}Actions.Fetch{{{pascalCase stateName}}}Succeed | {{{pascalCase stateName}}}Actions.Fetch{{{pascalCase stateName}}}Failed
+  if (Math.random() > 0.5) { // succeed
+    nextAction = {{{pascalCase stateName}}}ActionCreators.fetch{{{pascalCase stateName}}}Succeed({
+
+    })
+  } else { // failed
+    nextAction = {{{pascalCase stateName}}}ActionCreators.fetch{{{pascalCase stateName}}}Failed({
+      code: 701,
+      message: 'failed',
+      error: { code: 701, message: 'failed' },
+    })
+  }
+
+  yield put(nextAction)
+}
+
+
+/**
+ * watch {{{lowerCase stateName}}} actions
+ */
+export function* watch{{{pascalCase stateName}}}Saga() {
+  yield takeLatest({{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_REQUESTED, fetch{{{pascalCase stateName}}})
+}
