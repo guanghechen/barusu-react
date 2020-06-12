@@ -1,0 +1,40 @@
+{
+  "name": "@barusu-react/template-redux-store",
+  "version": "0.0.8",
+  "description": "templates to create a ts package",
+  "author": {
+    "name": "lemon-clown",
+    "url": "https://github.com/lemon-clown/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemon-clown/barusu-react.git"
+  },
+  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/packages/template-redux-store#readme",
+  "main": "index.js",
+  "bin": {
+    "create-redux-state": "./cli.js"
+  },
+  "license": "MIT",
+  "files": [
+    "boilerplate",
+    "cli.js",
+    "index.js",
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map"
+  ],
+  "scripts": {
+    "build": "echo 'no build action needed'",
+    "lint:fix": "echo 'no lint action needed'"
+  },
+  "dependencies": {
+    "change-case": "^4.1.1",
+    "fs-extra": "^8.1.0",
+    "plop": "^2.6.0",
+    "semver-regex": "^3.1.1"
+  }
+}

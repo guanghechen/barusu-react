@@ -1,0 +1,27 @@
+import { produce } from 'immer'
+import { Reducer } from 'redux'
+import { {{{pascalCase stateName}}}ActionTypes, {{{pascalCase stateName}}}Actions } from './actions'
+import { {{{pascalCase stateName}}}State, initial{{{pascalCase stateName}}}State } from './state'
+
+
+export const {{{camelCase stateName}}}Reducer: Reducer<{{{pascalCase stateName}}}State, {{{pascalCase stateName}}}Actions> = (
+  state: {{{pascalCase stateName}}}State = initial{{{pascalCase stateName}}}State,
+  action: {{{pascalCase stateName}}}Actions,
+): {{{pascalCase stateName}}}State => {
+  return produce(state, draftState => {
+    switch (action.type) {
+      case {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_SUCCEED:
+        {
+          // eslint-disable-next-line no-param-reassign
+          // draftState.<something> = <something>
+        }
+        break
+      case {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_FAILED:
+        {
+          const { code, message, error } = action.payload
+          console.error(`[Failed] fetch {{{lowerCase stateName}}}: code(${ code }), message(${ message }), error:`, error)
+        }
+        break
+    }
+  })
+}

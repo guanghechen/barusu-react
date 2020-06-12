@@ -1,0 +1,40 @@
+import { {{{pascalCase stateName}}}ActionTypes } from './constant'
+
+
+// eslint-disable-next-line @typescript-eslint/no-namespace
+export namespace {{{pascalCase stateName}}}Actions {
+  // Action for fetching {{{lowerCase stateName}}} (requested)
+  export interface Fetch{{{pascalCase stateName}}}Requested {
+    type: {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_REQUESTED
+    payload: {
+
+    }
+  }
+
+  // Action for fetching {{{lowerCase stateName}}} (succeed)
+  export interface Fetch{{{pascalCase stateName}}}Succeed {
+    type: {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_SUCCEED
+    payload: {
+
+    }
+  }
+
+  // Action for fetching {{{lowerCase stateName}}} (failed)
+  export interface Fetch{{{pascalCase stateName}}}Failed {
+    type: {{{pascalCase stateName}}}ActionTypes.FETCH_{{{constantCase stateName}}}_FAILED
+    payload: {
+      code: number
+      message: string
+      error?: any
+    }
+  }
+}
+
+
+/**
+ * Actions for touching StoreState.{{{camelCase stateName}}}
+ */
+export type {{{pascalCase stateName}}}Actions =
+  | {{{pascalCase stateName}}}Actions.Fetch{{{pascalCase stateName}}}Requested
+  | {{{pascalCase stateName}}}Actions.Fetch{{{pascalCase stateName}}}Succeed
+  | {{{pascalCase stateName}}}Actions.Fetch{{{pascalCase stateName}}}Failed

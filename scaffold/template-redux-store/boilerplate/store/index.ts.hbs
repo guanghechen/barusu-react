@@ -1,0 +1,60 @@
+import { Middleware, applyMiddleware, compose, createStore } from 'redux'
+import { createLogger } from 'redux-logger'
+import createSagaMiddleware from 'redux-saga'
+import { rootReducer } from './reducer'
+import { rootSaga } from './saga'
+import { StoreState, initialStoreState } from './state'
+
+
+const isEnvDevelopment = process.env.NODE_ENV === 'development'
+
+
+/**
+ * @see https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
+ */
+const composeEnhancers = (() => {
+  const w = window as any
+  if (
+    typeof w === 'object' &&
+    w.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  ) {
+    return w.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      serialize: {
+        options: {
+          symbol: (symbol: symbol) => symbol.description,
+        },
+      },
+    })
+  }
+  return compose
+})()
+
+
+/**
+ * middlewares for redux
+ */
+const sagaMiddleware = createSagaMiddleware()
+const middlewares: Middleware[] = [
+  isEnvDevelopment && createLogger({
+    collapsed: true,
+    duration: true,
+    timestamp: true,
+  }),
+  sagaMiddleware,
+].filter((x): x is Middleware => Boolean(x))
+
+
+const enhancer = composeEnhancers(
+  applyMiddleware(...middlewares),
+)
+
+
+export const store = createStore<StoreState, any, {}, never>(
+  rootReducer,
+  initialStoreState,
+  enhancer,
+)
+
+
+// start sagas
+sagaMiddleware.run(rootSaga)
