@@ -51,7 +51,7 @@ export function createBaseWebpackServerConfig({ env, paths }: Params): Configura
     historyApiFallback: {
       disableDotRule: true,
     },
-    before(app, server) {
+    before(app, server): void {
       // This lets us fetch source contents from webpack for the error overlay
       app.use(evalSourceMapMiddleware(server))
 

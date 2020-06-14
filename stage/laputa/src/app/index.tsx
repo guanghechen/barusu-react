@@ -109,7 +109,7 @@ export function App(props: AppProps): React.ReactElement {
 
   const routes = useMemo(() => {
     const items: RouteItem[] = []
-    const collectRouteItems = (o: RouteItemData) => {
+    const collectRouteItems = (o: RouteItemData): void => {
       items.push({
         name: o.title,
         path: o.pathname,

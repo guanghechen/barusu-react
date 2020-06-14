@@ -44,7 +44,7 @@
     "babel-preset-react-app": "^9.1.1",
     "chalk": "^3.0.0",
     "eslint": "^6.8.0",
-    "eslint-loader": "^3.0.3",
+    "eslint-loader": "^4.0.2",
     "strip-ansi": "^6.0.0",
     "text-table": "^0.2.0"
   },
@@ -53,11 +53,11 @@
     "webpack": "^4.41.6"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.11",
-    "@barusu/rollup-config": "^0.0.11",
+    "@barusu/eslint-config": "^0.0.15",
+    "@barusu/rollup-config": "^0.0.15",
     "@types/webpack": "^4.41.6",
     "cross-env": "^7.0.2",
-    "rollup": "2.6.1",
+    "rollup": "2.16.1",
     "webpack": "^4.41.6"
   }
 }

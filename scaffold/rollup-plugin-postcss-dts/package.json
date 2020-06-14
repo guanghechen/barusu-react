@@ -41,18 +41,18 @@
     "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build"
   },
   "dependencies": {
-    "@barusu/option-util": "^0.0.11",
+    "@barusu/option-util": "^0.0.15",
     "@types/fs-extra": "^8.1.0",
     "@types/reserved-words": "^0.1.0",
-    "@types/rollup-plugin-postcss": "^2.0.0",
     "fs-extra": "^8.1.0",
     "reserved-words": "^0.1.2",
-    "rollup-plugin-postcss": "^3.1.1"
+    "rollup-plugin-postcss": "^3.1.2"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.11",
-    "@barusu/rollup-config": "^0.0.11",
+    "@barusu/eslint-config": "^0.0.15",
+    "@barusu/rollup-config": "^0.0.15",
     "cross-env": "^7.0.2",
-    "rollup": "2.6.1"
+    "rollup": "2.16.1",
+    "rollup-pluginutils": "^2.8.2"
   }
 }

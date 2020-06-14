@@ -31,7 +31,7 @@
       "devDependencies": {
         "@barusu-react/eslint-config": "^0.0.1",
         "@barusu-react/rollup-config": "^0.0.1",
-        "rollup": "2.6.1",
+        "rollup": "2.16.1",
         "stylus": "^0.54.7"
       },
       "browserslist": [
@@ -109,7 +109,6 @@
   * Create rollup configuration `rollup.config.js`
     ```javascript
     import path from 'path'
-    import * as react from 'react'
     import { createRollupConfig } from '@barusu-react/rollup-config'
     import manifest from './package.json'
 
@@ -152,9 +151,6 @@
         },
         commonjsOptions: {
           include: ['./node_modules/**'],
-          namedExports: {
-            'react': Object.keys(react),
-          },
         },
         postcssOptions: {
           extract: false,

@@ -28,8 +28,8 @@ export function RouteTreeComponent(props: RouteTreeComponentProps): React.ReactE
   const {
     nodes,
     foldEmptyPath = false,
-    defaultPathIcon = '',
-    defaultLeafIcon = '',
+    // defaultPathIcon = '',
+    // defaultLeafIcon = '',
   } = props
 
   return (

@@ -52,7 +52,6 @@ module.exports = {
     'react/jsx-indent-props': [2, 2],
     'react/jsx-indent': [2, 2],
     'semi': ['error', 'never'],
-    '@typescript-eslint/explicit-function-return-type': 0,
     "@typescript-eslint/interface-name-prefix": 0,
     '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/no-empty-interface': 0,

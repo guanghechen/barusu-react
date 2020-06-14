@@ -53,10 +53,6 @@
         commonjs({
           include: ['../../node_modules/**'],
           exclude: ['**/*.stories.js'],
-          namedExports: {
-            'react': Object.keys(react),
-            'react-dom': Object.keys(reactDOM),
-          },
         }),
         peerDepsExternal(),
         nodeResolve({

@@ -1,6 +1,4 @@
 import path from 'path'
-import * as react from 'react'
-import * as reactRouterDom from 'react-router-dom'
 import { createRollupConfig } from '@barusu-react/rollup-config'
 import manifest from './package.json'
 
@@ -44,10 +42,6 @@ const config = createRollupConfig({
     },
     commonjsOptions: {
       include: ['../../node_modules/**'],
-      namedExports: {
-        'react': Object.keys(react),
-        'react-router-dom': Object.keys(reactRouterDom)
-      },
     },
     postcssOptions: {
       extract: false,
