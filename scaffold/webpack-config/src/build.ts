@@ -13,7 +13,11 @@ interface Params {
 }
 
 
-export async function build({ env: partialEnv, paths, config: _config }: Params) {
+export async function build({
+  env: partialEnv,
+  paths,
+  config: _config,
+}: Params): Promise<void> {
   const env = resolveEnv(partialEnv)
   const config = _config == null ? createBaseProdWebConfig({ env, paths }) : _config
   return await baseBuild({ env, paths, config })

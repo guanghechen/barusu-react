@@ -4,13 +4,13 @@ import stripAnsi from 'strip-ansi'
 import table from 'text-table'
 
 
-function isError(message: Linter.LintMessage) {
+function isError(message: Linter.LintMessage): boolean {
   if (message.fatal || message.severity === 2) return true
   return false
 }
 
 
-export default function formatter(results: CLIEngine.LintResult[]) {
+export default function formatter(results: CLIEngine.LintResult[]): string {
   let output = '\n'
   let hasErrors = false
   let reportContainsErrorRuleIDs = false

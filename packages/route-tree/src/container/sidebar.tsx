@@ -22,7 +22,7 @@ export interface SidebarRouteTreeProps
  * 封装了侧边栏的 route-tree
  * @param props
  */
-export function SidebarRouteTree(props: SidebarRouteTreeProps) {
+export function SidebarRouteTree(props: SidebarRouteTreeProps): React.ReactElement {
   const {
     visible: defaultVisible = true,
     fixing: defaultFixing = true,
@@ -47,13 +47,13 @@ export function SidebarRouteTree(props: SidebarRouteTreeProps) {
         visible ? classes.sidebarRouteTreeVisible : classes.sidebarRouteTreeHidden,
         { [classes.sidebarRouteTreeFixing]: fixing },
       ) }
-      onMouseEnter={ () => setVisible(true) }
-      onMouseLeave={ () => !fixing && setVisible(false) }
+      onMouseEnter={ (): void => setVisible(true) }
+      onMouseLeave={ (): void => { !fixing && setVisible(false) } }
     >
       <div className={ classes.sidebarRouteTreeHeader }>
         <span
           className={ classes.sidebarRouteTreeHeaderPin }
-          onClick={ () => setFixing(v => !v) }
+          onClick={ (): void => setFixing(v => !v) }
         >
           <PinIcon />
         </span>
@@ -68,7 +68,7 @@ export function SidebarRouteTree(props: SidebarRouteTreeProps) {
       </div>
       <div
         className={ classes.sidebarRouteTreeToggleBtn }
-        onMouseEnter={ () => setVisible(true) }
+        onMouseEnter={ (): void => setVisible(true) }
       >
         <span>Route Tree</span>
       </div>

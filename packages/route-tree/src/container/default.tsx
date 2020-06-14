@@ -13,7 +13,7 @@ export interface RouteTreeProps
  * 默认的 route-tree
  * @param props
  */
-export function RouteTree(props: RouteTreeProps) {
+export function RouteTree(props: RouteTreeProps): React.ReactElement {
   const {
     className,
     children,

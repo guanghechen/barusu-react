@@ -77,12 +77,12 @@ export interface RawEnv extends Partial<Omit<BaseEnv, 'development' | 'productio
 export function resolveEnv(rawEnv: RawEnv): Env {
   const { webpackOptions = {} } = rawEnv
   const {
-    cssRuleOptionsHook = () => [],
-    stylusRuleOptionsHook = () => [],
-    tsxRuleOptionsHook = () => [],
-    outsideJsRuleOptionHook = () => [],
-    additionalRulesHook = () => [],
-    additionalPluginsHook = () => [],
+    cssRuleOptionsHook = (): [] => [],
+    stylusRuleOptionsHook = (): [] => [],
+    tsxRuleOptionsHook = (): [] => [],
+    outsideJsRuleOptionHook = (): [] => [],
+    additionalRulesHook = (): [] => [],
+    additionalPluginsHook = (): [] => [],
   } = webpackOptions
 
 

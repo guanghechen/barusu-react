@@ -21,7 +21,7 @@ export async function start({
   paths,
   config: _config,
   serverConfig: _serverConfig,
-}: Params) {
+}: Params): Promise<void> {
   const env = resolveEnv(partialEnv)
   const config = _config == null ? createBaseDevWebConfig({ env, paths }) : _config
   const serverConfig = _serverConfig == null ? createBaseWebpackServerConfig({ env, paths }) : _serverConfig

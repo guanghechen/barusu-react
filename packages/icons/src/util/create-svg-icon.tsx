@@ -24,7 +24,10 @@ export interface SvgIconProps extends React.SVGAttributes<SVGSVGElement> {
  * @param displayName
  * @see https://github.com/mui-org/material-ui/blob/master/packages/material-ui-icons/src/utils/createSvgIcon.js
  */
-export function createSvgIcon(path: React.ReactElement<SVGElement>, displayName: string) {
+export function createSvgIcon(
+  path: React.ReactElement<SVGElement>,
+  displayName: string
+): React.FunctionComponent {
   const Component = React.memo(
     React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => {
       const {

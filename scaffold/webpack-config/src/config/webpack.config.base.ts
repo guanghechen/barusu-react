@@ -72,7 +72,7 @@ export function createBaseWebpackConfig({
     mode,
     stats: 'errors-only',
     target: 'web',
-    entry: () => {
+    entry: (): webpack.Entry => {
       const resolvedEntries: webpack.Entry = {}
       // create entry by targets.
       for (const target of entries) {
@@ -96,7 +96,7 @@ export function createBaseWebpackConfig({
         : 'js/[name].chunk.js',
       publicPath: env[mode].publicPath,
       // point sourcemap entries to original disk location (format as URL on Windows)
-      devtoolModuleFilenameTemplate: (info: any) => (
+      devtoolModuleFilenameTemplate: (info: any): string => (
         isEnvProduction
           ? path.relative(paths.source.src, path.resolve(info.absoluteResourcePath)).replace(/\\/g, '/')
           : path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
@@ -141,7 +141,7 @@ export function createBaseWebpackConfig({
           test: /\.(js|mjs|jsx|ts|tsx)$/,
           include: [
             paths.source.src,
-            (p: string) => !/node_modules/.test(p),
+            (p: string): boolean => !/node_modules/.test(p),
           ],
           use: ['@barusu/webpack-source-map-loader'],
           enforce: 'pre',
@@ -163,7 +163,7 @@ export function createBaseWebpackConfig({
               return calcTsxRule({
                 include: [
                   paths.source.src,
-                  (p: string) => !/node_modules/.test(p),
+                  (p: string): boolean => !/node_modules/.test(p),
                 ],
                 isEnvProduction,
                 ...tsxRuleOptions,

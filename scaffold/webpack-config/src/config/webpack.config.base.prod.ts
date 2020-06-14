@@ -161,7 +161,7 @@ export function createBaseProdWebConfig({ env, paths }: Params): webpack.Configu
         // Keep the runtime chunk separated to enable long term caching
         // https://twitter.com/wSokra/status/969679223278505985
         // https://github.com/facebook/create-react-app/issues/5358
-        name: entrypoint => `runtime-${entrypoint.name}`,
+        name: (entryPoint): string => `runtime-${entryPoint.name}`,
       },
     },
   })

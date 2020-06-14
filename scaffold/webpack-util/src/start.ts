@@ -29,7 +29,7 @@ export async function start({
   paths,
   config,
   serverConfig,
-}: Params) {
+}: Params): Promise<void> {
   // do this as the first thing so that any code reading it knows the right env.
   process.env.BABEL_ENV = 'development'
   process.env.NODE_ENV = 'development'
@@ -37,7 +37,7 @@ export async function start({
 
   const spinner = Ora()
 
-  async function run() {
+  async function run(): Promise<void> {
     // eslint-disable-next-line prefer-const
     let { hostname, protocol, port } = env.development.server
     await checkBrowsers(paths.source.root, env.isInteractive)
@@ -47,11 +47,11 @@ export async function start({
     const { lanUrlForConfig, localUrlForBrowser } = prepareUrls(protocol, hostname, port)
 
     const devSocket = {
-      warnings: (warnings: any[]) => {
+      warnings: (warnings: any[]): void => {
         const s = server as any
         return s.sockWrite(s.sockets, 'warnings', warnings)
       },
-      errors: (errors: any[]) => {
+      errors: (errors: any[]): void => {
         const s = server as any
         return s.sockWrite(s.sockets, 'errors', errors)
       }

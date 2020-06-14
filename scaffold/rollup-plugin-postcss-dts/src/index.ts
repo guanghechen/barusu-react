@@ -1,12 +1,13 @@
+import { Plugin } from 'rollup'
 import postcss from 'rollup-plugin-postcss'
-import { PostCssPluginOptions as PostcssOptions } from 'rollup-plugin-postcss'
+import { PostCSSPluginConf as PostcssOptions } from 'rollup-plugin-postcss'
 import { CSSDtsProps, createHook } from './css-dts'
 import { GetCSSTokenHook } from './types'
 export * from './css-dts'
 export * from './types'
 
 
-export interface PostcssDtsOptions extends PostcssOptions {
+export type PostcssDtsOptions = PostcssOptions & {
   /**
    * options for generate *.d.ts
    * @default false
@@ -15,7 +16,7 @@ export interface PostcssDtsOptions extends PostcssOptions {
 }
 
 
-export default function (options: PostcssDtsOptions = {}) {
+export default function (options: PostcssDtsOptions = {}): Plugin {
   const { dts = false, modules, ...rest } = options
 
   const hook: GetCSSTokenHook = {}

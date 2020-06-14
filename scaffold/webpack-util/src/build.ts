@@ -46,7 +46,7 @@ export async function build({
   // these sizes are pretty large. we'll warn for bundles exceeding them.
   WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024,
   WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024,
-}: Params) {
+}: Params): Promise<void> {
   // do this as the first thing so that any code reading it knows the right env.
   process.env.BABEL_ENV = 'production'
   process.env.NODE_ENV = 'production'
@@ -60,11 +60,11 @@ export async function build({
   async function run(
     resolve: (data: { stats: any }) => void,
     reject: (error: any) => void
-  ) {
+  ): Promise<void> {
     let timer: NodeJS.Timeout
     const startTime = Date.now()
 
-    const logProcess = (stop?: boolean) => {
+    const logProcess = (stop?: boolean): void => {
       const message = `packing for production.... time used: ${ Date.now() - startTime }ms.`
       if (stop) {
         clearTimeout(timer)
