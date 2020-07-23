@@ -20,7 +20,6 @@
   },
   "files": [
     "lib/",
-    ".eslintrc.js",
     "CHANGELOG.md",
     "LICENSE",
     "README.md",
@@ -53,8 +52,8 @@
     "webpack": "^4.41.6"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.15",
-    "@barusu/rollup-config": "^0.0.15",
+    "@barusu/eslint-config": "^0.0.22",
+    "@barusu/rollup-config": "^0.0.22",
     "@types/webpack": "^4.41.6",
     "cross-env": "^7.0.2",
     "rollup": "2.16.1",

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { coverString } from '@barusu/option-util'
+import { coverString } from '@barusu/util-option'
 import { RawEnv } from '@barusu-react/webpack-config'
 import fs from 'fs-extra'
 import path from 'path'

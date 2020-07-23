@@ -25,8 +25,8 @@
     "clean": "lerna clean --yes && yarn install",
     "rebuild": "lerna exec -- yarn build",
     "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
-    "find-inconsistent": "find-inconsistent --log-level=verbose",
-    "sort-imports": "sort-imports . --log-level=verbose"
+    "find-inconsistent": "barusu-find-inconsistent . --log-level=verbose",
+    "sort-imports": "barusu-sort-imports . --log-level=verbose"
   },
   "workspaces": [
     "packages/*",
@@ -34,8 +34,8 @@
     "stage/laputa"
   ],
   "devDependencies": {
-    "@barusu/tool-find-inconsistent-packages": "^0.0.15",
-    "@barusu/tool-sort-imports": "^0.0.15",
+    "@barusu/tool-find-inconsistent": "^0.0.22",
+    "@barusu/tool-sort-imports": "^0.0.22",
     "@types/classnames": "^2.2.9",
     "@types/node": "^13.7.6",
     "@types/react": "^16.9.23",

@@ -25,7 +25,6 @@
   },
   "files": [
     "lib/",
-    ".eslintrc.js",
     "CHANGELOG.md",
     "LICENSE",
     "README.md",
@@ -42,8 +41,8 @@
   },
   "dependencies": {
     "@barusu-react/rollup-plugin-postcss-dts": "^0.0.9",
-    "@barusu/option-util": "^0.0.15",
-    "@barusu/package-util": "^0.0.15",
+    "@barusu/util-option": "^0.0.22",
+    "@barusu/util-cli": "^0.0.22",
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-multi-entry": "^3.0.1",
@@ -65,8 +64,8 @@
     "stylus": "^0.54.7"
   },
   "devDependencies": {
-    "@barusu/eslint-config": "^0.0.15",
-    "@barusu/rollup-config": "^0.0.15",
+    "@barusu/eslint-config": "^0.0.22",
+    "@barusu/rollup-config": "^0.0.22",
     "cross-env": "^7.0.2"
   }
 }
