@@ -1,7 +1,7 @@
 import { CssRuleProps, StylusRuleProps } from '@barusu-react/webpack-rule-css'
 import { OutsideJsRuleProps, TsxRuleProps } from '@barusu-react/webpack-rule-tsx'
 import { Env as BaseEnv } from '@barusu-react/webpack-util'
-import { coverBoolean } from '@barusu/option-util'
+import { coverBoolean } from '@barusu/util-option'
 import webpack from 'webpack'
 import { DevelopmentEnv, RawDevelopmentEnv, resolveDevelopmentEnv } from './env-development'
 import { ProductionEnv, RawProductionEnv, resolveProductionEnv } from './env-production'

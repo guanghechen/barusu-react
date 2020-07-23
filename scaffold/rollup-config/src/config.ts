@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import postcss from '@barusu-react/rollup-plugin-postcss-dts'
-import { convertToBoolean, coverBoolean } from '@barusu/option-util'
-import { collectAllDependencies } from '@barusu/package-util'
+import { collectAllDependencies } from '@barusu/util-cli'
+import { convertToBoolean, coverBoolean } from '@barusu/util-option'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import multiEntry from '@rollup/plugin-multi-entry'

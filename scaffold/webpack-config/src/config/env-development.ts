@@ -3,7 +3,7 @@ import {
   DevelopmentServerEnv,
   chooseIpv4Address,
 } from '@barusu-react/webpack-util'
-import { cover, coverBoolean, coverNumber, coverString } from '@barusu/option-util'
+import { cover, coverBoolean, coverNumber, coverString } from '@barusu/util-option'
 
 
 export interface DevelopmentEnv extends BaseDevelopmentEnv {
