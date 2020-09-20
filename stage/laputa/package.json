@@ -48,7 +48,7 @@
   "devDependencies": {
     "@barusu-react/eslint-config": "^0.0.10",
     "@barusu-react/webpack-config": "^0.0.10",
-    "@barusu/util-option": "^0.0.22",
+    "@barusu/util-option": "^0.0.36",
     "@types/fs-extra": "^8.1.0",
     "cross-env": "^7.0.2",
     "fs-extra": "^8.1.0"
