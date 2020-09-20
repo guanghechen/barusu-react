@@ -14,7 +14,7 @@ export interface StyleLoaderOptions {
    * with their values on `<style>` / `<link>` element.
    * @originalDefault {}
    */
-  attributes?: object
+  attributes?: Record<string, unknown>
   /**
    * By default, the style-loader appends `<style>` / `<link>` elements
    * to the end of the style target, which is the <head> tag of the page
@@ -26,7 +26,7 @@ export interface StyleLoaderOptions {
    * the styles will be injected into the content document head.
    * @originalDefault 'head'
    */
-  insert?: string | Function
+  insert?: string | Record<string, unknown>
   /**
    * Sets module ID base (DLLPlugin)
    */

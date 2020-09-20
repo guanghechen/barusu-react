@@ -2,7 +2,7 @@
 import chalk from 'chalk'
 import Ora from 'ora'
 import webpack from 'webpack'
-import webpackDevServer from 'webpack-dev-server'
+import WebpackDevServer from 'webpack-dev-server'
 import { Env } from './types/env'
 import { Paths } from './types/paths'
 import { checkRequiredFiles } from './util/check-required-files'
@@ -20,7 +20,7 @@ interface Params {
   env: Env
   paths: Paths
   config: webpack.Configuration
-  serverConfig: webpackDevServer.Configuration
+  serverConfig: WebpackDevServer.Configuration
 }
 
 
@@ -35,6 +35,7 @@ export async function start({
   process.env.NODE_ENV = 'development'
   checkRequiredFiles(paths.entries)
 
+  // eslint-disable-next-line new-cap
   const spinner = Ora()
 
   async function run(): Promise<void> {
@@ -48,10 +49,12 @@ export async function start({
 
     const devSocket = {
       warnings: (warnings: any[]): void => {
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         const s = server as any
         return s.sockWrite(s.sockets, 'warnings', warnings)
       },
       errors: (errors: any[]): void => {
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         const s = server as any
         return s.sockWrite(s.sockets, 'errors', errors)
       }
@@ -73,7 +76,7 @@ export async function start({
       proxy: proxySetting,
     }
 
-    const server = new webpackDevServer(compiler, resolvedServerConfig)
+    const server = new WebpackDevServer(compiler, resolvedServerConfig)
     server.listen(port, hostname, (error?: Error) => {
       if (error) return console.log(chalk.magenta(error.stack || ''))
       if (env.development.server.clearConsoleAfterUpdate) clearConsole()

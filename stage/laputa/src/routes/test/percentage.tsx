@@ -54,6 +54,7 @@ export function BoxPercentageTest(): React.ReactElement {
 }
 
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'box-model percentage | test',
   pathname: '/test/box-model/percentage',

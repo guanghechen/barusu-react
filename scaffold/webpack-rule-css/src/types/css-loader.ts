@@ -8,12 +8,14 @@ export interface CSSLoaderOptions {
    * @default true
    * @originalDefault true
    */
+  // eslint-disable-next-line @typescript-eslint/ban-types
   url?: boolean | Function
   /**
    * Enables/Disables @import at-rules handling
    * @default true
    * @originalDefault true
    */
+  // eslint-disable-next-line @typescript-eslint/ban-types
   import?: boolean | Function
   /**
    * Enables/Disables CSS Modules and their configuration

@@ -30,7 +30,7 @@ export default function formatter(results: CLIEngine.LintResult[]): string {
         messageType = 'warn'
       }
 
-      let line: string = '' +  (message.line || 0)
+      let line: string = '' + (message.line || 0)
       if (message.column) {
         line += ':' + message.column
       }

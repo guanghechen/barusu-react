@@ -1,11 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import postcss from '@barusu-react/rollup-plugin-postcss-dts'
-import { collectAllDependencies } from '@barusu/util-cli'
-import { convertToBoolean, coverBoolean } from '@barusu/util-option'
-import commonjs from '@rollup/plugin-commonjs'
-import json from '@rollup/plugin-json'
-import multiEntry from '@rollup/plugin-multi-entry'
-import nodeResolve from '@rollup/plugin-node-resolve'
 import autoprefixer from 'autoprefixer'
 import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
 import postcssUrl from 'postcss-url'
@@ -13,6 +6,13 @@ import rollup from 'rollup'
 import { eslint } from 'rollup-plugin-eslint'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
+import postcss from '@barusu-react/rollup-plugin-postcss-dts'
+import { collectAllDependencies } from '@barusu/util-cli'
+import { convertToBoolean, coverBoolean } from '@barusu/util-option'
+import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
+import multiEntry from '@rollup/plugin-multi-entry'
+import nodeResolve from '@rollup/plugin-node-resolve'
 import {
   CommonJSOptions,
   EslintOptions,

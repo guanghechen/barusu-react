@@ -55,6 +55,8 @@ export async function build({
   const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild
   const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild
   const isInteractive = env.isInteractive
+
+  // eslint-disable-next-line new-cap
   const spinner = Ora()
 
   async function run(

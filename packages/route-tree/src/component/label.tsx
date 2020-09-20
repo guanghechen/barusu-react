@@ -25,7 +25,7 @@ export interface RouteTreeNodeLabelProps {
   /**
    * State to persist to the location
    */
-  state?: object
+  state?: Record<string, unknown>
   /**
    * extra attrs
    */
@@ -36,7 +36,9 @@ export interface RouteTreeNodeLabelProps {
 /**
  * @param props
  */
-export function RouteTreeNodeLabel(props: RouteTreeNodeLabelProps): React.ReactElement {
+export function RouteTreeNodeLabel(
+  props: RouteTreeNodeLabelProps
+): React.ReactElement {
   const { title, pathname, search, hash, state, extraLabelAttrs } = props
   return (
     <Link

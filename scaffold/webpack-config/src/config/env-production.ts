@@ -19,7 +19,10 @@ export interface RawProductionEnv extends Partial<BaseProductionEnv> {
 }
 
 
-export function resolveProductionEnv (manifest: any, rawEnv: RawProductionEnv): ProductionEnv {
+export function resolveProductionEnv(
+  manifest: Record<string, any>,
+  rawEnv: RawProductionEnv
+): ProductionEnv {
   const {
     inject = {},
   } = rawEnv
@@ -36,12 +39,16 @@ export function resolveProductionEnv (manifest: any, rawEnv: RawProductionEnv): 
 
   return {
     publicPath: coverString(defaultPublicPath, rawEnv.publicPath),
-    shouldUseSourceMap: coverBoolean(defaultShouldUseSourceMap, rawEnv.shouldUseSourceMap),
-    shouldInlineRuntimeChunk: coverBoolean(defaultShouldInlineRuntimeChunk, rawEnv.shouldInlineRuntimeChunk),
+    shouldUseSourceMap: coverBoolean(
+      defaultShouldUseSourceMap, rawEnv.shouldUseSourceMap),
+    shouldInlineRuntimeChunk: coverBoolean(
+      defaultShouldInlineRuntimeChunk, rawEnv.shouldInlineRuntimeChunk),
     shouldCSSChunk: coverBoolean(defaultShouldCSSChunk, rawEnv.shouldCSSChunk),
     shouldJsChunk: coverBoolean(defaultShouldJsChunk, rawEnv.shouldJsChunk),
-    shouldCSSMinified: coverBoolean(defaultShouldCSSMinified, rawEnv.shouldCSSMinified),
-    shouldJsMinified: coverBoolean(defaultShouldJsMinified, rawEnv.shouldJsMinified),
+    shouldCSSMinified: coverBoolean(
+      defaultShouldCSSMinified, rawEnv.shouldCSSMinified),
+    shouldJsMinified: coverBoolean(
+      defaultShouldJsMinified, rawEnv.shouldJsMinified),
     inject: {
       PUBLIC_URL: coverString(defaultInjectPublicUrl, inject.PUBLIC_URL),
       SITE_TITLE: coverString(defaultInjectSiteTitle, inject.SITE_TITLE),

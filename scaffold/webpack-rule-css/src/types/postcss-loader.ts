@@ -10,23 +10,24 @@ export interface PostcssLoaderOptions {
   /**
    * Set PostCSS Parser
    */
-  parser?: string | object
+  parser?: string | Record<string, unknown>
   /**
    * Set PostCSS Syntax
    */
-  syntax?: string | object
+  syntax?: string | Record<string, unknown>
   /**
    * Set PostCSS Stringifier
    */
-  stringifier?: string | object
+  stringifier?: string | Record<string, unknown>
   /**
    * Set postcss.config.js config path && ctx
    */
-  config?: object
+  config?: Record<string, unknown>
   /**
    * Set PostCSS Plugins
    * @default []
    */
+  // eslint-disable-next-line @typescript-eslint/ban-types
   plugins?: Function
   /**
    * Enable Source Maps

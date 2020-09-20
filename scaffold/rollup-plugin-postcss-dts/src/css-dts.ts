@@ -1,6 +1,6 @@
-import { coverBoolean, coverString } from '@barusu/util-option'
 import fs from 'fs-extra'
 import reservedWords from 'reserved-words'
+import { coverBoolean, coverString } from '@barusu/util-option'
 import { GetCSSTokenHook } from './types'
 
 

@@ -21,12 +21,13 @@
     ":publish": "lerna publish",
     "bootstrap": "lerna bootstrap",
     "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
-    "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
     "clean": "lerna clean --yes && yarn install",
     "rebuild": "lerna exec -- yarn build",
     "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
-    "find-inconsistent": "barusu-find-inconsistent . --log-level=verbose",
-    "sort-imports": "barusu-sort-imports . --log-level=verbose"
+    "format": "yarn find-inconsistent && yarn sort-imports && yarn lint:fix",
+    "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
+    "find-inconsistent": "barusu-find-inconsistent .",
+    "sort-imports": "barusu-sort-imports ."
   },
   "workspaces": [
     "packages/*",
@@ -56,9 +57,10 @@
     "webpack-dev-server": "^3.10.3"
   },
   "@barusu/tool-sort-imports": {
+    "logLevel": "verbose",
     "pattern": [
-      "packages/**/src/**/*.{ts,tsx}",
-      "packages/**/test/**/*.{ts,tsx}"
+      "{packages,scaffold,stage}/**/{src,test,__test__}/**/*.{ts,tsx}",
+      "!**/{test,__test__}/cases"
     ],
     "moduleRanks": [
       {
@@ -78,8 +80,16 @@
         "rank": 1.4
       },
       {
+        "regex": "^@\\/[^\\n]*\\.(css|styl)$",
+        "rank": 2.2
+      },
+      {
         "regex": "^@\\/",
         "rank": 2.1
+      },
+      {
+        "regex": "^[.][\\/\\\\][^\\n]*\\.(css|styl)$",
+        "rank": 3.4
       },
       {
         "regex": "^(?:\\/|[a-zA-Z]:)",

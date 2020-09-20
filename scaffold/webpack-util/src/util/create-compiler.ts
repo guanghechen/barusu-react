@@ -50,7 +50,6 @@ export function createCompiler({
     let tsMessagesResolver: (messages: any) => void
     compiler.hooks.beforeCompile.tap('beforeCompile', () => {
       tsMessagesPromise = new Promise(resolve => {
-        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         tsMessagesResolver = (messages: any) => resolve(messages)
       })
     })
@@ -59,7 +58,6 @@ export function createCompiler({
       .getCompilerHooks(compiler)
       .receive.tap('afterTypeScriptCheck', (diagnostics: any[], lints: any[]) => {
         const allMessages = [...diagnostics, ...lints]
-        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
         const format = (message: any) =>
           `${ message.file }\n${ typescriptFormatter(message, true) }`
 

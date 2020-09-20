@@ -85,6 +85,7 @@ module.exports = {
         'code': 100,
         'comments': 100,
         'tabWidth': 2,
+        'ignorePattern': /^(?:\s*\/\/\s*eslint-disable-next-line\s)|(?:\s*\*\s*@\w+)|(?:\s*\/\/)/.source,
         'ignoreTrailingComments': true,
         'ignoreUrls': true,
         'ignoreStrings': true,

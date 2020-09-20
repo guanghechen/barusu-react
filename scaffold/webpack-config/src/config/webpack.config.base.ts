@@ -1,11 +1,14 @@
-/* eslint-disable @typescript-eslint/camelcase */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { calcCssRule, calcStylusRule } from '@barusu-react/webpack-rule-css'
-import { calcEslintRule, calcOutsideJsRule, calcTsxRule } from '@barusu-react/webpack-rule-tsx'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import path from 'path'
 import TsConfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import webpack from 'webpack'
+import { calcCssRule, calcStylusRule } from '@barusu-react/webpack-rule-css'
+import {
+  calcEslintRule,
+  calcOutsideJsRule,
+  calcTsxRule,
+} from '@barusu-react/webpack-rule-tsx'
 import { Env } from './env'
 import { EntryPathsItem, PagePathsItem, Paths } from './paths'
 
@@ -95,6 +98,7 @@ export function createBaseWebpackConfig({
         ? env.production.shouldJsChunk ? 'js/[name].[contenthash:8].chunk.js' : undefined
         : 'js/[name].chunk.js',
       publicPath: env[mode].publicPath,
+      // eslint-disable-next-line max-len
       // point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: (info: any): string => (
         isEnvProduction
@@ -112,7 +116,9 @@ export function createBaseWebpackConfig({
       modules: [paths.source.src, paths.source.nodeModules, ...paths.source.extraNodeModules],
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.pug', '.styl'],
       plugins: [
-        env.useModuleScopePlugin && new ModuleScopePlugin(paths.source.src, [paths.source.packageJson]),
+        env.useModuleScopePlugin
+          ? new ModuleScopePlugin(paths.source.src, [paths.source.packageJson])
+          : undefined,
         new TsConfigPathsPlugin({ configFile: paths.source.tsconfigJson }),
       ].filter(Boolean),
       alias: paths.alias,
@@ -169,8 +175,8 @@ export function createBaseWebpackConfig({
                 ...tsxRuleOptions,
               })
             }),
-            // process any JS outside of the app with Babel.
-            // unlike the application JS, we only compile the standard ES features.
+            // process any JS outside of the app with Babel. Unlike the
+            // application JS, we only compile the standard ES features.
             ...outsideJsRuleOptions.map(outsideJsRuleOption => {
               return calcOutsideJsRule({
                 shouldUseSourceMap: shouldUseSourceMap,
@@ -188,7 +194,8 @@ export function createBaseWebpackConfig({
                 ],
                 cssLoaderOptions: cssRuleOptions.cssLoaderOptions,
 
-                // css is located in `static/css`, use '../../' to locate index.html folder
+                // css is located in `static/css`, use '../../' to locate
+                // index.html folder
                 // in production `paths.publicUrlOrPath` can be a relative path
                 miniCssExtractLoaderOptions: {
                   ...(shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined)
@@ -204,8 +211,9 @@ export function createBaseWebpackConfig({
                 include: paths.source.src,
                 cssLoaderOptions: stylusRuleOptions.cssLoaderOptions,
 
-                // css is located in `static/css`, use '../../' to locate index.html folder
-                // in production `paths.publicUrlOrPath` can be a relative path
+                // css is located in `static/css`, use '../../' to locate
+                // index.html folder in production `paths.publicUrlOrPath`
+                // can be a relative path
                 miniCssExtractLoaderOptions: {
                   ...(shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined)
                 },
@@ -268,6 +276,7 @@ export function createBaseWebpackConfig({
         ],
         watch: paths.source.src,
         silent: true,
+        // eslint-disable-next-line max-len
         // The formatter is invoked directly in WebpackDevServerUtils during development
         formatter: isEnvProduction ? typescriptFormatter : undefined,
       }),

@@ -30,6 +30,7 @@
     "rollup",
     "sourcecodes",
     "sourcemap",
+    "stringifier",
     "styl",
     "svgr",
     "teamsupercell",

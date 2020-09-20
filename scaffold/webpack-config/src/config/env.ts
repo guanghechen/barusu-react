@@ -1,10 +1,21 @@
+import webpack from 'webpack'
 import { CssRuleProps, StylusRuleProps } from '@barusu-react/webpack-rule-css'
-import { OutsideJsRuleProps, TsxRuleProps } from '@barusu-react/webpack-rule-tsx'
+import {
+  OutsideJsRuleProps,
+  TsxRuleProps,
+} from '@barusu-react/webpack-rule-tsx'
 import { Env as BaseEnv } from '@barusu-react/webpack-util'
 import { coverBoolean } from '@barusu/util-option'
-import webpack from 'webpack'
-import { DevelopmentEnv, RawDevelopmentEnv, resolveDevelopmentEnv } from './env-development'
-import { ProductionEnv, RawProductionEnv, resolveProductionEnv } from './env-production'
+import {
+  DevelopmentEnv,
+  RawDevelopmentEnv,
+  resolveDevelopmentEnv,
+} from './env-development'
+import {
+  ProductionEnv,
+  RawProductionEnv,
+  resolveProductionEnv,
+} from './env-production'
 
 
 export interface HookParams {
@@ -88,8 +99,10 @@ export function resolveEnv(rawEnv: RawEnv): Env {
 
   const defaultIsInteractive = Boolean(process.stdout.isTTY)
   const defaultUseModuleScopePlugin = true
-  const development: DevelopmentEnv = resolveDevelopmentEnv(rawEnv.manifest, rawEnv.development || {})
-  const production: ProductionEnv = resolveProductionEnv(rawEnv.manifest, rawEnv.production || {})
+  const development: DevelopmentEnv = resolveDevelopmentEnv(
+    rawEnv.manifest, rawEnv.development || {})
+  const production: ProductionEnv = resolveProductionEnv(
+    rawEnv.manifest, rawEnv.production || {})
 
   const filterEmptyHooks = <T>(hook: (params: HookParams) => (T | false)[]) => {
     return (params: HookParams): T[] => (

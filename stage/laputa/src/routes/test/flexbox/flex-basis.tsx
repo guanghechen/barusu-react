@@ -71,6 +71,7 @@ export function FlexBasisTest(): React.ReactElement {
 }
 
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'flex-basis | test',
   pathname: '/test/display/flexbox/flex-basis',

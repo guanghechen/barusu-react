@@ -33,5 +33,5 @@ export interface ProductionEnv {
   /**
    * 注入的环境变量
    */
-  inject: object
+  inject: Record<string, unknown>
 }

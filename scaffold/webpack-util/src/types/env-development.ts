@@ -48,7 +48,7 @@ export interface DevelopmentEnv {
   /**
    * 注入的环境变量
    */
-  inject: object
+  inject: Record<string, unknown>
   /**
    * devServer 的配置项
    */
