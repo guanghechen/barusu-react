@@ -18,6 +18,7 @@
     "focusable",
     "formtter",
     "ioptions",
+    "nonwords",
     "pathinfo",
     "plopfile",
     "pluginutils",

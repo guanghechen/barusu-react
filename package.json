@@ -19,10 +19,9 @@
   "scripts": {
     "pre:publish": "yarn find-inconsistent && yarn sort-imports",
     ":publish": "lerna publish",
-    "bootstrap": "lerna bootstrap",
     "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
     "clean": "lerna clean --yes && yarn install",
-    "rebuild": "lerna exec -- yarn build",
+    "rebuild": "yarn clean && yarn build",
     "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
     "format": "yarn find-inconsistent && yarn sort-imports && yarn lint:fix",
     "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
