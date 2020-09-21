@@ -37,6 +37,7 @@
   "dependencies": {
     "@babel/core": "^7.8.6",
     "@svgr/webpack": "5.2.0",
+    "@types/eslint": "^7.2.2",
     "@types/text-table": "^0.2.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-named-asset-import": "^0.3.6",

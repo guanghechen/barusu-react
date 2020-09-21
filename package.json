@@ -17,16 +17,16 @@
     "node": ">= 12.16.0"
   },
   "scripts": {
-    "pre:publish": "yarn find-inconsistent && yarn sort-imports",
-    ":publish": "lerna publish",
+    ":publish": "yarn format && lerna publish --no-private",
+    "test": "lerna exec --concurrency 1 -- 'echo && pwd && yarn test'",
     "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
     "clean": "lerna clean --yes && yarn install",
     "rebuild": "yarn clean && yarn build",
-    "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
     "format": "yarn find-inconsistent && yarn sort-imports && yarn lint:fix",
     "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
     "find-inconsistent": "barusu-find-inconsistent .",
-    "sort-imports": "barusu-sort-imports ."
+    "sort-imports": "barusu-sort-imports .",
+    "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js"
   },
   "workspaces": [
     "packages/*",

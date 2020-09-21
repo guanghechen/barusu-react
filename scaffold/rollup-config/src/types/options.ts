@@ -1,6 +1,5 @@
 export { Options as PostcssPluginAutoprefixerOptions } from 'autoprefixer'
 export { Options as PostcssPluginPostcssUrlOptions } from 'postcss-url'
-export { EslintOptions } from 'rollup-plugin-eslint'
 export {
   PluginPeerDepsExternalOptions as PeerDepsExternalOptions,
 } from 'rollup-plugin-peer-deps-external'

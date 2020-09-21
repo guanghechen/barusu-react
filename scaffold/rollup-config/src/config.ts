@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import autoprefixer from 'autoprefixer'
 import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
 import postcssUrl from 'postcss-url'
 import rollup from 'rollup'
-import { eslint } from 'rollup-plugin-eslint'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
 import postcss from '@barusu-react/rollup-plugin-postcss-dts'
@@ -15,7 +13,6 @@ import multiEntry from '@rollup/plugin-multi-entry'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import {
   CommonJSOptions,
-  EslintOptions,
   JsonOptions,
   MultiEntryOptions,
   NodeResolveOptions,
@@ -90,10 +87,6 @@ export interface ProdConfigParams extends rollup.InputOptions {
    * 插件选项
    */
   pluginOptions?: {
-    /**
-     * options for rollup-plugin-eslint
-     */
-    eslintOptions?: EslintOptions,
     /**
      * options for @rollup/plugin-json
      */
@@ -195,7 +188,6 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
   // process task
   const {
     jsonOptions = {},
-    eslintOptions = {},
     nodeResolveOptions = {},
     typescriptOptions = {},
     commonjsOptions = {},
@@ -229,23 +221,25 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         preferBuiltins: false,
         ...nodeResolveOptions,
       }),
-      eslint({
-        fix: true,
-        throwOnError: true,
-        include: ['src/**/*{.ts,.tsx}'],
-        exclude: ['*.styl.d.ts'],
-        ...eslintOptions,
-      }),
       json({
+        indent: '  ',
         namedExports: true,
         ...jsonOptions,
       }),
       typescript({
         clean: true,
         typescript: require('typescript'),
-        rollupCommonJSResolveHack: true,
+        useTsconfigDeclarationDir: true,
         include: ['src/**/*{.ts,.tsx}'],
-        exclude: '**/__tests__/**',
+        tsconfigDefaults: {
+          compilerOptions: {
+            jsx: 'preserve',
+            declaration: true,
+            declarationMap: true,
+            declarationDir: 'lib/types',
+            outDir: 'lib',
+          }
+        },
         tsconfigOverride: {
           compilerOptions: {
             declarationMap: useSourceMap,
@@ -254,13 +248,12 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         ...typescriptOptions,
       }),
       commonjs({
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         ...commonjsOptions,
       }),
       postcss({
         plugins: [
-          postcssFlexbugsFixes({
-
-          }),
+          postcssFlexbugsFixes({}),
           autoprefixer({
             ...postcssPluginOptions.autoprefixerOptions,
           }),
