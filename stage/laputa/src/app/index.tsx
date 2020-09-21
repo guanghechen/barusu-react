@@ -138,11 +138,8 @@ export function App(props: AppProps): React.ReactElement {
         </div>
         <div className={ classes.routeMain }>
           {
-            /**
-              * add a wrapper container to resolve center horizontally bug in ie11
-              *
-              * @see https://stackoverflow.com/a/31363869
-              */
+            // add a wrapper container to resolve center horizontally bug in ie11
+            // @see https://stackoverflow.com/a/31363869
           }
           <div>
             <Switch>

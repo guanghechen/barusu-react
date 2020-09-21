@@ -98,7 +98,6 @@ export function createBaseWebpackConfig({
         ? env.production.shouldJsChunk ? 'js/[name].[contenthash:8].chunk.js' : undefined
         : 'js/[name].chunk.js',
       publicPath: env[mode].publicPath,
-      // eslint-disable-next-line max-len
       // point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: (info: any): string => (
         isEnvProduction
@@ -276,7 +275,6 @@ export function createBaseWebpackConfig({
         ],
         watch: paths.source.src,
         silent: true,
-        // eslint-disable-next-line max-len
         // The formatter is invoked directly in WebpackDevServerUtils during development
         formatter: isEnvProduction ? typescriptFormatter : undefined,
       }),

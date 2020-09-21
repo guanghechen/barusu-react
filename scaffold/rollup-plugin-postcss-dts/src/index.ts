@@ -16,7 +16,7 @@ export type PostcssDtsOptions = PostcssOptions & {
 }
 
 
-export default function (options: PostcssDtsOptions = {}): Plugin {
+export default function postcssDtsPlugin(options: PostcssDtsOptions = {}): Plugin {
   const { dts = false, modules, ...rest } = options
 
   const hook: GetCSSTokenHook = {}

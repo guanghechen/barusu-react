@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import fs from 'fs-extra'
