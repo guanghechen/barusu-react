@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/stage-laputa",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "overview of react components (of @barusu-react/)",
   "author": {
     "name": "lemon-clown",
@@ -32,8 +32,8 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@barusu-react/hello-world": "^0.0.10",
-    "@barusu-react/route-tree": "^0.0.10",
+    "@barusu-react/hello-world": "^0.0.11",
+    "@barusu-react/route-tree": "^0.0.11",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
@@ -46,8 +46,8 @@
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "@barusu-react/eslint-config": "^0.0.10",
-    "@barusu-react/webpack-config": "^0.0.10",
+    "@barusu-react/eslint-config": "^0.0.11",
+    "@barusu-react/webpack-config": "^0.0.11",
     "@barusu/util-option": "^0.0.37",
     "@types/fs-extra": "^8.1.0",
     "cross-env": "^7.0.2",

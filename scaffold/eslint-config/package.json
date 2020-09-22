@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/eslint-config",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "eslintconfig for ts+react",
   "author": {
     "name": "lemon-clown",
