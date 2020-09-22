@@ -1,6 +1,6 @@
-import { coverBoolean, coverString } from '@barusu/util-option'
 import fs from 'fs-extra'
 import reservedWords from 'reserved-words'
+import { coverBoolean, coverString } from '@barusu/util-option'
 import { GetCSSTokenHook } from './types'
 
 
@@ -88,7 +88,7 @@ export class CSSDts implements GetCSSTokenHook {
     const uniqueName = 'stylesheet'
     return classNames
       .sort()
-      .filter(x => !/\-/.test(x) && !reservedWords.check(x))
+      .filter(x => !/[-]/.test(x) && !reservedWords.check(x))
       .map(x => `export const ${ x }: string${ semicolon }`)
       .join('\n')
       .concat('\n\n\n')

@@ -7,6 +7,7 @@ export interface MiniCssExtractLoaderOptions {
    * Specifies a custom public path for the target file(s).
    * @originalDefault the publicPath in webpackOptions.output
    */
+  // eslint-disable-next-line @typescript-eslint/ban-types
   publicPath?: string | Function
   /**
    * By default, mini-css-extract-plugin generates JS modules

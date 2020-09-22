@@ -12,6 +12,7 @@ const paths = {
   },
   eslintrc: resolvePath('.eslintrc.js'),
   tsconfig: resolvePath('tsconfig.src.json'),
+  nodeModules: resolvePath('../../node_modules/**'),
 }
 
 
@@ -33,15 +34,11 @@ const config = createRollupConfig({
     }
   },
   pluginOptions: {
-    eslintOptions: {
-      configFile: paths.eslintrc,
-    },
     typescriptOptions: {
       tsconfig: paths.tsconfig,
-      useTsconfigDeclarationDir: true,
     },
     commonjsOptions: {
-      include: ['../../node_modules/**'],
+      include: [paths.nodeModules],
     },
     postcssOptions: {
       extract: false,

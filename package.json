@@ -17,25 +17,28 @@
     "node": ">= 12.16.0"
   },
   "scripts": {
-    "pre:publish": "yarn find-inconsistent && yarn sort-imports",
-    ":publish": "lerna publish",
-    "bootstrap": "lerna bootstrap",
+    ":publish": "yarn format && lerna publish --no-private",
+    "test": "lerna exec --concurrency 1 -- 'echo && pwd && yarn test'",
     "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
-    "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
     "clean": "lerna clean --yes && yarn install",
-    "rebuild": "lerna exec -- yarn build",
-    "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
-    "find-inconsistent": "barusu-find-inconsistent . --log-level=verbose",
-    "sort-imports": "barusu-sort-imports . --log-level=verbose"
+    "rebuild": "yarn clean && yarn build",
+    "format": "yarn find-inconsistent && yarn sort-imports && yarn lint:fix",
+    "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
+    "find-inconsistent": "barusu-find-inconsistent .",
+    "sort-imports": "barusu-sort-imports .",
+    "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js"
   },
   "workspaces": [
     "packages/*",
     "scaffold/*",
     "stage/laputa"
   ],
+  "resolutions": {
+    "postcss-modules": "3.2.2"
+  },
   "devDependencies": {
-    "@barusu/tool-find-inconsistent": "^0.0.22",
-    "@barusu/tool-sort-imports": "^0.0.22",
+    "@barusu/tool-find-inconsistent": "^0.0.37",
+    "@barusu/tool-sort-imports": "^0.0.37",
     "@types/classnames": "^2.2.9",
     "@types/node": "^13.7.6",
     "@types/react": "^16.9.23",
@@ -56,9 +59,10 @@
     "webpack-dev-server": "^3.10.3"
   },
   "@barusu/tool-sort-imports": {
+    "logLevel": "verbose",
     "pattern": [
-      "packages/**/src/**/*.{ts,tsx}",
-      "packages/**/test/**/*.{ts,tsx}"
+      "{packages,scaffold,stage}/**/{src,test,__test__}/**/*.{ts,tsx}",
+      "!**/{test,__test__}/cases"
     ],
     "moduleRanks": [
       {
@@ -78,8 +82,16 @@
         "rank": 1.4
       },
       {
+        "regex": "^@\\/[^\\n]*\\.(css|styl)$",
+        "rank": 2.2
+      },
+      {
         "regex": "^@\\/",
         "rank": 2.1
+      },
+      {
+        "regex": "^[.][\\/\\\\][^\\n]*\\.(css|styl)$",
+        "rank": 3.4
       },
       {
         "regex": "^(?:\\/|[a-zA-Z]:)",

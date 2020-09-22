@@ -161,7 +161,10 @@ export function RouteTreeNode(props: RouteTreeNodeProps): React.ReactElement {
         </span>
       </div>
       { !isLeafNode && (
-        <ul className={ cn(classes.routeTreeNodeBody, { [classes.routeTreeNodeBodyCollapsed]: collapsed }) }>
+        <ul
+          className={ cn(classes.routeTreeNodeBody,
+            { [classes.routeTreeNodeBodyCollapsed]: collapsed }) }
+        >
           { content }
         </ul>
       ) }

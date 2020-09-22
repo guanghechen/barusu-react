@@ -1,7 +1,10 @@
 import React, { useMemo } from 'react'
-import { RouteTreeNodeLabelProps, SidebarRouteTree } from '@barusu-react/route-tree'
-import cn from 'classnames'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import cn from 'classnames'
+import {
+  RouteTreeNodeLabelProps,
+  SidebarRouteTree,
+} from '@barusu-react/route-tree'
 import classes from './style.styl'
 
 
@@ -135,11 +138,8 @@ export function App(props: AppProps): React.ReactElement {
         </div>
         <div className={ classes.routeMain }>
           {
-            /**
-              * add a wrapper container to resolve center horizontally bug in ie11
-              *
-              * @see https://stackoverflow.com/a/31363869
-              */
+            // add a wrapper container to resolve center horizontally bug in ie11
+            // @see https://stackoverflow.com/a/31363869
           }
           <div>
             <Switch>
@@ -150,7 +150,13 @@ export function App(props: AppProps): React.ReactElement {
                   strict = defaultStrict,
                   sensitive = defaultSensitive,
                 }) => (
-                  <Route key={ name } path={ path } exact={ exact } strict={ strict } sensitive={ sensitive }>
+                  <Route
+                    key={ name }
+                    path={ path }
+                    exact={ exact }
+                    strict={ strict }
+                    sensitive={ sensitive }
+                  >
                     { component }
                   </Route>
                   ))

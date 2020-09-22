@@ -59,7 +59,8 @@ export function calcCssRule(props: CssRuleProps): webpack.RuleSetRule {
   const defaultShouldUseSourceMap = Boolean(isEnvProduction && shouldUseSourceMap)
   const loaders: webpack.RuleSetUseItem[] = [
     /**
-     * This loader adds the CSS to the DOM so that the styles are active and visible on the page
+     * This loader adds the CSS to the DOM so that the styles are active and
+     * visible on the page
      */
     isEnvDevelopment && {
       loader: require.resolve('style-loader'),
@@ -99,8 +100,8 @@ export function calcCssRule(props: CssRuleProps): webpack.RuleSetRule {
             stage: 3,
           }),
           // Adds PostCSS Normalize as the reset css with default options,
-          // so that it honors browserslist config in package.json
-          // which in turn let's users customize the target behavior as per their needs.
+          // so that it honors browserslist config in package.json which in
+          // turn let's users customize the target behavior as per their needs.
           require('postcss-normalize')(),
         ],
         sourceMap: isEnvProduction && shouldUseSourceMap,

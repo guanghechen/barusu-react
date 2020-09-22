@@ -3,7 +3,12 @@ import {
   DevelopmentServerEnv,
   chooseIpv4Address,
 } from '@barusu-react/webpack-util'
-import { cover, coverBoolean, coverNumber, coverString } from '@barusu/util-option'
+import {
+  cover,
+  coverBoolean,
+  coverNumber,
+  coverString,
+} from '@barusu/util-option'
 
 
 export interface DevelopmentEnv extends BaseDevelopmentEnv {
@@ -24,7 +29,10 @@ export interface RawDevelopmentEnv extends Partial<Omit<BaseDevelopmentEnv, 'ser
 }
 
 
-export function resolveDevelopmentEnv(manifest: any, rawEnv: RawDevelopmentEnv): DevelopmentEnv {
+export function resolveDevelopmentEnv(
+  manifest: Record<string, any>,
+  rawEnv: RawDevelopmentEnv
+): DevelopmentEnv {
   const {
     inject = {},
     server = {} as Partial<DevelopmentServerEnv>,
@@ -34,14 +42,21 @@ export function resolveDevelopmentEnv(manifest: any, rawEnv: RawDevelopmentEnv):
   const defaultShouldUseSourceMap = coverBoolean(true, process.env.GENERATE_SOURCEMAP)
   const defaultHostAddress = coverString(
     '127.0.0.1',
-    process.env.HOST_IP_PREFIX != null ? chooseIpv4Address(process.env.HOST_IP_PREFIX || '') : undefined)
-  const defaultProtocol = process.env.HTTPS ? 'https' : coverString('http', process.env.PROTOCOL)
+    process.env.HOST_IP_PREFIX != null
+      ? chooseIpv4Address(process.env.HOST_IP_PREFIX || '')
+      : undefined
+  )
+  const defaultProtocol = process.env.HTTPS
+    ? 'https'
+    : coverString('http', process.env.PROTOCOL)
   const defaultHostname = coverString(defaultHostAddress, process.env.HOST)
   const defaultPort = coverNumber(3000, process.env.PORT || '')
-  const defaultDisableHostCheck = coverBoolean(false, process.env.DANGEROUSLY_DISABLE_HOST_CHECK)
+  const defaultDisableHostCheck = coverBoolean(
+    false, process.env.DANGEROUSLY_DISABLE_HOST_CHECK)
   const defaultAllowedHosts = undefined
   const defaultLaunchBrowser = coverBoolean(true, process.env.LAUNCH_BROWSER)
-  const defaultClearConsoleAfterUpdate = coverBoolean(process.stdout.isTTY, process.env.CLEAR_CONSOLE_AFTER_UPDATE)
+  const defaultClearConsoleAfterUpdate = coverBoolean(
+    process.stdout.isTTY, process.env.CLEAR_CONSOLE_AFTER_UPDATE)
   const defaultInjectPublicUrl = coverString('/', process.env.PUBLIC_URL)
   const defaultInjectSiteTitle = coverString(manifest.name, process.env.SITE_TITLE)
 
@@ -55,7 +70,8 @@ export function resolveDevelopmentEnv(manifest: any, rawEnv: RawDevelopmentEnv):
       disableHostCheck: coverBoolean(defaultDisableHostCheck, server.disableHostCheck),
       allowedHosts: cover(defaultAllowedHosts, server.allowedHosts),
       launchBrowser: coverBoolean(defaultLaunchBrowser, server.launchBrowser),
-      clearConsoleAfterUpdate: coverBoolean(defaultClearConsoleAfterUpdate, server.clearConsoleAfterUpdate),
+      clearConsoleAfterUpdate: coverBoolean(
+        defaultClearConsoleAfterUpdate, server.clearConsoleAfterUpdate),
     },
     inject: {
       PUBLIC_URL: coverString(defaultInjectPublicUrl, inject.PUBLIC_URL),
