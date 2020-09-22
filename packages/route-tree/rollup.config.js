@@ -12,6 +12,7 @@ const paths = {
   },
   eslintrc: resolvePath('.eslintrc.js'),
   tsconfig: resolvePath('tsconfig.src.json'),
+  nodeModules: resolvePath('../../node_modules/**'),
 }
 
 

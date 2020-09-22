@@ -233,7 +233,6 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         include: ['src/**/*{.ts,.tsx}'],
         tsconfigDefaults: {
           compilerOptions: {
-            jsx: 'preserve',
             declaration: true,
             declarationMap: true,
             declarationDir: 'lib/types',

@@ -39,19 +39,23 @@
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build"
   },
+  "resolutions": {
+    "postcss-modules": "3.2.2"
+  },
   "dependencies": {
     "@barusu/util-option": "^0.0.37",
     "@types/fs-extra": "^8.1.0",
     "@types/reserved-words": "^0.1.0",
     "fs-extra": "^8.1.0",
+    "postcss-modules": "3.2.2",
     "reserved-words": "^0.1.2",
-    "rollup-plugin-postcss": "^3.1.2"
+    "rollup-plugin-postcss": "^3.1.8"
   },
   "devDependencies": {
     "@barusu/eslint-config": "^0.0.37",
     "@barusu/rollup-config": "^0.0.37",
+    "@rollup/pluginutils": "^4.0.0",
     "cross-env": "^7.0.2",
-    "rollup": "2.28.1",
-    "rollup-pluginutils": "^2.8.2"
+    "rollup": "2.28.1"
   }
 }
