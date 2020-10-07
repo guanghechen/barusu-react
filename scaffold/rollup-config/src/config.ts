@@ -9,12 +9,10 @@ import { collectAllDependencies } from '@barusu/util-cli'
 import { convertToBoolean, coverBoolean } from '@barusu/util-option'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
-import multiEntry from '@rollup/plugin-multi-entry'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import {
   CommonJSOptions,
   JsonOptions,
-  MultiEntryOptions,
   NodeResolveOptions,
   PeerDepsExternalOptions,
   PostcssDtsOptions,
@@ -24,9 +22,9 @@ import {
 } from './types/options'
 
 
-export interface ProdConfigParams extends rollup.InputOptions {
+export interface ConfigOptions extends rollup.InputOptions {
   /**
-   * 是否生成 sourceMap （包括 declarationMap）
+   * Whether to generate sourceMap (includes declarationMap)
    */
   useSourceMap: boolean
   /**
@@ -36,55 +34,24 @@ export interface ProdConfigParams extends rollup.InputOptions {
   externalAllDependencies: boolean
   manifest: {
     /**
-     * 源文件入口
+     * source entry file
      */
     source: string
     /**
-     * cjs 目标文件入口
+     * cjs entry file
      */
     main?: string
     /**
-     * es 目标文件入口
+     * es entry file
      */
     module?: string
     /**
-     * 依赖列表
+     * Dependency list
      */
     dependencies?: { [key: string]: string }
   }
   /**
-   * 预处理选项
-   */
-  preprocessOptions?: {
-    /**
-     * 样式文件的预处理选项
-     */
-    stylesheets?: {
-      /**
-       * 入口文件
-       */
-      input: string | string[] | { include?: string[], exclude?: string }
-      /**
-       * 出口配置（在 rollup -w 模式下为必选项）
-       */
-      output?: rollup.OutputOptions | rollup.OutputOptions[]
-      /**
-       * 插件选项
-       */
-      pluginOptions?: {
-        /**
-         * options for @rollup/plugin-multi-entry
-         */
-        multiEntryOptions?: MultiEntryOptions
-        /**
-         * options for rollup-plugin-postcss
-         */
-        postcssOptions?: PostcssDtsOptions
-      }
-    }
-  }
-  /**
-   * 插件选项
+   * Plugin options
    */
   pluginOptions?: {
     /**
@@ -126,7 +93,20 @@ export interface ProdConfigParams extends rollup.InputOptions {
 }
 
 
-export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOptions[] => {
+const builtinExternals: string[] = [
+  'glob',
+  'sync',
+  ...require('builtin-modules'),
+]
+
+
+/**
+ * Create rollup config for handle react component
+ * @param options
+ */
+export function createRollupConfig(
+  options: ConfigOptions
+): rollup.RollupOptions {
   const DEFAULT_USE_SOURCE_MAP = coverBoolean(
     true, convertToBoolean(process.env.ROLLUP_USE_SOURCE_MAP))
   const DEFAULT_EXTERNAL_ALL_DEPENDENCIES = coverBoolean(
@@ -136,17 +116,14 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
     useSourceMap = DEFAULT_USE_SOURCE_MAP,
     externalAllDependencies = DEFAULT_EXTERNAL_ALL_DEPENDENCIES,
     manifest,
-    preprocessOptions = {},
     pluginOptions = {},
     ...resetInputOptions
-  } = props
+  } = options
 
-  const externals: string[] = [
-    'glob',
-    'sync',
-    ...require('builtin-modules'),
+  const externalSet: Set<string> = new Set([
+    ...builtinExternals,
     ...Object.keys(manifest.dependencies || {}),
-  ]
+  ])
 
   if (externalAllDependencies) {
     const dependencies = collectAllDependencies(
@@ -155,36 +132,10 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
       undefined,
       /[\s\S]*/,
     )
-    externals.push(...dependencies)
-  }
-
-  // preprocess task
-  const preprocessConfigs: rollup.RollupOptions[] = []
-  if (preprocessOptions.stylesheets != null) {
-    const {
-      input,
-      output = {
-        dir: 'node_modules/.cache/.rollup.preprocess.dts',
-      },
-      pluginOptions = {}
-    } = preprocessOptions.stylesheets
-    const { multiEntryOptions, postcssOptions } = pluginOptions
-    const precessStylesheetConfig: rollup.RollupOptions = {
-      input: input as any,
-      output: output,
-      plugins: [
-        multiEntry(multiEntryOptions),
-        postcss({
-          dts: true,
-          extract: false,
-          minimize: false,
-          ...postcssOptions,
-        }),
-      ] as rollup.Plugin[],
+    for (const dependency of dependencies) {
+      externalSet.add(dependency)
     }
-    preprocessConfigs.push(precessStylesheetConfig)
   }
-
   // process task
   const {
     jsonOptions = {},
@@ -213,7 +164,11 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
         sourcemap: useSourceMap,
       }
     ].filter(Boolean) as rollup.OutputOptions[],
-    external: externals.sort().filter((x, i, A) => A.indexOf(x) === i),
+    external: function (id: string): boolean {
+      const m = /^([.][\s\S]*|@[^/\s]+[/][^/\s]+|[^/\s]+)/.exec(id)
+      if (m == null) return false
+      return externalSet.has(m[1])
+    },
     plugins: [
       peerDepsExternal(peerDepsExternalOptions),
       nodeResolve({
@@ -267,8 +222,5 @@ export const createRollupConfig = (props: ProdConfigParams): rollup.RollupOption
     ...resetInputOptions,
   }
 
-  return [
-    ...preprocessConfigs,
-    config,
-  ].filter(Boolean) as rollup.RollupOptions[]
+  return config
 }
