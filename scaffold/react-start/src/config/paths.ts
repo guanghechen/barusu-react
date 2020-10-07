@@ -6,7 +6,7 @@ export interface ConfigPaths {
   resolvePath: (...relativePath: string[]) => string
   source: {
     root: string
-    src: string
+    src: string[]
     public: string
     polyfill?: string
     eslintrc: string
@@ -41,7 +41,7 @@ export function createConfigPaths(appDirectory: string): ConfigPaths {
     resolvePath,
     source: {
       root: appDirectory,
-      src: resolvePath('src'),
+      src: [resolvePath('src')],
       public: resolvePath('public'),
       polyfill: '',
       eslintrc: resolvePath('.eslintrc.js'),

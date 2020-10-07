@@ -214,7 +214,7 @@ export default function createWebpackConfig(
       // point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: (info: any): string => {
         if (isEnvProduction) {
-          return path.relative(paths.source.src, path.resolve(info.absoluteResourcePath))
+          return path.relative(paths.source.root, path.resolve(info.absoluteResourcePath))
             .replace(/\\/g, '/')
         }
         if (isEnvDevelopment) {
@@ -340,7 +340,7 @@ export default function createWebpackConfig(
         isEnvDevelopment && env.development.shouldUseSourceMap && {
           test: /\.(js|mjs|jsx|ts|tsx)$/,
           include: [
-            paths.source.src,
+            ...paths.source.src,
             (p: string): boolean => !/node_modules/.test(p),
           ],
           enforce: 'pre',
@@ -372,9 +372,7 @@ export default function createWebpackConfig(
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
-              include: [
-                paths.source.src,
-              ],
+              include: [...paths.source.src],
               loader: require.resolve('babel-loader'),
               options: {
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
@@ -451,7 +449,7 @@ export default function createWebpackConfig(
             {
               test: /\.css$/,
               exclude: /\.module\.css$/,
-              include: [paths.source.src],
+              include: [...paths.source.src],
               use: getStyleLoaders(false),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -464,14 +462,14 @@ export default function createWebpackConfig(
             // using the extension .module.css
             {
               test: /\.module\.css$/,
-              include: [paths.source.src],
+              include: [...paths.source.src],
               use: getStyleLoaders(true),
             },
 
             // Inject css with `link` tag, instead of `style` tag
             isEnvDevelopment && {
               test: /\.css$/,
-              exclude: [paths.source.src],
+              exclude: [...paths.source.src],
               use: [
                 {
                   loader: require.resolve('style-loader'),
@@ -488,7 +486,7 @@ export default function createWebpackConfig(
             // Opt-in support for Stylus (using .styl extensions).
             {
               test: /\.styl$/,
-              include: [paths.source.src],
+              include: [...paths.source.src],
               use: getStyleLoaders(
                 true,
                 { importLoaders: 3 },
@@ -505,7 +503,7 @@ export default function createWebpackConfig(
             // Process *.pug to *.html
             {
               test: /\.pug$/,
-              include: [paths.source.src],
+              include: [...paths.source.src],
               loader: require.resolve('pug-loader'),
             },
 
