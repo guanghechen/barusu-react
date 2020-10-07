@@ -1043,20 +1043,20 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@barusu/chalk-logger@^0.0.37":
-  version "0.0.37"
-  resolved "https://registry.npmjs.org/@barusu/chalk-logger/-/chalk-logger-0.0.37.tgz#19201e7edbffcda59399d312cfbc8e2b2f7b6d1f"
-  integrity sha512-jjE720A2K+OjdFAkmhM5Qr3JTJq5LSIL/q94mbkLX1/nFWoAF8ESHUfl53g+Xu/YiD/TV4JqRP37y6iKPsDM2Q==
+"@barusu/chalk-logger@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@barusu/chalk-logger/-/chalk-logger-0.0.39.tgz#bd2af6d112da3f1138029200f39dcea6075b316b"
+  integrity sha512-p6txYyMesvKpsu8PlAKLeoPB0KNB1SYZdNgXDNkmAFfi6f7aFhzcDnBzk7oDVt39fIZlJUvxT+c99ksqxDBWaw==
   dependencies:
     "@types/fs-extra" "^8.1.0"
     chalk "^3.0.0"
     fs-extra "^8.1.0"
     moment "^2.24.0"
 
-"@barusu/eslint-config@^0.0.37":
-  version "0.0.37"
-  resolved "https://registry.npmjs.org/@barusu/eslint-config/-/eslint-config-0.0.37.tgz#1f49b413de9dc9bb6d223ffc3e951756fdb2eb84"
-  integrity sha512-0+45h3RrYvPeCv0Ltw9HP++LgpTLTqz6Zc/fEqGK5S037ucYo1ULQkEKbE0z7xPeWB5MWSwXd76xZk4t7CwZXg==
+"@barusu/eslint-config@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@barusu/eslint-config/-/eslint-config-0.0.39.tgz#b157d685c4a83af607af51deb1d125bf2cff5244"
+  integrity sha512-ij+NM4sczDH83hTkPlbAk5OREMS7qbHHRToASM7Eyb/AW4iuCLcABe4vzjTb9GY34TlHxR1StXesiZWYw71rIw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.1.0"
     "@typescript-eslint/parser" "^4.1.0"
@@ -1068,10 +1068,15 @@
     eslint-plugin-prettier "^3.1.4"
     prettier "2.1.1"
 
-"@barusu/rollup-config@^0.0.37":
-  version "0.0.37"
-  resolved "https://registry.npmjs.org/@barusu/rollup-config/-/rollup-config-0.0.37.tgz#2e96bacf7e23b4cd521a9b7fa4a047c4ab946742"
-  integrity sha512-+sAVgc7HG508jp673GAR7ivEhIlEqLbZrinTeeb4TpWlVPBUSxIGa7d/mB+SOpvUTkSvVahq/Mlm5YZEERxVvg==
+"@barusu/event-bus@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@barusu/event-bus/-/event-bus-0.0.39.tgz#ce8c2f9e203008ef8ecc4821d533285b7ea4322c"
+  integrity sha512-jjdShR6oTrV6C7kjEDZLuODiYb7UaUtFasIYdCvBjBHq8R9jqxEIz2u/R8K6Y0fjrrocEGy7pyb+V+/xUigCyg==
+
+"@barusu/rollup-config@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@barusu/rollup-config/-/rollup-config-0.0.39.tgz#74ffb0f31f961e5551d9f22308e743ad0085afe3"
+  integrity sha512-Eo9PDzTZYRzOQNvp5FLV10pJEZM5sbLLDkxX0Awn+ZyrU8KtAD88iW2O1CD5XWKZF+9iOUMg/DsLMjC4mvSEXQ==
   dependencies:
     "@rollup/plugin-commonjs" "^15.1.0"
     "@rollup/plugin-json" "^4.1.0"
@@ -1082,36 +1087,37 @@
     rollup-plugin-peer-deps-external "^2.2.3"
     rollup-plugin-typescript2 "^0.27.2"
 
-"@barusu/tool-find-inconsistent@^0.0.37":
-  version "0.0.37"
-  resolved "https://registry.npmjs.org/@barusu/tool-find-inconsistent/-/tool-find-inconsistent-0.0.37.tgz#6fde1845fb8d7d15759a57fe2b38a70827555462"
-  integrity sha512-0BYJlV+S54+HSb4aJJobbVdF2FoAkMrngucimqKE8Vowpu+0rmOCWMu4GrDRedTLopCzOb66qCQwfkdGHjfZuQ==
+"@barusu/tool-find-inconsistent@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@barusu/tool-find-inconsistent/-/tool-find-inconsistent-0.0.39.tgz#87060d49d4c6da39938b1b735ac66c44d9d31cc2"
+  integrity sha512-jf/JIviFR5rSWRV/vj9t621Lw+pODug1eLEP/6q+UgNcagGXNm56qJdN3OWrZ5Mj1ps5ei6KoENlVUmUws3TQw==
   dependencies:
-    "@barusu/chalk-logger" "^0.0.37"
-    "@barusu/util-cli" "^0.0.37"
-    "@barusu/util-option" "^0.0.37"
+    "@barusu/chalk-logger" "^0.0.39"
+    "@barusu/util-cli" "^0.0.39"
+    "@barusu/util-option" "^0.0.39"
     "@types/fs-extra" "^8.1.0"
     fs-extra "^8.1.0"
 
-"@barusu/tool-sort-imports@^0.0.37":
-  version "0.0.37"
-  resolved "https://registry.npmjs.org/@barusu/tool-sort-imports/-/tool-sort-imports-0.0.37.tgz#0b1fed67b1c96d35c457fb253bec5a3d8825f9b7"
-  integrity sha512-P6XUmdWjXgMbdR4nC8WLdFIFCDduhsz+urgDmFKVgBged6gQS7bqY6fffNZKJX66jb2b+dPvGgp2YpBrR2FeAA==
+"@barusu/tool-sort-imports@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@barusu/tool-sort-imports/-/tool-sort-imports-0.0.39.tgz#d7f05afd1044a2e54e742689e4fcb7de6a14390d"
+  integrity sha512-BnWTlv8CRDICKoP/77v6eO73M4+4+FO3eauuW7ddTNssnu3uVio0R5+dfQYykr3lCOff9YMuI34C0AXfEsofow==
   dependencies:
-    "@barusu/chalk-logger" "^0.0.37"
-    "@barusu/util-cli" "^0.0.37"
-    "@barusu/util-option" "^0.0.37"
+    "@barusu/chalk-logger" "^0.0.39"
+    "@barusu/event-bus" "^0.0.39"
+    "@barusu/util-cli" "^0.0.39"
+    "@barusu/util-option" "^0.0.39"
     "@types/fs-extra" "^8.1.0"
     fs-extra "^8.1.0"
     globby "^11.0.0"
 
-"@barusu/util-cli@^0.0.37":
-  version "0.0.37"
-  resolved "https://registry.npmjs.org/@barusu/util-cli/-/util-cli-0.0.37.tgz#110e9c67aa6cd7ffd727ae34440f576a5874dab6"
-  integrity sha512-2T9SFYQl+f4ZBTfi1tQWGqn52BQRVKdt82Ri1p2qSyPvMyFPipMFnD2phuwxiO8RguU7S3vjSlRRyiUvwCG+OA==
+"@barusu/util-cli@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@barusu/util-cli/-/util-cli-0.0.39.tgz#4355d2d4324db9b2992f0f5cc2bad3b53cc23d13"
+  integrity sha512-0W2tChj4Dj0NgPDr51wYyUf207y5fYphBRH2QXGE7eejGZDDNYIKe90v/vYYbSawVNVkFKv+s4JPG23buLbs5A==
   dependencies:
-    "@barusu/chalk-logger" "^0.0.37"
-    "@barusu/util-option" "^0.0.37"
+    "@barusu/chalk-logger" "^0.0.39"
+    "@barusu/util-option" "^0.0.39"
     "@types/command-exists" "^1.2.0"
     "@types/fs-extra" "^8.1.0"
     "@types/js-yaml" "^3.12.5"
@@ -1125,20 +1131,20 @@
     node-plop "~0.26.0"
     ora "^4.0.4"
 
-"@barusu/util-option@^0.0.37":
-  version "0.0.37"
-  resolved "https://registry.npmjs.org/@barusu/util-option/-/util-option-0.0.37.tgz#42b38d58e19272527f566fa745425204be5fcce3"
-  integrity sha512-opL7j25DkAIq5srJI6rFrbIQSJlG/cP8HUVYhzUcKDeJJp1qof0MDbigRXIRoJzVpeqbcJZHpqO0Upq7VW5QwQ==
+"@barusu/util-option@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@barusu/util-option/-/util-option-0.0.39.tgz#8c1bd1127425fe93d3db93d99164680dd1cdddea"
+  integrity sha512-D8WDJbDjre/yzj4DJ01fJqVvGKljiY9HEkxlMk1tMYpNvPk2aLNMQ+nY/4JzWuFwoN+/LZb/1jqQVAgb9Dfh+g==
   dependencies:
     change-case "^4.1.1"
     lower-case "^2.0.1"
     title-case "^3.0.2"
     upper-case "^2.0.1"
 
-"@barusu/webpack-source-map-loader@^0.0.37":
-  version "0.0.37"
-  resolved "https://registry.npmjs.org/@barusu/webpack-source-map-loader/-/webpack-source-map-loader-0.0.37.tgz#8320e4fc255d249fa84fc4c6f72d5b6b73376e6e"
-  integrity sha512-u7JyoQX1q3lExgQPgaeMJVwH/oFZZOcM4Pm0waoFTJ67dkDr5zEud+XmhYLNQUoFX7sJ9twP9cTXfpUKuVKQOQ==
+"@barusu/webpack-source-map-loader@^0.0.39":
+  version "0.0.39"
+  resolved "https://registry.npmjs.org/@barusu/webpack-source-map-loader/-/webpack-source-map-loader-0.0.39.tgz#eaa440eae5126889f3cb290d2726d09924bfc7bd"
+  integrity sha512-yQXR0do5ap60vlGp2dfKEAWSF4Al7bBjeNbk2kXWE0b3m7mx/78zzLQ3QqNSrj1TldK9ZUSA9P/UdP6VE72FwA==
   dependencies:
     loader-utils "^2.0.0"
 

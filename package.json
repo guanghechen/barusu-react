@@ -37,8 +37,8 @@
     "postcss-modules": "3.2.2"
   },
   "devDependencies": {
-    "@barusu/tool-find-inconsistent": "^0.0.37",
-    "@barusu/tool-sort-imports": "^0.0.37",
+    "@barusu/tool-find-inconsistent": "^0.0.39",
+    "@barusu/tool-sort-imports": "^0.0.39",
     "@types/classnames": "^2.2.9",
     "@types/node": "^13.7.6",
     "@types/react": "^16.9.23",
