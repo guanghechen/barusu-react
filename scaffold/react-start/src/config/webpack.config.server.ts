@@ -103,7 +103,7 @@ export default function createBaseWebpackServerConfig(
     // src/node_modules is not ignored to support absolute imports
     // https://github.com/facebook/create-react-app/issues/1065
     watchOptions: {
-      ignored: ignoredFiles(paths.source.src),
+      ignored: paths.source.src.map(src => ignoredFiles(src)),
       // https://stackoverflow.com/questions/40573774/webpack-hot-reloading-enoent-no-such-file-or-directory
       aggregateTimeout: 300,
       poll: 1000
