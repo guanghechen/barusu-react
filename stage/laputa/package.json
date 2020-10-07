@@ -47,10 +47,15 @@
   },
   "devDependencies": {
     "@barusu-react/eslint-config": "^0.0.11",
-    "@barusu-react/webpack-config": "^0.0.11",
-    "@barusu/util-option": "^0.0.37",
-    "@types/fs-extra": "^8.1.0",
-    "cross-env": "^7.0.2",
-    "fs-extra": "^8.1.0"
-  }
+    "@barusu-react/scaffold-react-start": "^0.0.11",
+    "@barusu/util-option": "^0.0.39",
+    "@types/fs-extra": "^9.0.1",
+    "fs-extra": "^9.0.1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ]
 }

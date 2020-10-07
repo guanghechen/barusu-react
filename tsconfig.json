@@ -18,18 +18,9 @@
       "@barusu-react/rollup-plugin-postcss-dts": [
         "./scaffold/rollup-plugin-postcss-dts/src"
       ],
-      "@barusu-react/webpack-config": [
-        "./scaffold/webpack-config/src"
+      "@barusu-react/scaffold-react-start": [
+        "./scaffold/react-start/src"
       ],
-      "@barusu-react/webpack-rule-css": [
-        "./scaffold/webpack-rule-css/src"
-      ],
-      "@barusu-react/webpack-rule-tsx": [
-        "./scaffold/webpack-rule-tsx/src"
-      ],
-      "@barusu-react/webpack-util": [
-        "./scaffold/webpack-util/src"
-      ]
     }
   }
 }

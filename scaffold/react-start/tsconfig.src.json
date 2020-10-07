@@ -11,13 +11,9 @@
     "declarationDir": "lib/types",
     "outDir": "lib",
     "rootDir": "src",
-    "target": "es2015",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "target": "es2015"
   },
   "include": [
-    "src"
+    "src/"
   ]
 }
