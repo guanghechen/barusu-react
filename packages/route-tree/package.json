@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/route-tree",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "a demo of react package with ts+react+stylus",
   "author": {
     "name": "lemon-clown",
@@ -42,7 +42,7 @@
     "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build"
   },
   "dependencies": {
-    "@barusu-react/icons": "^0.0.11"
+    "@barusu-react/icons": "^0.0.12"
   },
   "peerDependencies": {
     "@types/classnames": "^2.2.9",
@@ -53,8 +53,8 @@
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "@barusu-react/eslint-config": "^0.0.11",
-    "@barusu-react/rollup-config": "^0.0.11",
+    "@barusu-react/eslint-config": "^0.0.12",
+    "@barusu-react/rollup-config": "^0.0.12",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.23",
     "@types/react-router-dom": "^5.1.3",

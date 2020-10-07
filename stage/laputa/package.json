@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/stage-laputa",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "overview of react components (of @barusu-react/)",
   "author": {
     "name": "lemon-clown",
@@ -32,8 +32,8 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@barusu-react/hello-world": "^0.0.11",
-    "@barusu-react/route-tree": "^0.0.11",
+    "@barusu-react/hello-world": "^0.0.12",
+    "@barusu-react/route-tree": "^0.0.12",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
@@ -46,8 +46,8 @@
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "@barusu-react/eslint-config": "^0.0.11",
-    "@barusu-react/scaffold-react-start": "^0.0.11",
+    "@barusu-react/eslint-config": "^0.0.12",
+    "@barusu-react/scaffold-react-start": "^0.0.12",
     "@barusu/util-option": "^0.0.39",
     "@types/fs-extra": "^9.0.1",
     "fs-extra": "^9.0.1"
