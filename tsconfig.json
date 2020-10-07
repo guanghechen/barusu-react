@@ -17,7 +17,10 @@
       ],
       "@barusu-react/rollup-plugin-postcss-dts": [
         "./scaffold/rollup-plugin-postcss-dts/src"
-      ]
+      ],
+      "@barusu-react/scaffold-react-start": [
+        "./scaffold/react-start/src"
+      ],
     }
   }
 }

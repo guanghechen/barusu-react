@@ -7,16 +7,11 @@
       "dom.iterable"
     ],
     "module": "commonjs",
-    "target": "es2015",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "target": "es2015"
   },
   "include": [
     "src/",
     "script/",
-    "test/",
-    "package.json"
+    "__test__/"
   ]
 }

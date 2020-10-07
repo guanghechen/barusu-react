@@ -1,40 +1,15 @@
 import fs from 'fs-extra'
 import path from 'path'
-import { Paths } from '@barusu-react/webpack-config'
+import { ConfigPaths, createConfigPaths } from '@barusu-react/scaffold-react-start'
 
 
 const appDirectory = fs.realpathSync(process.cwd())
-export const resolvePath = (...relativePath: string[]) => {
+export const resolvePath = (...relativePath: string[]): string => {
   return path.normalize(path.resolve(appDirectory, ...relativePath))
 }
 
+const paths: ConfigPaths = createConfigPaths(appDirectory)
+paths.source.extraNodeModules.push(resolvePath('../../node_modules'))
 
-export const paths: Paths = {
-  source: {
-    root: appDirectory,
-    src: resolvePath('src'),
-    public: resolvePath('public'),
-    eslintrc: resolvePath('.eslintrc.js'),
-    packageJson: resolvePath('package.json'),
-    tsconfigJson: resolvePath('tsconfig.src.json'),
-    nodeModules: resolvePath('node_modules'),
-    extraNodeModules: [
-      resolvePath('../../node_modules'),
-    ],
-    lockFile: resolvePath('yarn.lock'),
-    polyfill: resolvePath('src/setupPolyfill.js'),
-  },
-  target: {
-    root: resolvePath('dist'),
-  },
-  entries: [
-    {
-      name: 'index',
-      page: resolvePath('src/index.pug'),
-      script: resolvePath('src/index.tsx'),
-    }
-  ],
-  alias: {
-    '@': resolvePath('src'),
-  }
-}
+
+export default paths

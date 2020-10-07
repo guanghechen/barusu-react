@@ -32,7 +32,7 @@
         "@barusu-react/eslint-config": "^0.0.1",
         "@barusu-react/rollup-config": "^0.0.1",
         "rollup": "2.28.1",
-        "stylus": "^0.54.7"
+        "stylus": "^0.54.8"
       },
       "browserslist": [
         "last 2 versions",
