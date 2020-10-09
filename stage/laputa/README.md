@@ -3,12 +3,13 @@
 [![npm license](https://img.shields.io/npm/l/@barusu-react/stage-laputa.svg)](https://www.npmjs.com/package/@barusu-react/stage-laputa)
 
 
-# Usage
+# Install
 
-  * Install
-    ```shell
-    yarn add --dev @barusu-react/stage-laputa
-    ```
+  ```shell
+  yarn add --dev @barusu-react/stage-laputa
+  ```
+
+# Usage
 
   * Use `serve.js`
     - `yarn add --dev serve`

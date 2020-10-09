@@ -29,7 +29,12 @@ export interface CSSDtsProps {
    */
   hook?: GetCSSTokenHook
   /**
-   * 是否要为指定的文件生成 *.d.ts
+   * Determine whether to generate typescript declaration file
+   * for the specified file
+   *
+   * @param cssPath         filepath of the css file
+   * @param json            css class name map
+   * @param outputFilepath  filepath of the ts declaration file
    */
   shouldGenerateDtsFile?: (
     cssPath: string,

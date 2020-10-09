@@ -6,10 +6,9 @@
 See [sourcecodes in github](https://github.com/lemon-clown/barusu-react/tree/master/packages/icons#readme) to get more information.
 
 
-# Usage
+# Install
 
-  * Install
-    ```shell
-    yarn add @barusu-react/icons
-    # you also should install peerDependencies if the terminal prompts for a warning
-    ```
+  ```shell
+  yarn add @barusu-react/icons
+  # you also should install peerDependencies if the terminal prompts for a warning
+  ```

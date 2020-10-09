@@ -11,13 +11,14 @@ This is a demo project that demonstrates how to package a library that uses the 
 See [sourcecodes in github](https://github.com/lemon-clown/barusu-react/tree/master/packages/hello-world#readme) to get more information.
 
 
-# Usage
+# Install
 
-  * Install
-    ```shell
-    yarn add @barusu-react/hello-world
-    # you also should install peerDependencies if the terminal prompts for a warning
-    ```
+  ```shell
+  yarn add @barusu-react/hello-world
+  # you also should install peerDependencies if the terminal prompts for a warning
+  ```
+
+# Usage
 
   * Use in React project
     ```typescript

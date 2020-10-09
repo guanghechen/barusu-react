@@ -3,15 +3,16 @@
 [![npm license](https://img.shields.io/npm/l/@barusu-react/template-react-package.svg)](https://www.npmjs.com/package/@barusu-react/template-react-package)
 
 
+# Install
+
+  ```shell
+  npm install -g @barusu-react/template-react-package
+
+  # or use yarn:
+  # yarn global add @barusu-react/template-react-package
+  ```
+
 # Usage
-
-  * Install
-    ```shell
-    npm install -g @barusu-react/template-react-package
-
-    # or use yarn:
-    # yarn global add @barusu-react/template-react-package
-    ```
 
   * Create a typescript+stylus+react project
     ```shell

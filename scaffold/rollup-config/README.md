@@ -3,214 +3,118 @@
 [![npm license](https://img.shields.io/npm/l/@barusu-react/rollup-config.svg)](https://www.npmjs.com/package/@barusu-react/rollup-config)
 
 
-# Usage
+# Install
 
-  ## Install
   ```shell
   yarn add --dev @barusu-react/rollup-config
   ```
 
-  ## Demo
-  * Add `package.json`
-    ```json
-    {
-      "name": "hello-world",
-      "version": "0.0.0",
-      "scripts": {
-        "start": "rollup -w -c rollup.config.js",
-        "build": "rollup -c rollup.config.js"
-      },
-      "dependencies": {
-        "@types/classnames": "^2.2.9",
-        "@types/react": "^16.9.23",
-        "@types/react-dom": "^16.9.5",
-        "classnames": "^2.2.6",
-        "react": "^16.13.0",
-        "react-dom": "^16.13.0"
-      },
-      "devDependencies": {
-        "@barusu-react/eslint-config": "^0.0.1",
-        "@barusu-react/rollup-config": "^0.0.1",
-        "rollup": "2.28.1",
-        "stylus": "^0.54.8"
-      },
-      "browserslist": [
-        "last 2 versions",
-        "Firefox ESR",
-        "> 1%",
-        "ie >= 11"
-      ]
-    }
-    ```
+# Usage
 
-  * Install dependencies
-    ```shell
-    yarn install
-    ```
+  * Use in `rollup.config.js`
+    - <details><summary>rollup.config.js</summary>
 
-  * create `.eslintc`
-    ```json
-    {
-      "extends": [
-        "@barusu-react/eslint-config"
-      ],
-      "parserOptions": {
-        "project": "./tsconfig.json"
-      },
-      "rules": {
+      ```javascript
+      import path from 'path'
+      import {
+        createPreprocessorConfig,
+        createRollupConfig,
+      } from '@barusu-react/rollup-config'
+      import manifest from './package.json'
+
+      const resolvePath = p => path.resolve(__dirname, p)
+      const paths = {
+        source: {
+          stylesheetInput: [
+            resolvePath('src/style/index.styl'),
+          ],
+          assetsRoot: resolvePath('src/assets'),
+        },
+        eslintrc: resolvePath('.eslintrc.js'),
+        tsconfig: resolvePath('tsconfig.src.json'),
       }
-    }
-    ```
 
-  * create `tsconfig.json`
-    ```json
-    {
-      "compilerOptions": {
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "strict": true,
-        "strictNullChecks": true,
-        "noUnusedLocals": false,
-        "noUnusedParameters": false,
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "noImplicitReturns": false,
-        "alwaysStrict": true,
-        "suppressImplicitAnyIndexErrors": true,
-        "newLine": "LF",
-        "removeComments": false,
-        "composite": true,
-        "declarationMap": true,
-        "declaration": true,
-        "sourceMap": true,
-        "pretty": false,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "experimentalDecorators": true,
-        "forceConsistentCasingInFileNames": true,
-        "downlevelIteration": true,
-        "outDir": "lib",
-        "rootDir": "src",
-        "target": "es5",
-        "module": "esnext",
-        "jsx": "react",
-        "lib": [
-          "esnext",
-          "dom",
-          "dom.iterable"
-        ]
-      },
-      "include": [
-        "src"
-      ]
-    }
-    ```
-
-  * Create rollup configuration `rollup.config.js`
-    ```javascript
-    import path from 'path'
-    import { createRollupConfig } from '@barusu-react/rollup-config'
-    import manifest from './package.json'
-
-    const resolvePath = p => path.resolve(__dirname, p)
-    const paths = {
-      source: {
-        stylesheetInput: [
-          resolvePath('src/**/*.styl'),
-        ],
-        assetsRoot: path.resolve(__dirname, 'src/assets'),
-      },
-      eslintrc: resolvePath('.eslintrc.js'),
-      tsconfig: resolvePath('tsconfig.json'),
-    }
-
-    const config = createRollupConfig({
-      manifest,
-      preprocessOptions: {
-        stylesheets: {
-          input: paths.source.stylesheetInput,
-          pluginOptions: {
-            multiEntryOptions: {
-              exports: false,
+      const preprocessorConfig = createPreprocessorConfig({
+        input: paths.source.stylesheetInput,
+        pluginOptions: {
+          multiEntryOptions: {
+            exports: false,
+          },
+          postcssOptions: {
+            modules: {
+              localsConvention: 'camelCase',
             },
-            postcssOptions: {
-              modules: {
-                camelCase: true,
-              },
-            }
+          }
+        },
+      })
+
+      const config = createRollupConfig({
+        manifest,
+        pluginOptions: {
+          typescriptOptions: {
+            tsconfig: paths.tsconfig,
           },
+          postcssOptions: {
+            extract: false,
+            minimize: true,
+            modules: {
+              localsConvention: 'camelCase',
+              generateScopedName: 'barusu-[local]',
+            },
+            pluginOptions: {
+              postcssUrlOptions: {
+                url: 'inline',
+                basePath: paths.source.assetsRoot,
+              }
+            },
+          }
         }
-      },
-      pluginOptions: {
-        eslintOptions: {
-          configFile: paths.eslintrc,
-        },
-        typescriptOptions: {
-          tsconfig: paths.tsconfig,
-          useTsconfigDeclarationDir: true,
-        },
-        commonjsOptions: {
-          include: ['./node_modules/**'],
-        },
-        postcssOptions: {
-          extract: false,
-          minimize: true,
-          modules: {
-            camelCase: true,
-            generateScopedName: 'barusu-[local]',
-          },
-          pluginOptions: {
-            postcssUrlOptions: {
-              url: 'inline',
-              basePath: paths.source.assetsRoot,
-            }
-          },
-        }
-      }
-    })
+      })
 
-    export default config
-    ```
+      const resolvedConfig = [preprocessorConfig, config]
 
-  * Create a entry file `src/index.tsx`
-    ```tsx
-    import React from 'react'
-    import classes from './style.styl'
+      export default resolvedConfig
+      ```
 
+# Examples
 
-    export interface HelloWorldProps {
-      content?: string
-    }
-
-
-    export function HelloWorld(props: HelloWorldProps): React.ReactElement {
-      const { content = 'Hello, world!' } = props
-      return (
-        <div className={ classes.container }>
-          <h1 className={ classes.content }>{ content }</h1>
-        </div>
-      )
-    }
-    ```
-
-  * Create a stylus file `src/index.styl`
-    ```stylus
-    .container
-      display: flex
-      .content
-        font-family: 'Comic Sans', sans-serif
-        font-size: 18px
-        color: #1a1a1a
-        line-height: 1.75
-    ```
-
-  * Commands:
-    - `yarn build`
-    - `yarn start`
+  * [@barusu-react/hello-world](https://github.com/lemon-clown/barusu-react/tree/master/packages/hello-world)
+  * [@barusu-react/icons](https://github.com/lemon-clown/barusu-react/tree/master/packages/icons)
+  * [@barusu-react/route-tree](https://github.com/lemon-clown/barusu-react/tree/master/packages/route-tree)
 
 # Options
 
-## manifest
+
+## preprocessOptions
+
+* `input`: Input config
+  - type: `string | string[] | { include?: string[], exclude?: string }`
+  - required: `true`
+  - see [Supported Input Types][multi-entry-input-types]
+
+* `output`: Output config
+  - type: `rollup.OutputOptions | rollup.OutputOptions[]`
+  - required: `false`
+
+* `pluginOptions`:
+
+   property             | required  | description
+  :--------------------:|:---------:|:------------
+   `multiEntryOptions`  | `false`   | options for [@rollup/plugin-multi-entry][]
+   `postcssOptions`     | `false`   | options for [@barusu-react/rollup-plugin-postcss-dts][]
+
+
+## Options of createRollupConfig
+
+* `useSourceMap`: Whether to generate sourceMap (includes declarationMap)
+  - type: `boolean`
+  - default: true
+
+* `externalAllDependencies`: Whether to exhaust all dependencies (include dependencies of child dependency)
+  - type: `boolean`
+  - default: true
+
+* `manifest`
 
    property       | type                      | required  | description
   :--------------:|:-------------------------:|:---------:|:------------------------
@@ -219,39 +123,19 @@
    `module`       | `string`                  | `false`   | target entry file of es
    `dependencies` | `{[key: string]: string}` | `false`   | ignore these dependencies (`external`)
 
+* `pluginOptions`
 
-## preprocessOptions
-
-### stylesheet
-  property         | required  | description
- :----------------:|:---------:|:------------
-  `input`          | `true`    | see [Supported Input Types][multi-entry-input-types]
-  `output`         | `false`   |
-  `pluginOptions`  | `false`   |
-
-* `pluginOptions`:
-    property             | required  | description
-  :--------------------:|:---------:|:------------
-    `multiEntryOptions`  | `false`   | options for [@rollup/plugin-multi-entry][]
-    `postcssOptions`     | `false`   | options for [@barusu-react/rollup-plugin-postcss-dts][]
-
-## pluginOptions
    property                   | required  | description
   :--------------------------:|:---------:|:------------
-   `eslintOptions`            | `false`   | options for [rollup-plugin-eslint][]
+   `jsonOptions`              | `false`   | options for [@rollup/plugin-json][]
    `nodeResolveOptions`       | `false`   | options for [@rollup/plugin-node-resolve][]
-   `commonjsOptions`          | `false`   | options for [@rollup/plugin-commonjs][]
    `typescriptOptions`        | `false`   | options for [rollup-plugin-typescript2][]
+   `commonjsOptions`          | `false`   | options for [@rollup/plugin-commonjs][]
    `peerDepsExternalOptions`  | `false`   | options for [rollup-plugin-peer-deps-external][]
    `postcssOptions`           | `false`   | options for [@barusu-react/rollup-plugin-postcss-dts][]
 
 
-# References
-  * [@barusu-react/hello-world](https://github.com/lemon-clown/barusu-react/tree/master/packages/hello-world#readme)
-
-
-
-[rollup-plugin-eslint]: https://github.com/TrySound/rollup-plugin-eslint#readme
+[@rollup/plugin-json]: https://github.com/rollup/plugins/tree/master/packages/json#readme
 [@rollup/plugin-node-resolve]: https://github.com/rollup/plugins/tree/master/packages/node-resolve#readme
 [@rollup/plugin-multi-entry]: https://github.com/rollup/plugins/tree/master/packages/multi-entry#readme
 [@rollup/plugin-commonjs]: https://github.com/rollup/plugins/tree/master/packages/commonjs#readme
