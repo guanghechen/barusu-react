@@ -45,7 +45,7 @@ export function RouteTreeNodeLabel(
       { ...extraLabelAttrs }
       title={ title }
       key={ pathname }
-      to={ { pathname, search, hash, state } }
+      to={{ pathname, search, hash, state }}
     >
       { title }
     </Link>

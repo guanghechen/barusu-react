@@ -11,7 +11,7 @@ export interface HelloWorldProps {
 export function HelloWorld(props: HelloWorldProps): React.ReactElement {
   const { content = 'Hello, world!' } = props
   return (
-    <div className={ classes.container } >
+    <div className={ classes.container }>
       <HelloWorldContent content={ content } />
     </div>
   )

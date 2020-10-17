@@ -40,7 +40,7 @@ export function createSvgIcon(
         <svg
           focusable="false"
           data-barusu-test={ displayName + 'Icon' }
-          viewBox={viewBox}
+          viewBox={ viewBox }
           aria-hidden={ titleAccess ? undefined : 'true' }
           role={ titleAccess ? 'img' : 'presentation' }
           ref={ ref }
