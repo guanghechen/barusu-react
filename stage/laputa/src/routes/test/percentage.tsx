@@ -47,7 +47,7 @@ export function BoxPercentageTest(): React.ReactElement {
     <div>
       <div ref={ containerRef } style={ container }>
         <div ref={ childRef } style={ child } />
-        <div style={ { width: '20px', height: '20px', background: 'orange' } } />
+        <div style={{ width: '20px', height: '20px', background: 'orange' }} />
       </div>
     </div>
   )

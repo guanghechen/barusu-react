@@ -57,8 +57,116 @@ const jsRules = {
   'space-before-function-paren': 0,
   'spaced-comment': ['error', 'always'],
   'space-in-parens': ['error', 'never'],
-  'space-infix-ops': ['error', { int32Hint: false }],
-  'space-unary-ops': ['error', { words: true, nonwords: false }],
+  'space-infix-ops': [
+    'error',
+    {
+      int32Hint: false,
+    }
+  ],
+  'space-unary-ops': [
+    'error',
+    {
+      words: true,
+      nonwords: false,
+    }
+  ],
+}
+
+
+// rules for *.jsx, *.tsx
+const jsxRules = {
+  'react/display-name': 'error',
+  'react/jsx-boolean-value': ['error', 'always'],
+  'react/jsx-closing-bracket-location': [
+    'error',
+    {
+      nonEmpty: 'tag-aligned',
+      selfClosing: 'line-aligned',
+    }
+  ],
+  'react/jsx-curly-newline': [
+    'error',
+    {
+      multiline: 'consistent',
+      singleline: 'consistent',
+    }
+  ],
+  'react/jsx-curly-spacing': [
+    'error',
+    {
+      when: 'always',
+      children: true,
+      allowMultiline: true,
+      spacing: {
+        objectLiterals: 'never',
+      }
+    }
+  ],
+  'react/jsx-equals-spacing': ['error', 'never'],
+  'react/jsx-filename-extension': [
+    'error',
+    {
+      extensions: ['.jsx', '.tsx'],
+    },
+  ],
+  'react/jsx-first-prop-new-line': ['error', 'multiline-multiprop'],
+  'react/jsx-fragments': ['error', 'element'],
+  'react/jsx-indent-props': ['error', 2],
+  'react/jsx-indent': [
+    'error',
+    2,
+    {
+      checkAttributes: true,
+      indentLogicalExpressions: true,
+    }
+  ],
+  'react/jsx-max-props-per-line': [
+    'error',
+    {
+      maximum: 1,
+      when: 'multiline',
+    }
+  ],
+  'react/jsx-no-bind': [
+    'error',
+    {
+      ignoreDOMComponents: false,
+      ignoreRefs: false,
+      allowArrowFunctions: true,
+      allowFunctions: false,
+      allowBind: false,
+    }
+  ],
+  'react/jsx-no-duplicate-props': [
+    'error',
+    {
+      ignoreCase: true,
+    }
+  ],
+  'react/jsx-props-no-multi-spaces': 'error',
+  'react/jsx-pascal-case': 'error',
+  'react/jsx-tag-spacing': [
+    'error',
+    {
+      closingSlash: 'never',
+      beforeSelfClosing: 'always',
+      afterOpening: 'never',
+      beforeClosing: 'never',
+    },
+  ],
+  'react/jsx-wrap-multilines': [
+    'error',
+    {
+      declaration: 'parens-new-line',
+      assignment: 'parens-new-line',
+      return: 'parens-new-line',
+      arrow: 'parens-new-line',
+      condition: 'parens',
+      logical: 'parens',
+      prop: 'ignore'
+    },
+  ],
+  'react/self-closing-comp': 'error',
 }
 
 
@@ -93,4 +201,4 @@ const tsRules = {
 }
 
 
-module.exports = { jsRules, tsRules }
+module.exports = { jsRules, jsxRules, tsRules }

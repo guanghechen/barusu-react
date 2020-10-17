@@ -38,5 +38,6 @@ module.exports = {
   ],
   rules: {
     ...customRules.jsRules,
+    ...customRules.jsxRules,
   }
 }

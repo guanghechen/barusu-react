@@ -18,6 +18,8 @@
     "focusable",
     "formtter",
     "ioptions",
+    "multilines",
+    "multiprop",
     "nonwords",
     "pathinfo",
     "plopfile",
