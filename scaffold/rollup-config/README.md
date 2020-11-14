@@ -78,9 +78,9 @@
 
 # Examples
 
-  * [@barusu-react/hello-world](https://github.com/lemon-clown/barusu-react/tree/master/packages/hello-world)
-  * [@barusu-react/icons](https://github.com/lemon-clown/barusu-react/tree/master/packages/icons)
-  * [@barusu-react/route-tree](https://github.com/lemon-clown/barusu-react/tree/master/packages/route-tree)
+  * [@barusu-react/hello-world](https://github.com/guanghechen/barusu-react/tree/master/packages/hello-world)
+  * [@barusu-react/icons](https://github.com/guanghechen/barusu-react/tree/master/packages/icons)
+  * [@barusu-react/route-tree](https://github.com/guanghechen/barusu-react/tree/master/packages/route-tree)
 
 # Options
 
@@ -141,5 +141,5 @@
 [@rollup/plugin-commonjs]: https://github.com/rollup/plugins/tree/master/packages/commonjs#readme
 [rollup-plugin-typescript2]: https://github.com/ezolenko/rollup-plugin-typescript2#readme
 [rollup-plugin-peer-deps-external]: https://github.com/pmowrer/rollup-plugin-peer-deps-external#readme
-[@barusu-react/rollup-plugin-postcss-dts]: https://github.com/lemon-clown/barusu-react/tree/master/scaffold/rollup-plugin-postcss-dts#readme
+[@barusu-react/rollup-plugin-postcss-dts]: https://github.com/guanghechen/barusu-react/tree/master/scaffold/rollup-plugin-postcss-dts#readme
 [multi-entry-input-types]: https://github.com/rollup/plugins/tree/master/packages/multi-entry#supported-input-types

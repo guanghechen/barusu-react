@@ -26,13 +26,13 @@ Some packaging scripts for building react libraries, and some toy projects.
 
 
 
-[@barusu-react/hello-world]: https://github.com/lemon-clown/barusu-react/tree/master/packages/hello-world#readme
-[@barusu-react/icons]: https://github.com/lemon-clown/barusu-react/tree/master/packages/icons#readme
-[@barusu-react/route-tree]: https://github.com/lemon-clown/barusu-react/tree/master/packages/route-tree#readme
-[@barusu-react/stage-laputa]: https://github.com/lemon-clown/barusu-react/tree/master/pages/stage-laputa#readme
-[@barusu-react/scaffold-react-start]: https://github.com/lemon-clown/barusu-react/tree/master/pages/scaffold-react-start#readme
-[@barusu-react/eslint-config]: https://github.com/lemon-clown/barusu-react/tree/master/scaffold/eslint-config#readme
-[@barusu-react/rollup-config]: https://github.com/lemon-clown/barusu-react/tree/master/scaffold/rollup-config#readme
-[@barusu-react/rollup-plugin-postcss-dts]: https://github.com/lemon-clown/barusu-react/tree/master/scaffold/rollup-plugin-postcss-dts#readme
-[@barusu-react/template-react-package]: https://github.com/lemon-clown/barusu-react/tree/master/packages/template-react-package#readme
-[@barusu-react/template-redux-store]: https://github.com/lemon-clown/barusu-react/tree/master/packages/template-redux-store#readme
+[@barusu-react/hello-world]: https://github.com/guanghechen/barusu-react/tree/master/packages/hello-world#readme
+[@barusu-react/icons]: https://github.com/guanghechen/barusu-react/tree/master/packages/icons#readme
+[@barusu-react/route-tree]: https://github.com/guanghechen/barusu-react/tree/master/packages/route-tree#readme
+[@barusu-react/stage-laputa]: https://github.com/guanghechen/barusu-react/tree/master/pages/stage-laputa#readme
+[@barusu-react/scaffold-react-start]: https://github.com/guanghechen/barusu-react/tree/master/pages/scaffold-react-start#readme
+[@barusu-react/eslint-config]: https://github.com/guanghechen/barusu-react/tree/master/scaffold/eslint-config#readme
+[@barusu-react/rollup-config]: https://github.com/guanghechen/barusu-react/tree/master/scaffold/rollup-config#readme
+[@barusu-react/rollup-plugin-postcss-dts]: https://github.com/guanghechen/barusu-react/tree/master/scaffold/rollup-plugin-postcss-dts#readme
+[@barusu-react/template-react-package]: https://github.com/guanghechen/barusu-react/tree/master/packages/template-react-package#readme
+[@barusu-react/template-redux-store]: https://github.com/guanghechen/barusu-react/tree/master/packages/template-redux-store#readme

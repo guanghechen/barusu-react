@@ -11,7 +11,7 @@
 
 # Examples
 
-  * [@barusu-react/rollup-config](https://github.com/lemon-clown/barusu-react/tree/master/scaffold/rollup-config)
+  * [@barusu-react/rollup-config](https://github.com/guanghechen/barusu-react/tree/master/scaffold/rollup-config)
 
 
 # Options

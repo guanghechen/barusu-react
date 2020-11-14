@@ -30,6 +30,6 @@ Eslint config for `typescript` + `react` project.
     ```
 
 # Examples
-  * [@barusu-react/hello-world](https://github.com/lemon-clown/barusu-react/tree/master/packages/hello-world/)
-  * [@barusu-react/icons](https://github.com/lemon-clown/barusu-react/tree/master/packages/icons)
-  * [@barusu-react/route-tree](https://github.com/lemon-clown/barusu-react/tree/master/packages/route-tree)
+  * [@barusu-react/hello-world](https://github.com/guanghechen/barusu-react/tree/master/packages/hello-world/)
+  * [@barusu-react/icons](https://github.com/guanghechen/barusu-react/tree/master/packages/icons)
+  * [@barusu-react/route-tree](https://github.com/guanghechen/barusu-react/tree/master/packages/route-tree)

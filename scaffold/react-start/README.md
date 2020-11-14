@@ -13,5 +13,5 @@ Configuration and scripts for build / start react project (Modified from create-
 
 # Examples
 
-  * [@barusu-react/stage-laputa](https://github.com/lemon-clown/barusu-react/tree/master/pages/stage-laputa)
+  * [@barusu-react/stage-laputa](https://github.com/guanghechen/barusu-react/tree/master/pages/stage-laputa)
     - see `script/`

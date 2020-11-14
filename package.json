@@ -3,27 +3,27 @@
   "version": "0.0.0",
   "description": "react scaffolds, components",
   "author": {
-    "name": "lemon-clown",
-    "url": "https://github.com/lemon-clown/"
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lemon-clown/barusu-react.git"
+    "url": "https://github.com/guanghechen/barusu-react.git"
   },
-  "homepage": "https://github.com/lemon-clown/barusu-react/#readme",
+  "homepage": "https://github.com/guanghechen/barusu-react/#readme",
   "license": "MIT",
   "private": true,
   "engines": {
     "node": ">= 12.16.0"
   },
   "scripts": {
-    ":publish": "yarn format && lerna publish --no-private",
-    "test": "lerna exec --concurrency 1 -- 'echo && pwd && yarn test'",
-    "build": "lerna exec --concurrency 1 -- 'echo && pwd && yarn build'",
+    ":publish": "yarn format && yarn test && lerna publish --no-private",
+    "test": "lerna run --parallel test",
+    "build": "lerna run --concurrency 1 build",
     "clean": "lerna clean --yes && yarn install",
     "rebuild": "yarn clean && yarn build",
     "format": "yarn find-inconsistent && yarn sort-imports && yarn lint:fix",
-    "lint:fix": "lerna exec --concurrency 1 -- 'echo && pwd && yarn lint:fix'",
+    "lint:fix": "lerna run --parallel lint:fix",
     "find-inconsistent": "barusu-find-inconsistent .",
     "sort-imports": "barusu-sort-imports .",
     "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js"

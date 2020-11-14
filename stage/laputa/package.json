@@ -3,14 +3,14 @@
   "version": "0.0.14",
   "description": "overview of react components (of @barusu-react/)",
   "author": {
-    "name": "lemon-clown",
-    "url": "https://github.com/lemon-clown/"
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lemon-clown/barusu-react.git"
+    "url": "https://github.com/guanghechen/barusu-react.git"
   },
-  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/pages/stage-laputa#readme",
+  "homepage": "https://github.com/guanghechen/barusu-react/tree/master/pages/stage-laputa#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
@@ -28,8 +28,9 @@
     "start": "cross-env PORT=7033 ts-node -r tsconfig-paths/register script/start.ts",
     "prebuild": "yarn lint:fix",
     "build": "cross-env ts-node -r tsconfig-paths/register script/build.ts",
-    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "test": "echo 'no test yet'",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
     "@barusu-react/hello-world": "^0.0.14",

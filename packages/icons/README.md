@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@barusu-react/icons.svg)](https://www.npmjs.com/package/@barusu-react/icons)
 
 
-See [sourcecodes in github](https://github.com/lemon-clown/barusu-react/tree/master/packages/icons#readme) to get more information.
+See [sourcecodes in github](https://github.com/guanghechen/barusu-react/tree/master/packages/icons#readme) to get more information.
 
 
 # Install

@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@barusu-react/route-tree.svg)](https://www.npmjs.com/package/@barusu-react/route-tree)
 
 
-See [sourcecodes in github](https://github.com/lemon-clown/barusu-react/tree/master/packages/route-tree#readme) to get more information.
+See [sourcecodes in github](https://github.com/guanghechen/barusu-react/tree/master/packages/route-tree#readme) to get more information.
 
 
 # Install

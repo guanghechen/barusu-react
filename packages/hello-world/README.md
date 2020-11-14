@@ -8,7 +8,7 @@ This is a demo project that demonstrates how to package a library that uses the 
 ![hello-world.png][]
 
 
-See [sourcecodes in github](https://github.com/lemon-clown/barusu-react/tree/master/packages/hello-world#readme) to get more information.
+See [sourcecodes in github](https://github.com/guanghechen/barusu-react/tree/master/packages/hello-world#readme) to get more information.
 
 
 # Install
@@ -35,4 +35,4 @@ See [sourcecodes in github](https://github.com/lemon-clown/barusu-react/tree/mas
     ```
 
 
-[hello-world.png]: https://raw.githubusercontent.com/lemon-clown/barusu-react/master/packages/hello-world/doc/screenshots/hello-world.png
+[hello-world.png]: https://raw.githubusercontent.com/guanghechen/barusu-react/master/packages/hello-world/doc/screenshots/hello-world.png
