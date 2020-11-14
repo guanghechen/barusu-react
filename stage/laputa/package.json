@@ -3,14 +3,14 @@
   "version": "0.0.14",
   "description": "overview of react components (of @barusu-react/)",
   "author": {
-    "name": "lemon-clown",
-    "url": "https://github.com/lemon-clown/"
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lemon-clown/barusu-react.git"
+    "url": "https://github.com/guanghechen/barusu-react.git"
   },
-  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/pages/stage-laputa#readme",
+  "homepage": "https://github.com/guanghechen/barusu-react/tree/master/pages/stage-laputa#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",

@@ -15,14 +15,14 @@
     "!lib/**/*.d.ts.map"
   ],
   "author": {
-    "name": "lemon-clown",
-    "url": "https://github.com/lemon-clown/"
+    "name": "guanghechen",
+    "url": "https://github.com/guanghechen/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lemon-clown/barusu-react.git"
+    "url": "https://github.com/guanghechen/barusu-react.git"
   },
-  "homepage": "https://github.com/lemon-clown/barusu-react/tree/master/scaffold/react-start#readme",
+  "homepage": "https://github.com/guanghechen/barusu-react/tree/master/scaffold/react-start#readme",
   "engines": {
     "node": ">= 12.16.0"
   },
