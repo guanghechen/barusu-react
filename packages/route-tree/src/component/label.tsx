@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 /**
  * props for component RouteTreeLabel
  */
-export interface RouteTreeNodeLabelProps {
+export interface RouteTreeNodeLabelProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * A string placeholder of the link
    */
@@ -26,10 +26,6 @@ export interface RouteTreeNodeLabelProps {
    * State to persist to the location
    */
   state?: Record<string, unknown>
-  /**
-   * extra attrs
-   */
-  extraLabelAttrs?: React.HTMLAttributes<HTMLAnchorElement>
 }
 
 
@@ -39,12 +35,12 @@ export interface RouteTreeNodeLabelProps {
 export function RouteTreeNodeLabel(
   props: RouteTreeNodeLabelProps
 ): React.ReactElement {
-  const { title, pathname, search, hash, state, extraLabelAttrs } = props
+  const { title, pathname, search, hash, state, ...htmlProps } = props
   return (
     <Link
-      { ...extraLabelAttrs }
-      title={ title }
+      { ...htmlProps as any }
       key={ pathname }
+      title={ title }
       to={{ pathname, search, hash, state }}
     >
       { title }

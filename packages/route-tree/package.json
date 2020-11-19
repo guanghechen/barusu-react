@@ -22,7 +22,7 @@
   "source": "src/index.tsx",
   "license": "MIT",
   "engines": {
-    "node": ">= 12.16.0"
+    "node": ">= 14.15.0"
   },
   "files": [
     "lib/",
@@ -47,21 +47,21 @@
   },
   "peerDependencies": {
     "@types/classnames": "^2.2.9",
-    "@types/react": "^16.9.23",
-    "@types/react-router-dom": "^5.1.3",
+    "@types/react": "^16.9.56",
+    "@types/react-router-dom": "^5.1.6",
     "classnames": "^2.2.6",
-    "react": "^16.13.0",
-    "react-router-dom": "^5.1.2"
+    "react": "^16.14.0",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@barusu-react/eslint-config": "^0.0.15",
     "@barusu-react/rollup-config": "^0.0.15",
     "@types/classnames": "^2.2.9",
-    "@types/react": "^16.9.23",
-    "@types/react-router-dom": "^5.1.3",
+    "@types/react": "^16.9.56",
+    "@types/react-router-dom": "^5.1.6",
     "classnames": "^2.2.6",
-    "react": "^16.13.0",
-    "react-router-dom": "^5.1.2",
+    "react": "^16.14.0",
+    "react-router-dom": "^5.2.0",
     "rollup": "2.28.1"
   },
   "browserslist": [
