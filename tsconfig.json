@@ -9,6 +9,9 @@
       "@barusu-react/icons": [
         "./packages/icons/src"
       ],
+      "@barusu-react/octotree": [
+        "./packages/octotree/src"
+      ],
       "@barusu-react/route-tree": [
         "./packages/route-tree/src"
       ],
@@ -20,7 +23,7 @@
       ],
       "@barusu-react/scaffold-react-start": [
         "./scaffold/react-start/src"
-      ],
+      ]
     }
   }
 }

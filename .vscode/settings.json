@@ -22,6 +22,7 @@
     "multilines",
     "multiprop",
     "nonwords",
+    "octotree",
     "pathinfo",
     "plopfile",
     "pluginutils",

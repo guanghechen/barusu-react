@@ -1,0 +1,543 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic rendering case snapshot 1`] = `
+.c5 {
+  display: inline-block;
+  width: (1.25 * $octotree-font-size);
+  font-size: $octotree-font-size;
+  font-family: octotree;
+  font-style: normal;
+  text-align: center;
+}
+
+.c5::before {
+  font-size: inherit;
+  font-style: normal;
+}
+
+.c8 {
+  color: #0f2e47;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.c12 {
+  color: #8a8a8a;
+}
+
+.c12::before {
+  content: "e827";
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: inherit;
+  background: none;
+}
+
+.c11:hover {
+  background: #f6f8fa;
+}
+
+.c6::before {
+  content: 'e808;';
+}
+
+.c7 {
+  color: #6cb5fe;
+}
+
+.c7::before {
+  content: 'e840';
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.c3:hover {
+  background: #f6f8fa;
+}
+
+.c10 {
+  display: block;
+  overflow: auto;
+  height: auto;
+  opacity: 1;
+}
+
+.c2 .c4:::before {
+  content: 'e80a';
+}
+
+.c2 .c9: {
+  height: 0;
+  opacity: 0;
+}
+
+.c1 {
+  display: block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.c1 ul,
+.c1 li {
+  display: block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.c1 a {
+  color: #0f2e47;
+  outline: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+<div
+  class="c0"
+  style="color:orange;font-size:16px"
+>
+  <ul
+    class="c1"
+  >
+    <li>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+          style="padding-left:0"
+        >
+          <i
+            class="c4 c5 c6"
+          />
+          <i
+            class="c5 c7"
+            style="padding-right:0.30rem"
+          />
+          <h4
+            class="c8"
+          >
+            hooks
+          </h4>
+        </div>
+        <div
+          class="c9 c10"
+        >
+          <ul>
+            <li>
+              <div
+                class="c2"
+              >
+                <div
+                  class="c3"
+                  style="padding-left:1.50rem"
+                >
+                  <i
+                    class="c4 c5 c6"
+                  />
+                  <i
+                    class="c5 c7"
+                    style="padding-right:0.30rem"
+                  />
+                  <h4
+                    class="c8"
+                  >
+                    demo
+                  </h4>
+                </div>
+                <div
+                  class="c9 c10"
+                >
+                  <ul>
+                    <li>
+                      <a
+                        class="c11"
+                        href="/api/hooks/demo/2"
+                        style="padding-left:4.50rem"
+                      >
+                        <i
+                          class="c5 c12"
+                          style="padding-right:0.30rem"
+                        />
+                        <h4
+                          class="c8"
+                        >
+                          2
+                        </h4>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="c11"
+                href="/api/hooks/ref"
+                style="padding-left:3.00rem"
+              >
+                <i
+                  class="c5 c12"
+                  style="padding-right:0.30rem"
+                />
+                <h4
+                  class="c8"
+                >
+                  ref
+                </h4>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li>
+      <a
+        class="c11"
+        href="/api/context"
+        style="padding-left:1.50rem"
+      >
+        <i
+          class="c5 c12"
+          style="padding-right:0.30rem"
+        />
+        <h4
+          class="c8"
+        >
+          context
+        </h4>
+      </a>
+    </li>
+    <li>
+      <a
+        class="c11"
+        href="/api/demo"
+        style="padding-left:1.50rem"
+      >
+        <i
+          class="c5 c12"
+          style="padding-right:0.30rem"
+        />
+        <h4
+          class="c8"
+        >
+          demo
+        </h4>
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`basic rendering case snapshot with theme 1`] = `
+.c5 {
+  display: inline-block;
+  width: (1.25 * $octotree-font-size);
+  font-size: $octotree-font-size;
+  font-family: octotree;
+  font-style: normal;
+  text-align: center;
+}
+
+.c5::before {
+  font-size: inherit;
+  font-style: normal;
+}
+
+.c8 {
+  color: #ccc;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.c12 {
+  color: green;
+}
+
+.c12::before {
+  content: "e827";
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: inherit;
+  background: none;
+}
+
+.c11:hover {
+  background: red;
+}
+
+.c6::before {
+  content: 'e808;';
+}
+
+.c7 {
+  color: #6cb5fe;
+}
+
+.c7::before {
+  content: 'e840';
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.c3:hover {
+  background: red;
+}
+
+.c10 {
+  display: block;
+  overflow: auto;
+  height: auto;
+  opacity: 1;
+}
+
+.c2 .c4:::before {
+  content: 'e80a';
+}
+
+.c2 .c9: {
+  height: 0;
+  opacity: 0;
+}
+
+.c1 {
+  display: block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.c1 ul,
+.c1 li {
+  display: block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+.c1 a {
+  color: #ccc;
+  outline: 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+<div
+  class="c0"
+  style="color:orange;font-size:16px"
+>
+  <ul
+    class="c1"
+  >
+    <li>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+          style="padding-left:0"
+        >
+          <i
+            class="c4 c5 c6"
+          />
+          <i
+            class="c5 c7"
+            style="padding-right:0.30rem"
+          />
+          <h4
+            class="c8"
+          >
+            hooks
+          </h4>
+        </div>
+        <div
+          class="c9 c10"
+        >
+          <ul>
+            <li>
+              <div
+                class="c2"
+              >
+                <div
+                  class="c3"
+                  style="padding-left:1.50rem"
+                >
+                  <i
+                    class="c4 c5 c6"
+                  />
+                  <i
+                    class="c5 c7"
+                    style="padding-right:0.30rem"
+                  />
+                  <h4
+                    class="c8"
+                  >
+                    demo
+                  </h4>
+                </div>
+                <div
+                  class="c9 c10"
+                >
+                  <ul>
+                    <li>
+                      <a
+                        class="c11"
+                        href="/api/hooks/demo/2"
+                        style="padding-left:4.50rem"
+                      >
+                        <i
+                          class="c5 c12"
+                          style="padding-right:0.30rem"
+                        />
+                        <h4
+                          class="c8"
+                        >
+                          2
+                        </h4>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a
+                class="c11"
+                href="/api/hooks/ref"
+                style="padding-left:3.00rem"
+              >
+                <i
+                  class="c5 c12"
+                  style="padding-right:0.30rem"
+                />
+                <h4
+                  class="c8"
+                >
+                  ref
+                </h4>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li>
+      <a
+        class="c11"
+        href="/api/context"
+        style="padding-left:1.50rem"
+      >
+        <i
+          class="c5 c12"
+          style="padding-right:0.30rem"
+        />
+        <h4
+          class="c8"
+        >
+          context
+        </h4>
+      </a>
+    </li>
+    <li>
+      <a
+        class="c11"
+        href="/api/demo"
+        style="padding-left:1.50rem"
+      >
+        <i
+          class="c5 c12"
+          style="padding-right:0.30rem"
+        />
+        <h4
+          class="c8"
+        >
+          demo
+        </h4>
+      </a>
+    </li>
+  </ul>
+</div>
+`;
