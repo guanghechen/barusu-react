@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/guanghechen/barusu-react/tree/master/scaffold/react-start#readme",
   "engines": {
-    "node": ">= 12.16.0"
+    "node": ">= 14.15.0"
   },
   "scripts": {
     "start": "rollup -w -c rollup.config.js",
