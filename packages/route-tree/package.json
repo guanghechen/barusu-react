@@ -47,7 +47,7 @@
   },
   "peerDependencies": {
     "@types/classnames": "^2.2.9",
-    "@types/react": "^16.9.55",
+    "@types/react": "^16.9.56",
     "@types/react-router-dom": "^5.1.6",
     "classnames": "^2.2.6",
     "react": "^16.14.0",
@@ -57,7 +57,7 @@
     "@barusu-react/eslint-config": "^0.0.15",
     "@barusu-react/rollup-config": "^0.0.15",
     "@types/classnames": "^2.2.9",
-    "@types/react": "^16.9.55",
+    "@types/react": "^16.9.56",
     "@types/react-router-dom": "^5.1.6",
     "classnames": "^2.2.6",
     "react": "^16.14.0",
