@@ -39,7 +39,7 @@ export interface OctotreeLeafNodeProps {
 const TypeIcon = styled(Icon)`
   color: ${ getOctotreeStyle('typeIconColorSecondary') };
   &::before {
-    content: "\e827";
+    content: "\\e827";
   }
 `
 

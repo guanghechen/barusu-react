@@ -40,7 +40,7 @@ export interface OctotreeParentNodeProps {
 
 const CollapseIcon = styled(Icon)`
   &::before {
-    content: '\e808;'
+    content: '\\e808'
   }
 `
 
@@ -48,7 +48,7 @@ const CollapseIcon = styled(Icon)`
 const TypeIcon = styled(Icon)`
   color: ${ getOctotreeStyle('typeIconColorPrimary') };
   &::before {
-    content: '\e840';
+    content: '\\e840';
   }
 `
 

@@ -26,7 +26,7 @@ exports[`basic rendering case snapshot 1`] = `
 }
 
 .c12::before {
-  content: "e827";
+  content: "\\e827";
 }
 
 .c11 {
@@ -49,7 +49,7 @@ exports[`basic rendering case snapshot 1`] = `
 }
 
 .c6::before {
-  content: 'e808;';
+  content: '\\e808';
 }
 
 .c7 {
@@ -57,7 +57,7 @@ exports[`basic rendering case snapshot 1`] = `
 }
 
 .c7::before {
-  content: 'e840';
+  content: '\\e840';
 }
 
 .c3 {
@@ -85,7 +85,7 @@ exports[`basic rendering case snapshot 1`] = `
 }
 
 .c2 .c4:::before {
-  content: 'e80a';
+  content: '\\e80a';
 }
 
 .c2 .c9: {
@@ -297,7 +297,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
 }
 
 .c12::before {
-  content: "e827";
+  content: "\\e827";
 }
 
 .c11 {
@@ -320,7 +320,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
 }
 
 .c6::before {
-  content: 'e808;';
+  content: '\\e808';
 }
 
 .c7 {
@@ -328,7 +328,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
 }
 
 .c7::before {
-  content: 'e840';
+  content: '\\e840';
 }
 
 .c3 {
@@ -356,7 +356,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
 }
 
 .c2 .c4:::before {
-  content: 'e80a';
+  content: '\\e80a';
 }
 
 .c2 .c9: {
