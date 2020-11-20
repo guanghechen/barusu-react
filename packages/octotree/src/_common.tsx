@@ -7,8 +7,7 @@ import { getOctotreeStyle } from './theme'
  */
 export const Icon = styled.i`
   display: inline-block;
-  width: (1.25 * $octotree-font-size);
-  font-size: $octotree-font-size;
+  font-size: ${ getOctotreeStyle('fontSize') };
   font-family: octotree;
   font-style: normal;
   text-align: center;
@@ -23,6 +22,8 @@ export const Icon = styled.i`
  * title
  */
 export const Title = styled.h4`
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: ${ getOctotreeStyle('colorTitle') };
   font-weight: normal;
   font-style: normal;

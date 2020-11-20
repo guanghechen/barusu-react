@@ -50,6 +50,7 @@ const Container = styled(Link)<{ $isActive: boolean }>`
   width: 100%;
   height: 100%;
   font-size: inherit;
+  white-space: nowrap;
   background: ${
     props => props.$isActive
       ? getOctotreeStyle('linkBackgroundActive')(props)
@@ -79,7 +80,7 @@ export function OctotreeLeafNode(props: OctotreeLeafNodeProps): React.ReactEleme
   return (
     <Container $isActive={ false } style={ containerStyle } to={{ pathname }}>
       <TypeIcon style={ typeIconStyle }>{ icon }</TypeIcon>
-      <Title>{ title }</Title>
+      <Title title={ title }>{ title }</Title>
     </Container>
   )
 }

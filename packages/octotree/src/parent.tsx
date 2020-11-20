@@ -95,7 +95,7 @@ const Container = styled.div<{ $isCollapsed: boolean }>`
  * Octotree parent node
  */
 export function OctotreeParentNode(props: OctotreeParentNodeProps): React.ReactElement {
-  const { depth, iconWidth, iconWidthUnit } = props
+  const { depth, title, iconWidth, iconWidthUnit } = props
 
   const children = useOctotreeNodes(
     depth + 1, props.children, iconWidth, iconWidthUnit)
@@ -120,7 +120,7 @@ export function OctotreeParentNode(props: OctotreeParentNodeProps): React.ReactE
       >
         <CollapseIcon />
         <TypeIcon style={ typeIconStyle } />
-        <Title>{ props.title }</Title>
+        <Title title={ title }>{ title }</Title>
       </Header>
       <Main>
         <ul>{ children }</ul>
