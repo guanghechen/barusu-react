@@ -72,16 +72,16 @@ const Main = styled.div`
 `
 
 
-const Container = styled.div<{ isCollapsed: boolean }>`
+const Container = styled.div<{ $isCollapsed: boolean }>`
   ${
-    props => props.isCollapsed
+    props => props.$isCollapsed
       ? css`
-        ${ CollapseIcon }: {
+        ${ CollapseIcon } {
           &::before {
-            content: '\e80a';
+            content: '\\e80a';
           }
         }
-        ${ Main }: {
+        ${ Main } {
           height: 0;
           opacity: 0;
         }
@@ -113,7 +113,7 @@ export function OctotreeParentNode(props: OctotreeParentNodeProps): React.ReactE
   }
 
   return (
-    <Container isCollapsed={ collapsed }>
+    <Container $isCollapsed={ collapsed }>
       <Header
         style={ headerStyle }
         onClick={ () => setCollapsed(c => !c) }

@@ -84,11 +84,11 @@ exports[`basic rendering case snapshot 1`] = `
   opacity: 1;
 }
 
-.c2 .c4:::before {
+.c2 .c4::before {
   content: '\\e80a';
 }
 
-.c2 .c9: {
+.c2 .c9 {
   height: 0;
   opacity: 0;
 }
@@ -355,11 +355,11 @@ exports[`basic rendering case snapshot with theme 1`] = `
   opacity: 1;
 }
 
-.c2 .c4:::before {
+.c2 .c4::before {
   content: '\\e80a';
 }
 
-.c2 .c9: {
+.c2 .c9 {
   height: 0;
   opacity: 0;
 }
