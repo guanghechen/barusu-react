@@ -113,6 +113,7 @@ Render a simple directory tree similar to [octotree-sidebar][], but really more 
     :--------------:|:---------------------------------:|:---------:|:-------:|:-------------
      `ref`          | `React.RefObject<HTMLDivElement>` | `false`   | -       | Forwarded ref callback
      `nodes`        | `OctotreeNodeData[]`              | `true`    | -       | Node data of octotree
+     `pined`        | `boolean`                         | `false`   | `false` |    Whether if the sidebar is pined
      `initialWidth` | `number`                          | `false`   | `200`   | Initial sidebar width
 
     OctotreeSidebarProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)

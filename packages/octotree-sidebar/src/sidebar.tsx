@@ -18,6 +18,10 @@ export interface OctotreeSidebarProps extends React.HTMLAttributes<HTMLDivElemen
    * Initial width
    */
   initialWidth?: number
+  /**
+   * Whether if the sidebar is pined
+   */
+  pined?: boolean
 }
 
 
@@ -122,10 +126,16 @@ Container.defaultProps = { theme: { octotreeSidebar: defaultOctotreeSidebarTheme
  */
 export const OctotreeSidebar = React.forwardRef<HTMLDivElement, OctotreeSidebarProps>(
   (props, forwardRef): React.ReactElement => {
-    const { nodes: octotreeNodes, initialWidth = 200, style, ...htmlProps } = props
+    const {
+      nodes,
+      pined: initialPined = false,
+      initialWidth = 200,
+      style,
+      ...htmlProps
+    } = props
     const sidebarRef = useRef<HTMLDivElement>(null)
     const [width, setWidth] = useState<number>(initialWidth)
-    const [pined, setPined] = useState<boolean>(true)
+    const [pined, setPined] = useState<boolean>(initialPined)
     const [hovering, setHovering] = useState<boolean>(false)
 
     const handleResize = useCallback((hm: number): void => {
@@ -138,6 +148,8 @@ export const OctotreeSidebar = React.forwardRef<HTMLDivElement, OctotreeSidebarP
       setWidth(current.clientWidth)
     }, [sidebarRef])
 
+    // reset pined if the props.pined changed
+    useEffect(() => { setPined(initialPined) }, [initialPined])
     const containerStyle = {
       ...style,
       width: (pined || hovering) ? width : 0,
