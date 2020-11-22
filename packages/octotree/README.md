@@ -107,12 +107,13 @@ Render a simple directory tree similar to [octotree][], but really more coarse.
 
   * Props
 
-     Name     | Type                                | Required  | Default | Description
-    :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `value`  | `string`                            | `true`    | -       | Text content
+     Name         | Type                              | Required  | Default   | Description
+    :------------:|:---------------------------------:|:---------:|:---------:|:-------------
+     `ref`        | `React.RefObject<HTMLDivElement>` | `false`   | -         | Forwarded ref callback
+     `nodes`      | `OctotreeNodeData[]`              | `true`    | -         | Node data of octotree
+     `iconWidth`  | `string`                          | `false`   | `1.25rem` | Icon width
 
-    TextProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
+    OctotreeProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
 
   * Theme
 

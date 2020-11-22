@@ -6,7 +6,7 @@ import type {
 
 
 /**
- * Collect route items from HandbookMenuData
+ * Classify & Format & Sort OctotreeNodeData
  *
  * @param prefixUrl
  * @param data
