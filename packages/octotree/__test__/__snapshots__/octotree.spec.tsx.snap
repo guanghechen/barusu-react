@@ -153,10 +153,11 @@ exports[`basic rendering case snapshot 1`] = `
         >
           <i
             class="c4 c5 c6"
+            style="width:1.5rem"
           />
           <i
             class="c5 c7"
-            style="padding-right:0.30rem"
+            style="width:1.5rem;padding-right:0.30rem"
           />
           <h4
             class="c8"
@@ -179,10 +180,11 @@ exports[`basic rendering case snapshot 1`] = `
                 >
                   <i
                     class="c4 c5 c6"
+                    style="width:1.5rem"
                   />
                   <i
                     class="c5 c7"
-                    style="padding-right:0.30rem"
+                    style="width:1.5rem;padding-right:0.30rem"
                   />
                   <h4
                     class="c8"
@@ -203,7 +205,7 @@ exports[`basic rendering case snapshot 1`] = `
                       >
                         <i
                           class="c5 c12"
-                          style="padding-right:0.30rem"
+                          style="width:1.5rem;padding-right:0.30rem"
                         />
                         <h4
                           class="c8"
@@ -225,7 +227,7 @@ exports[`basic rendering case snapshot 1`] = `
               >
                 <i
                   class="c5 c12"
-                  style="padding-right:0.30rem"
+                  style="width:1.5rem;padding-right:0.30rem"
                 />
                 <h4
                   class="c8"
@@ -247,7 +249,7 @@ exports[`basic rendering case snapshot 1`] = `
       >
         <i
           class="c5 c12"
-          style="padding-right:0.30rem"
+          style="width:1.5rem;padding-right:0.30rem"
         />
         <h4
           class="c8"
@@ -265,7 +267,7 @@ exports[`basic rendering case snapshot 1`] = `
       >
         <i
           class="c5 c12"
-          style="padding-right:0.30rem"
+          style="width:1.5rem;padding-right:0.30rem"
         />
         <h4
           class="c8"
@@ -432,10 +434,11 @@ exports[`basic rendering case snapshot with theme 1`] = `
         >
           <i
             class="c4 c5 c6"
+            style="width:1.5rem"
           />
           <i
             class="c5 c7"
-            style="padding-right:0.30rem"
+            style="width:1.5rem;padding-right:0.30rem"
           />
           <h4
             class="c8"
@@ -458,10 +461,11 @@ exports[`basic rendering case snapshot with theme 1`] = `
                 >
                   <i
                     class="c4 c5 c6"
+                    style="width:1.5rem"
                   />
                   <i
                     class="c5 c7"
-                    style="padding-right:0.30rem"
+                    style="width:1.5rem;padding-right:0.30rem"
                   />
                   <h4
                     class="c8"
@@ -482,7 +486,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
                       >
                         <i
                           class="c5 c12"
-                          style="padding-right:0.30rem"
+                          style="width:1.5rem;padding-right:0.30rem"
                         />
                         <h4
                           class="c8"
@@ -504,7 +508,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
               >
                 <i
                   class="c5 c12"
-                  style="padding-right:0.30rem"
+                  style="width:1.5rem;padding-right:0.30rem"
                 />
                 <h4
                   class="c8"
@@ -526,7 +530,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
       >
         <i
           class="c5 c12"
-          style="padding-right:0.30rem"
+          style="width:1.5rem;padding-right:0.30rem"
         />
         <h4
           class="c8"
@@ -544,7 +548,7 @@ exports[`basic rendering case snapshot with theme 1`] = `
       >
         <i
           class="c5 c12"
-          style="padding-right:0.30rem"
+          style="width:1.5rem;padding-right:0.30rem"
         />
         <h4
           class="c8"

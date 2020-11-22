@@ -74,6 +74,7 @@ export function OctotreeLeafNode(props: OctotreeLeafNodeProps): React.ReactEleme
   }
 
   const typeIconStyle: React.CSSProperties = {
+    width: iconWidth + iconWidthUnit,
     paddingRight: (0.2 * iconWidth).toFixed(2) + iconWidthUnit,
   }
 

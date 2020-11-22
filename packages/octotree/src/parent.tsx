@@ -108,7 +108,12 @@ export function OctotreeParentNode(props: OctotreeParentNodeProps): React.ReactE
     paddingLeft: depth <= 0 ? 0 : (depth * iconWidth).toFixed(2) + iconWidthUnit,
   }
 
+  const collapseIconStyle: React.CSSProperties = {
+    width: iconWidth + iconWidthUnit,
+  }
+
   const typeIconStyle: React.CSSProperties = {
+    width: iconWidth + iconWidthUnit,
     paddingRight: (0.2 * iconWidth).toFixed(2) + iconWidthUnit,
   }
 
@@ -118,7 +123,7 @@ export function OctotreeParentNode(props: OctotreeParentNodeProps): React.ReactE
         style={ headerStyle }
         onClick={ () => setCollapsed(c => !c) }
       >
-        <CollapseIcon />
+        <CollapseIcon style={ collapseIconStyle } />
         <TypeIcon style={ typeIconStyle } />
         <Title title={ title }>{ title }</Title>
       </Header>
