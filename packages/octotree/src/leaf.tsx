@@ -39,7 +39,7 @@ export interface OctotreeLeafNodeProps {
 const TypeIcon = styled(Icon)`
   color: ${ getOctotreeStyle('typeIconColorSecondary') };
   &::before {
-    content: "\e827";
+    content: "\\e827";
   }
 `
 
@@ -50,6 +50,7 @@ const Container = styled(Link)<{ $isActive: boolean }>`
   width: 100%;
   height: 100%;
   font-size: inherit;
+  white-space: nowrap;
   background: ${
     props => props.$isActive
       ? getOctotreeStyle('linkBackgroundActive')(props)
@@ -73,13 +74,14 @@ export function OctotreeLeafNode(props: OctotreeLeafNodeProps): React.ReactEleme
   }
 
   const typeIconStyle: React.CSSProperties = {
+    width: iconWidth + iconWidthUnit,
     paddingRight: (0.2 * iconWidth).toFixed(2) + iconWidthUnit,
   }
 
   return (
     <Container $isActive={ false } style={ containerStyle } to={{ pathname }}>
       <TypeIcon style={ typeIconStyle }>{ icon }</TypeIcon>
-      <Title>{ title }</Title>
+      <Title title={ title }>{ title }</Title>
     </Container>
   )
 }

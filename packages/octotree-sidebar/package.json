@@ -1,5 +1,5 @@
 {
-  "name": "@barusu-react/octotree",
+  "name": "@barusu-react/octotree-sidebar",
   "version": "0.0.16",
   "description": "render a directory tree like the chrome extension 'octotree'",
   "author": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/guanghechen/barusu-react.git"
   },
-  "homepage": "https://github.com/guanghechen/barusu-react/tree/master/packages/octotree#readme",
+  "homepage": "https://github.com/guanghechen/barusu-react/tree/master/packages/octotree-sidebar#readme",
   "keywords": [],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -37,6 +37,9 @@
     "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build",
     "test": "cross-env TS_NODE_FILES=true jest --config ../../jest.config.js --rootDir .",
     "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix"
+  },
+  "dependencies": {
+    "@barusu-react/octotree": "^0.0.16"
   },
   "peerDependencies": {
     "@types/react": "^16.9.56",

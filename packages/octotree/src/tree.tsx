@@ -7,14 +7,15 @@ import { OctotreeNodeData } from './types'
 
 
 /**
- *
+ * Props for creating Octotree
  */
 export interface OctotreeProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Child nodes data
+   * Node data of octotree
    */
   nodes: OctotreeNodeData[]
   /**
+   * Icon width
    * @default 1.25rem
    */
   iconWidth?: string

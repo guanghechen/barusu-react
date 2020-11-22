@@ -3,7 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@barusu-react/octotree.svg)](https://www.npmjs.com/package/@barusu-react/octotree)
 
 
-Render directory tree like the [chrome extension `octotree`][].
+Render a simple directory tree similar to [octotree][], but really more coarse.
 
 # Install
 
@@ -12,6 +12,16 @@ Render directory tree like the [chrome extension `octotree`][].
   ```
 
 # Usage
+
+  You should import the [octotree.woff2][] font manually.
+
+  ```css
+  @font-face {
+    src: url('/font/octotree.woff2') format('woff2');
+    font-family: 'octotree';
+  }
+  ```
+
   * Use in React project
 
     - Pure
@@ -97,12 +107,13 @@ Render directory tree like the [chrome extension `octotree`][].
 
   * Props
 
-     Name     | Type                                | Required  | Default | Description
-    :--------:|:-----------------------------------:|:---------:|:-------:|:-------------
-     `ref`    | `React.RefObject<HTMLSpanElement>`  | `false`   | -       | Forwarded ref callback
-     `value`  | `string`                            | `true`    | -       | Text content
+     Name         | Type                              | Required  | Default   | Description
+    :------------:|:---------------------------------:|:---------:|:---------:|:-------------
+     `ref`        | `React.RefObject<HTMLDivElement>` | `false`   | -         | Forwarded ref callback
+     `nodes`      | `OctotreeNodeData[]`              | `true`    | -         | Node data of octotree
+     `iconWidth`  | `string`                          | `false`   | `1.25rem` | Icon width
 
-    TextProps inherited all attributes of `HTMLSpanElement` (`React.HTMLAttributes<HTMLSpanElement>`)
+    OctotreeProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
 
   * Theme
 
@@ -119,5 +130,6 @@ Render directory tree like the [chrome extension `octotree`][].
 
 
 
-[chrome extension `octotree`]: https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahfmjljalopjnoealnfndnagc?hl=en-US
+[octotree]: https://github.com/ovity/octotree.git
 [OctotreeTheme]: https://github.com/guanghechen/barusu-react/blob/master/packages/octotree/src/theme.ts
+[octotree.woff2]: https://github.com/ovity/octotree/blob/c8819379c9cc60b3c2124440766906028891120d/libs/fonts/octicons.woff2

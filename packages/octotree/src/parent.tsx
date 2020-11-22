@@ -40,7 +40,7 @@ export interface OctotreeParentNodeProps {
 
 const CollapseIcon = styled(Icon)`
   &::before {
-    content: '\e808;'
+    content: '\\e808'
   }
 `
 
@@ -48,7 +48,7 @@ const CollapseIcon = styled(Icon)`
 const TypeIcon = styled(Icon)`
   color: ${ getOctotreeStyle('typeIconColorPrimary') };
   &::before {
-    content: '\e840';
+    content: '\\e840';
   }
 `
 
@@ -72,16 +72,16 @@ const Main = styled.div`
 `
 
 
-const Container = styled.div<{ isCollapsed: boolean }>`
+const Container = styled.div<{ $isCollapsed: boolean }>`
   ${
-    props => props.isCollapsed
+    props => props.$isCollapsed
       ? css`
-        ${ CollapseIcon }: {
+        ${ CollapseIcon } {
           &::before {
-            content: '\e80a';
+            content: '\\e80a';
           }
         }
-        ${ Main }: {
+        ${ Main } {
           height: 0;
           opacity: 0;
         }
@@ -95,7 +95,7 @@ const Container = styled.div<{ isCollapsed: boolean }>`
  * Octotree parent node
  */
 export function OctotreeParentNode(props: OctotreeParentNodeProps): React.ReactElement {
-  const { depth, iconWidth, iconWidthUnit } = props
+  const { depth, title, iconWidth, iconWidthUnit } = props
 
   const children = useOctotreeNodes(
     depth + 1, props.children, iconWidth, iconWidthUnit)
@@ -108,19 +108,24 @@ export function OctotreeParentNode(props: OctotreeParentNodeProps): React.ReactE
     paddingLeft: depth <= 0 ? 0 : (depth * iconWidth).toFixed(2) + iconWidthUnit,
   }
 
+  const collapseIconStyle: React.CSSProperties = {
+    width: iconWidth + iconWidthUnit,
+  }
+
   const typeIconStyle: React.CSSProperties = {
+    width: iconWidth + iconWidthUnit,
     paddingRight: (0.2 * iconWidth).toFixed(2) + iconWidthUnit,
   }
 
   return (
-    <Container isCollapsed={ collapsed }>
+    <Container $isCollapsed={ collapsed }>
       <Header
         style={ headerStyle }
         onClick={ () => setCollapsed(c => !c) }
       >
-        <CollapseIcon />
+        <CollapseIcon style={ collapseIconStyle } />
         <TypeIcon style={ typeIconStyle } />
-        <Title>{ props.title }</Title>
+        <Title title={ title }>{ title }</Title>
       </Header>
       <Main>
         <ul>{ children }</ul>
