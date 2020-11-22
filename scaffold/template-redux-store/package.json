@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/template-redux-store",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "templates to create a ts package",
   "author": {
     "name": "guanghechen",

@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/rollup-config",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "rollup for react+ts+stylus",
   "author": {
     "name": "guanghechen",
@@ -41,7 +41,7 @@
     "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
-    "@barusu-react/rollup-plugin-postcss-dts": "^0.0.16",
+    "@barusu-react/rollup-plugin-postcss-dts": "^0.0.17",
     "@barusu/util-cli": "^0.0.41",
     "@barusu/util-option": "^0.0.41",
     "@rollup/plugin-commonjs": "^15.1.0",
