@@ -1,7 +1,7 @@
 {
   "name": "@barusu-react/octotree",
   "version": "0.0.16",
-  "description": "render a directory tree like the chrome extension 'ocototree'",
+  "description": "render a directory tree like the chrome extension 'octotree'",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/guanghechen/barusu-react.git"
   },
-  "homepage": "https://github.com/guanghechen/barusu-react/tree/master/packages/ocototree#readme",
+  "homepage": "https://github.com/guanghechen/barusu-react/tree/master/packages/octotree#readme",
   "keywords": [],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
