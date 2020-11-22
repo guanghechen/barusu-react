@@ -2,7 +2,10 @@ import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { mount, render } from 'enzyme'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
-import { RawOctotreeNodeData, resolveOctotreeData } from '@barusu-react/octotree'
+import {
+  RawOctotreeNodeData,
+  resolveOctotreeData,
+} from '@barusu-react/octotree'
 import OctotreeSidebar from '../src'
 
 
