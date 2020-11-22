@@ -12,6 +12,9 @@
       "@barusu-react/octotree": [
         "./packages/octotree/src"
       ],
+      "@barusu-react/octotree-sidebar": [
+        "./packages/octotree-sidebar/src"
+      ],
       "@barusu-react/route-tree": [
         "./packages/route-tree/src"
       ],
