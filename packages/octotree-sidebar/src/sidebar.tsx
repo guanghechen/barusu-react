@@ -63,7 +63,7 @@ const Main = styled.div`
 `
 
 
-const Toggle = styled.div<{ $visible: boolean }>`
+const ToggleArea = styled.div<{ $visible: boolean }>`
   position: absolute;
   top: 50%;
   left: 0;
@@ -121,6 +121,18 @@ Container.defaultProps = { theme: { octotreeSidebar: defaultOctotreeSidebarTheme
 
 
 /**
+ * Class names
+ */
+export const octotreeSidebarClasses = {
+  container: String(Container).substring(1),
+  header: String(Header).substring(1),
+  main: String(Main).substring(1),
+  toggleArea: String(ToggleArea).substring(1),
+  pushpin: String(Pushpin).substring(1),
+}
+
+
+/**
  *
  * @param props
  */
@@ -171,13 +183,13 @@ export const OctotreeSidebar = React.forwardRef<HTMLDivElement, OctotreeSidebarP
             onClick={ () => setPined(!pined) }
           />
         </Header>
-        <Toggle
+        <ToggleArea
           $visible={ maxWidth === 0 || toggleBtnHovering }
           onMouseEnter={ () => setToggleBtnHovering(true) }
           onMouseLeave={ () => setToggleBtnHovering(false) }
         >
           <span>Octotree</span>
-        </Toggle>
+        </ToggleArea>
         <Main>
           <Octotree nodes={ props.nodes } />
         </Main>

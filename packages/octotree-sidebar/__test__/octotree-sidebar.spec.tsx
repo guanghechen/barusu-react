@@ -6,7 +6,7 @@ import {
   RawOctotreeNodeData,
   resolveOctotreeData,
 } from '@barusu-react/octotree'
-import OctotreeSidebar from '../src'
+import OctotreeSidebar, { octotreeSidebarClasses } from '../src'
 
 
 describe('basic rendering case', () => {
@@ -49,7 +49,7 @@ describe('basic rendering case', () => {
     }
   })
 
-  it('toggle hover', () => {
+  it('container hover', () => {
     const wrapper = mount(
       <Router>
         <OctotreeSidebar nodes={ data } initialWidth={ 120 } />
@@ -64,6 +64,43 @@ describe('basic rendering case', () => {
     expect(getComputedStyle(o).maxWidth).toBe('120px')
 
     wrapper.simulate('mouseleave')
+    expect(getComputedStyle(o).width).toBe('120px')
+    expect(getComputedStyle(o).maxWidth).toBe('0')
+  })
+
+  it('toggle-area hover', () => {
+    const wrapper = mount(
+      <Router>
+        <OctotreeSidebar nodes={ data } initialWidth={ 120 } pined={ true } />
+      </Router>
+    )
+
+    const toggleArea = wrapper.find('.' + octotreeSidebarClasses.toggleArea)
+    toggleArea.simulate('mouseenter')
+    expect(getComputedStyle(toggleArea.getDOMNode()).display).not.toBe('none')
+
+    toggleArea.simulate('mouseleave')
+    expect(getComputedStyle(toggleArea.getDOMNode()).display).toBe('none')
+  })
+
+  it('toggle pin', () => {
+    const wrapper = mount(
+      <Router>
+        <OctotreeSidebar nodes={ data } initialWidth={ 120 } />
+      </Router>
+    )
+    const o = wrapper.getDOMNode()
+    expect(getComputedStyle(o).width).toBe('120px')
+    expect(getComputedStyle(o).maxWidth).toBe('0')
+
+    // pin
+    const pushpin = wrapper.find('.' + octotreeSidebarClasses.pushpin)
+    pushpin.simulate('click')
+    expect(getComputedStyle(o).width).toBe('120px')
+    expect(getComputedStyle(o).maxWidth).toBe('120px')
+
+    // cancel pin
+    pushpin.simulate('click')
     expect(getComputedStyle(o).width).toBe('120px')
     expect(getComputedStyle(o).maxWidth).toBe('0')
   })
