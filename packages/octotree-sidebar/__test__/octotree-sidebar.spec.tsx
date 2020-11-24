@@ -49,17 +49,23 @@ describe('basic rendering case', () => {
     }
   })
 
-  it('hover', () => {
+  it('toggle hover', () => {
     const wrapper = mount(
       <Router>
         <OctotreeSidebar nodes={ data } initialWidth={ 120 } />
       </Router>
     )
     const o = wrapper.getDOMNode()
-    expect(getComputedStyle(o).width).toBe('0px')
+    expect(getComputedStyle(o).width).toBe('120px')
+    expect(getComputedStyle(o).maxWidth).toBe('0')
 
     wrapper.simulate('mouseenter')
-    // expect(getComputedStyle(o).width).toBe('120px')
+    expect(getComputedStyle(o).width).toBe('120px')
+    expect(getComputedStyle(o).maxWidth).toBe('120px')
+
+    wrapper.simulate('mouseleave')
+    expect(getComputedStyle(o).width).toBe('120px')
+    expect(getComputedStyle(o).maxWidth).toBe('0')
   })
 
   it('forward ref', () => {
