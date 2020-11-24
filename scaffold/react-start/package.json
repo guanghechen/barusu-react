@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/scaffold-react-start",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "license": "MIT",
   "main": "lib/cjs/index.js",
   "types": "lib/types/index.d.ts",

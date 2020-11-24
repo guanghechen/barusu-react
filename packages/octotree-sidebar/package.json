@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/octotree-sidebar",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "render a directory tree like the chrome extension 'octotree'",
   "author": {
     "name": "guanghechen",
@@ -39,7 +39,7 @@
     "lint:fix": "eslint '{src,__test__}/**/*.{ts,tsx}' --fix"
   },
   "dependencies": {
-    "@barusu-react/octotree": "^0.0.17"
+    "@barusu-react/octotree": "^0.0.18"
   },
   "peerDependencies": {
     "@types/react": "^16.9.56",
