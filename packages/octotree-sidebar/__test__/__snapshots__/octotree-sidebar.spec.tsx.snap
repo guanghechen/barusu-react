@@ -205,22 +205,8 @@ exports[`basic rendering case snapshot 1`] = `
   -ms-user-select: none;
   user-select: none;
   cursor: default;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
+  display: none;
+  opacity: 0;
 }
 
 .c3::before {
@@ -250,13 +236,13 @@ exports[`basic rendering case snapshot 1`] = `
   border: 0;
   border-right: 1px solid #dfe2e5;
   margin: 0;
-  -webkit-transition: width 0.5s ease-in-out;
-  transition: width 0.5s ease-in-out;
+  -webkit-transition: max-width 0.5s ease-in-out;
+  transition: max-width 0.5s ease-in-out;
 }
 
 <div
   class="c0"
-  style="color:orange;font-size:16px;width:0"
+  style="color:orange;font-size:16px;width:250px;max-width:250px"
 >
   <div
     class="c1"
@@ -630,22 +616,8 @@ exports[`basic rendering case snapshot with theme 1`] = `
   -ms-user-select: none;
   user-select: none;
   cursor: default;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  opacity: 1;
+  display: none;
+  opacity: 0;
 }
 
 .c3::before {
@@ -675,13 +647,13 @@ exports[`basic rendering case snapshot with theme 1`] = `
   border: 0;
   border-right: none;
   margin: 0;
-  -webkit-transition: width 0.5s ease-in-out;
-  transition: width 0.5s ease-in-out;
+  -webkit-transition: max-width 0.5s ease-in-out;
+  transition: max-width 0.5s ease-in-out;
 }
 
 <div
   class="c0"
-  style="color:orange;font-size:16px;width:0"
+  style="color:orange;font-size:16px;width:250px;max-width:250px"
 >
   <div
     class="c1"
