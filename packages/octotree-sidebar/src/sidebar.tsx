@@ -156,10 +156,12 @@ export const OctotreeSidebar = React.forwardRef<HTMLDivElement, OctotreeSidebarP
       ...htmlProps
     } = props
 
-    const [width, setWidth] = useState<number>(defaultWidth)
-    const [maxWidth, setMaxWidth] = useState<number>(defaultWidth)
-
     const [pined, setPined] = useState<boolean>(defaultPined)
+    const [width, setWidth] = useState<number>(defaultWidth)
+
+    // If it's not pined at initial time, the sidebar shouldn't be visible
+    const [maxWidth, setMaxWidth] = useState<number>(pined ? defaultWidth : 0)
+
     const [hovering, setHovering] = useState<boolean>(false)
     const [toggleBtnHovering, setToggleBtnHovering] = useState<boolean>(false)
 
