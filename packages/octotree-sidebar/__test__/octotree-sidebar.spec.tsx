@@ -52,7 +52,7 @@ describe('basic rendering case', () => {
   it('container hover', () => {
     const wrapper = mount(
       <Router>
-        <OctotreeSidebar nodes={ data } initialWidth={ 120 } />
+        <OctotreeSidebar nodes={ data } defaultWidth={ 120 } />
       </Router>
     )
     const o = wrapper.getDOMNode()
@@ -71,7 +71,7 @@ describe('basic rendering case', () => {
   it('toggle-area hover', () => {
     const wrapper = mount(
       <Router>
-        <OctotreeSidebar nodes={ data } initialWidth={ 120 } pined={ true } />
+        <OctotreeSidebar nodes={ data } defaultWidth={ 120 } defaultPined={ true } />
       </Router>
     )
 
@@ -84,25 +84,30 @@ describe('basic rendering case', () => {
   })
 
   it('toggle pin', () => {
+    const onPinedChanged = jest.fn()
+
     const wrapper = mount(
       <Router>
-        <OctotreeSidebar nodes={ data } initialWidth={ 120 } />
+        <OctotreeSidebar nodes={ data } defaultWidth={ 120 } onPinedChange={ onPinedChanged } />
       </Router>
     )
     const o = wrapper.getDOMNode()
     expect(getComputedStyle(o).width).toBe('120px')
     expect(getComputedStyle(o).maxWidth).toBe('0')
+    expect(onPinedChanged.mock.calls.length).toBe(1)
 
     // pin
     const pushpin = wrapper.find('.' + octotreeSidebarClasses.pushpin)
     pushpin.simulate('click')
     expect(getComputedStyle(o).width).toBe('120px')
     expect(getComputedStyle(o).maxWidth).toBe('120px')
+    expect(onPinedChanged.mock.calls.length).toBe(2)
 
     // cancel pin
     pushpin.simulate('click')
     expect(getComputedStyle(o).width).toBe('120px')
     expect(getComputedStyle(o).maxWidth).toBe('0')
+    expect(onPinedChanged.mock.calls.length).toBe(3)
   })
 
   it('forward ref', () => {
@@ -123,7 +128,7 @@ describe('basic rendering case', () => {
       <Router>
         <OctotreeSidebar
           nodes={ data }
-          initialWidth={ 250 }
+          defaultWidth={ 250 }
           style={{ color: 'orange', fontSize: '16px' }}
         />
       </Router>
@@ -147,7 +152,7 @@ describe('basic rendering case', () => {
         <Router>
           <OctotreeSidebar
             nodes={ data }
-            initialWidth={ 250 }
+            defaultWidth={ 250 }
             style={{ color: 'orange', fontSize: '16px' }}
           />
         </Router>

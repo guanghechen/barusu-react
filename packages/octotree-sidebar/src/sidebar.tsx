@@ -15,13 +15,21 @@ export interface OctotreeSidebarProps extends React.HTMLAttributes<HTMLDivElemen
    */
   nodes: OctotreeNodeData[]
   /**
-   * Initial width
+   * Default sidebar width
    */
-  initialWidth?: number
+  defaultWidth?: number
   /**
-   * Whether if the sidebar is pined
+   * Default sidebar pined state
    */
-  pined?: boolean
+  defaultPined?: boolean
+  /**
+   * Called on width changed
+   */
+  onWidthChange?: (width: number) => void
+  /**
+   * Called on pined changed
+   */
+  onPinedChange?: (pined: boolean) => void
 }
 
 
@@ -140,25 +148,39 @@ export const OctotreeSidebar = React.forwardRef<HTMLDivElement, OctotreeSidebarP
   (props, forwardRef): React.ReactElement => {
     const {
       nodes,
-      pined: initialPined = false,
-      initialWidth = 200,
+      defaultPined = false,
+      defaultWidth = 200,
       style,
+      onWidthChange,
+      onPinedChange,
       ...htmlProps
     } = props
 
-    const [width, setWidth] = useState<number>(initialWidth)
-    const [maxWidth, setMaxWidth] = useState<number>(initialWidth)
+    const [pined, setPined] = useState<boolean>(defaultPined)
+    const [width, setWidth] = useState<number>(defaultWidth)
 
-    const [pined, setPined] = useState<boolean>(initialPined)
+    // If it's not pined at initial time, the sidebar shouldn't be visible
+    const [maxWidth, setMaxWidth] = useState<number>(pined ? defaultWidth : 0)
+
     const [hovering, setHovering] = useState<boolean>(false)
     const [toggleBtnHovering, setToggleBtnHovering] = useState<boolean>(false)
 
     const handleResize = useCallback((hm: number): void => { setWidth(width => width + hm) }, [])
 
-    // reset pined if the props.pined changed
-    useEffect(() => { setPined(initialPined) }, [initialPined])
+    useEffect(() => {
+      // reset maxWidth if width changed
+      setMaxWidth(width)
 
-    useEffect(() => { setMaxWidth(width) }, [width])
+      // check width changed callback
+      if (onWidthChange != null) onWidthChange(width)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [width])
+
+    useEffect(() => {
+      // check pined changed callback
+      if (onPinedChange != null) onPinedChange(pined)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [pined])
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => { setMaxWidth(hovering || pined ? width : 0) }, [pined, hovering])
@@ -205,7 +227,7 @@ OctotreeSidebar.displayName = 'OctotreeSidebar'
 
 OctotreeSidebar.propTypes = {
   nodes: PropTypes.array.isRequired,
-  initialWidth: PropTypes.number,
+  defaultWidth: PropTypes.number,
 }
 
 export default OctotreeSidebar

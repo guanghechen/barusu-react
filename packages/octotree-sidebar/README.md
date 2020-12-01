@@ -52,7 +52,8 @@ Render a simple directory tree similar to [octotree-sidebar][], but really more 
         <Router>
           <OctotreeSidebar
             nodes={ data }
-            initialWidth={ 250 }
+            defaultPined={ true }
+            defaultWidth={ 250 }
             style={{ color: 'orange', fontSize: '16px' }}
           />
         </Router>
@@ -99,7 +100,7 @@ Render a simple directory tree similar to [octotree-sidebar][], but really more 
           <Router>
             <OctotreeSidebar
               nodes={ data }
-              initialWidth={ 250 }
+              defaultWidth={ 250 }
               style={{ color: 'orange', fontSize: '16px' }}
             />
           </Router>
@@ -113,8 +114,8 @@ Render a simple directory tree similar to [octotree-sidebar][], but really more 
     :--------------:|:---------------------------------:|:---------:|:-------:|:-------------
      `ref`          | `React.RefObject<HTMLDivElement>` | `false`   | -       | Forwarded ref callback
      `nodes`        | `OctotreeNodeData[]`              | `true`    | -       | Node data of octotree
-     `pined`        | `boolean`                         | `false`   | `false` |    Whether if the sidebar is pined
-     `initialWidth` | `number`                          | `false`   | `200`   | Initial sidebar width
+     `defaultPined` | `boolean`                         | `false`   | `false` | Initial sidebar pined state
+     `defaultWidth` | `number`                          | `false`   | `200`   | Initial sidebar width
 
     OctotreeSidebarProps inherited all attributes of `HTMLDivElement` (`React.HTMLAttributes<HTMLDivElement>`)
 
