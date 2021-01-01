@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/icons",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "author": {
     "name": "guanghechen",
     "url": "https://github.com/guanghechen/"
@@ -48,8 +48,8 @@
     "react": "^16.14.0"
   },
   "devDependencies": {
-    "@barusu-react/eslint-config": "^0.0.19",
-    "@barusu-react/rollup-config": "^0.0.19",
+    "@barusu-react/eslint-config": "^0.0.20",
+    "@barusu-react/rollup-config": "^0.0.20",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.56",
     "classnames": "^2.2.6",

@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/octotree",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "render a directory tree like the chrome extension 'octotree'",
   "author": {
     "name": "guanghechen",

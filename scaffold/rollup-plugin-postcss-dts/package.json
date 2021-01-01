@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/rollup-plugin-postcss-dts",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "generate *.d.ts for *.styl|*.scss|*.sass|*.css files",
   "author": {
     "name": "guanghechen",
