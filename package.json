@@ -54,8 +54,8 @@
     "stylus-loader": "3.0.2"
   },
   "devDependencies": {
-    "@barusu/tool-find-inconsistent": "^0.0.41",
-    "@barusu/tool-sort-imports": "^0.0.41",
+    "@barusu/tool-find-inconsistent": "^0.0.43",
+    "@barusu/tool-sort-imports": "^0.0.43",
     "@types/classnames": "^2.2.9",
     "@types/enzyme": "3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
