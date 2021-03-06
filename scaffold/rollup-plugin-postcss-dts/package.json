@@ -33,11 +33,9 @@
     "!lib/**/*.d.ts.map"
   ],
   "scripts": {
-    "start": "rollup -w -c rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.js",
     "prebuild": "rimraf lib/",
-    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build",
-    "test": "echo 'no test yet'"
+    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "resolutions": {
     "postcss-modules": "3.2.2"
@@ -52,7 +50,6 @@
     "rollup-plugin-postcss": "^3.1.8"
   },
   "devDependencies": {
-    "@barusu/rollup-config": "^0.0.43",
     "@rollup/pluginutils": "^4.0.0",
     "rollup": "2.35.1"
   }
