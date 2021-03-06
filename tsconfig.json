@@ -8,10 +8,6 @@
       "@barusu-react/octotree": ["./packages/octotree/src"],
       "@barusu-react/octotree-sidebar": ["./packages/octotree-sidebar/src"],
       "@barusu-react/route-tree": ["./packages/route-tree/src"],
-      "@barusu-react/rollup-config": ["./scaffold/rollup-config/src"],
-      "@barusu-react/rollup-plugin-postcss-dts": [
-        "./scaffold/rollup-plugin-postcss-dts/src"
-      ],
       "@barusu-react/scaffold-react-start": ["./scaffold/react-start/src"]
     }
   }
