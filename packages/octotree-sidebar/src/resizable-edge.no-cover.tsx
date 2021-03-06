@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef } from 'react'
 import styled from 'styled-components'
 
-
 /**
  * Props for ResizableEdge
  */
@@ -27,13 +26,11 @@ export interface ResizableEdgeProps {
   onResize: (horizontalMovement: number, verticalMovement: number) => void
 }
 
-
 const Container = styled.div`
   position: absolute;
   background: transparent;
   z-index: 99;
 `
-
 
 /**
  * Resizable Edge
@@ -96,7 +93,9 @@ export function ResizableEdge(props: ResizableEdgeProps): React.ReactElement {
     const current = sidebarRef.current
     if (current == null) return
 
-    let mouseDown = false, currentPageX = 0, currentPageY = 0
+    let mouseDown = false,
+      currentPageX = 0,
+      currentPageY = 0
 
     // handle mouse down
     const onMouseDown = (e: MouseEvent) => {
@@ -134,13 +133,7 @@ export function ResizableEdge(props: ResizableEdgeProps): React.ReactElement {
     }
   }, [handleResize, sidebarRef])
 
-  return (
-    <Container
-      ref={ sidebarRef }
-      style={ style }
-    />
-  )
+  return <Container ref={sidebarRef} style={style} />
 }
-
 
 export default ResizableEdge

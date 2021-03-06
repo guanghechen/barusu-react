@@ -6,9 +6,9 @@ export interface GetCSSTokenHook {
    * @param outputFilePath
    * @see https://github.com/css-modules/postcss-modules#saving-exported-classes
    */
-  getJSON?: (
+  getJSON?(
     cssPath: string,
-    json: { [key: string]: string },
+    json: Record<string, string>,
     outputFilePath: string,
-  ) => Promise<void> | void
+  ): Promise<void> | void
 }

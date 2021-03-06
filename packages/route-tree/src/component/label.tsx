@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
 /**
  * props for component RouteTreeLabel
  */
-export interface RouteTreeNodeLabelProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface RouteTreeNodeLabelProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * A string placeholder of the link
    */
@@ -28,22 +28,21 @@ export interface RouteTreeNodeLabelProps extends React.AnchorHTMLAttributes<HTML
   state?: Record<string, unknown>
 }
 
-
 /**
  * @param props
  */
 export function RouteTreeNodeLabel(
-  props: RouteTreeNodeLabelProps
+  props: RouteTreeNodeLabelProps,
 ): React.ReactElement {
   const { title, pathname, search, hash, state, ...htmlProps } = props
   return (
     <Link
-      { ...htmlProps as any }
-      key={ pathname }
-      title={ title }
+      {...(htmlProps as any)}
+      key={pathname}
+      title={title}
       to={{ pathname, search, hash, state }}
     >
-      { title }
+      {title}
     </Link>
   )
 }

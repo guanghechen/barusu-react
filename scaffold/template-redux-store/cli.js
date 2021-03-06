@@ -6,6 +6,7 @@ const { Plop, run } = require('plop')
 
 const args = process.argv.slice(2)
 const argv = require('minimist')(args)
+
 argv.plopfile = argv.plopfile || path.resolve(__dirname, 'plop.js')
 
 

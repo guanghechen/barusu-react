@@ -2,6 +2,7 @@
   "cSpell.words": [
     "Builtins",
     "Laputa",
+    "Parens",
     "barusu",
     "browserslist",
     "camelcase",
@@ -41,5 +42,8 @@
     "teamsupercell",
     "tsbuildinfo"
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.associations": {
+    ".prettierrc": "yaml"
+  }
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const stylesheet = `
 .flex-container {
   display: flex;
@@ -30,7 +29,6 @@ const stylesheet = `
 }
 `.trim()
 
-
 /**
  * Requirements
  *
@@ -59,7 +57,7 @@ const stylesheet = `
 export function FlexBasisTest(): React.ReactElement {
   return (
     <div>
-      <style>{ stylesheet }</style>
+      <style>{stylesheet}</style>
       <div className="flex-container">
         <div className="flex-item flex-item1" />
         <div className="flex-item flex-item2" />
@@ -70,10 +68,9 @@ export function FlexBasisTest(): React.ReactElement {
   )
 }
 
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'flex-basis | test',
   pathname: '/test/display/flexbox/flex-basis',
-  component: <FlexBasisTest />
+  component: <FlexBasisTest />,
 }

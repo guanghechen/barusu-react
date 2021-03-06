@@ -48,17 +48,21 @@ module.exports = function (plop) {
         default: (answers) => {
           // detect lerna
           if (fs.existsSync(path.resolve(cwd, 'lerna.json'))) {
+            // eslint-disable-next-line no-param-reassign
             answers.isLernaProject = true
+            // eslint-disable-next-line no-param-reassign
             answers.projectName = answers.packageName.startsWith('@')
-              ? /^@([^\/\s]+)/.exec(answers.packageName)[1]
+              ? /^@([^\\/\s]+)/.exec(answers.packageName)[1]
               : /^([^\-\s]+)/.exec(answers.packageName)[1]
+            // eslint-disable-next-line no-param-reassign
             answers.componentName = answers.packageName.startsWith('@')
-              ? /^@[^\/\s]+[\/]([^\/\s]+)/.exec(answers.packageName)[1]
+              ? /^@[^\\/\s]+[\\/]([^\\/\s]+)/.exec(answers.packageName)[1]
               : /^([^\-\s]+)/.exec(answers.packageName)[1]
-            return 'packages/' + answers.packageName.replace(/^[^\/]+[\/]/, '')
+            return 'packages/' + answers.packageName.replace(/^[^\\/]+[\\/]/, '')
           }
-          answers.projectName = answers.packageName.replace(/^@/, '').replace('\/', '-')
-          return packageName.replace(/^@/, '')
+          // eslint-disable-next-line no-param-reassign
+          answers.projectName = answers.packageName.replace(/^@/, '').replace('\\/', '-')
+          return answers.packageName.replace(/^@/, '')
         },
         transform: (text) => text.trim(),
       },
@@ -67,12 +71,15 @@ module.exports = function (plop) {
       const resolveSourcePath = (p) => path.normalize(path.resolve(__dirname, 'boilerplate', p))
       const resolveTargetPath = (p) => path.normalize(path.resolve(answers.packageLocation, p))
       const relativePath = path.relative(answers.packageLocation, cwd)
+      // eslint-disable-next-line no-param-reassign
       answers.tsconfigExtends = answers.isLernaProject
         ? path.join(relativePath, 'tsconfig')
         : './tsconfig.settings'
+      // eslint-disable-next-line no-param-reassign
       answers.tsconfigSrcExtends = answers.isLernaProject
         ? path.join(relativePath, 'tsconfig.settings')
         : './tsconfig.settings'
+      // eslint-disable-next-line no-param-reassign
       answers.nodeModulesPath = path.join(relativePath, 'node_modules')
 
       return [

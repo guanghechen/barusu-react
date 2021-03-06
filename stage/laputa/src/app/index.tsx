@@ -7,7 +7,6 @@ import {
 } from '@barusu-react/route-tree'
 import classes from './style.styl'
 
-
 export interface RouteItemData extends RouteTreeNodeLabelProps {
   /**
    * the elements to render under the route (children of the Route)
@@ -39,7 +38,6 @@ export interface RouteItemData extends RouteTreeNodeLabelProps {
   children?: RouteItemData[]
 }
 
-
 export interface RouteItem {
   /**
    * unique key for react component
@@ -67,7 +65,6 @@ export interface RouteItem {
    */
   sensitive?: boolean
 }
-
 
 export interface AppProps {
   /**
@@ -99,7 +96,6 @@ export interface AppProps {
   fixing?: boolean
 }
 
-
 export function App(props: AppProps): React.ReactElement {
   const {
     routes: routesData,
@@ -127,40 +123,42 @@ export function App(props: AppProps): React.ReactElement {
   }, [routesData])
 
   return (
-    <div className={ classes.route }>
+    <div className={classes.route}>
       <Router>
-        <div className={ cn(classes.routeSidebar) }>
+        <div className={cn(classes.routeSidebar)}>
           <SidebarRouteTree
-            nodes={ routesData }
-            visible={ defaultVisible }
-            fixing={ defaultFixing }
+            nodes={routesData}
+            visible={defaultVisible}
+            fixing={defaultFixing}
           />
         </div>
-        <div className={ classes.routeMain }>
+        <div className={classes.routeMain}>
           {
             // add a wrapper container to resolve center horizontally bug in ie11
             // @see https://stackoverflow.com/a/31363869
           }
           <div>
             <Switch>
-              {
-                routes.map(({
-                  name, path, component,
+              {routes.map(
+                ({
+                  name,
+                  path,
+                  component,
                   exact = defaultExact,
                   strict = defaultStrict,
                   sensitive = defaultSensitive,
                 }) => (
                   <Route
-                    key={ name }
-                    path={ path }
-                    exact={ exact }
-                    strict={ strict }
-                    sensitive={ sensitive }
+                    key={name}
+                    path={path}
+                    exact={exact}
+                    strict={strict}
+                    sensitive={sensitive}
                   >
-                    { component }
+                    {component}
                   </Route>
-                  ))
-              }
+                ),
+              )}
             </Switch>
           </div>
         </div>

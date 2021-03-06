@@ -39,8 +39,7 @@
     "prebuild": "rimraf lib/",
     "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
     "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build",
-    "test": "echo 'no test yet'",
-    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix"
+    "test": "echo 'no test yet'"
   },
   "dependencies": {
     "@barusu-react/icons": "^0.0.20"
@@ -54,7 +53,6 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "@barusu-react/eslint-config": "^0.0.20",
     "@barusu-react/rollup-config": "^0.0.20",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.56",

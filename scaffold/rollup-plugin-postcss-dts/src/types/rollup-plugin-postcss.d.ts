@@ -1,24 +1,26 @@
 declare module 'rollup-plugin-postcss' {
-  import { Plugin } from 'rollup'
-  import { CreateFilter } from 'rollup-pluginutils'
+  import type { Plugin } from 'rollup'
+  import type { CreateFilter } from 'rollup-pluginutils'
 
-  type FunctionType<T = any, U = any> = (...args: readonly T[]) => U
+  type FunctionType<T = any, U = any> = (...args: ReadonlyArray<T>) => U
 
-  type onExtract = (asset: Readonly<{
-    code: any
-    map: any
-    codeFileName: string
-    mapFileName: string
-  }>) => boolean
+  type onExtract = (
+    asset: Readonly<{
+      code: any
+      map: any
+      codeFileName: string
+      mapFileName: string
+    }>,
+  ) => boolean
 
   export interface PostCSSPluginConf {
     inject?:
       | boolean
-      | { [key: string]: any }
+      | Record<string, any>
       | ((cssVariableName: string, id: string) => string)
     extract?: boolean | string
     onExtract?: onExtract
-    modules?: boolean | { [key: string]: any }
+    modules?: boolean | Record<string, any>
     extensions?: string[]
     plugins?: any[]
     autoModules?: boolean
@@ -28,13 +30,11 @@ declare module 'rollup-plugin-postcss' {
     stringifier?: string | FunctionType
     syntax?: string | FunctionType
     exec?: boolean
-    config?:
-      | boolean
-      | { path: string, ctx: any }
+    config?: boolean | { path: string; ctx: any }
     to?: string
     name?: any[] | any[][]
     loaders?: any[]
-    onImport?: (id: string) => void
+    onImport?(id: string): void
     use?: string[] | { [key in 'sass' | 'stylus' | 'less']: any }
     /**
      * @default: false

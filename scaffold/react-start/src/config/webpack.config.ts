@@ -1,7 +1,3 @@
-import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
-import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin'
-import ModuleScopePlugin from 'react-dev-utils/ModuleScopePlugin'
-import WatchMissingNodeModulesPlugin from 'react-dev-utils/WatchMissingNodeModulesPlugin'
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
 import ESLintPlugin from 'eslint-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
@@ -9,14 +5,18 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import path from 'path'
 import safePostCssParser from 'postcss-safe-parser'
+import InlineChunkHtmlPlugin from 'react-dev-utils/InlineChunkHtmlPlugin'
+import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin'
+import ModuleScopePlugin from 'react-dev-utils/ModuleScopePlugin'
+import WatchMissingNodeModulesPlugin from 'react-dev-utils/WatchMissingNodeModulesPlugin'
 import resolve from 'resolve'
 import TerserPlugin from 'terser-webpack-plugin'
 import TsConfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import webpack from 'webpack'
 import ManifestPlugin from 'webpack-manifest-plugin'
-import { ConfigEnv } from './env'
-import { ConfigPaths } from './paths'
-
+import type { ConfigEnv } from './env'
+// eslint-disable-next-line import/order
+import type { ConfigPaths } from './paths'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin')
@@ -25,18 +25,18 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
 
-
 export default function createWebpackConfig(
   mode: 'development' | 'production',
   env: ConfigEnv,
-  paths: ConfigPaths
+  paths: ConfigPaths,
 ): webpack.Configuration {
   const isEnvDevelopment: boolean = mode === 'development'
   const isEnvProduction: boolean = mode === 'production'
 
   // Variable used for enabling profiling in Production
   // passed into alias object. Uses a flag if passed into the build command
-  const isEnvProductionProfile = isEnvProduction && process.argv.includes('--profile')
+  const isEnvProductionProfile =
+    isEnvProduction && process.argv.includes('--profile')
 
   // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
   // injected into the application via DefinePlugin in webpack configuration.
@@ -49,14 +49,14 @@ export default function createWebpackConfig(
         env[key] = process.env[key]
         return env
       },
-      { ...env[mode].inject }
+      { ...env[mode].inject },
     )
   const stringifiedEnv = {
     'process.env': Object.keys(rawEnv).reduce((e, key) => {
       // eslint-disable-next-line no-param-reassign
       e[key] = JSON.stringify(rawEnv[key])
       return e
-    }, {})
+    }, {}),
   }
 
   const getStyleLoaders = (
@@ -81,7 +81,9 @@ export default function createWebpackConfig(
           : {},
       },
       useModule && {
-        loader: require.resolve('@teamsupercell/typings-for-css-modules-loader'),
+        loader: require.resolve(
+          '@teamsupercell/typings-for-css-modules-loader',
+        ),
       },
       {
         loader: require.resolve('css-loader'),
@@ -94,7 +96,7 @@ export default function createWebpackConfig(
             modules: { ...env[mode].webpackOptions.cssLoaderOptions },
           }),
           ...cssLoaderOptions,
-        }
+        },
       },
       {
         loader: require.resolve('postcss-loader'),
@@ -120,8 +122,8 @@ export default function createWebpackConfig(
             ],
           },
           sourceMap: env[mode].shouldUseSourceMap,
-        }
-      }
+        },
+      },
     ].filter(Boolean) as webpack.RuleSetUseItem[]
 
     if (preProcessor) {
@@ -149,11 +151,11 @@ export default function createWebpackConfig(
     bail: isEnvProduction,
     stats: 'errors-only',
     target: 'web',
-    devtool: (
-      (isEnvProduction && (env.production.shouldUseSourceMap ? 'source-map' : false)) ||
+    devtool:
+      (isEnvProduction &&
+        (env.production.shouldUseSourceMap ? 'source-map' : false)) ||
       (isEnvDevelopment && 'cheap-module-source-map') ||
-      false
-    ),
+      false,
 
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
@@ -172,7 +174,8 @@ export default function createWebpackConfig(
           // the line below with these two lines if you prefer the stock client:
           // require.resolve('webpack-dev-server/client') + '?/',
           // require.resolve('webpack/hot/dev-server'),
-          isEnvDevelopment && require.resolve('react-dev-utils/webpackHotDevClient'),
+          isEnvDevelopment &&
+            require.resolve('react-dev-utils/webpackHotDevClient'),
 
           // Polyfill
           paths.source.polyfill,
@@ -197,14 +200,16 @@ export default function createWebpackConfig(
 
       // There will be one main bundle, and one file per asynchronous chunk.
       // In development, it does not produce real files.
-      filename: (isEnvProduction && env.production.shouldJsChunk)
-        ? 'resource/js/[name].[contenthash:8].js'
-        : 'resource/js/[name].js',
+      filename:
+        isEnvProduction && env.production.shouldJsChunk
+          ? 'resource/js/[name].[contenthash:8].js'
+          : 'resource/js/[name].js',
 
       // There are also additional JS chunk files if you use code splitting.
-      chunkFilename: (isEnvProduction && env.production.shouldJsChunk)
-        ? 'resource/js/[name].[contenthash:8].chunk.js'
-        : 'resource/js/[name].chunk.js',
+      chunkFilename:
+        isEnvProduction && env.production.shouldJsChunk
+          ? 'resource/js/[name].[contenthash:8].chunk.js'
+          : 'resource/js/[name].chunk.js',
 
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -214,7 +219,11 @@ export default function createWebpackConfig(
       // point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: (info: any): string => {
         if (isEnvProduction) {
-          return path.relative(paths.source.root, path.resolve(info.absoluteResourcePath))
+          return path
+            .relative(
+              paths.source.root,
+              path.resolve(info.absoluteResourcePath),
+            )
             .replace(/\\/g, '/')
         }
         if (isEnvDevelopment) {
@@ -225,7 +234,7 @@ export default function createWebpackConfig(
 
       // Prevents conflicts when multiple webpack runtimes (from different apps)
       // are used on the same page.
-      jsonpFunction: `webpackJsonp_${ env.appName }`,
+      jsonpFunction: `webpackJsonp_${env.appName}`,
 
       // this defaults to 'window', but by setting it to 'this' then
       // module chunks which are built will work in web workers as well.
@@ -233,8 +242,9 @@ export default function createWebpackConfig(
     },
 
     optimization: {
-      minimize: isEnvProduction && (
-        env.production.shouldCssMinified || env.production.shouldJsMinified),
+      minimize:
+        isEnvProduction &&
+        (env.production.shouldCssMinified || env.production.shouldJsMinified),
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
@@ -283,13 +293,13 @@ export default function createWebpackConfig(
             parser: safePostCssParser,
             map: env.production.shouldUseSourceMap
               ? {
-                // `inline: false` forces the sourcemap to be output into a
-                // separate file
-                inline: false,
-                // `annotation: true` appends the sourceMappingURL to the end of
-                // the css file, helping the browser find the sourcemap
-                annotation: true,
-              }
+                  // `inline: false` forces the sourcemap to be output into a
+                  // separate file
+                  inline: false,
+                  // `annotation: true` appends the sourceMappingURL to the end of
+                  // the css file, helping the browser find the sourcemap
+                  annotation: true,
+                }
               : false,
           },
           cssProcessorPluginOptions: {
@@ -300,22 +310,21 @@ export default function createWebpackConfig(
       // Automatically split vendor and commons
       // https://twitter.com/wSokra/status/969633336732905474
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-      splitChunks: (env.production.shouldCssChunk || env.production.shouldJsChunk) && {
+      splitChunks: (env.production.shouldCssChunk ||
+        env.production.shouldJsChunk) && {
         chunks: 'all',
         name: false,
       },
       // Keep the runtime chunk separated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
       // https://github.com/facebook/create-react-app/issues/5358
-      runtimeChunk: (env.production.shouldCssChunk || env.production.shouldJsChunk) && {
-        name: (entryPoint): string => `runtime-${ entryPoint.name }`,
+      runtimeChunk: (env.production.shouldCssChunk ||
+        env.production.shouldJsChunk) && {
+        name: (entryPoint): string => `runtime-${entryPoint.name}`,
       },
     },
     resolve: {
-      modules: [
-        paths.source.nodeModules,
-        ...paths.source.extraNodeModules
-      ],
+      modules: [paths.source.nodeModules, ...paths.source.extraNodeModules],
       extensions: paths.moduleExtensions,
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -337,19 +346,20 @@ export default function createWebpackConfig(
         { parser: { requireEnsure: false } },
 
         // Generate sourcemap only in development mode
-        isEnvDevelopment && env.development.shouldUseSourceMap && {
-          test: /\.(js|mjs|jsx|ts|tsx)$/,
-          include: [
-            ...paths.source.src,
-            (p: string): boolean => !/node_modules/.test(p),
-          ],
-          enforce: 'pre',
-          use: [
-            {
-              loader: require.resolve('source-map-loader'),
-            }
-          ],
-        },
+        isEnvDevelopment &&
+          env.development.shouldUseSourceMap && {
+            test: /\.(js|mjs|jsx|ts|tsx)$/,
+            include: [
+              ...paths.source.src,
+              (p: string): boolean => !/node_modules/.test(p),
+            ],
+            enforce: 'pre',
+            use: [
+              {
+                loader: require.resolve('source-map-loader'),
+              },
+            ],
+          },
 
         {
           // "oneOf" will traverse all following loaders until one will
@@ -382,15 +392,17 @@ export default function createWebpackConfig(
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
                 compact: isEnvProduction,
-                customize: require.resolve('babel-preset-react-app/webpack-overrides'),
+                customize: require.resolve(
+                  'babel-preset-react-app/webpack-overrides',
+                ),
                 presets: [
                   [
                     'react-app',
                     {
                       flow: false,
-                      typescript: true
-                    }
-                  ]
+                      typescript: true,
+                    },
+                  ],
                 ],
                 plugins: [
                   [
@@ -398,19 +410,20 @@ export default function createWebpackConfig(
                     {
                       loaderMap: {
                         svg: {
-                          ReactComponent: '@svgr/webpack?-svgo,+titleProp,+ref![path]'
-                        }
-                      }
-                    }
+                          ReactComponent:
+                            '@svgr/webpack?-svgo,+titleProp,+ref![path]',
+                        },
+                      },
+                    },
                   ],
                   [
                     '@babel/plugin-transform-typescript',
                     {
-                      allowNamespaces: true
-                    }
-                  ]
+                      allowNamespaces: true,
+                    },
+                  ],
                 ],
-              }
+              },
             },
 
             // Process any JS outside of the app with Babel.
@@ -437,7 +450,7 @@ export default function createWebpackConfig(
                 // show incorrect code and set breakpoints on the wrong lines.
                 sourceMaps: env.development.shouldUseSourceMap,
                 inputSourceMap: env.development.shouldUseSourceMap,
-              }
+              },
             },
 
             // "postcss" loader applies autoprefixer to our CSS.
@@ -474,13 +487,13 @@ export default function createWebpackConfig(
                 {
                   loader: require.resolve('style-loader'),
                   options: {
-                    injectType: 'linkTag'
+                    injectType: 'linkTag',
                   },
                 },
                 {
                   loader: require.resolve('file-loader'),
-                }
-              ]
+                },
+              ],
             },
 
             // Opt-in support for Stylus (using .styl extensions).
@@ -524,45 +537,44 @@ export default function createWebpackConfig(
               },
             },
           ].filter(Boolean) as webpack.RuleSetRule[],
-        }
+        },
       ].filter(Boolean) as webpack.RuleSetRule[],
     },
     plugins: [
       // create HtmlWebpackPlugins by targets
-      ...paths.entries
-        .map(target => {
-          if (isEnvDevelopment) {
-            return new HtmlWebpackPlugin({
-              inject: true,
-              template: target.page,
-              filename: `${ target.name }.html`,
-              chunks: [target.name],
-            })
-          }
+      ...paths.entries.map(target => {
+        if (isEnvDevelopment) {
+          return new HtmlWebpackPlugin({
+            inject: true,
+            template: target.page,
+            filename: `${target.name}.html`,
+            chunks: [target.name],
+          })
+        }
 
-          if (isEnvProduction) {
-            return new HtmlWebpackPlugin({
-              inject: true,
-              template: target.page,
-              filename: `${ target.name }.html`,
-              chunks: [target.name],
-              minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeRedundantAttributes: true,
-                useShortDoctype: true,
-                removeEmptyAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                keepClosingSlash: true,
-                minifyJS: true,
-                minifyCSS: true,
-                minifyURLs: true,
-              },
-            })
-          }
+        if (isEnvProduction) {
+          return new HtmlWebpackPlugin({
+            inject: true,
+            template: target.page,
+            filename: `${target.name}.html`,
+            chunks: [target.name],
+            minify: {
+              removeComments: true,
+              collapseWhitespace: true,
+              removeRedundantAttributes: true,
+              useShortDoctype: true,
+              removeEmptyAttributes: true,
+              removeStyleLinkTypeAttributes: true,
+              keepClosingSlash: true,
+              minifyJS: true,
+              minifyCSS: true,
+              minifyURLs: true,
+            },
+          })
+        }
 
-          return null
-        }),
+        return null
+      }),
 
       // Eslint
       new ESLintPlugin({
@@ -570,22 +582,25 @@ export default function createWebpackConfig(
         failOnError: true,
         eslintPath: require.resolve('eslint'),
         formatter: require.resolve('react-dev-utils/eslintFormatter'),
-        extensions: ['js', 'jsx', 'ts', 'tsx']
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
       }),
 
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358
       isEnvProduction &&
-      env.production.shouldInlineRuntimeChunk &&
-      new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
+        env.production.shouldInlineRuntimeChunk &&
+        new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
 
       // Makes some environment variables available in index.html.
       // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
       // <link rel="icon" href="%PUBLIC_URL%/favicon.ico">
       // It will be an empty string unless you specify "homepage"
       // in `package.json`, in which case it will be the pathname of that URL.
-      new InterpolateHtmlPlugin(HtmlWebpackPlugin, { ...rawEnv } as Record<string, string>),
+      new InterpolateHtmlPlugin(HtmlWebpackPlugin, { ...rawEnv } as Record<
+        string,
+        string
+      >),
 
       // This gives some necessary context to module not found errors, such as
       // the requesting resource.
@@ -613,17 +628,19 @@ export default function createWebpackConfig(
       // to restart the development server for webpack to discover it. This plugin
       // makes the discovery automatic so you don't have to restart.
       // See https://github.com/facebook/create-react-app/issues/186
-      isEnvDevelopment && new WatchMissingNodeModulesPlugin(paths.source.nodeModules),
+      isEnvDevelopment &&
+        new WatchMissingNodeModulesPlugin(paths.source.nodeModules),
 
       // Extract css files
-      isEnvProduction && new MiniCssExtractPlugin(
-        env.production.shouldCssChunk
-          ? {
-            filename: 'resource/css/[name].[contenthash:8].css',
-            chunkFilename: 'resource/css/[name].[contenthash:8].chunk.css',
-          }
-          : { filename: 'resource/css/[name].css', }
-      ),
+      isEnvProduction &&
+        new MiniCssExtractPlugin(
+          env.production.shouldCssChunk
+            ? {
+                filename: 'resource/css/[name].[contenthash:8].css',
+                chunkFilename: 'resource/css/[name].[contenthash:8].chunk.css',
+              }
+            : { filename: 'resource/css/[name].css' },
+        ),
 
       // Generate an asset manifest file with the following content:
       // - "files" key: Mapping of all asset filenames to their corresponding
@@ -643,8 +660,9 @@ export default function createWebpackConfig(
             return manifest
           }, seed)
 
-          const entrypointFiles = (entrypoints.main || [])
-            .filter(fileName => !fileName.endsWith('.map'))
+          const entrypointFiles = (entrypoints.main || []).filter(
+            fileName => !fileName.endsWith('.map'),
+          )
 
           return {
             files: manifestFiles,

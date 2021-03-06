@@ -1,8 +1,7 @@
+import { coverBoolean, coverString } from '@barusu/util-option'
 import fs from 'fs-extra'
 import reservedWords from 'reserved-words'
-import { coverBoolean, coverString } from '@barusu/util-option'
-import { GetCSSTokenHook } from './types'
-
+import type { GetCSSTokenHook } from './types'
 
 export interface CSSDtsProps {
   /**
@@ -36,13 +35,12 @@ export interface CSSDtsProps {
    * @param json            css class name map
    * @param outputFilepath  filepath of the ts declaration file
    */
-  shouldGenerateDtsFile?: (
+  shouldGenerateDtsFile?(
     cssPath: string,
-    json: { [key: string]: string },
+    json: Record<string, string>,
     outputFilePath: string,
-  ) => boolean
+  ): boolean
 }
-
 
 export class CSSDts implements GetCSSTokenHook {
   public readonly indent: string
@@ -51,11 +49,14 @@ export class CSSDts implements GetCSSTokenHook {
   public readonly alsoCreateTargetCssDts: boolean
   public readonly shouldGenerateDtsFile: CSSDtsProps['shouldGenerateDtsFile']
 
-  public constructor(props: CSSDtsProps) {
+  constructor(props: CSSDtsProps) {
     this.indent = coverString('  ', props.indent)
     this.semicolon = coverBoolean(false, props.semicolon) ? ';' : ''
     this.encoding = coverString('utf-8', props.encoding)
-    this.alsoCreateTargetCssDts = coverBoolean(false, props.alsoCreateTargetCssDts)
+    this.alsoCreateTargetCssDts = coverBoolean(
+      false,
+      props.alsoCreateTargetCssDts,
+    )
     this.shouldGenerateDtsFile = props.shouldGenerateDtsFile
   }
 
@@ -68,7 +69,7 @@ export class CSSDts implements GetCSSTokenHook {
    */
   public async getJSON(
     cssPath: string,
-    json: { [key: string]: string },
+    json: Record<string, string>,
     outputFilePath: string,
   ): Promise<void> {
     const self = this
@@ -94,14 +95,14 @@ export class CSSDts implements GetCSSTokenHook {
     return classNames
       .sort()
       .filter(x => !/[-]/.test(x) && !reservedWords.check(x))
-      .map(x => `export const ${ x }: string${ semicolon }`)
+      .map(x => `export const ${x}: string${semicolon}`)
       .join('\n')
       .concat('\n\n\n')
       .concat('interface Stylesheet {\n')
-      .concat(classNames.map(x => `${ indent }'${ x }': string`).join('\n'))
+      .concat(classNames.map(x => `${indent}'${x}': string`).join('\n'))
       .concat('\n}\n\n\n')
-      .concat(`declare const ${ uniqueName }: Stylesheet${ semicolon }\n`)
-      .concat(`export default ${ uniqueName }${ semicolon }\n`)
+      .concat(`declare const ${uniqueName}: Stylesheet${semicolon}\n`)
+      .concat(`export default ${uniqueName}${semicolon}\n`)
   }
 
   /**
@@ -110,7 +111,10 @@ export class CSSDts implements GetCSSTokenHook {
    * @param classNames
    * @returns filePath of .d.ts created
    */
-  protected async writeFile(cssPath: string, dtsContent: string): Promise<string> {
+  protected async writeFile(
+    cssPath: string,
+    dtsContent: string,
+  ): Promise<string> {
     const self = this
     const dtsFilePath: string = cssPath + '.d.ts'
     await fs.writeFile(dtsFilePath, dtsContent, self.encoding)
@@ -118,17 +122,16 @@ export class CSSDts implements GetCSSTokenHook {
   }
 }
 
-
 export function createHook(props: CSSDtsProps = {}): GetCSSTokenHook {
   const cssDts = new CSSDts(props)
   return {
     async getJSON(
       cssPath: string,
-      json: { [key: string]: string },
+      json: Record<string, string>,
       outputFilePath: string,
     ): Promise<void> {
       await props.hook?.getJSON?.(cssPath, json, outputFilePath)
       await cssDts.getJSON(cssPath, json, outputFilePath)
-    }
+    },
   }
 }

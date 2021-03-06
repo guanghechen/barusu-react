@@ -5,7 +5,6 @@ import OctotreeLeafNode from './leaf'
 import { getOctotreeStyle } from './theme'
 import { OctotreeNodeData } from './types'
 
-
 /**
  * Props for creating OctotreeParentNode
  */
@@ -36,22 +35,18 @@ export interface OctotreeParentNodeProps {
   iconWidthUnit: string
 }
 
-
-
 const CollapseIcon = styled(Icon)`
   &::before {
     content: '\\e808'
   }
 `
 
-
 const TypeIcon = styled(Icon)`
-  color: ${ getOctotreeStyle('typeIconColorPrimary') };
+  color: ${getOctotreeStyle('typeIconColorPrimary')};
   &::before {
     content: '\\e840';
   }
 `
-
 
 const Header = styled.div`
   display: flex;
@@ -59,10 +54,9 @@ const Header = styled.div`
   width: 100%;
   height: 100%;
   &:hover {
-    background: ${ getOctotreeStyle('linkBackgroundHover') };
+    background: ${getOctotreeStyle('linkBackgroundHover')};
   }
 `
-
 
 const Main = styled.div`
   display: block;
@@ -71,41 +65,45 @@ const Main = styled.div`
   opacity: 1;
 `
 
-
 const Container = styled.div<{ $isCollapsed: boolean }>`
-  ${
-    props => props.$isCollapsed
+  ${props =>
+    props.$isCollapsed
       ? css`
-        ${ CollapseIcon } {
+        ${CollapseIcon} {
           &::before {
             content: '\\e80a';
           }
         }
-        ${ Main } {
+        ${Main} {
           height: 0;
           opacity: 0;
         }
       `
-      : ''
-  }
+      : ''}
 `
-
 
 /**
  * Octotree parent node
  */
-export function OctotreeParentNode(props: OctotreeParentNodeProps): React.ReactElement {
+export function OctotreeParentNode(
+  props: OctotreeParentNodeProps,
+): React.ReactElement {
   const { depth, title, iconWidth, iconWidthUnit } = props
 
   const children = useOctotreeNodes(
-    depth + 1, props.children, iconWidth, iconWidthUnit)
+    depth + 1,
+    props.children,
+    iconWidth,
+    iconWidthUnit,
+  )
   const [collapsed, setCollapsed] = useState<boolean>(props.collapsed)
 
   // Reset collapsed if the props.collapsed changed
   useEffect(() => setCollapsed(props.collapsed), [props.collapsed])
 
   const headerStyle: React.CSSProperties = {
-    paddingLeft: depth <= 0 ? 0 : (depth * iconWidth).toFixed(2) + iconWidthUnit,
+    paddingLeft:
+      depth <= 0 ? 0 : (depth * iconWidth).toFixed(2) + iconWidthUnit,
   }
 
   const collapseIconStyle: React.CSSProperties = {
@@ -118,22 +116,18 @@ export function OctotreeParentNode(props: OctotreeParentNodeProps): React.ReactE
   }
 
   return (
-    <Container $isCollapsed={ collapsed }>
-      <Header
-        style={ headerStyle }
-        onClick={ () => setCollapsed(c => !c) }
-      >
-        <CollapseIcon style={ collapseIconStyle } />
-        <TypeIcon style={ typeIconStyle } />
-        <Title title={ title }>{ title }</Title>
+    <Container $isCollapsed={collapsed}>
+      <Header style={headerStyle} onClick={() => setCollapsed(c => !c)}>
+        <CollapseIcon style={collapseIconStyle} />
+        <TypeIcon style={typeIconStyle} />
+        <Title title={title}>{title}</Title>
       </Header>
       <Main>
-        <ul>{ children }</ul>
+        <ul>{children}</ul>
       </Main>
     </Container>
   )
 }
-
 
 /**
  * Cache octotree nodes
@@ -153,27 +147,27 @@ export function useOctotreeNodes(
         switch (item.type) {
           case 'leaf': {
             return (
-              <li key={ item.title }>
+              <li key={item.title}>
                 <OctotreeLeafNode
-                  depth={ depth }
-                  title={ item.title }
-                  pathname={ item.pathname }
-                  iconWidth={ iconWidth }
-                  iconWidthUnit={ iconWidthUnit }
+                  depth={depth}
+                  title={item.title}
+                  pathname={item.pathname}
+                  iconWidth={iconWidth}
+                  iconWidthUnit={iconWidthUnit}
                 />
               </li>
             )
           }
           case 'parent': {
             return (
-              <li key={ item.title }>
+              <li key={item.title}>
                 <OctotreeParentNode
-                  depth={ depth }
-                  title={ item.title }
-                  collapsed={ item.collapsed }
-                  children={ item.children }
-                  iconWidth={ iconWidth }
-                  iconWidthUnit={ iconWidthUnit }
+                  depth={depth}
+                  title={item.title}
+                  collapsed={item.collapsed}
+                  children={item.children}
+                  iconWidth={iconWidth}
+                  iconWidthUnit={iconWidthUnit}
                 />
               </li>
             )
@@ -186,6 +180,5 @@ export function useOctotreeNodes(
   }, [depth, iconWidth, iconWidthUnit, items])
   return results
 }
-
 
 export default OctotreeParentNode

@@ -22,11 +22,12 @@
     "rebuild": "yarn clean && yarn build",
     "test": "lerna run --parallel test",
     "clean": "lerna clean --yes && yarn install",
-    "format": "yarn find-inconsistent && yarn sort-imports && yarn lint:fix",
-    "lint:fix": "lerna run --parallel lint:fix",
-    "find-inconsistent": "barusu-find-inconsistent .",
-    "sort-imports": "barusu-sort-imports .",
-    "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js"
+    "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
+    "format": "run-s format:find-inconsistent format:lint:fix format:prettier",
+    "format:prettier": "prettier --write .",
+    "format:find-inconsistent": "barusu-find-inconsistent .",
+    "format:lint:fix": "eslint . --fix",
+    "format:sort-imports": "barusu-sort-imports ."
   },
   "workspaces": [
     "packages/*",
@@ -55,7 +56,9 @@
   },
   "devDependencies": {
     "@barusu/tool-find-inconsistent": "^0.0.43",
-    "@barusu/tool-sort-imports": "^0.0.43",
+    "@guanghechen/eslint-config": "^1.0.6",
+    "@guanghechen/eslint-config-jsx": "^1.0.6",
+    "@guanghechen/eslint-config-ts": "^1.0.6",
     "@types/classnames": "^2.2.9",
     "@types/enzyme": "3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
@@ -72,9 +75,15 @@
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.5",
     "enzyme-to-json": "^3.6.1",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-jest": "^24.1.5",
+    "eslint-plugin-prettier": "^3.3.1",
     "jest": "26.6.3",
     "jest-styled-components": "7.0.3",
     "lerna": "^3.22.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -100,11 +109,11 @@
     ],
     "moduleRanks": [
       {
-        "regex": "^(react|vue|angular)(?:[\/\\-][\\w\\-.\/]*)?$",
+        "regex": "^(react|vue|angular)(?:[/\\-][\\w\\-./]*)?$",
         "rank": 1.1
       },
       {
-        "regex": "^mocha|chai(?:[\/][\\w\\-.\/]*)?$",
+        "regex": "^mocha|chai(?:[/][\\w\\-./]*)?$",
         "rank": 1.2
       },
       {

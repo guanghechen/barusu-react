@@ -5,11 +5,11 @@ import { Octotree, OctotreeNodeData } from '@barusu-react/octotree'
 import ResizableEdge from './resizable-edge.no-cover'
 import { defaultOctotreeSidebarTheme, getOctotreeSidebarStyle } from './theme'
 
-
 /**
  * Props for creating OctotreeSidebar
  */
-export interface OctotreeSidebarProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface OctotreeSidebarProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Node data of octotree
    */
@@ -32,7 +32,6 @@ export interface OctotreeSidebarProps extends React.HTMLAttributes<HTMLDivElemen
   onPinedChange?: (pined: boolean) => void
 }
 
-
 const Pushpin = styled.i<{ $pined: boolean }>`
   position: absolute;
   top: 50%;
@@ -42,7 +41,7 @@ const Pushpin = styled.i<{ $pined: boolean }>`
   &::before {
     content: "\\e829";
     display: inline-block;
-    transform: rotate(${ props => props.$pined ? '45deg' : '90deg' });
+    transform: rotate(${props => (props.$pined ? '45deg' : '90deg')});
     width: 1rem;
     line-height: 1;
     font-size: 1rem;
@@ -56,20 +55,17 @@ const Pushpin = styled.i<{ $pined: boolean }>`
   }
 `
 
-
 const Header = styled.div`
   flex: 0 0 2rem;
   position: relative;
-  background: ${ getOctotreeSidebarStyle('headerBackground') };
+  background: ${getOctotreeSidebarStyle('headerBackground')};
 `
-
 
 const Main = styled.div`
   flex: 1 1 0;
   overflow: auto;
-  background: ${ getOctotreeSidebarStyle('mainBackground') };
+  background: ${getOctotreeSidebarStyle('mainBackground')};
 `
-
 
 const ToggleArea = styled.div<{ $visible: boolean }>`
   position: absolute;
@@ -79,25 +75,25 @@ const ToggleArea = styled.div<{ $visible: boolean }>`
   transition: opacity 0.2s ease-in-out;
   height: 6rem;
   width: 2rem;
-  background: ${ getOctotreeSidebarStyle('toggleBackground') };
-  border: 1px solid ${ getOctotreeSidebarStyle('toggleBorderColor') };;
+  background: ${getOctotreeSidebarStyle('toggleBackground')};
+  border: 1px solid ${getOctotreeSidebarStyle('toggleBorderColor')};;
   border-left: none;
   user-select: none;
   cursor: default;
 
-  ${ props => props.$visible
-    ? css`
+  ${props =>
+    props.$visible
+      ? css`
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         opacity: 1;
       `
-    : css`
+      : css`
         display: none;
         opacity: 0;
-      `
-  }
+      `}
 
   &::before {
     font-family: octotree;
@@ -112,21 +108,20 @@ const ToggleArea = styled.div<{ $visible: boolean }>`
   }
 `
 
-
 const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 0;
   border: 0;
-  border-right: ${ getOctotreeSidebarStyle('borderRight') };
+  border-right: ${getOctotreeSidebarStyle('borderRight')};
   margin: 0;
   transition: max-width 0.5s ease-in-out;
 `
 
-
-Container.defaultProps = { theme: { octotreeSidebar: defaultOctotreeSidebarTheme } }
-
+Container.defaultProps = {
+  theme: { octotreeSidebar: defaultOctotreeSidebarTheme },
+}
 
 /**
  * Class names
@@ -139,12 +134,14 @@ export const octotreeSidebarClasses = {
   pushpin: String(Pushpin).substring(1),
 }
 
-
 /**
  *
  * @param props
  */
-export const OctotreeSidebar = React.forwardRef<HTMLDivElement, OctotreeSidebarProps>(
+export const OctotreeSidebar = React.forwardRef<
+  HTMLDivElement,
+  OctotreeSidebarProps
+>(
   (props, forwardRef): React.ReactElement => {
     const {
       nodes,
@@ -165,7 +162,9 @@ export const OctotreeSidebar = React.forwardRef<HTMLDivElement, OctotreeSidebarP
     const [hovering, setHovering] = useState<boolean>(false)
     const [toggleBtnHovering, setToggleBtnHovering] = useState<boolean>(false)
 
-    const handleResize = useCallback((hm: number): void => { setWidth(width => width + hm) }, [])
+    const handleResize = useCallback((hm: number): void => {
+      setWidth(width => width + hm)
+    }, [])
 
     useEffect(() => {
       // reset maxWidth if width changed
@@ -183,7 +182,9 @@ export const OctotreeSidebar = React.forwardRef<HTMLDivElement, OctotreeSidebarP
     }, [pined])
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => { setMaxWidth(hovering || pined ? width : 0) }, [pined, hovering])
+    useEffect(() => {
+      setMaxWidth(hovering || pined ? width : 0)
+    }, [pined, hovering])
 
     const containerStyle = {
       ...style,
@@ -193,37 +194,32 @@ export const OctotreeSidebar = React.forwardRef<HTMLDivElement, OctotreeSidebarP
 
     return (
       <Container
-        { ...htmlProps }
-        ref={ forwardRef }
-        style={ containerStyle }
-        onMouseEnter={ () => setHovering(true) }
-        onMouseLeave={ () => setHovering(false) }
+        {...htmlProps}
+        ref={forwardRef}
+        style={containerStyle}
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
       >
         <Header>
-          <Pushpin
-            $pined={ pined }
-            onClick={ () => setPined(!pined) }
-          />
+          <Pushpin $pined={pined} onClick={() => setPined(!pined)} />
         </Header>
         <ToggleArea
-          $visible={ maxWidth === 0 || toggleBtnHovering }
-          onMouseEnter={ () => setToggleBtnHovering(true) }
-          onMouseLeave={ () => setToggleBtnHovering(false) }
+          $visible={maxWidth === 0 || toggleBtnHovering}
+          onMouseEnter={() => setToggleBtnHovering(true)}
+          onMouseLeave={() => setToggleBtnHovering(false)}
         >
           <span>Octotree</span>
         </ToggleArea>
         <Main>
-          <Octotree nodes={ props.nodes } />
+          <Octotree nodes={props.nodes} />
         </Main>
-        <ResizableEdge type='right' onResize={ handleResize } />
+        <ResizableEdge type="right" onResize={handleResize} />
       </Container>
     )
-  }
+  },
 )
 
-
 OctotreeSidebar.displayName = 'OctotreeSidebar'
-
 
 OctotreeSidebar.propTypes = {
   nodes: PropTypes.array.isRequired,

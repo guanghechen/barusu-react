@@ -1,5 +1,5 @@
-import path from 'path'
 import { createRollupConfig } from '@barusu-react/rollup-config'
+import path from 'path'
 import manifest from './package.json'
 
 

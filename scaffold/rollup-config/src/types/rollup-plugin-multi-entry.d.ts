@@ -1,5 +1,5 @@
 declare module '@rollup/plugin-multi-entry' {
-  import { Plugin } from 'rollup'
+  import type { Plugin } from 'rollup'
 
   /**
    * @see https://github.com/rollup/plugins/blob/master/packages/multi-entry/README.md#options

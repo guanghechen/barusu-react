@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 export interface SvgIconProps extends React.SVGAttributes<SVGSVGElement> {
   /**
    * Provides a human-readable title for the element that contains it.
@@ -18,7 +17,6 @@ export interface SvgIconProps extends React.SVGAttributes<SVGSVGElement> {
   viewBox?: string
 }
 
-
 /**
  *
  * @param path
@@ -27,35 +25,31 @@ export interface SvgIconProps extends React.SVGAttributes<SVGSVGElement> {
  */
 export function createSvgIcon(
   path: React.ReactElement<SVGElement>,
-  displayName: string
+  displayName: string,
 ): React.FunctionComponent {
   const Component = React.memo(
     React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => {
-      const {
-        viewBox = '0 0 24 24',
-        titleAccess = false,
-        ...others
-      } = props
+      const { viewBox = '0 0 24 24', titleAccess = false, ...others } = props
       return (
         <svg
           focusable="false"
-          data-barusu-test={ displayName + 'Icon' }
-          viewBox={ viewBox }
-          aria-hidden={ titleAccess ? undefined : 'true' }
-          role={ titleAccess ? 'img' : 'presentation' }
-          ref={ ref }
-          { ...others }
+          data-barusu-test={displayName + 'Icon'}
+          viewBox={viewBox}
+          aria-hidden={titleAccess ? undefined : 'true'}
+          role={titleAccess ? 'img' : 'presentation'}
+          ref={ref}
+          {...others}
         >
-          { path }
+          {path}
         </svg>
       )
-    })
+    }),
   )
 
   if (process.env.NODE_ENV !== 'production') {
-    Component.displayName = `${ displayName }Icon`
+    Component.displayName = `${displayName}Icon`
   }
 
-  (Component as any).barusuName = 'SvgIcon'
+  ;(Component as any).barusuName = 'SvgIcon'
   return Component
 }

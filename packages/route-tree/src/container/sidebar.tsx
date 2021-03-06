@@ -4,9 +4,9 @@ import { Pin as PinIcon } from '@barusu-react/icons'
 import { RouteTreeComponent, RouteTreeComponentProps } from '../component/tree'
 import classes from '../style/index.styl'
 
-
 export interface SidebarRouteTreeProps
-  extends React.HTMLAttributes<HTMLDivElement>, RouteTreeComponentProps {
+  extends React.HTMLAttributes<HTMLDivElement>,
+    RouteTreeComponentProps {
   /**
    * 是否处于可见状态
    */
@@ -17,12 +17,13 @@ export interface SidebarRouteTreeProps
   fixing?: boolean
 }
 
-
 /**
  * 封装了侧边栏的 route-tree
  * @param props
  */
-export function SidebarRouteTree(props: SidebarRouteTreeProps): React.ReactElement {
+export function SidebarRouteTree(
+  props: SidebarRouteTreeProps,
+): React.ReactElement {
   const {
     visible: defaultVisible = true,
     fixing: defaultFixing = true,
@@ -39,36 +40,40 @@ export function SidebarRouteTree(props: SidebarRouteTreeProps): React.ReactEleme
 
   return (
     <div
-      { ...restProps }
-      className={ cn(
+      {...restProps}
+      className={cn(
         className,
         classes.routeTreeContainer,
         classes.sidebarRouteTreeContainer,
-        visible ? classes.sidebarRouteTreeVisible : classes.sidebarRouteTreeHidden,
+        visible
+          ? classes.sidebarRouteTreeVisible
+          : classes.sidebarRouteTreeHidden,
         { [classes.sidebarRouteTreeFixing]: fixing },
-      ) }
-      onMouseEnter={ (): void => setVisible(true) }
-      onMouseLeave={ (): void => { !fixing && setVisible(false) } }
+      )}
+      onMouseEnter={(): void => setVisible(true)}
+      onMouseLeave={(): void => {
+        !fixing && setVisible(false)
+      }}
     >
-      <div className={ classes.sidebarRouteTreeHeader }>
+      <div className={classes.sidebarRouteTreeHeader}>
         <span
-          className={ classes.sidebarRouteTreeHeaderPin }
-          onClick={ (): void => setFixing(v => !v) }
+          className={classes.sidebarRouteTreeHeaderPin}
+          onClick={(): void => setFixing(v => !v)}
         >
           <PinIcon />
         </span>
       </div>
-      <div className={ classes.sidebarRouteTreeMain }>
+      <div className={classes.sidebarRouteTreeMain}>
         <RouteTreeComponent
-          nodes={ nodes }
-          foldEmptyPath={ foldEmptyPath }
-          defaultPathIcon={ defaultPathIcon }
-          defaultLeafIcon={ defaultLeafIcon }
+          nodes={nodes}
+          foldEmptyPath={foldEmptyPath}
+          defaultPathIcon={defaultPathIcon}
+          defaultLeafIcon={defaultLeafIcon}
         />
       </div>
       <div
-        className={ classes.sidebarRouteTreeToggleBtn }
-        onMouseEnter={ (): void => setVisible(true) }
+        className={classes.sidebarRouteTreeToggleBtn}
+        onMouseEnter={(): void => setVisible(true)}
       >
         <span>Route Tree</span>
       </div>

@@ -1,16 +1,17 @@
-import autoprefixer from 'autoprefixer'
-import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
-import postcssUrl from 'postcss-url'
-import rollup from 'rollup'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import typescript from 'rollup-plugin-typescript2'
 import postcss from '@barusu-react/rollup-plugin-postcss-dts'
 import { collectAllDependencies } from '@barusu/util-cli'
 import { convertToBoolean, coverBoolean } from '@barusu/util-option'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import nodeResolve from '@rollup/plugin-node-resolve'
-import {
+import autoprefixer from 'autoprefixer'
+import postcssFlexbugsFixes from 'postcss-flexbugs-fixes'
+import postcssUrl from 'postcss-url'
+import type rollup from 'rollup'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import typescript from 'rollup-plugin-typescript2'
+// eslint-disable-next-line import/order
+import type {
   CommonJSOptions,
   JsonOptions,
   NodeResolveOptions,
@@ -20,7 +21,6 @@ import {
   PostcssPluginPostcssUrlOptions,
   TypescriptOptions,
 } from './types/options'
-
 
 export interface ConfigOptions extends rollup.InputOptions {
   /**
@@ -48,7 +48,7 @@ export interface ConfigOptions extends rollup.InputOptions {
     /**
      * Dependency list
      */
-    dependencies?: { [key: string]: string }
+    dependencies?: Record<string, string>
   }
   /**
    * Plugin options
@@ -57,7 +57,7 @@ export interface ConfigOptions extends rollup.InputOptions {
     /**
      * options for @rollup/plugin-json
      */
-    jsonOptions?: JsonOptions,
+    jsonOptions?: JsonOptions
     /**
      * options for @rollup/plugin-node-resolve
      */
@@ -92,25 +92,27 @@ export interface ConfigOptions extends rollup.InputOptions {
   }
 }
 
-
 const builtinExternals: string[] = [
   'glob',
   'sync',
   ...require('builtin-modules'),
 ]
 
-
 /**
  * Create rollup config for handle react component
  * @param options
  */
 export function createRollupConfig(
-  options: ConfigOptions
+  options: ConfigOptions,
 ): rollup.RollupOptions {
   const DEFAULT_USE_SOURCE_MAP = coverBoolean(
-    true, convertToBoolean(process.env.ROLLUP_USE_SOURCE_MAP))
+    true,
+    convertToBoolean(process.env.ROLLUP_USE_SOURCE_MAP),
+  )
   const DEFAULT_EXTERNAL_ALL_DEPENDENCIES = coverBoolean(
-    true, convertToBoolean(process.env.ROLLUP_EXTERNAL_ALL_DEPENDENCIES))
+    true,
+    convertToBoolean(process.env.ROLLUP_EXTERNAL_ALL_DEPENDENCIES),
+  )
 
   const {
     useSourceMap = DEFAULT_USE_SOURCE_MAP,
@@ -162,7 +164,7 @@ export function createRollupConfig(
         format: 'es',
         exports: 'named',
         sourcemap: useSourceMap,
-      }
+      },
     ].filter(Boolean) as rollup.OutputOptions[],
     external: function (id: string): boolean {
       const m = /^([.][\s\S]*|@[^/\s]+[/][^/\s]+|[^/\s]+)/.exec(id)
@@ -183,7 +185,6 @@ export function createRollupConfig(
       }),
       typescript({
         clean: true,
-        typescript: require('typescript'),
         useTsconfigDeclarationDir: true,
         include: ['src/**/*{.ts,.tsx}'],
         tsconfigDefaults: {
@@ -192,12 +193,12 @@ export function createRollupConfig(
             declarationMap: true,
             declarationDir: 'lib/types',
             outDir: 'lib',
-          }
+          },
         },
         tsconfigOverride: {
           compilerOptions: {
             declarationMap: useSourceMap,
-          }
+          },
         },
         ...typescriptOptions,
       }),

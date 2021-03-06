@@ -2,7 +2,6 @@ import React from 'react'
 import { RouteTree, RouteTreeNodeData } from '@barusu-react/route-tree'
 import { RouteItemData } from '../app'
 
-
 const nodes: RouteTreeNodeData[] = [
   {
     title: 'Apple',
@@ -11,7 +10,7 @@ const nodes: RouteTreeNodeData[] = [
       {
         title: 'Banana',
         pathname: '/apple/banana',
-      }
+      },
     ],
   },
   {
@@ -30,8 +29,8 @@ const nodes: RouteTreeNodeData[] = [
             title: 'Tiger',
             pathname: '/animals/felidae/tiger',
           },
-        ]
-      }
+        ],
+      },
     ],
   },
   {
@@ -40,14 +39,8 @@ const nodes: RouteTreeNodeData[] = [
   },
 ]
 
-
 export default {
   title: 'Route Tree',
   pathname: '/route-tree',
-  component: (
-    <RouteTree
-      nodes={ nodes }
-      foldEmptyPath={ true }
-    />
-  )
+  component: <RouteTree nodes={nodes} foldEmptyPath={true} />,
 } as RouteItemData

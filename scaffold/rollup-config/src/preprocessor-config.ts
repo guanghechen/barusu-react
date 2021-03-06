@@ -1,14 +1,13 @@
-import rollup from 'rollup'
 import postcss from '@barusu-react/rollup-plugin-postcss-dts'
 import multiEntry from '@rollup/plugin-multi-entry'
-import { MultiEntryOptions, PostcssDtsOptions } from './types/options'
-
+import type rollup from 'rollup'
+import type { MultiEntryOptions, PostcssDtsOptions } from './types/options'
 
 export interface PreprocessorConfigOptions {
   /**
    * Input config
    */
-  input: string | string[] | { include?: string[], exclude?: string }
+  input: string | string[] | { include?: string[]; exclude?: string }
   /**
    * Output config (required in `rollup -w` mode)
    */
@@ -28,7 +27,6 @@ export interface PreprocessorConfigOptions {
   }
 }
 
-
 /**
  * Create rollup config for preprocessor
  * @param options
@@ -41,7 +39,7 @@ export function createPreprocessorConfig(
     output = {
       dir: 'node_modules/.cache/.rollup.preprocess.dts',
     },
-    pluginOptions = {}
+    pluginOptions = {},
   } = options
 
   const { multiEntryOptions, postcssOptions } = pluginOptions

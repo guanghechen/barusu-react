@@ -1,20 +1,19 @@
+import chalk from 'chalk'
+import clearConsole from 'react-dev-utils/clearConsole'
+import openBrowser from 'react-dev-utils/openBrowser'
+import type { CreateCompilerOptionsTypescript } from 'react-dev-utils/WebpackDevServerUtils'
 import {
-  CreateCompilerOptionsTypescript,
   createCompiler,
   prepareProxy,
   prepareUrls,
 } from 'react-dev-utils/WebpackDevServerUtils'
-import clearConsole from 'react-dev-utils/clearConsole'
-import openBrowser from 'react-dev-utils/openBrowser'
-import chalk from 'chalk'
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
-import { ConfigEnv } from './config/env'
-import { ConfigPaths } from './config/paths'
+import type { ConfigEnv } from './config/env'
+import type { ConfigPaths } from './config/paths'
 import createWebpackConfig from './config/webpack.config'
 import createWebpackServerConfig from './config/webpack.config.server'
 import checkRequiredFiles from './util/check-required-files'
-
 
 export function start(
   env: ConfigEnv,
@@ -24,7 +23,7 @@ export function start(
 ): void {
   // Do this as the first thing so that any code reading it knows the right env.
   process.env.BABEL_ENV = 'development'
-    ; (process.env as any).NODE_ENV = 'development'
+  ;(process.env as any).NODE_ENV = 'development'
 
   // Warn and crash if required files are missing
   if (!checkRequiredFiles(paths.entries)) return
@@ -33,17 +32,17 @@ export function start(
     console.log(
       chalk.cyan(
         'Attempting to bind to HOST environment variable: ' +
-        chalk.yellow(chalk.bold(env.development.server.host)))
+          chalk.yellow(chalk.bold(env.development.server.host)),
+      ),
     )
     console.log(
-      'If this was unintentional, check that you haven\'t mistakenly set it in your shell.'
+      "If this was unintentional, check that you haven't mistakenly set it in your shell.",
     )
     console.log(
-      `Learn more here: ${ chalk.yellow('https://bit.ly/CRA-advanced-config') }`
+      `Learn more here: ${chalk.yellow('https://bit.ly/CRA-advanced-config')}`,
     )
     console.log()
   }
-
 
   function run(): void {
     const urls = (prepareUrls as any)(
@@ -65,7 +64,7 @@ export function start(
       config = createWebpackConfig('development', env, paths)
     }
 
-    const compiler: webpack.Compiler = createCompiler({
+    const compiler: webpack.Compiler = (createCompiler(({
       appName: env.appName,
       config,
       urls,
@@ -74,7 +73,7 @@ export function start(
       devSocket,
       useTypeScript: true,
       tscCompileOnError: env.tscCompileOnError,
-    } as unknown as CreateCompilerOptionsTypescript) as unknown as webpack.Compiler
+    } as unknown) as CreateCompilerOptionsTypescript) as unknown) as webpack.Compiler
 
     // Load proxy config
     const proxySetting = env.proxy
@@ -91,61 +90,64 @@ export function start(
         env,
         paths,
         proxyConfig,
-        urls.lanUrlForConfig
+        urls.lanUrlForConfig,
       )
     }
 
     const server = new WebpackDevServer(compiler as any, serverConfig)
-    server.listen(env.development.server.port, env.development.server.host, error => {
-      if (error) {
-        console.log(error)
-        return
-      }
-
-      if (env.isInteractive) {
-        clearConsole()
-      }
-
-      // We used to support resolving modules according to `NODE_PATH`.
-      // This now has been deprecated in favor of jsconfig/tsconfig.json
-      // This lets you use absolute paths in imports inside large monorepos:
-      if (process.env.NODE_PATH) {
-        console.log(
-          chalk.yellow(
-            'Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app.'
-          )
-        )
-        console.log()
-      }
-
-      console.log(chalk.cyan('Starting the development server...\n'))
-
-      // Try to launch browser
-      if (env.development.shouldLaunchBrowser) {
-        try {
-          openBrowser(urls.localUrlForBrowser)
-        } catch (error) {
-          console.log(chalk.magenta(`Failed to open browser: ${ error }`))
+    server.listen(
+      env.development.server.port,
+      env.development.server.host,
+      error => {
+        if (error) {
+          console.log(error)
+          return
         }
-      }
 
+        if (env.isInteractive) {
+          clearConsole()
+        }
 
-      ['SIGINT', 'SIGTERM'].forEach(function (signal: any) {
-        process.on(signal, function () {
-          server.close()
-          process.exit()
+        // We used to support resolving modules according to `NODE_PATH`.
+        // This now has been deprecated in favor of jsconfig/tsconfig.json
+        // This lets you use absolute paths in imports inside large monorepos:
+        if (process.env.NODE_PATH) {
+          console.log(
+            chalk.yellow(
+              'Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app.',
+            ),
+          )
+          console.log()
+        }
+
+        console.log(chalk.cyan('Starting the development server...\n'))
+
+        // Try to launch browser
+        if (env.development.shouldLaunchBrowser) {
+          try {
+            openBrowser(urls.localUrlForBrowser)
+          } catch (error) {
+            console.log(chalk.magenta(`Failed to open browser: ${error}`))
+          }
+        }
+
+        ;['SIGINT', 'SIGTERM'].forEach(function (signal: any) {
+          process.on(signal, function () {
+            server.close()
+            process.exit()
+          })
         })
-      })
 
-      if (env.isInteractive || process.env.CI !== 'true') {
-        // Gracefully exit when stdin ends
-        process.stdin.on('end', function () {
-          server.close()
-          process.exit()
-        })
-        process.stdin.resume()
-      }
-    })
+        if (env.isInteractive || process.env.CI !== 'true') {
+          // Gracefully exit when stdin ends
+          process.stdin.on('end', function () {
+            server.close()
+            process.exit()
+          })
+          process.stdin.resume()
+        }
+      },
+    )
   }
 
   try {

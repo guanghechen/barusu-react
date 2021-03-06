@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { Icon, Title } from './_common'
 import { getOctotreeStyle } from './theme'
 
-
 /**
  * Props for creating OctotreeLeafNode
  */
@@ -35,14 +34,12 @@ export interface OctotreeLeafNodeProps {
   iconWidthUnit: string
 }
 
-
 const TypeIcon = styled(Icon)`
-  color: ${ getOctotreeStyle('typeIconColorSecondary') };
+  color: ${getOctotreeStyle('typeIconColorSecondary')};
   &::before {
     content: "\\e827";
   }
 `
-
 
 const Container = styled(Link)<{ $isActive: boolean }>`
   display: flex;
@@ -51,22 +48,20 @@ const Container = styled(Link)<{ $isActive: boolean }>`
   height: 100%;
   font-size: inherit;
   white-space: nowrap;
-  background: ${
-    props => props.$isActive
-      ? getOctotreeStyle('linkBackgroundActive')(props)
-      : 'none'
-  };
+  background: ${props =>
+    props.$isActive ? getOctotreeStyle('linkBackgroundActive')(props) : 'none'};
   &:hover {
-    background: ${ getOctotreeStyle('linkBackgroundHover') };
+    background: ${getOctotreeStyle('linkBackgroundHover')};
   }
 `
-
 
 /**
  *
  * @param props
  */
-export function OctotreeLeafNode(props: OctotreeLeafNodeProps): React.ReactElement {
+export function OctotreeLeafNode(
+  props: OctotreeLeafNodeProps,
+): React.ReactElement {
   const { depth, title, pathname, icon, iconWidth, iconWidthUnit } = props
 
   const containerStyle: React.CSSProperties = {
@@ -79,15 +74,13 @@ export function OctotreeLeafNode(props: OctotreeLeafNodeProps): React.ReactEleme
   }
 
   return (
-    <Container $isActive={ false } style={ containerStyle } to={{ pathname }}>
-      <TypeIcon style={ typeIconStyle }>{ icon }</TypeIcon>
-      <Title title={ title }>{ title }</Title>
+    <Container $isActive={false} style={containerStyle} to={{ pathname }}>
+      <TypeIcon style={typeIconStyle}>{icon}</TypeIcon>
+      <Title title={title}>{title}</Title>
     </Container>
   )
 }
 
-
 OctotreeLeafNode.displayName = 'OctotreeLeafNode'
-
 
 export default OctotreeLeafNode

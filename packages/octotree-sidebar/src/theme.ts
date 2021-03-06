@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * octotree-sidebar theme
  */
@@ -32,7 +31,6 @@ export interface OctotreeSidebarTheme {
   toggleBorderColor?: CSSProperties['color'] | string
 }
 
-
 /**
  * Default octotree theme
  */
@@ -44,7 +42,6 @@ export const defaultOctotreeSidebarTheme: OctotreeSidebarTheme = {
   toggleBorderColor: '#e0e4e7',
 }
 
-
 /**
  * Get style from theme
  * @param key
@@ -53,7 +50,7 @@ export const defaultOctotreeSidebarTheme: OctotreeSidebarTheme = {
 export function getOctotreeSidebarStyle(
   key: keyof OctotreeSidebarTheme,
   defaultTheme: OctotreeSidebarTheme = defaultOctotreeSidebarTheme,
-) {
+): (props: { theme: DefaultTheme }) => OctotreeSidebarTheme[typeof key] {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   return (props: { theme: DefaultTheme }) => {
     const { octotreeSidebar } = props.theme
