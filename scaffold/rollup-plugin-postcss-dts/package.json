@@ -41,13 +41,16 @@
     "postcss-modules": "3.2.2"
   },
   "dependencies": {
-    "@barusu/util-option": "^0.0.43",
-    "@types/fs-extra": "^9.0.8",
+    "@guanghechen/option-helper": "1.0.6",
     "@types/reserved-words": "^0.1.0",
-    "fs-extra": "^9.1.0",
     "postcss-modules": "3.2.2",
     "reserved-words": "^0.1.2",
     "rollup-plugin-postcss": "^3.1.8"
+  },
+  "peerDependencies": {
+    "@types/fs-extra": "^9.0.8",
+    "fs-extra": "^9.1.0",
+    "rollup": "^2.40.0"
   },
   "devDependencies": {
     "@rollup/pluginutils": "^4.0.0"

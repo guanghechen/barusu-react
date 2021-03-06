@@ -1259,6 +1259,16 @@
   resolved "https://registry.npmjs.org/@guanghechen/locate-helper/-/locate-helper-1.0.6.tgz#73c405a8d582fbaa0d924f95ae87fdd4d90dee9e"
   integrity sha512-cujhQfevSUlJ6jGHSIzwcO/m5k2TbUQOeJLIbLwoWhoM8VCCkfOxsW1rfZ5USJz9y9vtZ+OnrFaG6VLf6faKTQ==
 
+"@guanghechen/option-helper@1.0.6":
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/@guanghechen/option-helper/-/option-helper-1.0.6.tgz#65c1334bc1900fb9d25e68da45dd9ee3dd9a1973"
+  integrity sha512-woT2JyYdnjKr8QWeDwhEk8fV/gtC3ZhGEr4cQYxKiTJbj/sCdGj4PII7g3ldHV3lSkgAO4lx9i62tYJ8fnqfSA==
+  dependencies:
+    change-case "^4.1.1"
+    lower-case "^2.0.1"
+    title-case "^3.0.2"
+    upper-case "^2.0.1"
+
 "@guanghechen/rollup-config@1.0.6":
   version "1.0.6"
   resolved "https://registry.npmjs.org/@guanghechen/rollup-config/-/rollup-config-1.0.6.tgz#32ee2805845ecd2ff2111f36cc409bb356fce940"
