@@ -3,8 +3,9 @@
 !**/src/**/*.jsx
 !**/src/**/*.ts
 !**/src/**/*.tsx
+!**/rollup.config.js
 !.eslintrc
-!.rollup.config.js
+!index.js
 !package.json
 !tsconfig.json
 !tsconfig.settings.json

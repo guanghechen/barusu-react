@@ -17,17 +17,19 @@
     "node": ">= 14.15.0"
   },
   "scripts": {
-    ":publish": "yarn format && yarn test && lerna publish --no-private",
-    "build": "lerna run --concurrency 1 build",
-    "rebuild": "yarn clean && yarn build",
-    "test": "lerna run --parallel test",
+    ":publish": "yarn format && yarn test && lerna publish",
+    "build": "lerna run  build --concurrency 1",
     "clean": "lerna clean --yes && yarn install",
     "new:package": "node ./node_modules/@barusu-react/template-react-package/cli.js",
     "format": "run-s format:find-inconsistent format:lint:fix format:prettier",
-    "format:prettier": "prettier --write .",
     "format:find-inconsistent": "barusu-find-inconsistent .",
     "format:lint:fix": "eslint . --fix",
-    "format:sort-imports": "barusu-sort-imports ."
+    "format:prettier": "prettier --write .",
+    "postinstall": "run-p postinstall:**",
+    "postinstall:main": "yarn update:lock",
+    "rebuild": "run-s clean build",
+    "test": "lerna run test --parallel",
+    "update:lock": "yarn-deduplicate"
   },
   "workspaces": [
     "packages/*",
@@ -98,60 +100,7 @@
     "tsconfig-paths": "3.9.0",
     "typescript": "~4.0.5",
     "webpack": "4.44.2",
-    "webpack-dev-server": "3.11.0"
-  },
-  "@barusu/tool-sort-imports": {
-    "logLevel": "verbose",
-    "pattern": [
-      "{packages,scaffold,stage}/*/{src,__test__}/**/*.{ts,tsx}",
-      "!**/{__test__}/cases",
-      "!**/node_modules/"
-    ],
-    "moduleRanks": [
-      {
-        "regex": "^(react|vue|angular)(?:[/\\-][\\w\\-./]*)?$",
-        "rank": 1.1
-      },
-      {
-        "regex": "^mocha|chai(?:[/][\\w\\-./]*)?$",
-        "rank": 1.2
-      },
-      {
-        "regex": "^[a-zA-Z\\d][\\w\\-.]*",
-        "rank": 1.3
-      },
-      {
-        "regex": "^@[a-zA-Z\\d][\\w\\-.]*\\/[a-zA-Z\\d][\\w\\-.]*",
-        "rank": 1.4
-      },
-      {
-        "regex": "^@\\/[^\\n]*\\.(css|styl)$",
-        "rank": 2.2
-      },
-      {
-        "regex": "^@\\/",
-        "rank": 2.1
-      },
-      {
-        "regex": "^[.][\\/\\\\][^\\n]*\\.(css|styl)$",
-        "rank": 3.4
-      },
-      {
-        "regex": "^(?:\\/|[a-zA-Z]:)",
-        "rank": 3.1
-      },
-      {
-        "regex": "^[.]{2}[\\/\\\\][^\\n]*",
-        "rank": 3.2
-      },
-      {
-        "regex": "^[.][\\/\\\\][^\\n]*",
-        "rank": 3.3
-      }
-    ],
-    "indent": "  ",
-    "quote": "'",
-    "semicolon": false,
-    "maxColumn": 80
+    "webpack-dev-server": "3.11.0",
+    "yarn-deduplicate": "^3.1.0"
   }
 }

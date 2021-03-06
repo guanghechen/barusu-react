@@ -2,12 +2,10 @@ import { createRollupConfig } from '@barusu-react/rollup-config'
 import path from 'path'
 import manifest from './package.json'
 
-
 const resolvePath = p => path.resolve(__dirname, p)
 const paths = {
   tsconfig: resolvePath('tsconfig.src.json'),
 }
-
 
 const config = createRollupConfig({
   manifest,
@@ -25,11 +23,10 @@ const config = createRollupConfig({
       pluginOptions: {
         postcssUrlOptions: {
           url: 'inline',
-        }
+        },
       },
-    }
-  }
+    },
+  },
 })
-
 
 export default config
