@@ -1263,50 +1263,52 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@guanghechen/eslint-config-jsx@1.0.6":
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/@guanghechen/eslint-config-jsx/-/eslint-config-jsx-1.0.6.tgz#34035031bda4e1c46fcde12cd47b0a0b5fd4d277"
-  integrity sha512-rsKXiNQQJMZktJYHEkJ+zVoAVrV80of2sBHfEZNeea5myudglNCXpcQseQ9PndIbAUH38RLnw7/cg/qDNYf+SA==
+"@guanghechen/eslint-config-jsx@1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@guanghechen/eslint-config-jsx/-/eslint-config-jsx-1.0.10.tgz#cffac89f5dca031afa0e091e41590ab5428c6231"
+  integrity sha512-83jY5izPnAhQSyoE2IViIkd/dC0pUN1nfBgsZBZsS7G2qN28Cfp1lWJKRf/6zULrda5EHbnVotfXTwy28kL29g==
   dependencies:
     "@babel/eslint-parser" "^7.13.8"
-    "@guanghechen/eslint-config" "^1.0.6"
+    "@guanghechen/eslint-config" "^1.0.10"
     confusing-browser-globals "^1.0.10"
     eslint-plugin-import "^2.22.1"
     eslint-plugin-jsx-a11y "^6.4.1"
     eslint-plugin-react "^7.22.0"
     eslint-plugin-react-hooks "^4.2.0"
 
-"@guanghechen/eslint-config-ts@1.0.6":
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/@guanghechen/eslint-config-ts/-/eslint-config-ts-1.0.6.tgz#8f946316229a5bd9a4c6282476e5edbfef2380ce"
-  integrity sha512-qEU4tprpk+8Y3ue1usx2x54WR8sqnENIyG3+YVxaYPcmjK9MAjBFhYSXLia2cE3KX4DX8kdAKjeUYsTadKXZ9g==
+"@guanghechen/eslint-config-ts@1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@guanghechen/eslint-config-ts/-/eslint-config-ts-1.0.10.tgz#45ca8f98313e7c6b08308756ce32b8e1b4acc6a5"
+  integrity sha512-vt8iYSkCqNszfO/O95LOf+JNLQBHyf7DHCLEyKOKHq7Cu3GlX22Iu3TCM3yOt5Xa806Z39PgBNS5B8i98+lgjA==
   dependencies:
-    "@guanghechen/eslint-config" "^1.0.6"
+    "@guanghechen/eslint-config" "^1.0.10"
     "@typescript-eslint/eslint-plugin" "^4.15.2"
     "@typescript-eslint/parser" "^4.15.2"
 
-"@guanghechen/eslint-config@1.0.6", "@guanghechen/eslint-config@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/@guanghechen/eslint-config/-/eslint-config-1.0.6.tgz#df72f1f57dc5a14b7c935aa15f6d6e00fdef02b7"
-  integrity sha512-mYeAUTbraCbxajD89SO/9v/t2ohkjAjAXSyTA0acuAlhSsJsQsgRfq4VFhk3LNM2B9Nsrhrs7mXPM1yrDDBRrQ==
+"@guanghechen/eslint-config@1.0.10", "@guanghechen/eslint-config@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@guanghechen/eslint-config/-/eslint-config-1.0.10.tgz#ef1ea3ac0f8704218483c8a0a872775ec7588b33"
+  integrity sha512-HPEqX7Qbfaqrf8UboTQn7S0T66TYqfQA8eBHba23Ia7kOzPV9Ct+uF4tFhpleMebSaY1JGSqs+yjjunOs0P6yA==
   dependencies:
     eslint-plugin-import "^2.22.1"
 
-"@guanghechen/locate-helper@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/@guanghechen/locate-helper/-/locate-helper-1.0.6.tgz#73c405a8d582fbaa0d924f95ae87fdd4d90dee9e"
-  integrity sha512-cujhQfevSUlJ6jGHSIzwcO/m5k2TbUQOeJLIbLwoWhoM8VCCkfOxsW1rfZ5USJz9y9vtZ+OnrFaG6VLf6faKTQ==
+"@guanghechen/locate-helper@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@guanghechen/locate-helper/-/locate-helper-1.0.10.tgz#f0eb0fd22354dfcbec5a61ae1f0c80fe5923792a"
+  integrity sha512-2husi/rq2Ow8PgA1fJLDDzTNiWMXt/0RXchItge8oH12CpL7/WyxfPDDJz0fx+SI+sEIFSApImKRK9ces1YgYg==
 
-"@guanghechen/rollup-config@1.0.6":
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/@guanghechen/rollup-config/-/rollup-config-1.0.6.tgz#32ee2805845ecd2ff2111f36cc409bb356fce940"
-  integrity sha512-MwU9tRisgGEJOv+73Tq97gwgu0DyixSQcVz5tC1cHoOgFraSW14Q9LxLO03q5siV5vKLILTT0tIx1MijN4gAQg==
+"@guanghechen/rollup-config@1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@guanghechen/rollup-config/-/rollup-config-1.0.10.tgz#fcdd4bfebf78211739a7b6bf93ea3a8f6f1a0e6d"
+  integrity sha512-chocHi35vxbH/qgTqWUM3gwOIQhSMO9p+YUttD5nVkc5lcy0Mu76iBWGiySxfZ5MDgy/tDJp433kiqBY8O2CeQ==
   dependencies:
-    "@guanghechen/locate-helper" "^1.0.6"
+    "@guanghechen/locate-helper" "^1.0.10"
     "@rollup/plugin-commonjs" "17.1.0"
     "@rollup/plugin-json" "4.1.0"
     "@rollup/plugin-node-resolve" "11.2.0"
+    "@types/fs-extra" "^9.0.8"
     builtin-modules "3.2.0"
+    fs-extra "^9.1.0"
     rollup-plugin-typescript2 "0.30.0"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
