@@ -26,10 +26,8 @@
   ],
   "scripts": {
     "start": "cross-env PORT=7033 ts-node -r tsconfig-paths/register script/start.ts",
-    "prebuild": "yarn lint:fix",
     "build": "cross-env ts-node -r tsconfig-paths/register script/build.ts",
-    "prepublishOnly": "yarn build",
-    "test": "echo 'no test yet'"
+    "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "@barusu-react/hello-world": "^0.0.20",

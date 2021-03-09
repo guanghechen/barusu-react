@@ -1,7 +1,6 @@
 import chalk from 'chalk'
 import fs from 'fs-extra'
 import Ora from 'ora'
-import { checkBrowsers } from 'react-dev-utils/browsersHelper'
 import type { OpaqueFileSizes } from 'react-dev-utils/FileSizeReporter'
 import {
   measureFileSizesBeforeBuild,
@@ -16,6 +15,8 @@ import createWebpackConfig from './config/webpack.config'
 import checkRequiredFiles from './util/check-required-files'
 import currentDate from './util/current-date'
 import { printStaticServerInstructions } from './util/print-hosting-instructions'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { checkBrowsers } = require('react-dev-utils/browsersHelper')
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
