@@ -1,6 +1,7 @@
 {
   "name": "@barusu-react/root",
   "version": "0.0.0",
+  "private": true,
   "description": "react scaffolds, components",
   "author": {
     "name": "guanghechen",
@@ -12,7 +13,6 @@
   },
   "homepage": "https://github.com/guanghechen/barusu-react/#readme",
   "license": "MIT",
-  "private": true,
   "engines": {
     "node": ">= 14.15.0"
   },
@@ -32,6 +32,7 @@
     "rebuild": "run-s clean build",
     "test": "lerna run test --parallel",
     "test:coverage": "lerna run test --parallel -- --coverage",
+    "update:changelog": "gitmoji-changelog update",
     "update:lock": "yarn-deduplicate"
   },
   "workspaces": [
@@ -88,6 +89,7 @@
     "eslint-plugin-jest": "^24.1.5",
     "eslint-plugin-prettier": "^3.3.1",
     "fs-extra": "^9.1.0",
+    "gitmoji-changelog": "2.2.0",
     "husky": "5.1.1",
     "is-ci": "3.0.0",
     "jest": "26.6.3",
