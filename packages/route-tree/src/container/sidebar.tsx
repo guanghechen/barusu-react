@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import cn from 'classnames'
 import { Pin as PinIcon } from '@barusu-react/icons'
-import { RouteTreeComponent, RouteTreeComponentProps } from '../component/tree'
+import cn from 'clsx'
+import React, { useState } from 'react'
+import type { RouteTreeComponentProps } from '../component/tree'
+import { RouteTreeComponent } from '../component/tree'
 import classes from '../style/index.styl'
 
 export interface SidebarRouteTreeProps

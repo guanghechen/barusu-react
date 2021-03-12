@@ -1,6 +1,7 @@
+import cn from 'clsx'
 import React from 'react'
-import cn from 'classnames'
-import { RouteTreeComponent, RouteTreeComponentProps } from '../component/tree'
+import type { RouteTreeComponentProps } from '../component/tree'
+import { RouteTreeComponent } from '../component/tree'
 import classes from '../style/index.styl'
 
 export interface RouteTreeProps

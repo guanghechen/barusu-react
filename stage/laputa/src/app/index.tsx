@@ -1,10 +1,8 @@
+import type { RouteTreeNodeLabelProps } from '@barusu-react/route-tree'
+import { SidebarRouteTree } from '@barusu-react/route-tree'
+import cn from 'clsx'
 import React, { useMemo } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import cn from 'classnames'
-import {
-  RouteTreeNodeLabelProps,
-  SidebarRouteTree,
-} from '@barusu-react/route-tree'
 import classes from './style.styl'
 
 export interface RouteItemData extends RouteTreeNodeLabelProps {

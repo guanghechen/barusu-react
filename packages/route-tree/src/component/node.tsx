@@ -1,5 +1,3 @@
-import React, { useRef, useState } from 'react'
-import cn from 'classnames'
 import {
   ChevronDownRounded as ChevronDownRoundedIcon,
   ChevronRightRounded as ChevronRightRoundedIcon,
@@ -7,8 +5,11 @@ import {
   FolderOpen as FolderOpenIcon,
   Link as LinkIcon,
 } from '@barusu-react/icons'
+import cn from 'clsx'
+import React, { useRef, useState } from 'react'
 import classes from '../style/index.styl'
-import { RouteTreeNodeLabel, RouteTreeNodeLabelProps } from './label'
+import type { RouteTreeNodeLabelProps } from './label'
+import { RouteTreeNodeLabel } from './label'
 
 export interface RouteTreeNodeData extends RouteTreeNodeLabelProps {
   /**

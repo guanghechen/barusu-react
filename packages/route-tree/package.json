@@ -44,11 +44,10 @@
     "@barusu-react/icons": "^0.0.20"
   },
   "peerDependencies": {
-    "@types/classnames": "^2.2.9",
-    "@types/react": "^16.9.56",
+    "@types/react": "^17.0.3",
     "@types/react-router-dom": "^5.1.6",
-    "classnames": "^2.2.6",
-    "react": "^16.14.0",
+    "clsx": "^1.1.1",
+    "react": "^17.0.1",
     "react-router-dom": "^5.2.0"
   },
   "browserslist": [
