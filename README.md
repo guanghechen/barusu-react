@@ -9,7 +9,6 @@ Some packaging scripts for building react libraries, and some toy projects.
    Package                                    | Description
   :------------------------------------------:|:----------------------------------------------------------
    [@barusu-react/scaffold-react-start]       | Configuration and scripts for build / start react project (Modified from create-react-app)
-   [@barusu-react/template-react-package]     | Template tool to create react library
    [@barusu-react/template-redux-store]       | Template tool to create redux actions
 
 ## Toy projects
@@ -28,5 +27,4 @@ Some packaging scripts for building react libraries, and some toy projects.
 [@barusu-react/route-tree]: https://github.com/guanghechen/barusu-react/tree/master/packages/route-tree#readme
 [@barusu-react/stage-laputa]: https://github.com/guanghechen/barusu-react/tree/master/pages/stage-laputa#readme
 [@barusu-react/scaffold-react-start]: https://github.com/guanghechen/barusu-react/tree/master/pages/scaffold-react-start#readme
-[@barusu-react/template-react-package]: https://github.com/guanghechen/barusu-react/tree/master/packages/template-react-package#readme
 [@barusu-react/template-redux-store]: https://github.com/guanghechen/barusu-react/tree/master/packages/template-redux-store#readme
