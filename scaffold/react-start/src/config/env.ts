@@ -1,4 +1,8 @@
-import { coverBoolean, coverNumber, coverString } from '@barusu/util-option'
+import {
+  coverBoolean,
+  coverNumber,
+  coverString,
+} from '@guanghechen/option-helper'
 
 export interface ConfigEnv {
   appName: string

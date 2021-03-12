@@ -60,11 +60,11 @@
     "stylus-loader": "3.0.2"
   },
   "devDependencies": {
-    "@guanghechen/eslint-config": "1.0.11",
-    "@guanghechen/eslint-config-jsx": "1.0.11",
-    "@guanghechen/eslint-config-ts": "1.0.11",
-    "@guanghechen/rollup-config": "1.0.11",
-    "@guanghechen/rollup-config-tsx": "1.0.11",
+    "@guanghechen/eslint-config": "1.0.12",
+    "@guanghechen/eslint-config-jsx": "1.0.12",
+    "@guanghechen/eslint-config-ts": "1.0.12",
+    "@guanghechen/rollup-config": "1.0.12",
+    "@guanghechen/rollup-config-tsx": "1.0.12",
     "@types/enzyme": "3.10.8",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/fs-extra": "^9.0.8",
