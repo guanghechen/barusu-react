@@ -1,13 +1,46 @@
-[![npm version](https://img.shields.io/npm/v/@barusu-react/stage-laputa.svg)](https://www.npmjs.com/package/@barusu-react/stage-laputa)
-[![npm download](https://img.shields.io/npm/dm/@barusu-react/stage-laputa.svg)](https://www.npmjs.com/package/@barusu-react/stage-laputa)
-[![npm license](https://img.shields.io/npm/l/@barusu-react/stage-laputa.svg)](https://www.npmjs.com/package/@barusu-react/stage-laputa)
-[![Node Version](https://img.shields.io/node/v/@barusu-react/stage-laputa)](https://github.com/nodejs/node)
-[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+<header>
+  <h1 align="center">
+    <a href="https://github.com/guanghechen/barusu-react/tree/master/stage/laputa#readme">@barusu-react/stage-laputa</a>
+  </h1>
+  <div align="center">
+    <a href="https://www.npmjs.com/package/@barusu-react/stage-laputa">
+      <img
+        alt="Npm Version"
+        src="https://img.shields.io/npm/v/@barusu-react/stage-laputa.svg"
+      />
+    </a>
+    <a href="https://www.npmjs.com/package/@barusu-react/stage-laputa">
+      <img
+        alt="Npm Download"
+        src="https://img.shields.io/npm/dm/@barusu-react/stage-laputa.svg"
+      />
+    </a>
+    <a href="https://www.npmjs.com/package/@barusu-react/stage-laputa">
+      <img
+        alt="Npm License"
+        src="https://img.shields.io/npm/l/@barusu-react/stage-laputa.svg"
+      />
+    </a>
+    <a href="https://github.com/nodejs/node">
+      <img
+        alt="Node.js Version"
+        src="https://img.shields.io/node/v/@barusu-react/stage-laputa"
+      />
+    </a>
+    <a href="https://github.com/prettier/prettier">
+      <img
+        alt="Code Style: prettier"
+        src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
+      />
+    </a>
+  </div>
+</header>
+<br/>
 
-
-# `@barusu-react/stage-laputa`
 
 A demo typescript + react + webpack project.
+
+See [sourcecodes in github][homepage] to for details.
 
 ## Install
 
@@ -31,3 +64,5 @@ A demo typescript + react + webpack project.
     yarn add --dev serve
     npx serve -s node_modules/@barusu-react/stage-laputa/dist
     ```
+
+[homepage]: https://github.com/guanghechen/barusu-react/tree/master/stage/laputa#readme

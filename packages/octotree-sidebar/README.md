@@ -1,14 +1,58 @@
-[![npm version](https://img.shields.io/npm/v/@barusu-react/octotree-sidebar.svg)](https://www.npmjs.com/package/@barusu-react/octotree-sidebar)
-[![npm download](https://img.shields.io/npm/dm/@barusu-react/octotree-sidebar.svg)](https://www.npmjs.com/package/@barusu-react/octotree-sidebar)
-[![npm license](https://img.shields.io/npm/l/@barusu-react/octotree-sidebar.svg)](https://www.npmjs.com/package/@barusu-react/octotree-sidebar)
-[![Node Version](https://img.shields.io/node/v/@barusu-react/octotree-sidebar)](https://github.com/nodejs/node)
-[![React version](https://img.shields.io/npm/dependency-version/@barusu-react/octotree-sidebar/peer/react)](https://github.com/facebook/react)
-[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+<header>
+  <h1 align="center">
+    <a href="https://github.com/guanghechen/barusu-react/tree/master/packages/octotree-sidebar#readme">@barusu-react/octotree-sidebar</a>
+  </h1>
+  <div align="center">
+    <a href="https://www.npmjs.com/package/@barusu-react/octotree-sidebar">
+      <img
+        alt="Npm Version"
+        src="https://img.shields.io/npm/v/@barusu-react/octotree-sidebar.svg"
+      />
+    </a>
+    <a href="https://www.npmjs.com/package/@barusu-react/octotree-sidebar">
+      <img
+        alt="Npm Download"
+        src="https://img.shields.io/npm/dm/@barusu-react/octotree-sidebar.svg"
+      />
+    </a>
+    <a href="https://www.npmjs.com/package/@barusu-react/octotree-sidebar">
+      <img
+        alt="Npm License"
+        src="https://img.shields.io/npm/l/@barusu-react/octotree-sidebar.svg"
+      />
+    </a>
+    <a href="https://github.com/nodejs/node">
+      <img
+        alt="Node.js Version"
+        src="https://img.shields.io/node/v/@barusu-react/octotree-sidebar"
+      />
+    </a>
+    <a href="https://github.com/facebook/react">
+      <img
+        alt="React version"
+        src="https://img.shields.io/npm/dependency-version/@barusu-react/octotree-sidebar/peer/react"
+      />
+    </a>
+    <a href="https://github.com/facebook/jest">
+      <img
+        alt="Tested with Jest"
+        src="https://img.shields.io/badge/tested_with-jest-9c465e.svg"
+      />
+    </a>
+    <a href="https://github.com/prettier/prettier">
+      <img
+        alt="Code Style: prettier"
+        src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
+      />
+    </a>
+  </div>
+</header>
+<br/>
 
-
-# `@barusu-react/octotree-sidebar`
 
 Render a simple directory tree similar to [octotree-sidebar][], but really more coarse.
+
+See [sourcecodes in github][homepage] to for details.
 
 ## Install
 
@@ -146,6 +190,7 @@ Render a simple directory tree similar to [octotree-sidebar][], but really more 
 
 
 
+[homepage]: https://github.com/guanghechen/barusu-react/tree/master/packages/octotree-sidebar#readme
 [octotree-sidebar]: https://github.com/ovity/octotree-sidebar.git
 [OctotreeTheme]: https://github.com/guanghechen/barusu-react/blob/master/packages/octotree-sidebar/src/theme.ts
 [octotree-sidebar.woff2]: https://github.com/ovity/octotree-sidebar/blob/c8819379c9cc60b3c2124440766906028891120d/libs/fonts/octicons.woff2

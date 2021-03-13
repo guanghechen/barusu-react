@@ -1,18 +1,54 @@
-[![npm version](https://img.shields.io/npm/v/@barusu-react/hello-world.svg)](https://www.npmjs.com/package/@barusu-react/hello-world)
-[![npm download](https://img.shields.io/npm/dm/@barusu-react/hello-world.svg)](https://www.npmjs.com/package/@barusu-react/hello-world)
-[![npm license](https://img.shields.io/npm/l/@barusu-react/hello-world.svg)](https://www.npmjs.com/package/@barusu-react/hello-world)
-[![Node Version](https://img.shields.io/node/v/@barusu-react/hello-world)](https://github.com/nodejs/node)
-[![React version](https://img.shields.io/npm/dependency-version/@barusu-react/hello-world/peer/react)](https://github.com/facebook/react)
-[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+<header>
+  <h1 align="center">
+    <a href="https://github.com/guanghechen/barusu-react/tree/master/packages/hello-world#readme">@barusu-react/hello-world</a>
+  </h1>
+  <div align="center">
+    <a href="https://www.npmjs.com/package/@barusu-react/hello-world">
+      <img
+        alt="Npm Version"
+        src="https://img.shields.io/npm/v/@barusu-react/hello-world.svg"
+      />
+    </a>
+    <a href="https://www.npmjs.com/package/@barusu-react/hello-world">
+      <img
+        alt="Npm Download"
+        src="https://img.shields.io/npm/dm/@barusu-react/hello-world.svg"
+      />
+    </a>
+    <a href="https://www.npmjs.com/package/@barusu-react/hello-world">
+      <img
+        alt="Npm License"
+        src="https://img.shields.io/npm/l/@barusu-react/hello-world.svg"
+      />
+    </a>
+    <a href="https://github.com/nodejs/node">
+      <img
+        alt="Node.js Version"
+        src="https://img.shields.io/node/v/@barusu-react/hello-world"
+      />
+    </a>
+    <a href="https://github.com/facebook/react">
+      <img
+        alt="React version"
+        src="https://img.shields.io/npm/dependency-version/@barusu-react/hello-world/peer/react"
+      />
+    </a>
+    <a href="https://github.com/prettier/prettier">
+      <img
+        alt="Code Style: prettier"
+        src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
+      />
+    </a>
+  </div>
+</header>
+<br/>
 
-
-# `@barusu-react/hello-world`
 
 This is a demo project that demonstrates how to package a library that uses the `react`+`stylus`+`ts` technology stack.
 
 ![hello-world.png][]
 
-See [sourcecodes in github][sourcecodes] for details.
+See [sourcecodes in github][homepage] for details.
 
 ## Install
 
@@ -46,5 +82,5 @@ See [sourcecodes in github][sourcecodes] for details.
     ```
 
 
-[sourcecodes]: https://github.com/guanghechen/barusu-react/tree/master/packages/hello-world#readme
+[homepage]: https://github.com/guanghechen/barusu-react/tree/master/packages/hello-word#readme
 [hello-world.png]: https://raw.githubusercontent.com/guanghechen/barusu-react/master/packages/hello-world/doc/screenshots/hello-world.png

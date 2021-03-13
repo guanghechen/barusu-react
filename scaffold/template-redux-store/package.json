@@ -12,6 +12,9 @@
     "directory": "scaffold/template-redux-store"
   },
   "homepage": "https://github.com/guanghechen/barusu-react/tree/master/packages/template-redux-store#readme",
+  "engines": {
+    "node": ">= 14.15.0"
+  },
   "main": "index.js",
   "bin": {
     "create-redux-state": "./cli.js"
