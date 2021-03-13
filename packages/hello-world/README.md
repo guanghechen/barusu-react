@@ -30,8 +30,9 @@ See [sourcecodes in github][sourcecodes] for details.
 
 ## Usage
 
-  * Use in React project
-    ```typescript
+  * Use in React project:
+
+    ```tsx
     // index.tsx
     import React from 'react'
     import ReactDOM from 'react-dom'
