@@ -1,5 +1,8 @@
-import { coverBoolean, coverNumber, coverString } from '@barusu/util-option'
-
+import {
+  coverBoolean,
+  coverNumber,
+  coverString,
+} from '@guanghechen/option-helper'
 
 export interface ConfigEnv {
   appName: string
@@ -38,7 +41,7 @@ export interface ConfigEnv {
       WDS_SOCKET_PATH?: string
       WDS_SOCKET_PORT?: string
       [key: string]: string | undefined
-    },
+    }
     webpackOptions: {
       cssLoaderOptions: any
       stylusLoaderOptions: any
@@ -56,7 +59,7 @@ export interface ConfigEnv {
       PUBLIC_URL: string
       SITE_TITLE: string
       [key: string]: string | undefined
-    },
+    }
     webpackOptions: {
       cssLoaderOptions: any
       stylusLoaderOptions: any
@@ -64,11 +67,7 @@ export interface ConfigEnv {
   }
 }
 
-
-export function createConfigEnv(
-  appName: string,
-  proxy?: unknown,
-): ConfigEnv {
+export function createConfigEnv(appName: string, proxy?: unknown): ConfigEnv {
   const isInteractive = Boolean(process.stdout.isTTY)
   const publicUrlOrPath: string = coverString('/', process.env.PUBLIC_URL)
 
@@ -84,7 +83,10 @@ export function createConfigEnv(
         port: coverNumber(3000, process.env.PORT),
         compress: true,
         isHTTPS: coverBoolean(false, process.env.HTTPS),
-        shouldDisableHostCheck: coverBoolean(false, process.env.DANGEROUSLY_DISABLE_HOST_CHECK),
+        shouldDisableHostCheck: coverBoolean(
+          false,
+          process.env.DANGEROUSLY_DISABLE_HOST_CHECK,
+        ),
         sockHost: process.env.WDS_SOCKET_HOST,
         sockPath: process.env.WDS_SOCKET_PATH, // default: '/sockjs-node'
         sockPort: process.env.WDS_SOCKET_PORT,
@@ -94,7 +96,10 @@ export function createConfigEnv(
       shouldJsMinified: coverBoolean(true, process.env.JS_MINIFIED),
       shouldCssChunk: coverBoolean(true, process.env.CSS_CHUNK),
       shouldCssMinified: coverBoolean(true, process.env.CSS_MINIFIED),
-      shouldInlineRuntimeChunk: coverBoolean(true, process.env.INLINE_RUNTIME_CHUNK),
+      shouldInlineRuntimeChunk: coverBoolean(
+        true,
+        process.env.INLINE_RUNTIME_CHUNK,
+      ),
       shouldUseSourceMap: coverBoolean(true, process.env.GENERATE_SOURCEMAP),
       inject: {
         NODE_ENV: 'development',
@@ -115,14 +120,17 @@ export function createConfigEnv(
           exportLocalsConvention: 'camelCaseOnly',
         },
         stylusLoaderOptions: {},
-      }
+      },
     },
     production: {
       shouldJsChunk: coverBoolean(false, process.env.JS_CHUNK),
       shouldJsMinified: coverBoolean(true, process.env.JS_MINIFIED),
       shouldCssChunk: coverBoolean(false, process.env.CSS_CHUNK),
       shouldCssMinified: coverBoolean(true, process.env.CSS_MINIFIED),
-      shouldInlineRuntimeChunk: coverBoolean(false, process.env.INLINE_RUNTIME_CHUNK),
+      shouldInlineRuntimeChunk: coverBoolean(
+        false,
+        process.env.INLINE_RUNTIME_CHUNK,
+      ),
       shouldUseSourceMap: coverBoolean(false, process.env.GENERATE_SOURCEMAP),
       inject: {
         NODE_ENV: 'production',
@@ -135,7 +143,7 @@ export function createConfigEnv(
           exportLocalsConvention: 'camelCaseOnly',
         },
         stylusLoaderOptions: {},
-      }
+      },
     },
   }
 

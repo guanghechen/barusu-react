@@ -20,12 +20,10 @@ export interface RawOctotreeNodeData {
   children?: RawOctotreeNodeData[]
 }
 
-
 /**
  * node data of octotree
  */
 export type OctotreeNodeData = OctotreeLeafNodeData | OctotreeParentNodeData
-
 
 /**
  * Leaf node data of Octotree
@@ -44,7 +42,6 @@ export interface OctotreeLeafNodeData {
    */
   pathname: string
 }
-
 
 /**
  * Parent node data of Octotree
@@ -65,5 +62,5 @@ export interface OctotreeParentNodeData {
   /**
    *
    */
-  children: (OctotreeParentNodeData | OctotreeLeafNodeData)[]
+  children: Array<OctotreeParentNodeData | OctotreeLeafNodeData>
 }

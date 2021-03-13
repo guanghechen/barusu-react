@@ -1,28 +1,25 @@
+import chalk from 'chalk'
+import fs from 'fs-extra'
+import Ora from 'ora'
+import type { OpaqueFileSizes } from 'react-dev-utils/FileSizeReporter'
 import {
-  OpaqueFileSizes,
   measureFileSizesBeforeBuild,
   printFileSizesAfterBuild,
 } from 'react-dev-utils/FileSizeReporter'
 import formatWebpackMessages from 'react-dev-utils/formatWebpackMessages'
 import printBuildError from 'react-dev-utils/printBuildError'
-import chalk from 'chalk'
-import fs from 'fs-extra'
-import Ora from 'ora'
 import webpack from 'webpack'
-import { ConfigEnv } from './config/env'
-import { ConfigPaths } from './config/paths'
+import type { ConfigEnv } from './config/env'
+import type { ConfigPaths } from './config/paths'
 import createWebpackConfig from './config/webpack.config'
 import checkRequiredFiles from './util/check-required-files'
 import currentDate from './util/current-date'
-import {
-  printStaticServerInstructions,
-} from './util/print-hosting-instructions'
-
+import { printStaticServerInstructions } from './util/print-hosting-instructions'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { checkBrowsers } = require('react-dev-utils/browsersHelper')
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { checkBrowsers } from 'react-dev-utils/browsersHelper'
-
 
 interface Params {
   /**
@@ -35,7 +32,6 @@ interface Params {
   WARN_AFTER_CHUNK_GZIP_SIZE?: number
 }
 
-
 export async function build(
   env: ConfigEnv,
   paths: ConfigPaths,
@@ -44,10 +40,11 @@ export async function build(
     // these sizes are pretty large. we'll warn for bundles exceeding them.
     WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024,
     WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024,
-  }: Params = {}): Promise<boolean> {
+  }: Params = {},
+): Promise<boolean> {
   // Do this as the first thing so that any code reading it knows the right env.
   process.env.BABEL_ENV = 'production'
-  ; (process.env as any).NODE_ENV = 'production'
+  ;(process.env as any).NODE_ENV = 'production'
 
   // Warn and crash if required files are missing
   if (!checkRequiredFiles(paths.entries)) {
@@ -60,8 +57,8 @@ export async function build(
   if (process.env.NODE_PATH) {
     console.log(
       chalk.yellow(
-        'Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app.'
-      )
+        'Setting NODE_PATH to resolve modules absolutely has been deprecated in favor of setting baseUrl in jsconfig.json (or tsconfig.json if you are using TypeScript) and will be removed in a future major release of create-react-app.',
+      ),
     )
     console.log()
   }
@@ -72,12 +69,13 @@ export async function build(
 
   function run(): Promise<{ stats: any }> {
     return new Promise((resolve, reject) => {
-
       let timer: NodeJS.Timeout
       const startTime = Date.now()
 
       const logProcess = (stop?: boolean): void => {
-        const message = `packing for production.... time used: ${ Date.now() - startTime }ms.`
+        const message = `packing for production.... time used: ${
+          Date.now() - startTime
+        }ms.`
         if (stop) {
           clearTimeout(timer)
           spinner.info(chalk.green(message))
@@ -94,10 +92,10 @@ export async function build(
       const compiler: webpack.Compiler = webpack(config)
       compiler.run((err: Error | null, stats: webpack.Stats) => {
         logProcess(true)
-        let messages: { errors: string[], warnings: string[] }
+        let messages: { errors: string[]; warnings: string[] }
 
         if (err != null) {
-          if (!err.message) return reject(err)
+          if (!err.message) return void reject(err)
 
           let errMessage = err.message
 
@@ -108,13 +106,14 @@ export async function build(
               err['postcssNode'].selector
           }
 
-          messages = formatWebpackMessages({
+          messages = formatWebpackMessages(({
             errors: [errMessage],
             warnings: [],
-          } as unknown as webpack.Stats.ToJsonOutput)
+          } as unknown) as webpack.Stats.ToJsonOutput)
         } else {
           messages = formatWebpackMessages(
-            stats.toJson({ all: false, warnings: true, errors: true }))
+            stats.toJson({ all: false, warnings: true, errors: true }),
+          )
         }
 
         // if errors exists, only show errors.
@@ -124,7 +123,7 @@ export async function build(
           if (messages.errors.length > 1) {
             messages.errors.length = 1
           }
-          return reject(new Error(messages.errors.join('\n\n')))
+          return void reject(new Error(messages.errors.join('\n\n')))
         }
 
         if (
@@ -136,10 +135,10 @@ export async function build(
           console.log(
             chalk.yellow(
               '\nTreating warnings as errors because process.env.CI = true.\n' +
-              'Most CI servers set it automatically.\n'
-            )
+                'Most CI servers set it automatically.\n',
+            ),
           )
-          return reject(new Error(messages.warnings.join('\n\n')))
+          return void reject(new Error(messages.warnings.join('\n\n')))
         }
 
         // If warnings exists, show warnings if no errors were found.
@@ -147,9 +146,9 @@ export async function build(
           spinner.warn(chalk.yellow('Compiled with warnings.\n'))
           console.log(messages.warnings.join('\n\n'))
           console.log(
-            'search related '
-            + chalk.underline(chalk.yellow('keyword'))
-            + ' to get more info about the warning.\n'
+            'search related ' +
+              chalk.underline(chalk.yellow('keyword')) +
+              ' to get more info about the warning.\n',
           )
         } else {
           spinner.succeed(chalk.green('Compiled successfully.'))
@@ -169,8 +168,9 @@ export async function build(
 
     // First, read the current file sizes in build directory.
     // This lets us display how much they changed later.
-    const previousFileSizes: OpaqueFileSizes =
-      await measureFileSizesBeforeBuild(paths.target.root)
+    const previousFileSizes: OpaqueFileSizes = await measureFileSizesBeforeBuild(
+      paths.target.root,
+    )
 
     // Remove all content but keep the directory so that
     // if you're in it, you don't end up in Trash
@@ -193,7 +193,7 @@ export async function build(
       previousFileSizes,
       paths.target.root,
       WARN_AFTER_BUNDLE_GZIP_SIZE,
-      WARN_AFTER_CHUNK_GZIP_SIZE
+      WARN_AFTER_CHUNK_GZIP_SIZE,
     )
     console.log()
     printStaticServerInstructions(paths.target.root, true)
@@ -202,7 +202,7 @@ export async function build(
     const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true'
     if (tscCompileOnError) {
       spinner.warn(
-        'Compiled with type errors (you may want to check these before deploying your app).'
+        'Compiled with type errors (you may want to check these before deploying your app).',
       )
       console.log()
       printBuildError(error)
@@ -216,7 +216,6 @@ export async function build(
 
   return true
 }
-
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will

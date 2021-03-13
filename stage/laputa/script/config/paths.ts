@@ -1,6 +1,7 @@
+import type { ConfigPaths} from '@barusu-react/scaffold-react-start';
+import { createConfigPaths } from '@barusu-react/scaffold-react-start'
 import fs from 'fs-extra'
 import path from 'path'
-import { ConfigPaths, createConfigPaths } from '@barusu-react/scaffold-react-start'
 
 
 const appDirectory = fs.realpathSync(process.cwd())

@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useRef } from 'react'
 
-
 export function BoxPercentageTest(): React.ReactElement {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const childRef = useRef<HTMLDivElement | null>(null)
@@ -11,16 +10,25 @@ export function BoxPercentageTest(): React.ReactElement {
     const containerStyle = window.getComputedStyle(containerRef.current)
     const childStyle = window.getComputedStyle(childRef.current)
 
-    const f = (style: CSSStyleDeclaration): string => (
-      ['width', 'height', 'padding', 'margin', 'border', 'box-sizing', 'top', 'right', 'bottom', 'left']
-        .map(key => `${ key }(${ style[key] })`)
+    const f = (style: CSSStyleDeclaration): string =>
+      [
+        'width',
+        'height',
+        'padding',
+        'margin',
+        'border',
+        'box-sizing',
+        'top',
+        'right',
+        'bottom',
+        'left',
+      ]
+        .map(key => `${key}(${style[key]})`)
         .join(', ')
-    )
 
     console.log('container:', f(containerStyle))
     console.log('child:', f(childStyle))
   }, [])
-
 
   const container: React.CSSProperties = {
     position: 'relative',
@@ -32,7 +40,6 @@ export function BoxPercentageTest(): React.ReactElement {
     borderRadius: '50%',
   }
 
-
   const child: React.CSSProperties = {
     position: 'absolute',
     width: '20%',
@@ -40,23 +47,22 @@ export function BoxPercentageTest(): React.ReactElement {
     marginTop: '20%',
     background: 'green',
     top: '20%',
-    transform: 'translate(50%, -50%)'
+    transform: 'translate(50%, -50%)',
   }
 
   return (
     <div>
-      <div ref={ containerRef } style={ container }>
-        <div ref={ childRef } style={ child } />
+      <div ref={containerRef} style={container}>
+        <div ref={childRef} style={child} />
         <div style={{ width: '20px', height: '20px', background: 'orange' }} />
       </div>
     </div>
   )
 }
 
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'box-model percentage | test',
   pathname: '/test/box-model/percentage',
-  component: <BoxPercentageTest />
+  component: <BoxPercentageTest />,
 }

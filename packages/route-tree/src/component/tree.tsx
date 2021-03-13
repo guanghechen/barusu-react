@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from '../style/index.styl'
-import { RouteTreeNode, RouteTreeNodeData } from './node'
-
+import type { RouteTreeNodeData } from './node'
+import { RouteTreeNode } from './node'
 
 export interface RouteTreeComponentProps {
   /**
@@ -23,8 +23,9 @@ export interface RouteTreeComponentProps {
   defaultLeafIcon?: React.ReactNode
 }
 
-
-export function RouteTreeComponent(props: RouteTreeComponentProps): React.ReactElement {
+export function RouteTreeComponent(
+  props: RouteTreeComponentProps,
+): React.ReactElement {
   const {
     nodes,
     foldEmptyPath = false,
@@ -33,15 +34,15 @@ export function RouteTreeComponent(props: RouteTreeComponentProps): React.ReactE
   } = props
 
   return (
-    <ul className={ classes.routeTree }>
-      { nodes.map(o => (
+    <ul className={classes.routeTree}>
+      {nodes.map(o => (
         <RouteTreeNode
-          key={ o.pathname }
-          foldedParents={ [] }
-          foldEmptyPath={ foldEmptyPath }
-          { ...o }
+          key={o.pathname}
+          foldedParents={[]}
+          foldEmptyPath={foldEmptyPath}
+          {...o}
         />
-      )) }
+      ))}
     </ul>
   )
 }

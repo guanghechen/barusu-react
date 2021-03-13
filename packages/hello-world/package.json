@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/barusu-react.git"
+    "url": "https://github.com/guanghechen/barusu-react.git",
+    "directory": "packages/hello-world"
   },
   "homepage": "https://github.com/guanghechen/barusu-react/tree/master/packages/hello-world#readme",
   "keywords": [
@@ -26,36 +27,22 @@
   },
   "files": [
     "lib/",
+    "!lib/**/*.js.map",
+    "!lib/**/*.d.ts.map",
+    "package.json",
     "CHANGELOG.md",
     "LICENSE",
-    "README.md",
-    "package.json",
-    "tsconfig.json",
-    "!lib/**/*.js.map",
-    "!lib/**/*.d.ts.map"
+    "README.md"
   ],
   "scripts": {
-    "start": "rollup -w -c rollup.config.js",
+    "start": "rollup -w -c ../../rollup.config.comp.js",
+    "build": "cross-env NODE_ENV=production rollup -c ../../rollup.config.comp.js",
     "prebuild": "rimraf lib/",
-    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "prepublishOnly": "cross-env ROLLUP_USE_SOURCE_MAP=false yarn build",
-    "test": "echo 'no test yet'",
-    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix"
+    "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "peerDependencies": {
-    "@types/classnames": "^2.2.9",
-    "@types/react": "^16.9.56",
-    "classnames": "^2.2.6",
-    "react": "^16.14.0"
-  },
-  "devDependencies": {
-    "@barusu-react/eslint-config": "^0.0.20",
-    "@barusu-react/rollup-config": "^0.0.20",
-    "@types/classnames": "^2.2.9",
-    "@types/react": "^16.9.56",
-    "classnames": "^2.2.6",
-    "react": "^16.14.0",
-    "rollup": "2.35.1"
+    "@types/react": "^17.0.3",
+    "react": "^17.0.1"
   },
   "browserslist": [
     "last 2 versions",

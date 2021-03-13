@@ -1,6 +1,5 @@
 import type { CSSProperties, DefaultTheme } from 'styled-components'
 
-
 /**
  * octotree theme
  */
@@ -37,7 +36,6 @@ export interface OctotreeTheme {
   typeIconColorSecondary?: CSSProperties['color'] | string
 }
 
-
 /**
  * Default octotree theme
  */
@@ -50,7 +48,6 @@ export const defaultOctotreeTheme: OctotreeTheme = {
   typeIconColorSecondary: '#8a8a8a',
 }
 
-
 /**
  * Get style from theme
  * @param key
@@ -59,7 +56,7 @@ export const defaultOctotreeTheme: OctotreeTheme = {
 export function getOctotreeStyle(
   key: keyof OctotreeTheme,
   defaultTheme: OctotreeTheme = defaultOctotreeTheme,
-) {
+): (props: { theme: DefaultTheme }) => OctotreeTheme[typeof key] {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   return (props: { theme: DefaultTheme }) => {
     const { octotree } = props.theme

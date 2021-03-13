@@ -1,10 +1,11 @@
-import React from 'react'
 import { HelloWorld } from '@barusu-react/hello-world'
-import { RouteItemData } from '../app'
+import React from 'react'
+import type { RouteItemData } from '../app'
 
-
-export default {
+const data: RouteItemData = {
   title: 'Hello World',
   pathname: '/hello-world',
-  component: <HelloWorld />
-} as RouteItemData
+  component: <HelloWorld />,
+}
+
+export default data

@@ -4,7 +4,6 @@ import type {
   RawOctotreeNodeData,
 } from './types'
 
-
 /**
  * Classify & Format & Sort OctotreeNodeData
  *
@@ -14,8 +13,8 @@ import type {
 export function resolveOctotreeData(
   prefixUrl: string,
   data: RawOctotreeNodeData[],
-): (OctotreeLeafNodeData | OctotreeParentNodeData)[] {
-  const results: (OctotreeLeafNodeData | OctotreeParentNodeData)[] = []
+): Array<OctotreeLeafNodeData | OctotreeParentNodeData> {
+  const results: Array<OctotreeLeafNodeData | OctotreeParentNodeData> = []
   for (const u of data) {
     if (u.children != null && u.children.length > 0) {
       const v: OctotreeParentNodeData = {

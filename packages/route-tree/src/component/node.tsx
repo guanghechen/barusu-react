@@ -1,5 +1,3 @@
-import React, { useRef, useState } from 'react'
-import cn from 'classnames'
 import {
   ChevronDownRounded as ChevronDownRoundedIcon,
   ChevronRightRounded as ChevronRightRoundedIcon,
@@ -7,9 +5,11 @@ import {
   FolderOpen as FolderOpenIcon,
   Link as LinkIcon,
 } from '@barusu-react/icons'
+import cn from 'clsx'
+import React, { useRef, useState } from 'react'
 import classes from '../style/index.styl'
-import { RouteTreeNodeLabel, RouteTreeNodeLabelProps } from './label'
-
+import type { RouteTreeNodeLabelProps } from './label'
+import { RouteTreeNodeLabel } from './label'
 
 export interface RouteTreeNodeData extends RouteTreeNodeLabelProps {
   /**
@@ -22,7 +22,6 @@ export interface RouteTreeNodeData extends RouteTreeNodeLabelProps {
    */
   children?: RouteTreeNodeData[]
 }
-
 
 /**
  * props for RouteTreeLeafNode
@@ -47,7 +46,6 @@ export interface RouteTreeNodeProps extends RouteTreeNodeData {
   foldedParents: RouteTreeNodeData[]
 }
 
-
 /**
  *
  * @param props
@@ -61,16 +59,19 @@ export function RouteTreeNode(props: RouteTreeNodeProps): React.ReactElement {
   } = currentNodeData
 
   const [collapsed, setCollapsed] = useState<boolean>(defaultCollapsed)
-  const stopTextSelectedRef = useRef<React.MouseEventHandler>((e: React.MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-  })
-  const handleCollapseRef = useRef<React.MouseEventHandler>((e: React.MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setCollapsed(c => !c)
-  })
-
+  const stopTextSelectedRef = useRef<React.MouseEventHandler>(
+    (e: React.MouseEvent) => {
+      e.preventDefault()
+      e.stopPropagation()
+    },
+  )
+  const handleCollapseRef = useRef<React.MouseEventHandler>(
+    (e: React.MouseEvent) => {
+      e.preventDefault()
+      e.stopPropagation()
+      setCollapsed(c => !c)
+    },
+  )
 
   /**
    * 【是否曾渲染过子树】的数据引用
@@ -85,9 +86,9 @@ export function RouteTreeNode(props: RouteTreeNodeProps): React.ReactElement {
     if (props.children.length === 1 && child.children != null) {
       return (
         <RouteTreeNode
-          foldedParents={ [...foldedParents, currentNodeData] }
-          foldEmptyPath={ foldEmptyPath }
-          { ...child }
+          foldedParents={[...foldedParents, currentNodeData]}
+          foldEmptyPath={foldEmptyPath}
+          {...child}
         />
       )
     }
@@ -102,10 +103,10 @@ export function RouteTreeNode(props: RouteTreeNodeProps): React.ReactElement {
   if (props.children != null && (subTreeRenderedRef.current || !collapsed)) {
     content = props.children.map(child => (
       <RouteTreeNode
-        key={ child.pathname }
-        foldedParents={ [] }
-        foldEmptyPath={ foldEmptyPath }
-        { ...child }
+        key={child.pathname}
+        foldedParents={[]}
+        foldEmptyPath={foldEmptyPath}
+        {...child}
       />
     ))
     subTreeRenderedRef.current = true
@@ -114,60 +115,65 @@ export function RouteTreeNode(props: RouteTreeNodeProps): React.ReactElement {
   }
 
   const isLeafNode = children == null
-  const collapseIcon = isLeafNode ? undefined : (
-    collapsed ? <ChevronRightRoundedIcon /> : <ChevronDownRoundedIcon />
+  const collapseIcon = isLeafNode ? undefined : collapsed ? (
+    <ChevronRightRoundedIcon />
+  ) : (
+    <ChevronDownRoundedIcon />
   )
-  const icon = isLeafNode ? <LinkIcon /> : (
-    collapsed ? <FolderIcon /> : <FolderOpenIcon />
+  const icon = isLeafNode ? (
+    <LinkIcon />
+  ) : collapsed ? (
+    <FolderIcon />
+  ) : (
+    <FolderOpenIcon />
   )
 
   return (
-    <li className={ classes.routeTreeNode }>
+    <li className={classes.routeTreeNode}>
       <div
-        className={ classes.routeTreeNodeHeader }
-        onClick={ handleCollapseRef.current }
+        className={classes.routeTreeNodeHeader}
+        onClick={handleCollapseRef.current}
       >
         <span
           key="collapse"
-          className={ classes.routeTreeNodeHeaderCollapseBtn }
-          onClick={ handleCollapseRef.current }
-          onMouseDown={ stopTextSelectedRef.current }
+          className={classes.routeTreeNodeHeaderCollapseBtn}
+          onClick={handleCollapseRef.current}
+          onMouseDown={stopTextSelectedRef.current}
         >
-          { collapseIcon }
+          {collapseIcon}
         </span>
         <span
           key="icon"
-          className={ classes.routeTreeNodeHeaderIcon }
-          onClick={ handleCollapseRef.current }
-          onMouseDown={ stopTextSelectedRef.current }
+          className={classes.routeTreeNodeHeaderIcon}
+          onClick={handleCollapseRef.current}
+          onMouseDown={stopTextSelectedRef.current}
         >
-          { icon }
+          {icon}
         </span>
-        <span key="label" className={ classes.routeTreeNodeHeaderLabel }>
-          {
-            foldedParents.map(({ collapsed, children, ...labelProps }) => (
-              // <></> 写法中不支持 key 属性，
-              // 控制台会报 unique key 的错误
-              <React.Fragment key={ labelProps.pathname }>
-                <RouteTreeNodeLabel { ...labelProps } />
-                <span className={ classes.routeTreeNodeHeaderSeparator } />
-              </React.Fragment>
-            ))
-          }
+        <span key="label" className={classes.routeTreeNodeHeaderLabel}>
+          {foldedParents.map(({ collapsed, children, ...labelProps }) => (
+            // <></> 写法中不支持 key 属性，
+            // 控制台会报 unique key 的错误
+            <React.Fragment key={labelProps.pathname}>
+              <RouteTreeNodeLabel {...labelProps} />
+              <span className={classes.routeTreeNodeHeaderSeparator} />
+            </React.Fragment>
+          ))}
           <RouteTreeNodeLabel
-            key={ currentNodeLabelProps.pathname }
-            { ...currentNodeLabelProps }
+            key={currentNodeLabelProps.pathname}
+            {...currentNodeLabelProps}
           />
         </span>
       </div>
-      { !isLeafNode && (
+      {!isLeafNode && (
         <ul
-          className={ cn(classes.routeTreeNodeBody,
-            { [classes.routeTreeNodeBodyCollapsed]: collapsed }) }
+          className={cn(classes.routeTreeNodeBody, {
+            [classes.routeTreeNodeBodyCollapsed]: collapsed,
+          })}
         >
-          { content }
+          {content}
         </ul>
-      ) }
+      )}
     </li>
   )
 }

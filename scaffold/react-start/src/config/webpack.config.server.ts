@@ -1,17 +1,16 @@
+import fs from 'fs-extra'
 import errorOverlayMiddleware from 'react-dev-utils/errorOverlayMiddleware'
 import evalSourceMapMiddleware from 'react-dev-utils/evalSourceMapMiddleware'
 import ignoredFiles from 'react-dev-utils/ignoredFiles'
 import noopServiceWorkerMiddleware from 'react-dev-utils/noopServiceWorkerMiddleware'
 import redirectServedPath from 'react-dev-utils/redirectServedPathMiddleware'
-import fs from 'fs-extra'
-import {
+import type {
   Configuration,
   ProxyConfigArray,
   ProxyConfigMap,
 } from 'webpack-dev-server'
-import { ConfigEnv } from './env'
-import { ConfigPaths } from './paths'
-
+import type { ConfigEnv } from './env'
+import type { ConfigPaths } from './paths'
 
 export default function createBaseWebpackServerConfig(
   env: ConfigEnv,
@@ -106,7 +105,7 @@ export default function createBaseWebpackServerConfig(
       ignored: paths.source.src.map(src => ignoredFiles(src)),
       // https://stackoverflow.com/questions/40573774/webpack-hot-reloading-enoent-no-such-file-or-directory
       aggregateTimeout: 300,
-      poll: 1000
+      poll: 1000,
     },
 
     https: false,

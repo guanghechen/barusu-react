@@ -1,10 +1,9 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import { useOctotreeNodes } from './parent'
 import { defaultOctotreeTheme, getOctotreeStyle } from './theme'
-import { OctotreeNodeData } from './types'
-
+import type { OctotreeNodeData } from './types'
 
 /**
  * Props for creating Octotree
@@ -21,7 +20,6 @@ export interface OctotreeProps extends React.HTMLAttributes<HTMLDivElement> {
   iconWidth?: string
 }
 
-
 const Main = styled.ul`
   display: block;
   padding: 0;
@@ -33,15 +31,14 @@ const Main = styled.ul`
     margin: 0;
     list-style: none;
     line-height: 1.5;
-    font-size: ${ getOctotreeStyle('fontSize') };
+    font-size: ${getOctotreeStyle('fontSize')};
   }
   a {
-    color: ${ getOctotreeStyle('colorTitle') };
+    color: ${getOctotreeStyle('colorTitle')};
     outline: 0;
     text-decoration: none;
   }
 `
-
 
 const Container = styled.div`
   display: flex;
@@ -52,9 +49,7 @@ const Container = styled.div`
   user-select: none;
 `
 
-
 Container.defaultProps = { theme: { octotree: defaultOctotreeTheme } }
-
 
 /**
  *
@@ -70,21 +65,18 @@ export const Octotree = React.forwardRef<HTMLDivElement, OctotreeProps>(
     const children = useOctotreeNodes(0, nodes, width, widthUnit)
 
     return (
-      <Container { ...rawProps } ref={ forwardRef }>
-        <Main>{ children }</Main>
+      <Container {...rawProps} ref={forwardRef}>
+        <Main>{children}</Main>
       </Container>
     )
-  }
+  },
 )
 
-
 Octotree.displayName = 'Octotree'
-
 
 Octotree.propTypes = {
   nodes: PropTypes.array.isRequired,
   iconWidth: PropTypes.string,
 }
-
 
 export default Octotree

@@ -1,9 +1,8 @@
 import path from 'path'
-import webpack from 'webpack'
-
+import type webpack from 'webpack'
 
 export interface ConfigPaths {
-  resolvePath: (...relativePath: string[]) => string
+  resolvePath(...relativePath: string[]): string
   source: {
     root: string
     src: string[]
@@ -22,15 +21,14 @@ export interface ConfigPaths {
     root: string
     mainPage: string
   }
-  entries: {
+  entries: Array<{
     name: string
     page: string
     script: string
-  }[]
+  }>
   moduleExtensions: string[]
   alias: Record<string, string>
 }
-
 
 export function createConfigPaths(appDirectory: string): ConfigPaths {
   const resolvePath = (...relativePath: string[]): string => {
@@ -62,7 +60,7 @@ export function createConfigPaths(appDirectory: string): ConfigPaths {
         name: 'index',
         page: resolvePath('src/index.pug'),
         script: resolvePath('src/index.tsx'),
-      }
+      },
     ],
     moduleExtensions: [
       '.web.mjs',
@@ -75,11 +73,11 @@ export function createConfigPaths(appDirectory: string): ConfigPaths {
       '.tsx',
       '.json',
       '.web.jsx',
-      '.jsx'
+      '.jsx',
     ],
     alias: {
       '@': resolvePath('src'),
-    }
+    },
   }
 
   return paths
