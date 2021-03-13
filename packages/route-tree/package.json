@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/route-tree",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "description": "a demo of react package with ts+react+stylus",
   "author": {
     "name": "guanghechen",
@@ -41,7 +41,7 @@
     "prepublishOnly": "cross-env ROLLUP_SHOULD_SOURCEMAP=false yarn build"
   },
   "dependencies": {
-    "@barusu-react/icons": "^0.0.20"
+    "@barusu-react/icons": "^0.1.0"
   },
   "peerDependencies": {
     "@types/react": "^17.0.3",

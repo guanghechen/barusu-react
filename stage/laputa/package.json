@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/stage-laputa",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "description": "overview of react components (of @barusu-react/)",
   "author": {
     "name": "guanghechen",
@@ -29,8 +29,8 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@barusu-react/hello-world": "^0.0.20",
-    "@barusu-react/route-tree": "^0.0.20",
+    "@barusu-react/hello-world": "^0.1.0",
+    "@barusu-react/route-tree": "^0.1.0",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
     "@types/react-router-dom": "^5.1.6",
@@ -42,7 +42,7 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "@barusu-react/scaffold-react-start": "^0.0.20",
+    "@barusu-react/scaffold-react-start": "^0.1.0",
     "@types/fs-extra": "^9.0.8",
     "fs-extra": "^9.1.0"
   },

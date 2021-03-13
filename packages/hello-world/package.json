@@ -1,6 +1,6 @@
 {
   "name": "@barusu-react/hello-world",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "description": "a demo of react package with ts+react+stylus",
   "author": {
     "name": "guanghechen",
