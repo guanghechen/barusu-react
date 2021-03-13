@@ -1,9 +1,9 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import { useOctotreeNodes } from './parent'
 import { defaultOctotreeTheme, getOctotreeStyle } from './theme'
-import { OctotreeNodeData } from './types'
+import type { OctotreeNodeData } from './types'
 
 /**
  * Props for creating Octotree

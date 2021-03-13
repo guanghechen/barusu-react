@@ -2,7 +2,6 @@ const { camelCase, paramCase, pascalCase } = require('change-case')
 const fs = require('fs-extra')
 const path = require('path')
 
-
 module.exports = function (plop) {
   const cwd = path.resolve(process.cwd())
 
@@ -14,13 +13,15 @@ module.exports = function (plop) {
         name: 'storeRootPath',
         message: 'root path of redux store',
         default: () => 'src/store',
-        transform: (text) => paramCase(text.trim()),
+        transform: text => paramCase(text.trim()),
       },
     ],
     actions: function (answers) {
       const { storeRootPath } = answers
-      const resolveSourcePath = (p) => path.normalize(path.resolve(__dirname, 'boilerplate/store', p))
-      const resolveTargetPath = (p) => path.normalize(path.resolve(cwd, storeRootPath, p))
+      const resolveSourcePath = p =>
+        path.normalize(path.resolve(__dirname, 'boilerplate/store', p))
+      const resolveTargetPath = p =>
+        path.normalize(path.resolve(cwd, storeRootPath, p))
 
       return [
         {
@@ -54,21 +55,21 @@ module.exports = function (plop) {
         type: 'input',
         name: 'stateName',
         message: 'state node name of redux store',
-        transform: (text) => paramCase(text.trim()),
+        transform: text => paramCase(text.trim()),
       },
       {
         type: 'input',
         name: 'storeRootPath',
         message: 'root path of redux store',
         default: () => 'src/store',
-        transform: (text) => paramCase(text.trim()),
+        transform: text => paramCase(text.trim()),
       },
     ],
     actions: function (answers) {
       const { storeRootPath, stateName } = answers
-      const resolveSourcePath = (p) =>
+      const resolveSourcePath = p =>
         path.normalize(path.resolve(__dirname, 'boilerplate/state', p))
-      const resolveTargetPath = (p) =>
+      const resolveTargetPath = p =>
         path.normalize(path.resolve(cwd, storeRootPath, stateName, p))
 
       // register state
@@ -77,28 +78,51 @@ module.exports = function (plop) {
         if (fs.existsSync(storeStateFilePath)) {
           const storeStateContent = fs.readFileSync(storeStateFilePath, 'utf-8')
           const resolvedStoreStateContent = storeStateContent
-            .replace( // import statement
+            .replace(
+              // import statement
               /((?:import[^'"]*['"][^'"]*['"]\s*?\n)*)\s*/,
               (m, p1) => {
-                return p1.trim() + '\n' +
-                  `import { ${ pascalCase(stateName) }State, initial${ pascalCase(stateName) }State } from './${ paramCase(stateName) }/state'` +
+                return (
+                  p1.trim() +
+                  '\n' +
+                  `import { ${pascalCase(stateName)}State, initial${pascalCase(
+                    stateName,
+                  )}State } from './${paramCase(stateName)}/state'` +
                   '\n\n\n'
-              })
-            .replace( // StoreState interface
+                )
+              },
+            )
+            .replace(
+              // StoreState interface
               /(export\s+interface\s+StoreState[^{]*\{[\s\S]*?)\n\}/,
               (m, p1) => {
-                return p1.trim() + '\n' +
-                  `  ${ camelCase(stateName) }: ${ pascalCase(stateName) }State` +
+                return (
+                  p1.trim() +
+                  '\n' +
+                  `  ${camelCase(stateName)}: ${pascalCase(stateName)}State` +
                   '\n}'
-              })
-            .replace( // initialStoreState
+                )
+              },
+            )
+            .replace(
+              // initialStoreState
               /(export\s+const\s+initialStoreState:\s*StoreState\s*=\s*[^{]*\{[\s\S]*?)\n\}/,
               (m, p1) => {
-                return p1.trim() + '\n' +
-                  `  ${ camelCase(stateName) }: initial${ pascalCase(stateName) }State,` +
+                return (
+                  p1.trim() +
+                  '\n' +
+                  `  ${camelCase(stateName)}: initial${pascalCase(
+                    stateName,
+                  )}State,` +
                   '\n}'
-              })
-          fs.writeFileSync(storeStateFilePath, resolvedStoreStateContent, 'utf-8')
+                )
+              },
+            )
+          fs.writeFileSync(
+            storeStateFilePath,
+            resolvedStoreStateContent,
+            'utf-8',
+          )
         }
       }
 
@@ -106,48 +130,85 @@ module.exports = function (plop) {
       {
         const rootReducerFilePath = resolveTargetPath('../reducer.ts')
         if (fs.existsSync(rootReducerFilePath)) {
-          const storeStateContent = fs.readFileSync(rootReducerFilePath, 'utf-8')
+          const storeStateContent = fs.readFileSync(
+            rootReducerFilePath,
+            'utf-8',
+          )
           const resolvedRootReducerContent = storeStateContent
-            .replace( // import statement
+            .replace(
+              // import statement
               /((?:import[^'"]*['"][^'"]*['"]\s*?\n)*)\s*/,
               (m, p1) => {
-                return p1.trim() + '\n' +
-                  `import { ${ camelCase(stateName) }Reducer } from './${ paramCase(stateName) }/reducer'` +
+                return (
+                  p1.trim() +
+                  '\n' +
+                  `import { ${camelCase(
+                    stateName,
+                  )}Reducer } from './${paramCase(stateName)}/reducer'` +
                   '\n\n\n'
-              })
-            .replace( // rootReducer
+                )
+              },
+            )
+            .replace(
+              // rootReducer
               /(export\s+const\s+rootReducer\s*=\s*[^{]*\{[\s\S]*?)\n\}/,
               (m, p1) => {
-                return p1.trim() + '\n' +
-                  `  ${ camelCase(stateName) }: ${ camelCase(stateName) }Reducer,` +
+                return (
+                  p1.trim() +
+                  '\n' +
+                  `  ${camelCase(stateName)}: ${camelCase(stateName)}Reducer,` +
                   '\n}'
-              })
-          fs.writeFileSync(rootReducerFilePath, resolvedRootReducerContent, 'utf-8')
+                )
+              },
+            )
+          fs.writeFileSync(
+            rootReducerFilePath,
+            resolvedRootReducerContent,
+            'utf-8',
+          )
         }
       }
-
 
       // register saga
       {
         const rootReducerFilePath = resolveTargetPath('../saga.ts')
         if (fs.existsSync(rootReducerFilePath)) {
-          const storeStateContent = fs.readFileSync(rootReducerFilePath, 'utf-8')
+          const storeStateContent = fs.readFileSync(
+            rootReducerFilePath,
+            'utf-8',
+          )
           const resolvedRootReducerContent = storeStateContent
-            .replace( // import statement
+            .replace(
+              // import statement
               /((?:import[^'"]*['"][^'"]*['"]\s*?\n)*)\s*/,
               (m, p1) => {
-                return p1.trim() + '\n' +
-                  `import { watch${ pascalCase(stateName) }Saga } from './${ paramCase(stateName) }/sagas'` +
+                return (
+                  p1.trim() +
+                  '\n' +
+                  `import { watch${pascalCase(
+                    stateName,
+                  )}Saga } from './${paramCase(stateName)}/sagas'` +
                   '\n\n\n'
-              })
-            .replace( // rootSaga
+                )
+              },
+            )
+            .replace(
+              // rootSaga
               /(export\s+function\s*\*\s*rootSaga[^{]*\{[\s\S]*?)\n\}/,
               (m, p1) => {
-                return p1.trim() + '\n' +
-                  `  yield fork(watch${ pascalCase(stateName) }Saga)` +
+                return (
+                  p1.trim() +
+                  '\n' +
+                  `  yield fork(watch${pascalCase(stateName)}Saga)` +
                   '\n}'
-              })
-          fs.writeFileSync(rootReducerFilePath, resolvedRootReducerContent, 'utf-8')
+                )
+              },
+            )
+          fs.writeFileSync(
+            rootReducerFilePath,
+            resolvedRootReducerContent,
+            'utf-8',
+          )
         }
       }
 
@@ -188,6 +249,6 @@ module.exports = function (plop) {
           templateFile: resolveSourcePath('state.ts.hbs'),
         },
       ]
-    }
+    },
   })
 }

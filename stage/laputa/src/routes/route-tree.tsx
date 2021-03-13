@@ -1,6 +1,7 @@
+import type { RouteTreeNodeData } from '@barusu-react/route-tree'
+import { RouteTree } from '@barusu-react/route-tree'
 import React from 'react'
-import { RouteTree, RouteTreeNodeData } from '@barusu-react/route-tree'
-import { RouteItemData } from '../app'
+import type { RouteItemData } from '../app'
 
 const nodes: RouteTreeNodeData[] = [
   {
@@ -39,8 +40,10 @@ const nodes: RouteTreeNodeData[] = [
   },
 ]
 
-export default {
+const data: RouteItemData = {
   title: 'Route Tree',
   pathname: '/route-tree',
   component: <RouteTree nodes={nodes} foldEmptyPath={true} />,
-} as RouteItemData
+}
+
+export default data

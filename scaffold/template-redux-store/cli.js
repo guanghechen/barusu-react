@@ -1,18 +1,21 @@
 #! /usr/bin/env node
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/order */
 
 const path = require('path')
 const { Plop, run } = require('plop')
-
 
 const args = process.argv.slice(2)
 const argv = require('minimist')(args)
 
 argv.plopfile = argv.plopfile || path.resolve(__dirname, 'plop.js')
 
-
-Plop.launch({
-  cwd: argv.cwd,
-  configPath: argv.plopfile,
-  require: argv.require,
-  completion: argv.completion
-}, run)
+Plop.launch(
+  {
+    cwd: argv.cwd,
+    configPath: argv.plopfile,
+    require: argv.require,
+    completion: argv.completion,
+  },
+  run,
+)

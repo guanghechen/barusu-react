@@ -23,7 +23,7 @@ export interface ResizableEdgeProps {
    * @param horizontalMovement  the horizontal movement
    * @param verticalMovement    the vertical movement
    */
-  onResize: (horizontalMovement: number, verticalMovement: number) => void
+  onResize(horizontalMovement: number, verticalMovement: number): void
 }
 
 const Container = styled.div`
@@ -98,7 +98,7 @@ export function ResizableEdge(props: ResizableEdgeProps): React.ReactElement {
       currentPageY = 0
 
     // handle mouse down
-    const onMouseDown = (e: MouseEvent) => {
+    const onMouseDown = (e: MouseEvent): void => {
       mouseDown = true
       currentPageX = e.pageX
       currentPageY = e.pageY
@@ -107,12 +107,12 @@ export function ResizableEdge(props: ResizableEdgeProps): React.ReactElement {
     }
 
     // handle mouse up
-    const onMouseUp = () => {
+    const onMouseUp = (): void => {
       mouseDown = false
     }
 
     // handle mouse move
-    const onMouseMove = (e: MouseEvent) => {
+    const onMouseMove = (e: MouseEvent): void => {
       if (!mouseDown) return
       const horizontalMovement = e.pageX - currentPageX
       const verticalMovement = e.pageY - currentPageY

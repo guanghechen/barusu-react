@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from '../style/index.styl'
-import { RouteTreeNode, RouteTreeNodeData } from './node'
+import type { RouteTreeNodeData } from './node'
+import { RouteTreeNode } from './node'
 
 export interface RouteTreeComponentProps {
   /**

@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import type { OctotreeNodeData } from '@barusu-react/octotree'
+import { Octotree } from '@barusu-react/octotree'
 import PropTypes from 'prop-types'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { Octotree, OctotreeNodeData } from '@barusu-react/octotree'
 import ResizableEdge from './resizable-edge.no-cover'
 import { defaultOctotreeSidebarTheme, getOctotreeSidebarStyle } from './theme'
 
@@ -25,11 +26,11 @@ export interface OctotreeSidebarProps
   /**
    * Called on width changed
    */
-  onWidthChange?: (width: number) => void
+  onWidthChange?(width: number): void
   /**
    * Called on pined changed
    */
-  onPinedChange?: (pined: boolean) => void
+  onPinedChange?(pined: boolean): void
 }
 
 const Pushpin = styled.i<{ $pined: boolean }>`
@@ -181,9 +182,9 @@ export const OctotreeSidebar = React.forwardRef<
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pined])
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
       setMaxWidth(hovering || pined ? width : 0)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pined, hovering])
 
     const containerStyle = {
@@ -224,6 +225,10 @@ OctotreeSidebar.displayName = 'OctotreeSidebar'
 OctotreeSidebar.propTypes = {
   nodes: PropTypes.array.isRequired,
   defaultWidth: PropTypes.number,
+  defaultPined: PropTypes.bool,
+  style: PropTypes.object,
+  onWidthChange: PropTypes.func,
+  onPinedChange: PropTypes.func,
 }
 
 export default OctotreeSidebar

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Icon, Title } from './_common'
 import OctotreeLeafNode from './leaf'
 import { getOctotreeStyle } from './theme'
-import { OctotreeNodeData } from './types'
+import type { OctotreeNodeData } from './types'
 
 /**
  * Props for creating OctotreeParentNode
@@ -165,10 +165,11 @@ export function useOctotreeNodes(
                   depth={depth}
                   title={item.title}
                   collapsed={item.collapsed}
-                  children={item.children}
                   iconWidth={iconWidth}
                   iconWidthUnit={iconWidthUnit}
-                />
+                >
+                  {item.children}
+                </OctotreeParentNode>
               </li>
             )
           }

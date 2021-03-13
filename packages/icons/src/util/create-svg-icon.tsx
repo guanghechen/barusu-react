@@ -29,6 +29,7 @@ export function createSvgIcon(
 ): React.FunctionComponent {
   const Component = React.memo(
     React.forwardRef((props: SvgIconProps, ref: React.Ref<SVGSVGElement>) => {
+      // eslint-disable-next-line react/prop-types
       const { viewBox = '0 0 24 24', titleAccess = false, ...others } = props
       return (
         <svg
