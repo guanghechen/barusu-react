@@ -41,7 +41,7 @@ describe('basic rendering case', () => {
           <Octotree nodes={ value } />
         </Router>
       ))
-        .toThrow(/Failed prop type: The prop `nodes` is marked as required/i)
+        .toThrow(/The prop `nodes` is marked as required/i)
     }
   })
 
