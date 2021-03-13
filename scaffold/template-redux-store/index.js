@@ -1,6 +1,21 @@
-const { camelCase, paramCase, pascalCase } = require('change-case')
+const {
+  toCamelCase,
+  toPascalCase,
+  toKebabCase,
+  TextTransformerBuilder,
+} = require('@guanghechen/option-helper')
 const fs = require('fs-extra')
 const path = require('path')
+
+const transformers = {
+  storeRootPath: text =>
+    text
+      .trim()
+      .split(/[/\\]+/)
+      .map(toKebabCase)
+      .join('/'),
+  stateName: new TextTransformerBuilder().trim.kebab.build(),
+}
 
 module.exports = function (plop) {
   const cwd = path.resolve(process.cwd())
@@ -13,10 +28,13 @@ module.exports = function (plop) {
         name: 'storeRootPath',
         message: 'root path of redux store',
         default: () => 'src/store',
-        transform: text => paramCase(text.trim()),
+        transformer: transformers.storeRootPath,
       },
     ],
     actions: function (answers) {
+      // eslint-disable-next-line no-param-reassign
+      answers.storeRootPath = transformers.storeRootPath(answers.storeRootPath)
+
       const { storeRootPath } = answers
       const resolveSourcePath = p =>
         path.normalize(path.resolve(__dirname, 'boilerplate/store', p))
@@ -55,17 +73,22 @@ module.exports = function (plop) {
         type: 'input',
         name: 'stateName',
         message: 'state node name of redux store',
-        transform: text => paramCase(text.trim()),
+        transformer: transformers.stateName,
       },
       {
         type: 'input',
         name: 'storeRootPath',
         message: 'root path of redux store',
         default: () => 'src/store',
-        transform: text => paramCase(text.trim()),
+        transformer: transformers.storeRootPath,
       },
     ],
     actions: function (answers) {
+      // eslint-disable-next-line no-param-reassign
+      answers.storeRootPath = transformers.storeRootPath(answers.storeRootPath)
+      // eslint-disable-next-line no-param-reassign
+      answers.stateName = transformers.stateName(answers.stateName)
+
       const { storeRootPath, stateName } = answers
       const resolveSourcePath = p =>
         path.normalize(path.resolve(__dirname, 'boilerplate/state', p))
@@ -85,9 +108,11 @@ module.exports = function (plop) {
                 return (
                   p1.trim() +
                   '\n' +
-                  `import { ${pascalCase(stateName)}State, initial${pascalCase(
+                  `import { ${toPascalCase(
                     stateName,
-                  )}State } from './${paramCase(stateName)}/state'` +
+                  )}State, initial${toPascalCase(
+                    stateName,
+                  )}State } from './${toKebabCase(stateName)}/state'` +
                   '\n\n\n'
                 )
               },
@@ -99,7 +124,9 @@ module.exports = function (plop) {
                 return (
                   p1.trim() +
                   '\n' +
-                  `  ${camelCase(stateName)}: ${pascalCase(stateName)}State` +
+                  `  ${toCamelCase(stateName)}: ${toPascalCase(
+                    stateName,
+                  )}State` +
                   '\n}'
                 )
               },
@@ -111,7 +138,7 @@ module.exports = function (plop) {
                 return (
                   p1.trim() +
                   '\n' +
-                  `  ${camelCase(stateName)}: initial${pascalCase(
+                  `  ${toCamelCase(stateName)}: initial${toPascalCase(
                     stateName,
                   )}State,` +
                   '\n}'
@@ -142,9 +169,9 @@ module.exports = function (plop) {
                 return (
                   p1.trim() +
                   '\n' +
-                  `import { ${camelCase(
+                  `import { ${toCamelCase(
                     stateName,
-                  )}Reducer } from './${paramCase(stateName)}/reducer'` +
+                  )}Reducer } from './${toKebabCase(stateName)}/reducer'` +
                   '\n\n\n'
                 )
               },
@@ -156,7 +183,9 @@ module.exports = function (plop) {
                 return (
                   p1.trim() +
                   '\n' +
-                  `  ${camelCase(stateName)}: ${camelCase(stateName)}Reducer,` +
+                  `  ${toCamelCase(stateName)}: ${toCamelCase(
+                    stateName,
+                  )}Reducer,` +
                   '\n}'
                 )
               },
@@ -185,9 +214,9 @@ module.exports = function (plop) {
                 return (
                   p1.trim() +
                   '\n' +
-                  `import { watch${pascalCase(
+                  `import { watch${toPascalCase(
                     stateName,
-                  )}Saga } from './${paramCase(stateName)}/sagas'` +
+                  )}Saga } from './${toKebabCase(stateName)}/sagas'` +
                   '\n\n\n'
                 )
               },
@@ -199,7 +228,7 @@ module.exports = function (plop) {
                 return (
                   p1.trim() +
                   '\n' +
-                  `  yield fork(watch${pascalCase(stateName)}Saga)` +
+                  `  yield fork(watch${toPascalCase(stateName)}Saga)` +
                   '\n}'
                 )
               },

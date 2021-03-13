@@ -1176,6 +1176,17 @@
     title-case "^3.0.2"
     upper-case "^2.0.1"
 
+"@guanghechen/plop-helper@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.npmjs.org/@guanghechen/plop-helper/-/plop-helper-1.0.12.tgz#dd1ad79b9fa9e6f98143523059b181788f124cb6"
+  integrity sha512-i0n3dTm2sJwa7rb2WejCRsdPmaRdcqWF8qUIABxQnAqM2AzW7VEoTmM7ZwTZ5yqIEt0m9hb6xJmmEfcWlAsUBg==
+  dependencies:
+    "@guanghechen/option-helper" "^1.0.12"
+    "@types/fs-extra" "^9.0.8"
+    fs-extra "^9.1.0"
+    minimist "^1.2.5"
+    semver-regex "^3.1.2"
+
 "@guanghechen/postcss-modules-dts@^1.0.12":
   version "1.0.12"
   resolved "https://registry.npmjs.org/@guanghechen/postcss-modules-dts/-/postcss-modules-dts-1.0.12.tgz#68da0eb92536706f62ade630c886773926cc3f16"
@@ -14467,10 +14478,10 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-semver-regex@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/semver-regex/-/semver-regex-3.1.1.tgz#9a13c93a9ecf2ac7415c0785acc1c7a19199bfd0"
-  integrity sha512-3dPcmFqxblWB/cppQ2qXWqlp9b6GLgAS032+Ec5E0waDVHTkwYIL+7BFI9UqEe0tkoHle2f3pBgvT/Xl95+Dig==
+semver-regex@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.npmjs.org/semver-regex/-/semver-regex-3.1.2.tgz#34b4c0d361eef262e07199dbef316d0f2ab11807"
+  integrity sha512-bXWyL6EAKOJa81XG1OZ/Yyuq+oT0b2YLlxx7c+mrdYPaPbnj6WgVULXhinMIeZGufuUBu/eVRqXEhiv4imfwxA==
 
 "semver@2 || 3 || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0, semver@^5.7.0, semver@^5.7.1:
   version "5.7.1"
