@@ -1,17 +1,29 @@
 [![npm version](https://img.shields.io/npm/v/@barusu-react/octotree.svg)](https://www.npmjs.com/package/@barusu-react/octotree)
 [![npm download](https://img.shields.io/npm/dm/@barusu-react/octotree.svg)](https://www.npmjs.com/package/@barusu-react/octotree)
 [![npm license](https://img.shields.io/npm/l/@barusu-react/octotree.svg)](https://www.npmjs.com/package/@barusu-react/octotree)
+  [![Node Version](https://img.shields.io/node/v/@barusu-react/octotree)](https://github.com/nodejs/node)
+  [![React version](https://img.shields.io/npm/dependency-version/@barusu-react/octotree/peer/react)](https://github.com/facebook/react)
+  [![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+
+# `@barusu-react/octotree`
 
 Render a simple directory tree similar to [octotree][], but really more coarse.
 
-# Install
+## Install
 
-  ```shell
-  yarn add @barusu-react/octotree
+* npm
+
+  ```bash
+  npm install --save @barusu-react/octotree
   ```
 
-# Usage
+* yarn
+
+  ```bash
+  yarn add @barusu-react/octotree
+
+## Usage
 
   You should import the [octotree.woff2][] font manually.
 

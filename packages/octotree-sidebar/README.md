@@ -1,17 +1,30 @@
 [![npm version](https://img.shields.io/npm/v/@barusu-react/octotree-sidebar.svg)](https://www.npmjs.com/package/@barusu-react/octotree-sidebar)
 [![npm download](https://img.shields.io/npm/dm/@barusu-react/octotree-sidebar.svg)](https://www.npmjs.com/package/@barusu-react/octotree-sidebar)
 [![npm license](https://img.shields.io/npm/l/@barusu-react/octotree-sidebar.svg)](https://www.npmjs.com/package/@barusu-react/octotree-sidebar)
+[![Node Version](https://img.shields.io/node/v/@barusu-react/octotree-sidebar)](https://github.com/nodejs/node)
+[![React version](https://img.shields.io/npm/dependency-version/@barusu-react/octotree-sidebar/peer/react)](https://github.com/facebook/react)
+[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+
+# `@barusu-react/octotree-sidebar`
 
 Render a simple directory tree similar to [octotree-sidebar][], but really more coarse.
 
-# Install
+## Install
 
-  ```shell
+* npm
+
+  ```bash
+  npm install --save @barusu-react/octotree-sidebar
+  ```
+
+* yarn
+
+  ```bash
   yarn add @barusu-react/octotree-sidebar
   ```
 
-# Usage
+## Usage
 
   You should import the [octotree-sidebar.woff2][] font manually.
 

@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/barusu-react.git"
+    "url": "https://github.com/guanghechen/barusu-react.git",
+    "directory": "scaffold/template-redux-store"
   },
   "homepage": "https://github.com/guanghechen/barusu-react/tree/master/packages/template-redux-store#readme",
   "main": "index.js",
@@ -23,9 +24,7 @@
     "package.json",
     "CHANGELOG.md",
     "LICENSE",
-    "README.md",
-    "!lib/**/*.js.map",
-    "!lib/**/*.d.ts.map"
+    "README.md"
   ],
   "scripts": {},
   "dependencies": {

@@ -8,21 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/guanghechen/barusu-react.git"
+    "url": "https://github.com/guanghechen/barusu-react.git",
+    "directory": "stage/laputa"
   },
   "homepage": "https://github.com/guanghechen/barusu-react/tree/master/pages/stage-laputa#readme",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
   "license": "MIT",
   "engines": {
     "node": ">= 14.15.0"
   },
   "files": [
-    "lib/",
+    "dist/",
+    "package.json",
     "CHANGELOG.md",
     "LICENSE",
-    "README.md",
-    "package.json"
+    "README.md"
   ],
   "scripts": {
     "start": "cross-env PORT=7033 ts-node -r tsconfig-paths/register script/start.ts",
