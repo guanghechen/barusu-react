@@ -1,8 +1,44 @@
-[![License](https://img.shields.io/github/license/guanghechen/barusu-react)](#license)
-[![Package version](https://img.shields.io/github/v/tag/guanghechen/barusu-react?include_prereleases&sort=semver)](https://github.com/guanghechen/barusu-react/tags)
-[![Github Top Language](https://img.shields.io/github/languages/top/guanghechen/barusu-react)](https://github.com/guanghechen/barusu-react/search?l=typescript)
-[![Node Version](https://img.shields.io/node/v/@barusu-react/hello-world)](https://github.com/nodejs/node)
-[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+<header>
+  <div align="center">
+    <a href="#license">
+      <img
+        alt="License"
+        src="https://img.shields.io/github/license/guanghechen/barusu-react"
+      />
+    </a>
+    <a href="https://github.com/guanghechen/barusu-react/tags">
+      <img
+        alt="Package Version"
+        src="https://img.shields.io/github/v/tag/guanghechen/barusu-react?include_prereleases&sort=semver"
+      />
+    </a>
+    <a href="https://github.com/guanghechen/barusu-react/search?l=typescript">
+      <img
+        alt="Github Top Language"
+        src="https://img.shields.io/github/languages/top/guanghechen/barusu-react"
+      />
+    </a>
+    <a href="https://github.com/nodejs/node">
+      <img
+        alt="Node.js Version"
+        src="https://img.shields.io/node/v/@barusu-react/hello-world"
+      />
+    </a>
+    <a href="https://github.com/facebook/jest">
+      <img
+        alt="Tested with Jest"
+        src="https://img.shields.io/badge/tested_with-jest-9c465e.svg"
+      />
+    </a>
+    <a href="https://github.com/prettier/prettier">
+      <img
+        alt="Code Style: prettier"
+        src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
+      />
+    </a>
+  </div>
+</header>
+<br/>
 
 
 A monorepo contains some tools (for react packages) and some toy projects.

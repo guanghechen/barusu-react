@@ -42,11 +42,16 @@
   </div>
 </header>
 <br/>
+<div align="center">
+  <img
+    alt="Hello world"
+    src="https://raw.githubusercontent.com/guanghechen/barusu-react/master/packages/hello-world/doc/screenshots/hello-world.png"
+  />
+</div>
+<br/>
 
 
 This is a demo project that demonstrates how to package a library that uses the `react`+`stylus`+`ts` technology stack.
-
-![hello-world.png][]
 
 See [sourcecodes in github][homepage] for details.
 
@@ -83,4 +88,4 @@ See [sourcecodes in github][homepage] for details.
 
 
 [homepage]: https://github.com/guanghechen/barusu-react/tree/master/packages/hello-word#readme
-[hello-world.png]: https://raw.githubusercontent.com/guanghechen/barusu-react/master/packages/hello-world/doc/screenshots/hello-world.png
+[hello-world.png]:
